@@ -6,4 +6,4 @@
 iOS/OSX application that logs detected text, human poses, window manager information and user actions from built in web browser, terminal emulator, camera, and any other external application
 
 
-![JohnUITest]([docs/UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameJohn.mp4](https://github.com/STCData/STCiOSXDataCollector/blob/main/docs/UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameJohn.mp4?raw=true)
+![JohnUITest]([docs/UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameJohn.mp4](https://github.com/STCData/STCiOSXDataCollector/blob/main/docs/UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameJohn.mp4\?raw=true)
