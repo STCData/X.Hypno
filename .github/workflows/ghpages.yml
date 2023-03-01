@@ -70,13 +70,19 @@ jobs:
         run: |
           ls -R build/ghpages/
 
-      - uses: helaili/jekyll-action@v2.5
-        with:
-          build_only: true
-          jekyll_src: build/ghpages/
-          target_path: build/_site/
 
-      - name: Check compiled Jekyll
+      - name: Fake Jekyll
+        run: |
+          cp -R build/ghpages build/_site
+          echo "<html><body><h1>hi</h1></body></html>" > build/_site/index.html
+      #FIXME: linux only
+      # - uses: helaili/jekyll-action@v2.5
+      #   with:
+      #     build_only: true
+      #     jekyll_src: build/ghpages/
+      #     target_path: build/_site/
+
+      - name: Check compiled Static site
         run: |
           ls -R build/_site/
 

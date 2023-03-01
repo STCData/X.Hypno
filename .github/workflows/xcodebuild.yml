@@ -41,7 +41,7 @@ jobs:
           fi
           xcodebuild test -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=${{ matrix.platform }}$deviceNameParam" -resultBundlePath TestResults | xcpretty
 
-      - uses: kishikawakatsumi/xcresulttool@v1
+      - uses: kishikawakatsumi/xcresulttool@v1.7.0
         with:
           path: TestResults.xcresult
         if: success() || failure()
