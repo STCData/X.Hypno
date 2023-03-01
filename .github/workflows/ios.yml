@@ -48,4 +48,10 @@ jobs:
            -project DataCollector.xcodeproj \
            -scheme DataCollectorUITests \
            -parallel-testing-enabled NO \
-           test | .github/workflows/xcuitestrecorder "iPhone 14" build/pages/UITestVideos
+           test | .github/workflows/xcuitestrecorder "iPhone 14" build/docs/UITestVideos
+
+      - name: Save UITest Video for readme
+        uses: sylvanld/action-storage@v1
+        with:
+          src: build/docs/UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameSamantha.mp4
+          dst: UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameSamantha.mp4
