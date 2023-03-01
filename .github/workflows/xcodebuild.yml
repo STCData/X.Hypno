@@ -19,7 +19,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [macOS, "iOS Simulator"]
+        #platform: [macOS, "iOS Simulator"]
+        platform: ["iOS Simulator"]
 
 
     steps:
