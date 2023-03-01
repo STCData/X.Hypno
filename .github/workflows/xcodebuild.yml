@@ -20,13 +20,6 @@ jobs:
         run: .github/tools/installdeps
 
 
-      - name: Mac Test
-        uses: sersoft-gmbh/xcodebuild-action@v2
-        with:
-          project: DataCollector.xcodeproj
-          scheme: DataCollector
-          destination: platform=macOS
-          action: test
 
       - name: iOS Test
         uses: sersoft-gmbh/xcodebuild-action@v2
@@ -34,4 +27,13 @@ jobs:
           project: DataCollector.xcodeproj
           scheme: DataCollector
           destination: platform=iOS Simulator 
+          action: test
+
+
+      - name: Mac Test
+        uses: sersoft-gmbh/xcodebuild-action@v2
+        with:
+          project: DataCollector.xcodeproj
+          scheme: DataCollector
+          destination: platform=macOS
           action: test
