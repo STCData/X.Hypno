@@ -1,4 +1,6 @@
 
+name: Build@Mac
+
 on:
   push:
     branches: [ "main" ]
