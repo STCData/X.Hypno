@@ -68,7 +68,7 @@ jobs:
 
       - name: install deps
         run: |
-        brew install ffmpeg
+          brew install ffmpeg
 
       - name: convert mp4s to gifs
         run: |
