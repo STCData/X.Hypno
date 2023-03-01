@@ -61,5 +61,5 @@ jobs:
       - name: Save UITest Video for readme
         uses: sylvanld/action-storage@v1
         with:
-          src: build/docs/UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameSamantha.mp4
-          dst: UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameSamantha.mp4
+          src: build/docs/UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameSamantha.gif
+          dst: DataCollector.gif
