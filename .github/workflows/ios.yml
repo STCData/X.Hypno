@@ -42,3 +42,11 @@ jobs:
           if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
+      - name: Record UITest Videos
+        run: |
+          xcodebuild -destination 'platform=iOS Simulator,name=iPhone 14' \
+           -project DataCollector.xcodeproj \
+           -scheme DataCollectorUITests \
+           -parallel-testing-enabled NO \
+           test | .github/workflows/xcuitestrecorder "iPhone 14" docs/UITestVideos
+

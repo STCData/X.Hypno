@@ -1,0 +1,16 @@
+Test Case '-[DataCollectorUITests.DataCollectorUITestsLaunchTests testLaunch]' started.
+t =     0.00s Setting device orientation to Landscape Right
+t =     0.05s     Wait for org.standard.DataCollector to idle
+t =     0.34s Setting appearance mode to Dark
+t =     2.36s     Wait for org.standard.DataCollector to idle
+t =     2.38s Start Test at 2023-03-01 16:23:49.074
+t =     2.40s Set Up
+t =     2.40s Open org.standard.DataCollector
+t =     2.41s     Launch org.standard.DataCollector
+t =     2.41s         Terminate org.standard.DataCollector:11049
+t =     3.71s         Setting up automation session
+t =     3.73s         Wait for org.standard.DataCollector to idle
+t =     4.80s Find the Target Application 'org.standard.DataCollector'
+t =     4.89s Added attachment named 'Launch Screen'
+t =     4.89s Tear Down
+Test Case '-[DataCollectorUITests.DataCollectorUITestsLaunchTests testLaunch]' passed (5.090 seconds).
