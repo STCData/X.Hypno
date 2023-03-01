@@ -60,6 +60,12 @@ jobs:
            -parallel-testing-enabled NO \
            test | .github/tools/xcuitestrecorder "iPhone 14" build/_site/UITestVideos
 
+      - name: Prepare GH Pages
+        run: |
+          mkdir -p build/_site
+          cp README.md build/_site
+          cp docs/website/* build/_site
+
       - name: Upload GH Pages
         uses: actions/upload-pages-artifact@v1
         with:
