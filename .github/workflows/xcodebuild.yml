@@ -9,6 +9,11 @@ jobs:
   build:
     name: Xcode build
     runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [macOS iOS]
+
 
     steps:
       - name: Checkout
@@ -20,20 +25,10 @@ jobs:
         run: .github/tools/installdeps
 
 
-
-      - name: iOS Test
+      - name: ${{ matrix.platform }} Tests
         uses: sersoft-gmbh/xcodebuild-action@v2
         with:
           project: DataCollector.xcodeproj
           scheme: DataCollectorTests
-          destination: platform=iOS 
-          action: test
-
-
-      - name: Mac Test
-        uses: sersoft-gmbh/xcodebuild-action@v2
-        with:
-          project: DataCollector.xcodeproj
-          scheme: DataCollectorTests
-          destination: platform=macOS
+          destination: platform=${{ matrix.platform }}
           action: test
