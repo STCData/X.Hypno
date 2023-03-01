@@ -51,7 +51,7 @@ jobs:
       #     file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
       #     xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       - name: Record UITest Videos
-        timeout-minutes: 6 
+        timeout-minutes: 16 
         continue-on-error: true
         run: |
           xcodebuild -destination 'platform=iOS Simulator,name=iPhone 14' \
