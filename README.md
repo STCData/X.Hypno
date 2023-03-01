@@ -7,3 +7,7 @@ iOS/OSX application that logs detected text, human poses, window manager informa
 
 
 ![JohnUITest](docs/UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameJohn.mp4)
+
+
+https://user-images.githubusercontent.com/309302/222169135-0f17ba72-c96d-4825-97d0-7768d289b481.mp4
+
