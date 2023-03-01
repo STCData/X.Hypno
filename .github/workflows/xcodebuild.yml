@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Xcode build
+    name: Xcode build for ${{ matrix.platform }}
     runs-on: macos-latest
     strategy:
       fail-fast: false
