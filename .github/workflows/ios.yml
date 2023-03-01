@@ -59,7 +59,7 @@ jobs:
            test | .github/workflows/xcuitestrecorder "iPhone 14" build/_site/UITestVideos
 
       - name: Upload GH Pages
-        uses: actions/upload-pages-artifact
+        uses: actions/upload-pages-artifact@v1
         with:
           path: build/_site
 
