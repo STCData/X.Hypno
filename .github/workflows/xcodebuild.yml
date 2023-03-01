@@ -26,7 +26,7 @@ jobs:
         with:
           project: DataCollector.xcodeproj
           scheme: DataCollectorTests
-          destination: platform=iOS Simulator 
+          destination: platform=iOS 
           action: test
 
 
