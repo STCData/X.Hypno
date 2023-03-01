@@ -58,14 +58,28 @@ jobs:
            -project DataCollector.xcodeproj \
            -scheme DataCollectorUITests \
            -parallel-testing-enabled NO \
-           test | .github/tools/xcuitestrecorder "iPhone 14" build/_site/UITestVideos
+           test | .github/tools/xcuitestrecorder "iPhone 14" build/ghpages/UITestVideos
 
       - name: Prepare GH Pages
         run: |
-          mkdir -p build/_site
-          cp README.md build/_site/
-          cp docs/website/* build/_site/
+          mkdir -p build/ghpages/_site
+          cp README.md build/ghpages/
+          cp docs/website/* build/ghpages/
+
+      - name: Check source for Jekyll
+        run: |
+          ls -R build/ghpages/
+
+      - uses: helaili/jekyll-build@v2
+        with:
+          build_only: true
+          jekyll_src: build/ghpages/
+          target_path: build/_site/
+
+      - name: Check compiled Jekyll
+        run: |
           ls -R build/_site/
+
 
       - name: Upload GH Pages
         uses: actions/upload-pages-artifact@v1
