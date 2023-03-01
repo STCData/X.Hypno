@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+echo "killing simulator and simctl..."
+killall simctl
+xcrun simctl shutdown all
+echo "killed simulator and simctl!"
+
 
 simulator_name=$1
 output_dir=$2
@@ -28,16 +33,16 @@ while read i; do
 		wait $pid
 		echo "Finished recording at $test_output_path.mp4"
 
-		ffmpeg -ss 30 -t 3 -i $test_output_path.mp4  \
-		    -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" \
-		    -loop 0 $test_output_path.gif 
+		# ffmpeg -y -ss 0 -t 1 -i $test_output_path.mp4  \
+		#     -filter_complex "[0:v] split [a][b];[a] palettegen [p];[b][p] paletteuse" \
+		#     -loop 0 $test_output_path.gif 
 		# rm "$test_output_path.mp4"
 		echo "Finished conversion to $test_output_path.gif"
 
 		# if [[ ${BASH_REMATCH[1]} == "passed" ]]; then
 		# 	rm "$test_output_path.mp4" "$test_output_path.log"
 		# fi
-		test_output_path=""
+		#test_output_path=""
 	fi
 done
 
