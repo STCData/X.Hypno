@@ -32,9 +32,15 @@ jobs:
 
       - name: Test and Build
         run: |
-          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
-          xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=${{ matrix.platform }},name=$device" | xcpretty
-          xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=${{ matrix.platform }},name=$device"  | xcpretty
+          if [ "${{ matrix.platform }}" == "macOS" ]; then
+            deviceNameParam = ""
+          else
+            device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
+            deviceNameParam = ",name=$device"
+          fi
+
+          xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=${{ matrix.platform }}$deviceNameParam" | xcpretty
+          xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=${{ matrix.platform }}$deviceNameParam"  | xcpretty
 
       - uses: kishikawakatsumi/xcresulttool@v1
         with:
