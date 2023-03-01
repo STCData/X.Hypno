@@ -63,8 +63,9 @@ jobs:
       - name: Prepare GH Pages
         run: |
           mkdir -p build/_site
-          cp README.md build/_site
-          cp docs/website/* build/_site
+          cp README.md build/_site/
+          cp docs/website/* build/_site/
+          ls -R build/_site/
 
       - name: Upload GH Pages
         uses: actions/upload-pages-artifact@v1
