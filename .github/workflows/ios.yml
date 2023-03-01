@@ -18,7 +18,7 @@ jobs:
           submodules: true
 
       - name: Install Deps
-        run: .github/workflows/installdeps
+        run: .github/tools/installdeps
 
       - name: Set Default Scheme
         run: |
@@ -51,14 +51,14 @@ jobs:
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       - name: Record UITest Videos
-        timeout-minutes: 6
+        timeout-minutes: 6 
         continue-on-error: true
         run: |
           xcodebuild -destination 'platform=iOS Simulator,name=iPhone 14' \
            -project DataCollector.xcodeproj \
            -scheme DataCollectorUITests \
            -parallel-testing-enabled NO \
-           test | .github/workflows/xcuitestrecorder "iPhone 14" build/_site/UITestVideos
+           test | .github/tools/xcuitestrecorder "iPhone 14" build/_site/UITestVideos
 
       - name: Upload GH Pages
         uses: actions/upload-pages-artifact@v1
