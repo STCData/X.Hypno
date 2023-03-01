@@ -17,9 +17,6 @@ jobs:
         with:
           submodules: true
 
-      - name: Install Deps
-        run: .github/tools/installdeps
-
       # - name: Set Default Scheme
       #   run: |
       #     scheme_list=$(xcodebuild -list -json | tr -d "\n")

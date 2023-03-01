@@ -28,9 +28,6 @@ jobs:
         with:
           submodules: true
 
-      - name: Install Deps
-        run: .github/tools/installdeps
-
       - name: Test
         run: |
           if [ "${{ matrix.platform }}" == "macOS" ]; then 
