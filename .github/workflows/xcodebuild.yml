@@ -30,7 +30,7 @@ jobs:
 
       - name: Build
         run: |
-         xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=${{ matrix.platform }}"
+         xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=${{ matrix.platform }}" | xcpretty
 
 
       - name: Test
