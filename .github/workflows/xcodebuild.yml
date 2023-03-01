@@ -42,7 +42,7 @@ jobs:
         run: |
           ls
           ls TestResults.xcresult
-      - uses: kishikawakatsumi/xcresulttool@v1.7.0
+      - uses: kishikawakatsumi/xcresulttool@v1.0.0
         with:
           path: TestResults.xcresult
         if: success() || failure()
