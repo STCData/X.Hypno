@@ -8,7 +8,6 @@ if [[ -z $simulator_name || -z $output_dir ]]; then
     exit 1
 fi
 
-brew install ffmpeg
 mkdir -p $output_dir
 
 while read i; do
