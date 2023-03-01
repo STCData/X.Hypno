@@ -25,7 +25,7 @@ jobs:
         uses: sersoft-gmbh/xcodebuild-action@v2
         with:
           project: DataCollector.xcodeproj
-          scheme: DataCollector
+          scheme: DataCollectorTests
           destination: platform=iOS Simulator 
           action: test
 
@@ -34,6 +34,6 @@ jobs:
         uses: sersoft-gmbh/xcodebuild-action@v2
         with:
           project: DataCollector.xcodeproj
-          scheme: DataCollector
+          scheme: DataCollectorTests
           destination: platform=macOS
           action: test
