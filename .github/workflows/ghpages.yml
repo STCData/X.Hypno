@@ -96,6 +96,10 @@ jobs:
       #     jekyll_src: build/ghpages/
       #     target_path: build/_site/
 
+      - name: Check working directory
+        run: |
+          ls -R ./
+
       - name: Check compiled Static site
         run: |
           ls -R build/_site/
