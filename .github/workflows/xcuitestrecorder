@@ -32,3 +32,5 @@ while read i; do
 		test_output_path=""
 	fi
 done
+
+killall simctl
