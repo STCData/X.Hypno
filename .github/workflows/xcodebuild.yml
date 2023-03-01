@@ -9,6 +9,11 @@ jobs:
   build:
     name: Xcode build for ${{ matrix.platform }}
     runs-on: macos-latest
+    env:
+      scheme: DataCollectorTests
+      filetype_parameter: project
+      file_to_build: DataCollector.xcodeproj
+
     strategy:
       fail-fast: false
       matrix:
@@ -23,15 +28,15 @@ jobs:
       - name: Install Deps
         run: .github/tools/installdeps
 
+      - name: Build
+        run: |
+         xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=${{ matrix.platform }}"
+
 
       - name: Test
-        env:
-          scheme: DataCollectorTests
         run: |
           # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
           device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
-          filetype_parameter="project"
-          file_to_build="`ls -A | grep -i \\.xcodeproj\$`"
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=${{ matrix.platform }},name=$device"
 
       - uses: kishikawakatsumi/xcresulttool@v1
