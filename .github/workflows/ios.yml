@@ -18,6 +18,7 @@ jobs:
       - uses: mxcl/xcodebuild@v1
         with:
           platform: ${{ matrix.platform }}
+          working-directory: ./
           
       - name: Record UITest Videos
         run: |
