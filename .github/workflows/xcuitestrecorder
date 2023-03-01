@@ -8,7 +8,9 @@ if [[ -z $simulator_name || -z $output_dir ]]; then
     exit 1
 fi
 
+brew install ffmpeg
 mkdir -p $output_dir
+
 while read i; do
 	if [[ $i =~ Test\ Case.*\[(.*)\].*started. ]]; then
 		test_name=$(echo "${BASH_REMATCH[1]}" | tr " " ".")
@@ -25,7 +27,14 @@ while read i; do
 	if [[ $i =~ Test\ Case.*(passed|failed).* ]]; then
 		kill -SIGINT $pid
 		wait $pid
-		echo "Finished recording at $test_output_path"
+		echo "Finished recording at $test_output_path.mp4"
+
+		ffmpeg -ss 30 -t 3 -i $test_output_path.mp4  \
+		    -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" \
+		    -loop 0 $test_output_path.gif 
+		# rm "$test_output_path.mp4"
+		echo "Finished conversion to $test_output_path.gif"
+
 		# if [[ ${BASH_REMATCH[1]} == "passed" ]]; then
 		# 	rm "$test_output_path.mp4" "$test_output_path.log"
 		# fi
@@ -33,4 +42,8 @@ while read i; do
 	fi
 done
 
+echo "killing simulator and simctl..."
 killall simctl
+xcrun simctl shutdown all
+echo "killed simulator and simctl!"
+
