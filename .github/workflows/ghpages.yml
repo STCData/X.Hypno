@@ -67,15 +67,15 @@ jobs:
         run: |
           brew install ffmpeg
 
-      # - name: convert mp4s to gifs
-      #   run: |
-      #     for file in build/ghpages/UITestVideos/*.mp4; do 
-      #       output="${file%.mp4}.gif"
-      #       echo "$file  >>> $"
-      #       ffmpeg -y -ss 0 -t 600 -i "$file"  \
-      #         -filter_complex "[0:v]scale=w=585:h=1266,fps=24, split [a][b];[a] palettegen [p];[b][p] paletteuse" \
-      #         -loop 0 "$output"
-      #     done
+      - name: convert mp4s to gifs
+        run: |
+          for file in build/ghpages/UITestVideos/*.mp4; do 
+            output="${file%.mp4}.gif"
+            echo "$file  >>> $"
+            ffmpeg -y -ss 0 -t 600 -i "$file"  \
+              -filter_complex "[0:v]scale=w=585:h=1266,fps=24, split [a][b];[a] palettegen [p];[b][p] paletteuse" \
+              -loop 0 "$output"
+          done
 
       - name: Check source for Jekyll
         run: |
