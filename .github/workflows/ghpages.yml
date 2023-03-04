@@ -124,15 +124,6 @@ jobs:
     # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
-      - name: Check compiled Static site
-        run: |
-          ls -R 
-
-      - uses: helaili/jekyll-action@v2.5
-        with:
-          build_only: true
-          jekyll_src: build/ghpages/
-          target_path: build/_site/
 
       - name: Deploy to GitHub Pages
         id: deployment
