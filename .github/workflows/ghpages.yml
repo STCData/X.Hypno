@@ -55,14 +55,7 @@ jobs:
       - name: Fake Jekyll
         run: |
           cp -R build/ghpages build/_site
-          dir="build/_site"
-          echo "<html><head><title>File List</title></head><body><ul>" > $dir/index.html
-          for file in $dir/*
-          do
-              echo "<li><a href=\"$file\">$(basename $file)</a></li>" >> $dir/index.html
-          done
-          echo "</ul></body></html>" >> $dir/index.html
-
+          .github/tools/staticsitebuilder build/_site
 
       - name: Check working directory
         run: |

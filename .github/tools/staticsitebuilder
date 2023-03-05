@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Check if the base directory parameter is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 base_dir"
+    exit 1
+fi
+
+# Define the base directory to list
+base_dir="$1"
+
+# Define the function to list files recursively and create index.html files
+list_files() {
+    local dir=$1
+    # Create the index.html file
+    echo "<html><head><title>File List</title></head><body><ul>" > "$dir/index.html"
+    # List all files in the directory and append to the index.html file
+    for file in "$dir"/*
+    do
+        if [ -d "$file" ]; then
+            # Recursively list files in subdirectories
+            list_files "$file"
+        else
+            echo "<li><a href=\"$(basename "$file")\">$(basename "$file")</a></li>" >> "$dir/index.html"
+        fi
+    done
+    # Close the index.html file
+    echo "</ul></body></html>" >> "$dir/index.html"
+}
+
+# Call the function to list files recursively
+list_files "$base_dir"
+
