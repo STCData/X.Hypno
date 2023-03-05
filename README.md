@@ -5,4 +5,8 @@
 # STCiOSXDataCollector
 iOS/OSX application that logs detected text, human poses, window manager information and user actions from built in web browser, terminal emulator, camera, and any other external application
 
+
+## [Automated UI Tests Videos](https://stcdata.github.io/STCiOSXDataCollector/UITestVideos/index.html)
+
+
 ![video](https://stcdata.github.io/STCiOSXDataCollector/UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameJohn.mp4)
