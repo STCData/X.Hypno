@@ -33,10 +33,10 @@ jobs:
           cp README.md build/ghpages/
           cp docs/website/* build/ghpages/
 
-      - name: install deps
-        run: |
-          brew install ffmpeg
-
+#      - name: install deps
+#        run: |
+#          brew install ffmpeg
+#
 #       - name: convert mp4s to gifs
 #         run: |
 #           for file in build/ghpages/UITestVideos/*.mp4; do 
