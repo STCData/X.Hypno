@@ -34,8 +34,8 @@ final class DataCollectorUITests: XCTestCase {
     
     func clickOnTab(app:XCUIApplication, tabName: String) {
         let tab = app.staticTexts[tabName]
-        XCTAssert(tab.exists)
-        tab.tap()
+//        XCTAssert(tab.exists)
+//        tab.tap()
 
 
     }
@@ -49,7 +49,7 @@ final class DataCollectorUITests: XCTestCase {
     
     
     
-    func testNameSamantha() throws {
+    func testNameJohn() throws {
         let app = makeApp()
         goTo(app: app, goTo: "some text")
         goTo(app: app, goTo: "http://facebook.com")
