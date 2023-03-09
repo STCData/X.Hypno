@@ -12,16 +12,24 @@ import WebKit
 #if os(iOS) || os(watchOS) || os(tvOS)
 
 struct WebView: UIViewRepresentable {
- 
-    var url: URL
+    @EnvironmentObject
+    var tabsViewModel: WebTabsViewModel
+
+    var request: URLRequest
  
     func makeUIView(context: Context) -> WKWebView {
         return WKWebView()
     }
  
     func updateUIView(_ webView: WKWebView, context: Context) {
-        let request = URLRequest(url: url)
-        webView.load(request)
+        webView.uiDelegate = context.coordinator
+        webView.navigationDelegate = context.coordinator
+//
+            
+        DispatchQueue.main.async {
+            webView.load(request)
+
+        }
     }
 }
 

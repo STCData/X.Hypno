@@ -23,27 +23,23 @@ final class DataCollectorUITests: XCTestCase {
     }
 
     
-    func checkElements(app:XCUIApplication) {
-        let okButton = app.buttons["OK"]
-        XCTAssert(okButton.exists)
-        let nameField = app.textFields["name"]
-        XCTAssert(nameField.exists)
-        let helloText = app.staticTexts["Hello, Anonymous"]
-        XCTAssert(helloText.exists)
+    
+    func goTo(app:XCUIApplication, goTo: String) {
+        let urlField = app.textFields["url"]
+        XCTAssert(urlField.exists)
+        urlField.tap()
+        urlField.typeText(goTo)
+        urlField.typeText("\n")
+    }
+    
+    func clickOnTab(app:XCUIApplication, tabName: String) {
+        let tab = app.staticTexts[tabName]
+        XCTAssert(tab.exists)
+        tab.tap()
+
 
     }
     
-    func checkName(app:XCUIApplication, name: String) {
-        let nameField = app.textFields["name"]
-        XCTAssert(nameField.exists)
-        nameField.tap()
-        nameField.typeText(name)
-        let okButton = app.buttons["OK"]
-        XCTAssert(okButton.exists)
-        okButton.tap()
-        let helloText = app.staticTexts["Hello, \(name)"]
-        XCTAssert(helloText.exists)
-    }
     
     func makeApp() -> XCUIApplication {
         let app = XCUIApplication()
@@ -51,16 +47,16 @@ final class DataCollectorUITests: XCTestCase {
         return app
     }
     
-    func testNameJohn() throws {
-        let app = makeApp()
-        checkElements(app: app)
-        checkName(app: app, name: "John")
-    }
+    
     
     func testNameSamantha() throws {
         let app = makeApp()
-        checkElements(app: app)
-        checkName(app: app, name: "Samantha")
+        goTo(app: app, goTo: "some text")
+        goTo(app: app, goTo: "http://facebook.com")
+        goTo(app: app, goTo: "http://twitter.com")
+        goTo(app: app, goTo: "http://twitch.com")
+        clickOnTab(app: app, tabName: "http://facebook.com")
+        clickOnTab(app: app, tabName: "http://twitter.com")
     }
 
 }
