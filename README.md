@@ -9,4 +9,4 @@ iOS/OSX application that logs detected text, human poses, window manager informa
 ## [Automated UI Tests Videos](https://stcdata.github.io/STCiOSXDataCollector/UITestVideos/index.html)
 
 
-![video](https://stcdata.github.io/STCiOSXDataCollector/UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameJohn.mp4)
+![video](https://stcdata.github.io/STCiOSXDataCollector/UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameSamantha.mp4)
