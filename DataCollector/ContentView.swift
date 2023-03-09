@@ -8,24 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State
-    var txt: String = ""
-    @State
-    var user: String = "Anonymous"
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, \(user)")
-            TextField("name", text: $txt)
-            
-            Button("OK") {
-                user = txt
-            }
+        HStack {
+            WebTabTreeView(webTabs: [])
+                .padding()
+            WebView(url: URL(string: "https://apple.com")!)
         }
-        .padding()
+        
     }
 }
 

@@ -14,6 +14,10 @@
 		9A16BCA529AF8E9C006AE075 /* DataCollectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16BCA429AF8E9C006AE075 /* DataCollectorTests.swift */; };
 		9A16BCAF29AF8E9C006AE075 /* DataCollectorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16BCAE29AF8E9C006AE075 /* DataCollectorUITests.swift */; };
 		9A16BCB129AF8E9C006AE075 /* DataCollectorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16BCB029AF8E9C006AE075 /* DataCollectorUITestsLaunchTests.swift */; };
+		9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B6B3929B9F0E1007F787B /* WebTabTreeView.swift */; };
+		9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B6B3B29B9F10A007F787B /* WebTab.swift */; };
+		9A1B6B3E29B9F289007F787B /* WebTab+Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B6B3D29B9F289007F787B /* WebTab+Previews.swift */; };
+		9A1B6B4029B9F403007F787B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B6B3F29B9F403007F787B /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,10 @@
 		9A16BCAA29AF8E9C006AE075 /* DataCollectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataCollectorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A16BCAE29AF8E9C006AE075 /* DataCollectorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectorUITests.swift; sourceTree = "<group>"; };
 		9A16BCB029AF8E9C006AE075 /* DataCollectorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9A1B6B3929B9F0E1007F787B /* WebTabTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebTabTreeView.swift; sourceTree = "<group>"; };
+		9A1B6B3B29B9F10A007F787B /* WebTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebTab.swift; sourceTree = "<group>"; };
+		9A1B6B3D29B9F289007F787B /* WebTab+Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebTab+Previews.swift"; sourceTree = "<group>"; };
+		9A1B6B3F29B9F403007F787B /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,9 @@
 				9A16BC9629AF8E9C006AE075 /* Assets.xcassets */,
 				9A16BC9829AF8E9C006AE075 /* DataCollector.entitlements */,
 				9A16BC9929AF8E9C006AE075 /* Preview Content */,
+				9A1B6B3929B9F0E1007F787B /* WebTabTreeView.swift */,
+				9A1B6B3B29B9F10A007F787B /* WebTab.swift */,
+				9A1B6B3F29B9F403007F787B /* WebView.swift */,
 			);
 			path = DataCollector;
 			sourceTree = "<group>";
@@ -108,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				9A16BC9A29AF8E9C006AE075 /* Preview Assets.xcassets */,
+				9A1B6B3D29B9F289007F787B /* WebTab+Previews.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -259,7 +271,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */,
+				9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */,
 				9A16BC9529AF8E9B006AE075 /* ContentView.swift in Sources */,
+				9A1B6B4029B9F403007F787B /* WebView.swift in Sources */,
+				9A1B6B3E29B9F289007F787B /* WebTab+Previews.swift in Sources */,
 				9A16BC9329AF8E9B006AE075 /* DataCollectorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,11 +429,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DataCollector/DataCollector.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DataCollector/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9MVLBZ7VBR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -454,11 +470,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DataCollector/DataCollector.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DataCollector/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9MVLBZ7VBR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
