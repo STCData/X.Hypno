@@ -44,28 +44,7 @@ class WebTabsViewModel: ObservableObject {
     }
     
     private func addChild(_ child:WebTab, to parentTab: WebTab) {
-        var updatedParent = parentTab
-        updatedParent.addChild(child)
-        
-        if tabs.contains(parentTab) {
-            if let i = tabs.firstIndex(of: parentTab) {
-                tabs[i] = updatedParent
-            }
-        } else {
-            var grandParent: WebTab? = nil
-            for tab in tabs {
-                grandParent = tab.findParent(for: parentTab)
-                if grandParent != nil {
-                    break
-                }
-            }
-            
-            if grandParent != nil {
-                grandParent?.addChild(updatedParent)
-            }
-
-        }
-        
+        parentTab.addChild(child)
     }
     
     func selectTab(_ tab: WebTab) {

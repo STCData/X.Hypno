@@ -9,7 +9,17 @@ import Foundation
 
 
 
-struct WebTab: Hashable, Identifiable, CustomStringConvertible {
+class WebTab: Hashable, Identifiable, CustomStringConvertible {
+    var id = UUID()
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+    
+    static func == (lhs: WebTab, rhs: WebTab) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     init (urlRequest: URLRequest) {
         self.urlRequest = urlRequest
     }
@@ -19,7 +29,6 @@ struct WebTab: Hashable, Identifiable, CustomStringConvertible {
         self.children = children
     }
     
-    var id: Self { self }
     var title: String {
         if let t = titleLoaded {
             return t
@@ -30,7 +39,7 @@ struct WebTab: Hashable, Identifiable, CustomStringConvertible {
     
     var titleLoaded: String? = nil
     
-    mutating func setTitle(_ title: String) {
+    func setTitle(_ title: String) {
         titleLoaded = title
     }
     
@@ -45,13 +54,13 @@ struct WebTab: Hashable, Identifiable, CustomStringConvertible {
         }
     }
     
-    mutating func addChild(_ child: WebTab) {
+    func addChild(_ child: WebTab) {
         var newChildren = children ?? []
         newChildren.append(child)
         children = newChildren
     }
     
-    mutating func updateChild(_ child: WebTab, with newChild: WebTab) {
+    func updateChild(_ child: WebTab, with newChild: WebTab) {
         if let i = children?.firstIndex(of: child) {
             children?[i] = newChild
         }
