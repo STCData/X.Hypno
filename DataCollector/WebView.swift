@@ -30,14 +30,13 @@ struct WebView: UIViewRepresentable {
 struct WebView: NSViewRepresentable {
     
  
-    var url: URL
+    var request: URLRequest
  
     func makeNSView(context: Context) ->  WKWebView {
         return WKWebView()
     }
  
     func updateNSView(_ webView: WKWebView, context: Context) {
-        let request = URLRequest(url: url)
         webView.load(request)
     }
 }

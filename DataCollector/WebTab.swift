@@ -10,9 +10,28 @@ import Foundation
 
 
 struct WebTab: Hashable, Identifiable, CustomStringConvertible {
+    init (title:String, url: URL, children: [WebTab]? = nil) {
+        self.titleLoaded = title
+        self.urlRequest = URLRequest(url: url)
+        self.children = children
+    }
+    
     var id: Self { self }
-    let title: String
-    let url: URL
+    var title: String {
+        if let t = titleLoaded {
+            return t
+        } else {
+            return urlRequest.url?.absoluteString ?? "n/a"
+        }
+    }
+    
+    var titleLoaded: String? = nil
+    
+    mutating func setTitle(_ title: String) {
+        titleLoaded = title
+    }
+    
+    let urlRequest: URLRequest
     var children: [WebTab]? = nil
     var description: String {
         switch children {

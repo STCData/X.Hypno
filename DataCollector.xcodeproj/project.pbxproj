@@ -18,6 +18,8 @@
 		9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B6B3B29B9F10A007F787B /* WebTab.swift */; };
 		9A1B6B3E29B9F289007F787B /* WebTab+Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B6B3D29B9F289007F787B /* WebTab+Previews.swift */; };
 		9A1B6B4029B9F403007F787B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B6B3F29B9F403007F787B /* WebView.swift */; };
+		9A1B6B4229B9F585007F787B /* SidePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B6B4129B9F585007F787B /* SidePanelView.swift */; };
+		9A1B6B4429B9F72F007F787B /* WebTabsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B6B4329B9F72F007F787B /* WebTabsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		9A1B6B3B29B9F10A007F787B /* WebTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebTab.swift; sourceTree = "<group>"; };
 		9A1B6B3D29B9F289007F787B /* WebTab+Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebTab+Previews.swift"; sourceTree = "<group>"; };
 		9A1B6B3F29B9F403007F787B /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		9A1B6B4129B9F585007F787B /* SidePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelView.swift; sourceTree = "<group>"; };
+		9A1B6B4329B9F72F007F787B /* WebTabsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebTabsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 				9A1B6B3929B9F0E1007F787B /* WebTabTreeView.swift */,
 				9A1B6B3B29B9F10A007F787B /* WebTab.swift */,
 				9A1B6B3F29B9F403007F787B /* WebView.swift */,
+				9A1B6B4129B9F585007F787B /* SidePanelView.swift */,
+				9A1B6B4329B9F72F007F787B /* WebTabsViewModel.swift */,
 			);
 			path = DataCollector;
 			sourceTree = "<group>";
@@ -273,8 +279,10 @@
 			files = (
 				9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */,
 				9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */,
+				9A1B6B4229B9F585007F787B /* SidePanelView.swift in Sources */,
 				9A16BC9529AF8E9B006AE075 /* ContentView.swift in Sources */,
 				9A1B6B4029B9F403007F787B /* WebView.swift in Sources */,
+				9A1B6B4429B9F72F007F787B /* WebTabsViewModel.swift in Sources */,
 				9A1B6B3E29B9F289007F787B /* WebTab+Previews.swift in Sources */,
 				9A16BC9329AF8E9B006AE075 /* DataCollectorApp.swift in Sources */,
 			);

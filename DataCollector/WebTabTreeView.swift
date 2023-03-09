@@ -10,12 +10,12 @@ import SwiftUI
 
 struct WebTabTreeView: View {
     
-    @State
-    var webTabs: [WebTab]
-    
+    @EnvironmentObject
+    var webTabsViewModel: WebTabsViewModel
+
     var body: some View {
         VStack {
-            ForEach(webTabs) { tab in
+            ForEach(webTabsViewModel.tabs) { tab in
                 OutlineGroup(tab, children: \.children) { item in
                     Text("\(item.description)")
                 }
@@ -30,6 +30,7 @@ struct WebTabTreeView: View {
 
 struct WebTabTreeView_Previews: PreviewProvider {
     static var previews: some View {
-        WebTabTreeView(webTabs: WebTab.previewTabs)
+        WebTabTreeView()
+            .environmentObject(WebTabsViewModel.previewModel())
     }
 }

@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @StateObject var webTabsViewModel = WebTabsViewModel(tabs: [])
+
     var body: some View {
         HStack {
-            WebTabTreeView(webTabs: [])
+            WebTabTreeView()
                 .padding()
-            WebView(url: URL(string: "https://apple.com")!)
-        }
+            WebView(request: URLRequest(url:URL(string: "https://apple.com")!))
+        }.environmentObject(webTabsViewModel)
         
     }
 }

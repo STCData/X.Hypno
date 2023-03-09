@@ -17,3 +17,10 @@ extension WebTab {
         ])
         ]
 }
+
+
+extension WebTabsViewModel {
+    static func previewModel() -> WebTabsViewModel {
+        return WebTabsViewModel(tabs: WebTab.previewTabs)
+    }
+}
