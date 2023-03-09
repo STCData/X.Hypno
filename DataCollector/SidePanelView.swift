@@ -16,11 +16,12 @@ struct SidePanelView: View {
     var webTabsViewModel: WebTabsViewModel
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             TextField("url", text: $goTo)
                 .onSubmit {
                     if let request = WebTabsViewModel.requestFrom(goTo) {
                         webTabsViewModel.openTab(request: request, fromTab: nil)
+                        goTo = ""
 
                     }
                     

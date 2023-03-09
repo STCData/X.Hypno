@@ -11,10 +11,10 @@ struct ContentView: View {
     @StateObject var webTabsViewModel = WebTabsViewModel(tabs: [])
 
     var body: some View {
-        HStack {
-            WebTabTreeView()
+        HStack(alignment: .top) {
+            SidePanelView()
                 .padding()
-            WebView(request: URLRequest(url:URL(string: "https://apple.com")!))
+            WebView(request: webTabsViewModel.currentTab?.urlRequest ?? WebTab.blankPageRequest)
         }.environmentObject(webTabsViewModel)
         
     }

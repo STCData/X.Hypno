@@ -14,10 +14,13 @@ struct WebTabTreeView: View {
     var webTabsViewModel: WebTabsViewModel
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             ForEach(webTabsViewModel.tabs) { tab in
                 OutlineGroup(tab, children: \.children) { item in
                     Text("\(item.description)")
+                        .onTapGesture {
+                            webTabsViewModel.selectTab(item)
+                        }
                 }
             }
         }

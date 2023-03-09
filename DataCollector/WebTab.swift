@@ -10,6 +10,9 @@ import Foundation
 
 
 struct WebTab: Hashable, Identifiable, CustomStringConvertible {
+    init (urlRequest: URLRequest) {
+        self.urlRequest = urlRequest
+    }
     init (title:String, url: URL, children: [WebTab]? = nil) {
         self.titleLoaded = title
         self.urlRequest = URLRequest(url: url)
@@ -45,3 +48,7 @@ struct WebTab: Hashable, Identifiable, CustomStringConvertible {
 
         
         
+
+extension WebTab {
+    static let blankPageRequest = URLRequest(url: URL(string: "https://apple.com")!)
+}
