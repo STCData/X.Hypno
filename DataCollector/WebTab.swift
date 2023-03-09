@@ -44,11 +44,45 @@ struct WebTab: Hashable, Identifiable, CustomStringConvertible {
             return children.isEmpty ? "📂 \(title)" : "📁 \(title)"
         }
     }
+    
+    mutating func addChild(_ child: WebTab) {
+        var newChildren = children ?? []
+        newChildren.append(child)
+        children = newChildren
+    }
+    
+    mutating func updateChild(_ child: WebTab, with newChild: WebTab) {
+        if let i = children?.firstIndex(of: child) {
+            children?[i] = newChild
+        }
+    }
 }
 
-        
-        
+extension WebTab {
+    func findParent(for child: WebTab) -> WebTab? {
+        var stack = [self]
+        while !stack.isEmpty {
+            let current = stack.removeLast()
+            if let children = current.children {
+                if children.contains(child) {
+                    return current
+                }
+            }
+            
+            if let children = current.children {
+                stack.append(contentsOf: children)
+            }
+        }
+        return nil
+    }
+    
+
+}
+
+      
+
+
 
 extension WebTab {
-    static let blankPageRequest = URLRequest(url: URL(string: "https://apple.com")!)
+    static let blankPageURL = URL(string: "https://apple.com")!
 }
