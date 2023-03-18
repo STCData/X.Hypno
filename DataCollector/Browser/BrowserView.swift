@@ -25,7 +25,7 @@ struct BrowserView: View {
             SlideableSidePanelView(isSidebarVisible: $isSideBarOpened)
             FloatingButton(action: {
                 isSideBarOpened.toggle()
-            }, icon: "plus")
+            }, icon: "square.on.square")
         }
         .environmentObject(webTabsViewModel)
     }

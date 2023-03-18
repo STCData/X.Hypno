@@ -14,18 +14,27 @@ struct ContentView: View {
         TabView {
             BrowserView()
                 .tabItem {
-                    Label("Browser", systemImage: "list.dash")
+                    Label("Browser", systemImage: "globe")
                 }
                 .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
 
             SimpleCameraView()
                 .tabItem {
-                    Label("Camera", systemImage: "square.and.pencil")
+                    Label("Camera", systemImage: "camera")
                 }
                 .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
         }
         .onShake {
-            showTabBar.toggle()
+            withAnimation(Animation.easeOut(duration: 0.08)) {
+                showTabBar.toggle()
+            }
+            if showTabBar {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    withAnimation(Animation.easeOut(duration: 0.2)) {
+                        showTabBar = false
+                    }
+                }
+            }
         }
     }
 }
