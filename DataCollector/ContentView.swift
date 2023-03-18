@@ -18,7 +18,7 @@ struct ContentView: View {
                 }
                 .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
 
-            SimpleCameraView()
+            CameraView()
                 .tabItem {
                     Label("Camera", systemImage: "camera")
                 }
