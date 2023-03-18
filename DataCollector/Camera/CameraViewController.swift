@@ -25,13 +25,14 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     var detectionLayer: CALayer! = nil
 
     override func viewDidLoad() {
+        screenRect = UIScreen.main.bounds
+
         checkPermission()
 
         sessionQueue.async { [unowned self] in
             guard permissionGranted else { return }
             self.setupCaptureSession()
 
-            self.setupLayers()
             self.setupDetector()
 
             self.captureSession.startRunning()
@@ -39,7 +40,6 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     }
 
     override func willTransition(to _: UITraitCollection, with _: UIViewControllerTransitionCoordinator) {
-        screenRect = UIScreen.main.bounds
         previewLayer.frame = CGRect(x: 0, y: 0, width: screenRect.size.width, height: screenRect.size.height)
 
         switch UIDevice.current.orientation {
@@ -115,6 +115,10 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         // Updates to UI must be on main queue
         DispatchQueue.main.async { [weak self] in
             self!.view.layer.addSublayer(self!.previewLayer)
+
+            self!.detectionLayer = CALayer()
+            self!.detectionLayer.frame = CGRect(x: 0, y: 0, width: self!.screenRect.size.width, height: self!.screenRect.size.height)
+            self!.view.layer.addSublayer(self!.detectionLayer)
         }
     }
 }

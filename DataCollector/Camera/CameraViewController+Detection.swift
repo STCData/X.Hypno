@@ -53,12 +53,6 @@ extension CameraViewController {
         }
     }
 
-    func setupLayers() {
-        detectionLayer = CALayer()
-//        detectionLayer.frame = CGRect(x: 0, y: 0, width: screenRect.size.width, height: screenRect.size.height)
-        view.layer.addSublayer(detectionLayer)
-    }
-
     func updateLayers() {
         detectionLayer?.frame = CGRect(x: 0, y: 0, width: screenRect.size.width, height: screenRect.size.height)
     }
@@ -67,7 +61,7 @@ extension CameraViewController {
         let boxLayer = CALayer()
         boxLayer.frame = bounds
         boxLayer.borderWidth = 3.0
-        boxLayer.borderColor = CGColor(red: 0.9, green: 0.1, blue: 0.0, alpha: 0.7)
+        boxLayer.borderColor = CGColor(red: 0.9, green: 0.1, blue: 0.0, alpha: 1.0)
         boxLayer.cornerRadius = 4
         return boxLayer
     }

@@ -33,8 +33,9 @@ class TerminalViewController: UIViewController {
             tv.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
             tv.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             tv.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            tv.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
-            tv.keyboardLayoutGuide.topAnchor.constraint(equalTo: tv.bottomAnchor).isActive = true
+//            tv.keyboardLayoutGuide.topAnchor.constraint(equalTo: tv.bottomAnchor).isActive = true
         }
     }
 
