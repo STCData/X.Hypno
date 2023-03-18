@@ -20,6 +20,10 @@
 		9A1B6B4029B9F403007F787B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B6B3F29B9F403007F787B /* WebView.swift */; };
 		9A1B6B4229B9F585007F787B /* SidePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B6B4129B9F585007F787B /* SidePanelView.swift */; };
 		9A1B6B4429B9F72F007F787B /* WebTabsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B6B4329B9F72F007F787B /* WebTabsViewModel.swift */; };
+		9A368D6329C5C5060089F127 /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D6229C5C5060089F127 /* BrowserView.swift */; };
+		9A368D6629C5C6E60089F127 /* ShakeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D6529C5C6E60089F127 /* ShakeHelper.swift */; };
+		9A368D6929C5C7560089F127 /* SimpleCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D6829C5C7560089F127 /* SimpleCameraView.swift */; };
+		9A368D6C29C5C8490089F127 /* CameraView in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368D6B29C5C8490089F127 /* CameraView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,9 @@
 		9A1B6B3F29B9F403007F787B /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		9A1B6B4129B9F585007F787B /* SidePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelView.swift; sourceTree = "<group>"; };
 		9A1B6B4329B9F72F007F787B /* WebTabsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebTabsViewModel.swift; sourceTree = "<group>"; };
+		9A368D6229C5C5060089F127 /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
+		9A368D6529C5C6E60089F127 /* ShakeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeHelper.swift; sourceTree = "<group>"; };
+		9A368D6829C5C7560089F127 /* SimpleCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A368D6C29C5C8490089F127 /* CameraView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,16 +115,14 @@
 		9A16BC9129AF8E9B006AE075 /* DataCollector */ = {
 			isa = PBXGroup;
 			children = (
+				9A368D6729C5C7470089F127 /* Camera */,
+				9A368D6429C5C6DA0089F127 /* Helpers */,
+				9A368D6129C5C4A80089F127 /* Browser */,
 				9A16BC9229AF8E9B006AE075 /* DataCollectorApp.swift */,
 				9A16BC9429AF8E9B006AE075 /* ContentView.swift */,
 				9A16BC9629AF8E9C006AE075 /* Assets.xcassets */,
 				9A16BC9829AF8E9C006AE075 /* DataCollector.entitlements */,
 				9A16BC9929AF8E9C006AE075 /* Preview Content */,
-				9A1B6B3929B9F0E1007F787B /* WebTabTreeView.swift */,
-				9A1B6B3B29B9F10A007F787B /* WebTab.swift */,
-				9A1B6B3F29B9F403007F787B /* WebView.swift */,
-				9A1B6B4129B9F585007F787B /* SidePanelView.swift */,
-				9A1B6B4329B9F72F007F787B /* WebTabsViewModel.swift */,
 			);
 			path = DataCollector;
 			sourceTree = "<group>";
@@ -147,6 +153,35 @@
 			path = DataCollectorUITests;
 			sourceTree = "<group>";
 		};
+		9A368D6129C5C4A80089F127 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				9A1B6B3929B9F0E1007F787B /* WebTabTreeView.swift */,
+				9A1B6B3B29B9F10A007F787B /* WebTab.swift */,
+				9A1B6B3F29B9F403007F787B /* WebView.swift */,
+				9A1B6B4129B9F585007F787B /* SidePanelView.swift */,
+				9A1B6B4329B9F72F007F787B /* WebTabsViewModel.swift */,
+				9A368D6229C5C5060089F127 /* BrowserView.swift */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
+		9A368D6429C5C6DA0089F127 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9A368D6529C5C6E60089F127 /* ShakeHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9A368D6729C5C7470089F127 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				9A368D6829C5C7560089F127 /* SimpleCameraView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,6 +198,9 @@
 			dependencies = (
 			);
 			name = DataCollector;
+			packageProductDependencies = (
+				9A368D6B29C5C8490089F127 /* CameraView */,
+			);
 			productName = DataCollector;
 			productReference = 9A16BC8F29AF8E9B006AE075 /* DataCollector.app */;
 			productType = "com.apple.product-type.application";
@@ -235,6 +273,9 @@
 				Base,
 			);
 			mainGroup = 9A16BC8629AF8E9B006AE075;
+			packageReferences = (
+				9A368D6A29C5C8490089F127 /* XCRemoteSwiftPackageReference "CameraView" */,
+			);
 			productRefGroup = 9A16BC9029AF8E9B006AE075 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -279,11 +320,14 @@
 			files = (
 				9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */,
 				9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */,
+				9A368D6329C5C5060089F127 /* BrowserView.swift in Sources */,
 				9A1B6B4229B9F585007F787B /* SidePanelView.swift in Sources */,
 				9A16BC9529AF8E9B006AE075 /* ContentView.swift in Sources */,
 				9A1B6B4029B9F403007F787B /* WebView.swift in Sources */,
 				9A1B6B4429B9F72F007F787B /* WebTabsViewModel.swift in Sources */,
+				9A368D6929C5C7560089F127 /* SimpleCameraView.swift in Sources */,
 				9A1B6B3E29B9F289007F787B /* WebTab+Previews.swift in Sources */,
+				9A368D6629C5C6E60089F127 /* ShakeHelper.swift in Sources */,
 				9A16BC9329AF8E9B006AE075 /* DataCollectorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +489,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -486,6 +531,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -652,6 +698,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9A368D6A29C5C8490089F127 /* XCRemoteSwiftPackageReference "CameraView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/brettfazio/CameraView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9A368D6B29C5C8490089F127 /* CameraView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A368D6A29C5C8490089F127 /* XCRemoteSwiftPackageReference "CameraView" */;
+			productName = CameraView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9A16BC8729AF8E9B006AE075 /* Project object */;
 }

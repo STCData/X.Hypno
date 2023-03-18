@@ -7,24 +7,26 @@
 
 import SwiftUI
 
-struct TabbedWebView: View {
-    var request: URLRequest
-    var body: some View {
-        WebView(request: request)
-    }
-}
-
 struct ContentView: View {
-    @StateObject var webTabsViewModel = WebTabsViewModel(tabs: [])
+    @State private var showTabBar = false
 
     var body: some View {
-        HStack(alignment: .top) {
-            SidePanelView()
-                .padding()
-            TabbedWebView(request: webTabsViewModel.currentTab?.urlRequest ?? URLRequest(url: WebTab.blankPageURL))
-            
-        }.environmentObject(webTabsViewModel)
-        
+        TabView {
+            SimpleCameraView()
+                .tabItem {
+                    Label("Camera", systemImage: "square.and.pencil")
+                }
+                .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
+
+            BrowserView()
+                .tabItem {
+                    Label("Browser", systemImage: "list.dash")
+                }
+                .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
+        }
+        .onShake {
+            showTabBar = !showTabBar
+        }
     }
 }
 
