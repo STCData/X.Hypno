@@ -9,6 +9,10 @@ import SwiftUI
 
 @main
 struct DataCollectorApp: App {
+    init() {
+        LogInit()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()

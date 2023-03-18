@@ -14,6 +14,8 @@ class TerminalViewController: UIViewController {
 
     var useAutoLayout: Bool { true }
 
+//    var t: Timer?
+
     func makeFrame(keyboardDelta: CGFloat, _: String = #function, _: Int = #line) -> CGRect {
         if useAutoLayout {
             return CGRect.zero
@@ -83,9 +85,15 @@ class TerminalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//
+//        t = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
+//            self.tv.feed(text: "...\n\r")
+//        }
+
         // Do any additional setup after loading the view, typically from a nib.
 
         tv = TerminalView(frame: makeFrame(keyboardDelta: 0))
+
         tv.isOpaque = false
         tv.backgroundColor = UIColor.clear
         tv.nativeBackgroundColor = UIColor.clear
@@ -94,7 +102,19 @@ class TerminalViewController: UIViewController {
         setupConstrains()
 //        setupKeyboardMonitor()
 //        tv.becomeFirstResponder()
-        tv.feed(text: "Welcome to SwiftTerm - connecting to my localhost\r\n\n")
+        NotificationCenter.default.addObserver(self, selector: #selector(handleTermLogUpdate(_:)), name: Notification.Name.TermLogNotification, object: nil)
+    }
+
+    @objc func handleTermLogUpdate(_ notification: Notification) {
+        if let updatedTermLog = notification.userInfo?[TermLogNotificationUserInfoLogString] as? String {
+            let text = "\(updatedTermLog)\n\r"
+            DispatchQueue.main.async {
+                self.tv.feed(text: text)
+                if self.tv.canScroll {
+                    self.tv.scroll(toPosition: 20)
+                }
+            }
+        }
     }
 
     override func viewWillLayoutSubviews() {

@@ -6,8 +6,11 @@
 //
 
 import AVFoundation
+import Logging
 import UIKit
 import Vision
+
+private let log = Logger(label: LogLabels.camera.rawValue)
 
 extension CameraViewController {
     func setupDetector() {
@@ -19,7 +22,7 @@ extension CameraViewController {
 
             requests = [recognitions]
         } catch {
-            print(error)
+            log.error("\(error)")
         }
     }
 
@@ -41,6 +44,9 @@ extension CameraViewController {
             let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(screenRect.size.width), Int(screenRect.size.height))
             let transformedBounds = CGRect(x: objectBounds.minX, y: screenRect.size.height - objectBounds.maxY, width: objectBounds.maxX - objectBounds.minX, height: objectBounds.maxY - objectBounds.minY)
 
+            if let firstObservation = objectObservation.labels.first {
+                log.info("📷 \(objectObservation.boundingBox.origin.x)  \(firstObservation.confidence) \(firstObservation.identifier)")
+            }
             let boxLayer = self.drawBoundingBox(transformedBounds)
 
             detectionLayer.addSublayer(boxLayer)
@@ -72,7 +78,7 @@ extension CameraViewController {
         do {
             try imageRequestHandler.perform(requests) // Schedules vision requests to be performed
         } catch {
-            print(error)
+            log.error("\(error)")
         }
     }
 }

@@ -32,6 +32,11 @@
 		9A368D7C29C5FF920089F127 /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D7B29C5FF920089F127 /* TermView.swift */; };
 		9A368D7E29C5FFE50089F127 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D7D29C5FFE50089F127 /* TerminalViewController.swift */; };
 		9A368D8129C60FB60089F127 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D8029C60FB60089F127 /* ViewHelpers.swift */; };
+		9A368D8429C6147B0089F127 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368D8329C6147B0089F127 /* Logging */; };
+		9A368D8729C616220089F127 /* Puppy in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368D8629C616220089F127 /* Puppy */; };
+		9A368D8929C6167B0089F127 /* LogInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D8829C6167B0089F127 /* LogInit.swift */; };
+		9A368D8B29C6185E0089F127 /* TermLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D8A29C6185E0089F127 /* TermLogger.swift */; };
+		9A368D8D29C618F80089F127 /* TermLogNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D8C29C618F80089F127 /* TermLogNotification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +85,9 @@
 		9A368D7B29C5FF920089F127 /* TermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
 		9A368D7D29C5FFE50089F127 /* TerminalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
 		9A368D8029C60FB60089F127 /* ViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelpers.swift; sourceTree = "<group>"; };
+		9A368D8829C6167B0089F127 /* LogInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInit.swift; sourceTree = "<group>"; };
+		9A368D8A29C6185E0089F127 /* TermLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermLogger.swift; sourceTree = "<group>"; };
+		9A368D8C29C618F80089F127 /* TermLogNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermLogNotification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A368D8729C616220089F127 /* Puppy in Frameworks */,
+				9A368D8429C6147B0089F127 /* Logging in Frameworks */,
 				9A368D7929C5FF3B0089F127 /* SwiftTerm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +152,7 @@
 				9A368D7529C5DA220089F127 /* YOLOv3TinyInt8LUT.mlmodel */,
 				9A16BC9829AF8E9C006AE075 /* DataCollector.entitlements */,
 				9A16BC9929AF8E9C006AE075 /* Preview Content */,
+				9A368D8829C6167B0089F127 /* LogInit.swift */,
 			);
 			path = DataCollector;
 			sourceTree = "<group>";
@@ -209,6 +220,8 @@
 			children = (
 				9A368D7B29C5FF920089F127 /* TermView.swift */,
 				9A368D7D29C5FFE50089F127 /* TerminalViewController.swift */,
+				9A368D8A29C6185E0089F127 /* TermLogger.swift */,
+				9A368D8C29C618F80089F127 /* TermLogNotification.swift */,
 			);
 			path = Terminal;
 			sourceTree = "<group>";
@@ -240,6 +253,8 @@
 			name = DataCollector;
 			packageProductDependencies = (
 				9A368D7829C5FF3B0089F127 /* SwiftTerm */,
+				9A368D8329C6147B0089F127 /* Logging */,
+				9A368D8629C616220089F127 /* Puppy */,
 			);
 			productName = DataCollector;
 			productReference = 9A16BC8F29AF8E9B006AE075 /* DataCollector.app */;
@@ -315,6 +330,8 @@
 			mainGroup = 9A16BC8629AF8E9B006AE075;
 			packageReferences = (
 				9A368D7729C5FF3B0089F127 /* XCRemoteSwiftPackageReference "SwiftTerm" */,
+				9A368D8229C6147B0089F127 /* XCRemoteSwiftPackageReference "swift-log" */,
+				9A368D8529C616220089F127 /* XCRemoteSwiftPackageReference "Puppy" */,
 			);
 			productRefGroup = 9A16BC9029AF8E9B006AE075 /* Products */;
 			projectDirPath = "";
@@ -359,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A368D7E29C5FFE50089F127 /* TerminalViewController.swift in Sources */,
+				9A368D8B29C6185E0089F127 /* TermLogger.swift in Sources */,
 				9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */,
 				9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */,
 				9A368D6329C5C5060089F127 /* BrowserView.swift in Sources */,
@@ -370,12 +388,14 @@
 				9A1B6B4429B9F72F007F787B /* WebTabsViewModel.swift in Sources */,
 				9A368D6929C5C7560089F127 /* CameraView.swift in Sources */,
 				9A368D8129C60FB60089F127 /* ViewHelpers.swift in Sources */,
+				9A368D8D29C618F80089F127 /* TermLogNotification.swift in Sources */,
 				9A368D7629C5DA220089F127 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
 				9A368D7429C5D9B70089F127 /* CameraViewController+Detection.swift in Sources */,
 				9A368D6E29C5CD380089F127 /* SlideoutView.swift in Sources */,
 				9A1B6B3E29B9F289007F787B /* WebTab+Previews.swift in Sources */,
 				9A368D7229C5D94D0089F127 /* CameraViewController.swift in Sources */,
 				9A368D6629C5C6E60089F127 /* ShakeHelper.swift in Sources */,
+				9A368D8929C6167B0089F127 /* LogInit.swift in Sources */,
 				9A16BC9329AF8E9B006AE075 /* DataCollectorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -756,6 +776,22 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		9A368D8229C6147B0089F127 /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		9A368D8529C616220089F127 /* XCRemoteSwiftPackageReference "Puppy" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sushichop/Puppy.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -763,6 +799,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9A368D7729C5FF3B0089F127 /* XCRemoteSwiftPackageReference "SwiftTerm" */;
 			productName = SwiftTerm;
+		};
+		9A368D8329C6147B0089F127 /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A368D8229C6147B0089F127 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
+		9A368D8629C616220089F127 /* Puppy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A368D8529C616220089F127 /* XCRemoteSwiftPackageReference "Puppy" */;
+			productName = Puppy;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

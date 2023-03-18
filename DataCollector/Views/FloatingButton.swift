@@ -24,7 +24,7 @@ struct FloatingButton: View {
             .shadow(radius: 10)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
-        .ignoresSafeArea()
+//        .ignoresSafeArea()
 //        .padding(.bottom, 27)
 //        .padding(.trailing, 1)
     }

@@ -5,8 +5,10 @@
 //  Created by standard on 3/9/23.
 //
 
+import Logging
 import SwiftUI
 import WebKit
+private let log = Logger(label: LogLabels.webview.rawValue)
 
 #if os(iOS) || os(watchOS) || os(tvOS)
 
@@ -41,12 +43,14 @@ import WebKit
 
         func makeNSView(context _: Context) -> WKWebView {
             return WKWebView()
+            log.trace("makeNSView(context _: Context)")
         }
 
         func updateNSView(_ webView: WKWebView, context: Context) {
             webView.uiDelegate = context.coordinator
             webView.navigationDelegate = context.coordinator
-//
+
+            log.trace("updateNSView(_ webView: WKWebView, context: Context)")
 
             DispatchQueue.main.async {
                 webView.load(request)
@@ -93,7 +97,7 @@ extension WebViewCoordinator: WKNavigationDelegate {
 //    }
     func webView(_: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if navigationAction.navigationType == WKNavigationType.linkActivated {
-            print("link")
+            log.info("🌐 \(navigationAction.request.url?.absoluteString ?? "n/a")")
 
             if let tabsViewModel {
                 tabsViewModel.openTab(request: navigationAction.request, fromTab: tabsViewModel.currentTab)
@@ -102,7 +106,8 @@ extension WebViewCoordinator: WKNavigationDelegate {
             decisionHandler(WKNavigationActionPolicy.allow)
             return
         }
-        print("no link")
+        log.info("🌐 no link")
+
         decisionHandler(WKNavigationActionPolicy.allow)
     }
 }
