@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct SlideoutView<Content: View>: View {
+    var horizontal: Bool = true
     @Binding var isSidebarVisible: Bool
     let content: () -> Content
 
     var sideBarWidth = UIScreen.main.bounds.size.width * 0.9
+    var sideBarHeight = UIScreen.main.bounds.size.height * 0.4
     var bgColor: Color = .white.opacity(0.96)
 
     var body: some View {
@@ -25,22 +27,30 @@ struct SlideoutView<Content: View>: View {
             .onTapGesture {
                 isSidebarVisible.toggle()
             }
-            panelContent
+            let layout = horizontal ?
+                AnyLayout(HStackLayout()) : AnyLayout(VStackLayout())
+
+            layout {
+                ZStack(alignment: .top) {
+                    bgColor
+                    content()
+                }
+                .if(horizontal) {
+                    $0
+                        .frame(width: sideBarWidth)
+                        .offset(x: isSidebarVisible ? 0 : -sideBarWidth)
+                }
+                .if(!horizontal) {
+                    $0
+                        .frame(height: sideBarHeight)
+                        .offset(y: isSidebarVisible ? 0 : UIScreen.main.bounds.size.height)
+                }
+
+                .animation(.default, value: isSidebarVisible)
+
+                Spacer()
+            }
         }
         .edgesIgnoringSafeArea(.all)
-    }
-
-    var panelContent: some View {
-        HStack(alignment: .top) {
-            ZStack(alignment: .top) {
-                bgColor
-                content()
-            }
-            .frame(width: sideBarWidth)
-            .offset(x: isSidebarVisible ? 0 : -sideBarWidth)
-            .animation(.default, value: isSidebarVisible)
-
-            Spacer()
-        }
     }
 }

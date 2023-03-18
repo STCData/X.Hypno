@@ -31,6 +31,7 @@
 		9A368D7929C5FF3B0089F127 /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368D7829C5FF3B0089F127 /* SwiftTerm */; };
 		9A368D7C29C5FF920089F127 /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D7B29C5FF920089F127 /* TermView.swift */; };
 		9A368D7E29C5FFE50089F127 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D7D29C5FFE50089F127 /* TerminalViewController.swift */; };
+		9A368D8129C60FB60089F127 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D8029C60FB60089F127 /* ViewHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		9A368D7529C5DA220089F127 /* YOLOv3TinyInt8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3TinyInt8LUT.mlmodel; sourceTree = "<group>"; };
 		9A368D7B29C5FF920089F127 /* TermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
 		9A368D7D29C5FFE50089F127 /* TerminalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
+		9A368D8029C60FB60089F127 /* ViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				9A368D6529C5C6E60089F127 /* ShakeHelper.swift */,
+				9A368D8029C60FB60089F127 /* ViewHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				9A1B6B4029B9F403007F787B /* WebView.swift in Sources */,
 				9A1B6B4429B9F72F007F787B /* WebTabsViewModel.swift in Sources */,
 				9A368D6929C5C7560089F127 /* CameraView.swift in Sources */,
+				9A368D8129C60FB60089F127 /* ViewHelpers.swift in Sources */,
 				9A368D7629C5DA220089F127 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
 				9A368D7429C5D9B70089F127 /* CameraViewController+Detection.swift in Sources */,
 				9A368D6E29C5CD380089F127 /* SlideoutView.swift in Sources */,

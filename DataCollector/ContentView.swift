@@ -37,7 +37,7 @@ struct ContentView: View {
         ZStack {
             tabView
 
-            SlideoutView(isSidebarVisible: $isTermOpened) {
+            SlideoutView(horizontal: false, isSidebarVisible: $isTermOpened) {
                 TermView()
                     .padding(EdgeInsets(top: 60, leading: 2, bottom: 2, trailing: 2))
             }

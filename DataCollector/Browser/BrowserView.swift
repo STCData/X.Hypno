@@ -22,6 +22,7 @@ struct BrowserView: View {
         ZStack(alignment: .top) {
             TabbedWebView(request: webTabsViewModel.currentTab?.urlRequest ?? URLRequest(url: WebTab.blankPageURL))
 
+            // UIScreen.main.bounds.size.width * 0.9
             SlideoutView(isSidebarVisible: $isSideBarOpened) {
                 SidePanelView()
                     .padding(EdgeInsets(top: 60, leading: 2, bottom: 2, trailing: 2))
