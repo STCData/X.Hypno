@@ -24,6 +24,7 @@ struct SidePanelView: View {
                         goTo = ""
                     }
                 }
+
             WebTabTreeView()
         }
     }

@@ -16,14 +16,18 @@ struct TabbedWebView: View {
 
 struct BrowserView: View {
     @StateObject var webTabsViewModel = WebTabsViewModel(tabs: [])
+    @State private var isSideBarOpened = false
 
     var body: some View {
-        HStack(alignment: .top) {
-            SidePanelView()
-                .padding()
+        ZStack(alignment: .top) {
             TabbedWebView(request: webTabsViewModel.currentTab?.urlRequest ?? URLRequest(url: WebTab.blankPageURL))
 
-        }.environmentObject(webTabsViewModel)
+            SlideableSidePanelView(isSidebarVisible: $isSideBarOpened)
+            FloatingButton(action: {
+                isSideBarOpened.toggle()
+            }, icon: "plus")
+        }
+        .environmentObject(webTabsViewModel)
     }
 }
 

@@ -24,6 +24,8 @@
 		9A368D6629C5C6E60089F127 /* ShakeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D6529C5C6E60089F127 /* ShakeHelper.swift */; };
 		9A368D6929C5C7560089F127 /* SimpleCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D6829C5C7560089F127 /* SimpleCameraView.swift */; };
 		9A368D6C29C5C8490089F127 /* CameraView in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368D6B29C5C8490089F127 /* CameraView */; };
+		9A368D6E29C5CD380089F127 /* SlideableSidePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D6D29C5CD380089F127 /* SlideableSidePanelView.swift */; };
+		9A368D7029C5CEB30089F127 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D6F29C5CEB30089F127 /* FloatingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		9A368D6229C5C5060089F127 /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
 		9A368D6529C5C6E60089F127 /* ShakeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeHelper.swift; sourceTree = "<group>"; };
 		9A368D6829C5C7560089F127 /* SimpleCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCameraView.swift; sourceTree = "<group>"; };
+		9A368D6D29C5CD380089F127 /* SlideableSidePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideableSidePanelView.swift; sourceTree = "<group>"; };
+		9A368D6F29C5CEB30089F127 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,8 @@
 				9A1B6B4129B9F585007F787B /* SidePanelView.swift */,
 				9A1B6B4329B9F72F007F787B /* WebTabsViewModel.swift */,
 				9A368D6229C5C5060089F127 /* BrowserView.swift */,
+				9A368D6D29C5CD380089F127 /* SlideableSidePanelView.swift */,
+				9A368D6F29C5CEB30089F127 /* FloatingButton.swift */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -321,11 +327,13 @@
 				9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */,
 				9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */,
 				9A368D6329C5C5060089F127 /* BrowserView.swift in Sources */,
+				9A368D7029C5CEB30089F127 /* FloatingButton.swift in Sources */,
 				9A1B6B4229B9F585007F787B /* SidePanelView.swift in Sources */,
 				9A16BC9529AF8E9B006AE075 /* ContentView.swift in Sources */,
 				9A1B6B4029B9F403007F787B /* WebView.swift in Sources */,
 				9A1B6B4429B9F72F007F787B /* WebTabsViewModel.swift in Sources */,
 				9A368D6929C5C7560089F127 /* SimpleCameraView.swift in Sources */,
+				9A368D6E29C5CD380089F127 /* SlideableSidePanelView.swift in Sources */,
 				9A1B6B3E29B9F289007F787B /* WebTab+Previews.swift in Sources */,
 				9A368D6629C5C6E60089F127 /* ShakeHelper.swift in Sources */,
 				9A16BC9329AF8E9B006AE075 /* DataCollectorApp.swift in Sources */,

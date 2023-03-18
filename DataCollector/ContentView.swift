@@ -12,20 +12,20 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
-            SimpleCameraView()
-                .tabItem {
-                    Label("Camera", systemImage: "square.and.pencil")
-                }
-                .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
-
             BrowserView()
                 .tabItem {
                     Label("Browser", systemImage: "list.dash")
                 }
                 .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
+
+            SimpleCameraView()
+                .tabItem {
+                    Label("Camera", systemImage: "square.and.pencil")
+                }
+                .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
         }
         .onShake {
-            showTabBar = !showTabBar
+            showTabBar.toggle()
         }
     }
 }
