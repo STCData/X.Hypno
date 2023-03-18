@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct SlideableSidePanelView: View {
+struct SlideableSidePanelView<Content: View>: View {
     @Binding var isSidebarVisible: Bool
+    let content: () -> Content
 
     var sideBarWidth = UIScreen.main.bounds.size.width * 0.9
     var bgColor: Color = .white.opacity(0.96)
@@ -24,17 +25,16 @@ struct SlideableSidePanelView: View {
             .onTapGesture {
                 isSidebarVisible.toggle()
             }
-            content
+            panelContent
         }
         .edgesIgnoringSafeArea(.all)
     }
 
-    var content: some View {
+    var panelContent: some View {
         HStack(alignment: .top) {
             ZStack(alignment: .top) {
                 bgColor
-                SidePanelView()
-                    .padding(EdgeInsets(top: 60, leading: 2, bottom: 2, trailing: 2))
+                content()
             }
             .frame(width: sideBarWidth)
             .offset(x: isSidebarVisible ? 0 : -sideBarWidth)

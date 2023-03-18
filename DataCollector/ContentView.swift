@@ -9,12 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showTabBar = false
+    @State private var isTermOpened = false
 
     var body: some View {
         TabView {
             BrowserView()
                 .tabItem {
                     Label("Browser", systemImage: "globe")
+                }
+                .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
+
+            TermView()
+                .tabItem {
+                    Label("Terminal", systemImage: "terminal")
                 }
                 .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
 

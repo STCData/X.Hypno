@@ -28,6 +28,9 @@
 		9A368D7229C5D94D0089F127 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D7129C5D94D0089F127 /* CameraViewController.swift */; };
 		9A368D7429C5D9B70089F127 /* CameraViewController+Detection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D7329C5D9B70089F127 /* CameraViewController+Detection.swift */; };
 		9A368D7629C5DA220089F127 /* YOLOv3TinyInt8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D7529C5DA220089F127 /* YOLOv3TinyInt8LUT.mlmodel */; };
+		9A368D7929C5FF3B0089F127 /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368D7829C5FF3B0089F127 /* SwiftTerm */; };
+		9A368D7C29C5FF920089F127 /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D7B29C5FF920089F127 /* TermView.swift */; };
+		9A368D7E29C5FFE50089F127 /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D7D29C5FFE50089F127 /* TerminalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,8 @@
 		9A368D7129C5D94D0089F127 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		9A368D7329C5D9B70089F127 /* CameraViewController+Detection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+Detection.swift"; sourceTree = "<group>"; };
 		9A368D7529C5DA220089F127 /* YOLOv3TinyInt8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3TinyInt8LUT.mlmodel; sourceTree = "<group>"; };
+		9A368D7B29C5FF920089F127 /* TermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
+		9A368D7D29C5FFE50089F127 /* TerminalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A368D7929C5FF3B0089F127 /* SwiftTerm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +129,8 @@
 		9A16BC9129AF8E9B006AE075 /* DataCollector */ = {
 			isa = PBXGroup;
 			children = (
+				9A368D7F29C6038E0089F127 /* Views */,
+				9A368D7A29C5FF840089F127 /* Terminal */,
 				9A368D6729C5C7470089F127 /* Camera */,
 				9A368D6429C5C6DA0089F127 /* Helpers */,
 				9A368D6129C5C4A80089F127 /* Browser */,
@@ -171,8 +179,6 @@
 				9A1B6B4129B9F585007F787B /* SidePanelView.swift */,
 				9A1B6B4329B9F72F007F787B /* WebTabsViewModel.swift */,
 				9A368D6229C5C5060089F127 /* BrowserView.swift */,
-				9A368D6D29C5CD380089F127 /* SlideableSidePanelView.swift */,
-				9A368D6F29C5CEB30089F127 /* FloatingButton.swift */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -195,6 +201,24 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		9A368D7A29C5FF840089F127 /* Terminal */ = {
+			isa = PBXGroup;
+			children = (
+				9A368D7B29C5FF920089F127 /* TermView.swift */,
+				9A368D7D29C5FFE50089F127 /* TerminalViewController.swift */,
+			);
+			path = Terminal;
+			sourceTree = "<group>";
+		};
+		9A368D7F29C6038E0089F127 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9A368D6F29C5CEB30089F127 /* FloatingButton.swift */,
+				9A368D6D29C5CD380089F127 /* SlideableSidePanelView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -212,6 +236,7 @@
 			);
 			name = DataCollector;
 			packageProductDependencies = (
+				9A368D7829C5FF3B0089F127 /* SwiftTerm */,
 			);
 			productName = DataCollector;
 			productReference = 9A16BC8F29AF8E9B006AE075 /* DataCollector.app */;
@@ -286,6 +311,7 @@
 			);
 			mainGroup = 9A16BC8629AF8E9B006AE075;
 			packageReferences = (
+				9A368D7729C5FF3B0089F127 /* XCRemoteSwiftPackageReference "SwiftTerm" */,
 			);
 			productRefGroup = 9A16BC9029AF8E9B006AE075 /* Products */;
 			projectDirPath = "";
@@ -329,12 +355,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A368D7E29C5FFE50089F127 /* TerminalViewController.swift in Sources */,
 				9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */,
 				9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */,
 				9A368D6329C5C5060089F127 /* BrowserView.swift in Sources */,
 				9A368D7029C5CEB30089F127 /* FloatingButton.swift in Sources */,
 				9A1B6B4229B9F585007F787B /* SidePanelView.swift in Sources */,
 				9A16BC9529AF8E9B006AE075 /* ContentView.swift in Sources */,
+				9A368D7C29C5FF920089F127 /* TermView.swift in Sources */,
 				9A1B6B4029B9F403007F787B /* WebView.swift in Sources */,
 				9A1B6B4429B9F72F007F787B /* WebTabsViewModel.swift in Sources */,
 				9A368D6929C5C7560089F127 /* CameraView.swift in Sources */,
@@ -714,6 +742,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9A368D7729C5FF3B0089F127 /* XCRemoteSwiftPackageReference "SwiftTerm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/migueldeicaza/SwiftTerm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9A368D7829C5FF3B0089F127 /* SwiftTerm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A368D7729C5FF3B0089F127 /* XCRemoteSwiftPackageReference "SwiftTerm" */;
+			productName = SwiftTerm;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9A16BC8729AF8E9B006AE075 /* Project object */;
 }

@@ -16,6 +16,7 @@ extension CameraViewController {
         do {
             let visionModel = try VNCoreMLModel(for: MLModel(contentsOf: modelURL!))
             let recognitions = VNCoreMLRequest(model: visionModel, completionHandler: detectionDidComplete)
+
             requests = [recognitions]
         } catch {
             print(error)

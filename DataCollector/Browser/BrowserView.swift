@@ -22,7 +22,10 @@ struct BrowserView: View {
         ZStack(alignment: .top) {
             TabbedWebView(request: webTabsViewModel.currentTab?.urlRequest ?? URLRequest(url: WebTab.blankPageURL))
 
-            SlideableSidePanelView(isSidebarVisible: $isSideBarOpened)
+            SlideableSidePanelView(isSidebarVisible: $isSideBarOpened) {
+                SidePanelView()
+                    .padding(EdgeInsets(top: 60, leading: 2, bottom: 2, trailing: 2))
+            }
             FloatingButton(action: {
                 isSideBarOpened.toggle()
             }, icon: "square.on.square")
