@@ -13,23 +13,17 @@ struct ContentView: View {
 
     var tabView: some View {
         TabView {
-            CameraView()
-                .tabItem {
-                    Label("Camera", systemImage: "camera")
-                }
-                .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
-
             BrowserView()
                 .tabItem {
                     Label("Browser", systemImage: "globe")
                 }
                 .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
 
-//            TermView()
-//                .tabItem {
-//                    Label("Terminal", systemImage: "terminal")
-//                }
-//                .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
+            CameraView()
+                .tabItem {
+                    Label("Camera", systemImage: "camera")
+                }
+                .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
         }
     }
 
@@ -37,7 +31,11 @@ struct ContentView: View {
         ZStack {
             tabView
 
-            SlideoutView(horizontal: false, isSidebarVisible: $isTermOpened) {
+            SlideoutView(horizontal: false,
+                         opacity: 0.01,
+                         isSidebarVisible: $isTermOpened,
+                         bgColor: .black.opacity(0.9))
+            {
                 TermView()
                     .padding(EdgeInsets(top: 60, leading: 2, bottom: 2, trailing: 2))
             }

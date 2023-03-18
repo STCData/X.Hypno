@@ -86,6 +86,9 @@ class TerminalViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
 
         tv = TerminalView(frame: makeFrame(keyboardDelta: 0))
+        tv.isOpaque = false
+        tv.backgroundColor = UIColor.clear
+        tv.nativeBackgroundColor = UIColor.clear
 
         view.addSubview(tv)
         setupConstrains()
