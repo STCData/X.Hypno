@@ -11,25 +11,40 @@ struct ContentView: View {
     @State private var showTabBar = false
     @State private var isTermOpened = false
 
-    var body: some View {
+    var tabView: some View {
         TabView {
+            CameraView()
+                .tabItem {
+                    Label("Camera", systemImage: "camera")
+                }
+                .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
+
             BrowserView()
                 .tabItem {
                     Label("Browser", systemImage: "globe")
                 }
                 .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
 
-            TermView()
-                .tabItem {
-                    Label("Terminal", systemImage: "terminal")
-                }
-                .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
+//            TermView()
+//                .tabItem {
+//                    Label("Terminal", systemImage: "terminal")
+//                }
+//                .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
+        }
+    }
 
-            CameraView()
-                .tabItem {
-                    Label("Camera", systemImage: "camera")
-                }
-                .toolbar(showTabBar ? .visible : .hidden, for: .tabBar)
+    var body: some View {
+        ZStack {
+            tabView
+
+            SlideoutView(isSidebarVisible: $isTermOpened) {
+                TermView()
+                    .padding(EdgeInsets(top: 60, leading: 2, bottom: 2, trailing: 2))
+            }
+
+            FloatingButton(action: {
+                isTermOpened.toggle()
+            }, icon: "terminal", alignment: .topTrailing)
         }
         .onShake {
             withAnimation(Animation.easeOut(duration: 0.08)) {

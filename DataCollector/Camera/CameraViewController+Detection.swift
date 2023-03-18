@@ -49,7 +49,7 @@ extension CameraViewController {
 
     func setupLayers() {
         detectionLayer = CALayer()
-        detectionLayer.frame = CGRect(x: 0, y: 0, width: screenRect.size.width, height: screenRect.size.height)
+//        detectionLayer.frame = CGRect(x: 0, y: 0, width: screenRect.size.width, height: screenRect.size.height)
         view.layer.addSublayer(detectionLayer)
     }
 

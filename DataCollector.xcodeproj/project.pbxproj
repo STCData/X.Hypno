@@ -23,7 +23,7 @@
 		9A368D6329C5C5060089F127 /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D6229C5C5060089F127 /* BrowserView.swift */; };
 		9A368D6629C5C6E60089F127 /* ShakeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D6529C5C6E60089F127 /* ShakeHelper.swift */; };
 		9A368D6929C5C7560089F127 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D6829C5C7560089F127 /* CameraView.swift */; };
-		9A368D6E29C5CD380089F127 /* SlideableSidePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D6D29C5CD380089F127 /* SlideableSidePanelView.swift */; };
+		9A368D6E29C5CD380089F127 /* SlideoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D6D29C5CD380089F127 /* SlideoutView.swift */; };
 		9A368D7029C5CEB30089F127 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D6F29C5CEB30089F127 /* FloatingButton.swift */; };
 		9A368D7229C5D94D0089F127 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D7129C5D94D0089F127 /* CameraViewController.swift */; };
 		9A368D7429C5D9B70089F127 /* CameraViewController+Detection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D7329C5D9B70089F127 /* CameraViewController+Detection.swift */; };
@@ -71,7 +71,7 @@
 		9A368D6229C5C5060089F127 /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
 		9A368D6529C5C6E60089F127 /* ShakeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeHelper.swift; sourceTree = "<group>"; };
 		9A368D6829C5C7560089F127 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		9A368D6D29C5CD380089F127 /* SlideableSidePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideableSidePanelView.swift; sourceTree = "<group>"; };
+		9A368D6D29C5CD380089F127 /* SlideoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideoutView.swift; sourceTree = "<group>"; };
 		9A368D6F29C5CEB30089F127 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		9A368D7129C5D94D0089F127 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		9A368D7329C5D9B70089F127 /* CameraViewController+Detection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+Detection.swift"; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				9A368D6F29C5CEB30089F127 /* FloatingButton.swift */,
-				9A368D6D29C5CD380089F127 /* SlideableSidePanelView.swift */,
+				9A368D6D29C5CD380089F127 /* SlideoutView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -368,7 +368,7 @@
 				9A368D6929C5C7560089F127 /* CameraView.swift in Sources */,
 				9A368D7629C5DA220089F127 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
 				9A368D7429C5D9B70089F127 /* CameraViewController+Detection.swift in Sources */,
-				9A368D6E29C5CD380089F127 /* SlideableSidePanelView.swift in Sources */,
+				9A368D6E29C5CD380089F127 /* SlideoutView.swift in Sources */,
 				9A1B6B3E29B9F289007F787B /* WebTab+Previews.swift in Sources */,
 				9A368D7229C5D94D0089F127 /* CameraViewController.swift in Sources */,
 				9A368D6629C5C6E60089F127 /* ShakeHelper.swift in Sources */,

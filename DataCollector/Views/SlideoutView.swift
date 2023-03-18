@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SlideableSidePanelView<Content: View>: View {
+struct SlideoutView<Content: View>: View {
     @Binding var isSidebarVisible: Bool
     let content: () -> Content
 
