@@ -27,7 +27,7 @@ struct BrowserView: View {
                          bgColor: Color(uiColor: .systemGray5))
             {
                 SidePanelView()
-                    .padding(EdgeInsets(top: 60, leading: 12, bottom: 20, trailing: 12))
+                    .padding(EdgeInsets(top: 60, leading: 12, bottom: 42, trailing: 12))
             }
             FloatingButton(action: {
                 isSideBarOpened.toggle()

@@ -24,6 +24,9 @@ struct WebTabTreeItemInner: View {
                     .frame(width: faviconSize, height: faviconSize)
             }
             Text((tab.title ?? tab.urlRequest.url?.absoluteString) ?? "<<na>>")
+                .minimumScaleFactor(0.4)
+                .lineLimit(2)
+                .multilineTextAlignment(.leading)
         }
         .padding(3)
         .if(tab == webTabsViewModel.currentTab) { $0.background(Color(uiColor: .systemGray6))
