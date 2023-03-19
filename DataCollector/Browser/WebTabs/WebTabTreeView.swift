@@ -21,6 +21,10 @@ struct WebTabTreeItemInner: View {
             if let image = tab.faviconImage {
                 Image(uiImage: image)
                     .resizable()
+                    .if(tab.faviconColorTint != nil) {
+                        $0.renderingMode(.template)
+                            .foregroundColor(tab.faviconColorTint)
+                    }
                     .frame(width: faviconSize, height: faviconSize)
             }
             Text((tab.title ?? tab.urlRequest.url?.absoluteString) ?? "<<na>>")

@@ -40,8 +40,9 @@
 		9A368D8F29C71E5B0089F127 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D8E29C71E5B0089F127 /* KeyboardHelper.swift */; };
 		9A368D9129C71F6A0089F127 /* WebViewNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D9029C71F6A0089F127 /* WebViewNotifications.swift */; };
 		9A368D9429C7228E0089F127 /* FaviconFinder in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368D9329C7228E0089F127 /* FaviconFinder */; };
-		9A368D9629C722F70089F127 /* WebViewCoordinator+FavIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D9529C722F70089F127 /* WebViewCoordinator+FavIcon.swift */; };
+		9A368D9629C722F70089F127 /* WebTab+FavIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D9529C722F70089F127 /* WebTab+FavIcon.swift */; };
 		9A368D9829C723B90089F127 /* WebViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D9729C723B90089F127 /* WebViewCoordinator.swift */; };
+		9A368D9B29C7435E0089F127 /* WebTab+DefaultFavIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D9A29C7435E0089F127 /* WebTab+DefaultFavIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,8 +96,9 @@
 		9A368D8C29C618F80089F127 /* TermLogNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermLogNotification.swift; sourceTree = "<group>"; };
 		9A368D8E29C71E5B0089F127 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		9A368D9029C71F6A0089F127 /* WebViewNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewNotifications.swift; sourceTree = "<group>"; };
-		9A368D9529C722F70089F127 /* WebViewCoordinator+FavIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebViewCoordinator+FavIcon.swift"; sourceTree = "<group>"; };
+		9A368D9529C722F70089F127 /* WebTab+FavIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebTab+FavIcon.swift"; sourceTree = "<group>"; };
 		9A368D9729C723B90089F127 /* WebViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewCoordinator.swift; sourceTree = "<group>"; };
+		9A368D9A29C7435E0089F127 /* WebTab+DefaultFavIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebTab+DefaultFavIcon.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +201,6 @@
 				9A368D9929C72EEB0089F127 /* WebTabs */,
 				9A1B6B3F29B9F403007F787B /* WebView.swift */,
 				9A368D9729C723B90089F127 /* WebViewCoordinator.swift */,
-				9A368D9529C722F70089F127 /* WebViewCoordinator+FavIcon.swift */,
 				9A368D6229C5C5060089F127 /* BrowserView.swift */,
 				9A368D9029C71F6A0089F127 /* WebViewNotifications.swift */,
 			);
@@ -253,6 +254,8 @@
 				9A1B6B3929B9F0E1007F787B /* WebTabTreeView.swift */,
 				9A1B6B3B29B9F10A007F787B /* WebTab.swift */,
 				9A1B6B4329B9F72F007F787B /* WebTabsViewModel.swift */,
+				9A368D9529C722F70089F127 /* WebTab+FavIcon.swift */,
+				9A368D9A29C7435E0089F127 /* WebTab+DefaultFavIcon.swift */,
 			);
 			path = WebTabs;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				9A368D8B29C6185E0089F127 /* TermLogger.swift in Sources */,
 				9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */,
 				9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */,
+				9A368D9B29C7435E0089F127 /* WebTab+DefaultFavIcon.swift in Sources */,
 				9A368D6329C5C5060089F127 /* BrowserView.swift in Sources */,
 				9A368D7029C5CEB30089F127 /* FloatingButton.swift in Sources */,
 				9A1B6B4229B9F585007F787B /* SidePanelView.swift in Sources */,
@@ -422,7 +426,7 @@
 				9A1B6B3E29B9F289007F787B /* WebTab+Previews.swift in Sources */,
 				9A368D7229C5D94D0089F127 /* CameraViewController.swift in Sources */,
 				9A368D6629C5C6E60089F127 /* ShakeHelper.swift in Sources */,
-				9A368D9629C722F70089F127 /* WebViewCoordinator+FavIcon.swift in Sources */,
+				9A368D9629C722F70089F127 /* WebTab+FavIcon.swift in Sources */,
 				9A368D8929C6167B0089F127 /* LogInit.swift in Sources */,
 				9A16BC9329AF8E9B006AE075 /* DataCollectorApp.swift in Sources */,
 			);

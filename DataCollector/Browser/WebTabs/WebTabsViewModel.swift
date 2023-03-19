@@ -50,11 +50,10 @@ class WebTabsViewModel: ObservableObject {
                     webTab.title = webTitle
                 }
             }
-            if let webFaviconImage = userInfo[WebViewLoadedUserInfoWebFaviconImage] as? UIImage {
-                DispatchQueue.main.async {
-                    webTab.faviconImage = webFaviconImage
-                }
-            }
+            /*
+             if let webFaviconImage = userInfo[WebViewLoadedUserInfoWebFaviconImage] as? UIImage {
+
+             }*/
         }
     }
 

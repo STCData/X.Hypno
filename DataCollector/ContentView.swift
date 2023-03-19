@@ -43,6 +43,9 @@ struct ContentView: View {
             FloatingButton(action: {
                 isTermOpened.toggle()
             }, icon: "terminal", alignment: .topTrailing)
+                .if(!showTabBar) {
+                    $0.hidden()
+                }
         }
         .onShake {
             withAnimation(Animation.easeOut(duration: 0.08)) {

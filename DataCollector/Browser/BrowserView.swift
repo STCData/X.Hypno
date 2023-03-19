@@ -15,7 +15,7 @@ struct TabbedWebView: View {
 }
 
 struct BrowserView: View {
-    @StateObject var webTabsViewModel = WebTabsViewModel(tabs: [])
+    @StateObject var webTabsViewModel = WebTabsViewModel(tabs: [WebTab(urlRequest: URLRequest(url: WebTab.blankPageURL))])
     @State private var isSideBarOpened = false
 
     var body: some View {

@@ -16,6 +16,11 @@ extension WebTab {
         do {
             let favicon = try await FaviconFinder(url: url).downloadFavicon()
 
+            DispatchQueue.main.async {
+                self.faviconColorTint = nil
+                self.faviconImage = favicon.image
+            }
+
             log.info("URL of Favicon: \(favicon.url)")
             NotificationCenter.default.post(name: .WebViewDetailsLoaded, object: nil, userInfo: [
                 WebViewLoadedUserInfoWebTab: self, // fixme

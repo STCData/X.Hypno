@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 #if os(iOS) || os(watchOS) || os(tvOS)
     import UIKit
@@ -32,16 +33,27 @@ class WebTab: Hashable, Identifiable, ObservableObject, CustomStringConvertible 
 
     init(urlRequest: URLRequest) {
         self.urlRequest = urlRequest
+        setDefaultFavIcon()
     }
 
     init(title: String, url: URL, children: [WebTab]? = nil) {
         self.title = title
         urlRequest = URLRequest(url: url)
         self.children = children
+        setDefaultFavIcon()
     }
 
     @Published
     var title: String? = nil
+
+    @Published
+    var faviconColorTint: Color? = [
+        .blue,
+        .brown,
+        .green,
+        .red,
+        .pink,
+    ].randomElement()!
 
     @Published
     var faviconImage: WKImage? = nil
@@ -84,5 +96,5 @@ extension WebTab {
 }
 
 extension WebTab {
-    static let blankPageURL = URL(string: "https://apple.com")!
+    static let blankPageURL = URL(string: "https://stcdata.github.io/STCData")!
 }
