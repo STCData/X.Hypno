@@ -23,9 +23,11 @@ struct BrowserView: View {
             TabbedWebView(request: webTabsViewModel.currentTab?.urlRequest ?? URLRequest(url: WebTab.blankPageURL))
 
             // UIScreen.main.bounds.size.width * 0.9
-            SlideoutView(isSidebarVisible: $isSideBarOpened) {
+            SlideoutView(isSidebarVisible: $isSideBarOpened,
+                         bgColor: Color(uiColor: .systemGray5))
+            {
                 SidePanelView()
-                    .padding(EdgeInsets(top: 60, leading: 2, bottom: 2, trailing: 2))
+                    .padding(EdgeInsets(top: 60, leading: 12, bottom: 20, trailing: 12))
             }
             FloatingButton(action: {
                 isSideBarOpened.toggle()

@@ -17,6 +17,8 @@ struct SidePanelView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
+            WebTabTreeView()
+            Spacer()
             TextField("url", text: $goTo)
                 .onSubmit {
                     if let request = WebTabsViewModel.requestFrom(goTo) {
@@ -24,9 +26,11 @@ struct SidePanelView: View {
                         goTo = ""
                     }
                 }
+                .padding(5)
+                .background(.white)
+                .cornerRadius(7)
 
-            WebTabTreeView()
-        }
+        }.adaptsToKeyboard()
     }
 }
 

@@ -37,6 +37,7 @@
 		9A368D8929C6167B0089F127 /* LogInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D8829C6167B0089F127 /* LogInit.swift */; };
 		9A368D8B29C6185E0089F127 /* TermLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D8A29C6185E0089F127 /* TermLogger.swift */; };
 		9A368D8D29C618F80089F127 /* TermLogNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D8C29C618F80089F127 /* TermLogNotification.swift */; };
+		9A368D8F29C71E5B0089F127 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368D8E29C71E5B0089F127 /* KeyboardHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		9A368D8829C6167B0089F127 /* LogInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInit.swift; sourceTree = "<group>"; };
 		9A368D8A29C6185E0089F127 /* TermLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermLogger.swift; sourceTree = "<group>"; };
 		9A368D8C29C618F80089F127 /* TermLogNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermLogNotification.swift; sourceTree = "<group>"; };
+		9A368D8E29C71E5B0089F127 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 			children = (
 				9A368D6529C5C6E60089F127 /* ShakeHelper.swift */,
 				9A368D8029C60FB60089F127 /* ViewHelpers.swift */,
+				9A368D8E29C71E5B0089F127 /* KeyboardHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				9A368D7629C5DA220089F127 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
 				9A368D7429C5D9B70089F127 /* CameraViewController+Detection.swift in Sources */,
 				9A368D6E29C5CD380089F127 /* SlideoutView.swift in Sources */,
+				9A368D8F29C71E5B0089F127 /* KeyboardHelper.swift in Sources */,
 				9A1B6B3E29B9F289007F787B /* WebTab+Previews.swift in Sources */,
 				9A368D7229C5D94D0089F127 /* CameraViewController.swift in Sources */,
 				9A368D6629C5C6E60089F127 /* ShakeHelper.swift in Sources */,
