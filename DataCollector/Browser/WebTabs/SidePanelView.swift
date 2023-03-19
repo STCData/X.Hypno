@@ -17,7 +17,9 @@ struct SidePanelView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            WebTabTreeView()
+            ScrollView {
+                WebTabTreeView()
+            }
             Spacer()
             TextField("url", text: $goTo)
                 .onSubmit {

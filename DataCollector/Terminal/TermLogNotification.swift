@@ -8,8 +8,7 @@
 import Foundation
 
 public extension NSNotification.Name {
-    static let TermLogNotification: NSNotification.Name =
-        .init(rawValue: "TermLogNotificationDidUpdate")
+    static let TermLogNotification = NSNotification.Name("TermLogNotificationDidUpdate")
 }
 
 let TermLogNotificationUserInfoLogString = "TermLogNotificationUserInfoLogString"

@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "faviconfinder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/will-lumley/FaviconFinder.git",
+      "state" : {
+        "revision" : "b8cde6c03b0cf72829b327c2c537bd39c1a8f60b",
+        "version" : "4.1.0"
+      }
+    },
+    {
       "identity" : "puppy",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sushichop/Puppy.git",
@@ -16,6 +25,15 @@
       "state" : {
         "revision" : "32e8d724467f8fe623624570367e3d50c5638e46",
         "version" : "1.5.2"
+      }
+    },
+    {
+      "identity" : "swiftsoup",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scinfu/SwiftSoup.git",
+      "state" : {
+        "revision" : "f707b8680cddb96dc1855632340a572ef37bbb98",
+        "version" : "2.5.3"
       }
     },
     {

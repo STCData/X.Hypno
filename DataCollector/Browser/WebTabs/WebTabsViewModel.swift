@@ -37,6 +37,25 @@ class WebTabsViewModel: ObservableObject {
 
     init(tabs: [WebTab]) {
         self.tabs = tabs
+
+        NotificationCenter.default.addObserver(self, selector: #selector(handleWebViewDetailsLoadedNotification(_:)), name: .WebViewDetailsLoaded, object: nil)
+    }
+
+    @objc private func handleWebViewDetailsLoadedNotification(_ notification: Notification) {
+        if let userInfo = notification.userInfo,
+           let webTab = userInfo[WebViewLoadedUserInfoWebTab] as? WebTab
+        {
+            if let webTitle = userInfo[WebViewLoadedUserInfoWebTitle] as? String {
+                DispatchQueue.main.async {
+                    webTab.title = webTitle
+                }
+            }
+            if let webFaviconImage = userInfo[WebViewLoadedUserInfoWebFaviconImage] as? UIImage {
+                DispatchQueue.main.async {
+                    webTab.faviconImage = webFaviconImage
+                }
+            }
+        }
     }
 
     private func addChild(_ child: WebTab, to parentTab: WebTab) {
@@ -49,6 +68,10 @@ class WebTabsViewModel: ObservableObject {
 
     func openTab(request: URLRequest, fromTab parentTab: WebTab?) {
         let newTab = WebTab(urlRequest: request)
+        Task {
+            await newTab.loadFavIcon()
+        }
+
         if let parentTab {
             addChild(newTab, to: parentTab)
         } else {

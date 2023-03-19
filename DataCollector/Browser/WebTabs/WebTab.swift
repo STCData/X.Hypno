@@ -7,7 +7,20 @@
 
 import Foundation
 
-class WebTab: Hashable, Identifiable, CustomStringConvertible {
+#if os(iOS) || os(watchOS) || os(tvOS)
+    import UIKit
+    typealias WKImage = UIImage
+#elseif os(macOS)
+    import AppKit
+    typealias WKImage = NSImage
+
+#endif
+
+class WebTab: Hashable, Identifiable, ObservableObject, CustomStringConvertible {
+    var description: String {
+        return (title ?? urlRequest.url?.absoluteString) ?? "n/a"
+    }
+
     var id = UUID()
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
@@ -22,35 +35,21 @@ class WebTab: Hashable, Identifiable, CustomStringConvertible {
     }
 
     init(title: String, url: URL, children: [WebTab]? = nil) {
-        titleLoaded = title
+        self.title = title
         urlRequest = URLRequest(url: url)
         self.children = children
     }
 
-    var title: String {
-        if let t = titleLoaded {
-            return t
-        } else {
-            return urlRequest.url?.absoluteString ?? "n/a"
-        }
-    }
+    @Published
+    var title: String? = nil
 
-    var titleLoaded: String? = nil
-
-    func setTitle(_ title: String) {
-        titleLoaded = title
-    }
+    @Published
+    var faviconImage: WKImage? = nil
 
     let urlRequest: URLRequest
+
+    @Published
     var children: [WebTab]? = nil
-    var description: String {
-        switch children {
-        case nil:
-            return "📄 \(title)"
-        case let .some(children):
-            return children.isEmpty ? "📂 \(title)" : "📁 \(title)"
-        }
-    }
 
     func addChild(_ child: WebTab) {
         var newChildren = children ?? []
