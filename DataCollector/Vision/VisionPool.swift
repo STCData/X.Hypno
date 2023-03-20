@@ -41,11 +41,16 @@ final class VisionPool: VisionWorker {
     }
 
     private var workers: [any VisionWorker]
+    private var workersSubscriptions = Set<AnyCancellable>()
 
     required init(workers: [any VisionWorker]) {
         self.workers = workers
 
-//        workers.map({ $0.observationsSubject.eraseToAnyPublisher() }).combineLatest()
+        CombineLatestMany(workers.map { $0.observationsSubject.eraseToAnyPublisher() })
+            .sink { observations in
+                let flatObservations = observations.flatMap { $0 }
+                self.observationsSubject.send(flatObservations)
+            }.store(in: &workersSubscriptions)
     }
 
     static func makeFullPool() -> Self {

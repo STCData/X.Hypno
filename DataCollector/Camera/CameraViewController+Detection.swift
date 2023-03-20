@@ -14,15 +14,14 @@ private let log = LogLabels.camera.makeLogger()
 
 extension CameraViewController {
     func setupDetector() {
-        let modelURL = Bundle.main.url(forResource: "YOLOv3TinyInt8LUT", withExtension: "mlmodelc")
+        if let yoloWorker = try? YOLOObjectRecognizer() {
+            visionPool = VisionPool(workers: [yoloWorker])
+            visionPool?.observationsSubject
+                .receive(on: RunLoop.main)
+                .sink { observations in
+                    self.extractDetections(observations)
 
-        do {
-            let visionModel = try VNCoreMLModel(for: MLModel(contentsOf: modelURL!))
-            let recognitions = VNCoreMLRequest(model: visionModel, completionHandler: detectionDidComplete)
-
-            requests = [recognitions]
-        } catch {
-            log.error("\(error)")
+                }.store(in: &visionSubscriptions)
         }
     }
 
@@ -34,22 +33,28 @@ extension CameraViewController {
         }
     }
 
+    func draw(objectObservation: VNRecognizedObjectObservation) {
+        // Transformations
+        let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(screenRect.size.width), Int(screenRect.size.height))
+        let transformedBounds = CGRect(x: objectBounds.minX, y: screenRect.size.height - objectBounds.maxY, width: objectBounds.maxX - objectBounds.minX, height: objectBounds.maxY - objectBounds.minY)
+
+        if let firstObservation = objectObservation.labels.first {
+            log.info("📷 \(objectObservation.boundingBox.origin.x)  \(firstObservation.confidence) \(firstObservation.identifier)")
+        }
+        let boxLayer = drawBoundingBox(transformedBounds)
+
+        detectionLayer.addSublayer(boxLayer)
+    }
+
     func extractDetections(_ results: [VNObservation]) {
         detectionLayer.sublayers = nil
 
         for observation in results where observation is VNRecognizedObjectObservation {
-            guard let objectObservation = observation as? VNRecognizedObjectObservation else { continue }
-
-            // Transformations
-            let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(screenRect.size.width), Int(screenRect.size.height))
-            let transformedBounds = CGRect(x: objectBounds.minX, y: screenRect.size.height - objectBounds.maxY, width: objectBounds.maxX - objectBounds.minX, height: objectBounds.maxY - objectBounds.minY)
-
-            if let firstObservation = objectObservation.labels.first {
-                log.info("📷 \(objectObservation.boundingBox.origin.x)  \(firstObservation.confidence) \(firstObservation.identifier)")
+            if let objObservation = observation as? VNRecognizedObjectObservation {
+                draw(objectObservation: objObservation)
+            } else {
+                continue
             }
-            let boxLayer = self.drawBoundingBox(transformedBounds)
-
-            detectionLayer.addSublayer(boxLayer)
         }
     }
 
@@ -68,11 +73,7 @@ extension CameraViewController {
 
     func captureOutput(_: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from _: AVCaptureConnection) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .up, options: [:]) // Create handler to perform request on the buffer
-        do {
-            try imageRequestHandler.perform(requests) // Schedules vision requests to be performed
-        } catch {
-            log.error("\(error)")
-        }
+
+        visionPool?.receive(pixelBuffer)
     }
 }

@@ -8,9 +8,9 @@
 import Foundation
 
 import AVFoundation
+import Combine
 import SwiftUI
 import UIKit
-import Vision
 
 class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     private var permissionGranted = false // Flag for permission
@@ -21,8 +21,11 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
 
     // Detector
     private var videoOutput = AVCaptureVideoDataOutput()
-    var requests = [VNRequest]()
+
     var detectionLayer: CALayer! = nil
+
+    var visionPool: VisionPool?
+    var visionSubscriptions = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         screenRect = UIScreen.main.bounds

@@ -85,6 +85,9 @@
 		9A368E2E29C8826A0089F127 /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E2D29C8826A0089F127 /* TextRecognizer.swift */; };
 		9A368E3029C885CC0089F127 /* VisionPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E2F29C885CC0089F127 /* VisionPool.swift */; };
 		9A368E3229C8877B0089F127 /* YOLOObjectRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E3129C8877B0089F127 /* YOLOObjectRecognizer.swift */; };
+		9A368E3429C89C860089F127 /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E3329C89C860089F127 /* CombineHelpers.swift */; };
+		9A368E3629C89ED60089F127 /* ArrayPublisherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E3529C89ED60089F127 /* ArrayPublisherTests.swift */; };
+		9A368E3A29C8A2840089F127 /* Promises in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368E3929C8A2840089F127 /* Promises */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +213,8 @@
 		9A368E2D29C8826A0089F127 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
 		9A368E2F29C885CC0089F127 /* VisionPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionPool.swift; sourceTree = "<group>"; };
 		9A368E3129C8877B0089F127 /* YOLOObjectRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLOObjectRecognizer.swift; sourceTree = "<group>"; };
+		9A368E3329C89C860089F127 /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
+		9A368E3529C89ED60089F127 /* ArrayPublisherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayPublisherTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A368E3A29C8A2840089F127 /* Promises in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				9A16BCA429AF8E9C006AE075 /* DataCollectorTests.swift */,
+				9A368E3529C89ED60089F127 /* ArrayPublisherTests.swift */,
 			);
 			path = DataCollectorTests;
 			sourceTree = "<group>";
@@ -483,6 +490,7 @@
 				9A368E2D29C8826A0089F127 /* TextRecognizer.swift */,
 				9A368E2F29C885CC0089F127 /* VisionPool.swift */,
 				9A368E3129C8877B0089F127 /* YOLOObjectRecognizer.swift */,
+				9A368E3329C89C860089F127 /* CombineHelpers.swift */,
 			);
 			path = Vision;
 			sourceTree = "<group>";
@@ -531,6 +539,9 @@
 				9A16BCA229AF8E9C006AE075 /* PBXTargetDependency */,
 			);
 			name = DataCollectorTests;
+			packageProductDependencies = (
+				9A368E3929C8A2840089F127 /* Promises */,
+			);
 			productName = DataCollectorTests;
 			productReference = 9A16BCA029AF8E9C006AE075 /* DataCollectorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -741,6 +752,7 @@
 				9A368D6629C5C6E60089F127 /* ShakeHelper.swift in Sources */,
 				9A368DFE29C863AC0089F127 /* ScreenShareCaptureOptions.swift in Sources */,
 				9A368E3229C8877B0089F127 /* YOLOObjectRecognizer.swift in Sources */,
+				9A368E3429C89C860089F127 /* CombineHelpers.swift in Sources */,
 				9A368E2429C879680089F127 /* BufferVideoCapturerDelegate.swift in Sources */,
 				9A368E0229C863FE0089F127 /* RTCVideoCapturerDelegate+Buffer.swift in Sources */,
 				9A368D9629C722F70089F127 /* WebTab+FavIcon.swift in Sources */,
@@ -754,6 +766,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A368E3629C89ED60089F127 /* ArrayPublisherTests.swift in Sources */,
 				9A16BCA529AF8E9C006AE075 /* DataCollectorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1018,10 +1031,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9MVLBZ7VBR;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
@@ -1044,10 +1056,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9MVLBZ7VBR;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
@@ -1068,10 +1079,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9MVLBZ7VBR;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
@@ -1092,10 +1103,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9MVLBZ7VBR;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
@@ -1369,6 +1380,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9A368D8229C6147B0089F127 /* XCRemoteSwiftPackageReference "swift-log" */;
 			productName = Logging;
+		};
+		9A368E3929C8A2840089F127 /* Promises */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A368DEC29C862A90089F127 /* XCRemoteSwiftPackageReference "promises" */;
+			productName = Promises;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
