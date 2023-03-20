@@ -13,6 +13,7 @@ enum LogLabels: String {
     case camera = "stc.data.camera"
     case ml = "stc.data.ml"
     case network = "stc.data.network"
+    case vision = "stc.data.vision"
     case broadcast = "stc.data.broadcast"
     case broadcastUpload = "stc.data.broadcast.upload"
 }

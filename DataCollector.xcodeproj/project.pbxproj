@@ -81,6 +81,10 @@
 		9A368E2429C879680089F127 /* BufferVideoCapturerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E2329C879680089F127 /* BufferVideoCapturerDelegate.swift */; };
 		9A368E2829C87DDC0089F127 /* LogLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E2729C87DDC0089F127 /* LogLabels.swift */; };
 		9A368E2929C87DE30089F127 /* LogLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E2729C87DDC0089F127 /* LogLabels.swift */; };
+		9A368E2C29C880060089F127 /* VisionWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E2B29C880060089F127 /* VisionWorker.swift */; };
+		9A368E2E29C8826A0089F127 /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E2D29C8826A0089F127 /* TextRecognizer.swift */; };
+		9A368E3029C885CC0089F127 /* VisionPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E2F29C885CC0089F127 /* VisionPool.swift */; };
+		9A368E3229C8877B0089F127 /* YOLOObjectRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E3129C8877B0089F127 /* YOLOObjectRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +206,10 @@
 		9A368E2229C86E190089F127 /* BroadcastExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BroadcastExt.entitlements; sourceTree = "<group>"; };
 		9A368E2329C879680089F127 /* BufferVideoCapturerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BufferVideoCapturerDelegate.swift; sourceTree = "<group>"; };
 		9A368E2729C87DDC0089F127 /* LogLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLabels.swift; sourceTree = "<group>"; };
+		9A368E2B29C880060089F127 /* VisionWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionWorker.swift; sourceTree = "<group>"; };
+		9A368E2D29C8826A0089F127 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
+		9A368E2F29C885CC0089F127 /* VisionPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionPool.swift; sourceTree = "<group>"; };
+		9A368E3129C8877B0089F127 /* YOLOObjectRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLOObjectRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +290,7 @@
 		9A16BC9129AF8E9B006AE075 /* DataCollector */ = {
 			isa = PBXGroup;
 			children = (
+				9A368E2A29C87FAC0089F127 /* Vision */,
 				9A368DE729C861F60089F127 /* Broadcast */,
 				9A368DE629C85F230089F127 /* Info.plist */,
 				9A368D7F29C6038E0089F127 /* Views */,
@@ -465,6 +474,17 @@
 				9A368E2729C87DDC0089F127 /* LogLabels.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		9A368E2A29C87FAC0089F127 /* Vision */ = {
+			isa = PBXGroup;
+			children = (
+				9A368E2B29C880060089F127 /* VisionWorker.swift */,
+				9A368E2D29C8826A0089F127 /* TextRecognizer.swift */,
+				9A368E2F29C885CC0089F127 /* VisionPool.swift */,
+				9A368E3129C8877B0089F127 /* YOLOObjectRecognizer.swift */,
+			);
+			path = Vision;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -687,6 +707,7 @@
 				9A368DF029C862C60089F127 /* BufferCapturer.swift in Sources */,
 				9A1B6B4229B9F585007F787B /* SidePanelView.swift in Sources */,
 				9A368E0A29C866920089F127 /* Promises.swift in Sources */,
+				9A368E2E29C8826A0089F127 /* TextRecognizer.swift in Sources */,
 				9A16BC9529AF8E9B006AE075 /* ContentView.swift in Sources */,
 				9A368DF429C863170089F127 /* VideoCapturer.swift in Sources */,
 				9A368E0629C866230089F127 /* Completer.swift in Sources */,
@@ -694,6 +715,7 @@
 				9A368E0E29C866EA0089F127 /* Errors.swift in Sources */,
 				9A368D7C29C5FF920089F127 /* TermView.swift in Sources */,
 				9A1B6B4029B9F403007F787B /* WebView.swift in Sources */,
+				9A368E3029C885CC0089F127 /* VisionPool.swift in Sources */,
 				9A368DFC29C863970089F127 /* VideoCaptureOptions.swift in Sources */,
 				9A368E0C29C866B80089F127 /* MulticastDelegate.swift in Sources */,
 				9A1B6B4429B9F72F007F787B /* WebTabsViewModel.swift in Sources */,
@@ -711,12 +733,14 @@
 				9A368D7429C5D9B70089F127 /* CameraViewController+Detection.swift in Sources */,
 				9A368E0029C863E40089F127 /* CaptureOptions.swift in Sources */,
 				9A368D6E29C5CD380089F127 /* SlideoutView.swift in Sources */,
+				9A368E2C29C880060089F127 /* VisionWorker.swift in Sources */,
 				9A368E1E29C86C3E0089F127 /* BroadcastScreenCapturerIDS.swift in Sources */,
 				9A368D8F29C71E5B0089F127 /* KeyboardHelper.swift in Sources */,
 				9A1B6B3E29B9F289007F787B /* WebTab+Previews.swift in Sources */,
 				9A368D7229C5D94D0089F127 /* CameraViewController.swift in Sources */,
 				9A368D6629C5C6E60089F127 /* ShakeHelper.swift in Sources */,
 				9A368DFE29C863AC0089F127 /* ScreenShareCaptureOptions.swift in Sources */,
+				9A368E3229C8877B0089F127 /* YOLOObjectRecognizer.swift in Sources */,
 				9A368E2429C879680089F127 /* BufferVideoCapturerDelegate.swift in Sources */,
 				9A368E0229C863FE0089F127 /* RTCVideoCapturerDelegate+Buffer.swift in Sources */,
 				9A368D9629C722F70089F127 /* WebTab+FavIcon.swift in Sources */,
