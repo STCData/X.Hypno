@@ -94,6 +94,9 @@
 		9A368E4629C8C7D40089F127 /* VisionMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4529C8C7D40089F127 /* VisionMarkerView.swift */; };
 		9A368E4829C8CFE20089F127 /* HandRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4729C8CFE20089F127 /* HandRecognizer.swift */; };
 		9A368E4A29C8D56F0089F127 /* HumanBodyPoseRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4929C8D56F0089F127 /* HumanBodyPoseRecognizer.swift */; };
+		9A368E4C29C8FC2C0089F127 /* CVPixelBuffer+AlmostEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4B29C8FC2C0089F127 /* CVPixelBuffer+AlmostEqual.swift */; };
+		9A368E4E29C8FC540089F127 /* VisionPool+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4D29C8FC540089F127 /* VisionPool+Camera.swift */; };
+		9A368E5029C8FC610089F127 /* VisionPool+Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4F29C8FC610089F127 /* VisionPool+Broadcast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +230,9 @@
 		9A368E4529C8C7D40089F127 /* VisionMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionMarkerView.swift; sourceTree = "<group>"; };
 		9A368E4729C8CFE20089F127 /* HandRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandRecognizer.swift; sourceTree = "<group>"; };
 		9A368E4929C8D56F0089F127 /* HumanBodyPoseRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanBodyPoseRecognizer.swift; sourceTree = "<group>"; };
+		9A368E4B29C8FC2C0089F127 /* CVPixelBuffer+AlmostEqual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+AlmostEqual.swift"; sourceTree = "<group>"; };
+		9A368E4D29C8FC540089F127 /* VisionPool+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisionPool+Camera.swift"; sourceTree = "<group>"; };
+		9A368E4F29C8FC610089F127 /* VisionPool+Broadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisionPool+Broadcast.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -499,6 +505,8 @@
 		9A368E2A29C87FAC0089F127 /* Vision */ = {
 			isa = PBXGroup;
 			children = (
+				9A368E5229C8FD740089F127 /* Pools */,
+				9A368E5129C8FD5F0089F127 /* Tools */,
 				9A368E4229C8B0A50089F127 /* Workers */,
 				9A368E4129C8B0980089F127 /* Views */,
 			);
@@ -520,13 +528,30 @@
 			children = (
 				9A368E2B29C880060089F127 /* VisionWorker.swift */,
 				9A368E2D29C8826A0089F127 /* TextRecognizer.swift */,
-				9A368E2F29C885CC0089F127 /* VisionPool.swift */,
 				9A368E3129C8877B0089F127 /* YOLOObjectRecognizer.swift */,
 				9A368E3329C89C860089F127 /* CombineHelpers.swift */,
 				9A368E4729C8CFE20089F127 /* HandRecognizer.swift */,
 				9A368E4929C8D56F0089F127 /* HumanBodyPoseRecognizer.swift */,
 			);
 			path = Workers;
+			sourceTree = "<group>";
+		};
+		9A368E5129C8FD5F0089F127 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				9A368E4B29C8FC2C0089F127 /* CVPixelBuffer+AlmostEqual.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		9A368E5229C8FD740089F127 /* Pools */ = {
+			isa = PBXGroup;
+			children = (
+				9A368E2F29C885CC0089F127 /* VisionPool.swift */,
+				9A368E4D29C8FC540089F127 /* VisionPool+Camera.swift */,
+				9A368E4F29C8FC610089F127 /* VisionPool+Broadcast.swift */,
+			);
+			path = Pools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -745,6 +770,7 @@
 				9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */,
 				9A368E4029C8A82D0089F127 /* VisionViewModel.swift in Sources */,
 				9A368E4829C8CFE20089F127 /* HandRecognizer.swift in Sources */,
+				9A368E5029C8FC610089F127 /* VisionPool+Broadcast.swift in Sources */,
 				9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */,
 				9A368D9B29C7435E0089F127 /* WebTab+DefaultFavIcon.swift in Sources */,
 				9A368E2829C87DDC0089F127 /* LogLabels.swift in Sources */,
@@ -773,6 +799,7 @@
 				9A368D8129C60FB60089F127 /* ViewHelpers.swift in Sources */,
 				9A368E3E29C8A69A0089F127 /* VisionView.swift in Sources */,
 				9A368DFA29C863800089F127 /* BufferCaptureOptions.swift in Sources */,
+				9A368E4E29C8FC540089F127 /* VisionPool+Camera.swift in Sources */,
 				9A368D8D29C618F80089F127 /* TermLogNotification.swift in Sources */,
 				9A368D7629C5DA220089F127 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
 				9A368E4A29C8D56F0089F127 /* HumanBodyPoseRecognizer.swift in Sources */,
@@ -794,6 +821,7 @@
 				9A368E3229C8877B0089F127 /* YOLOObjectRecognizer.swift in Sources */,
 				9A368E3429C89C860089F127 /* CombineHelpers.swift in Sources */,
 				9A368E2429C879680089F127 /* BufferVideoCapturerDelegate.swift in Sources */,
+				9A368E4C29C8FC2C0089F127 /* CVPixelBuffer+AlmostEqual.swift in Sources */,
 				9A368E0229C863FE0089F127 /* RTCVideoCapturerDelegate+Buffer.swift in Sources */,
 				9A368D9629C722F70089F127 /* WebTab+FavIcon.swift in Sources */,
 				9A368D8929C6167B0089F127 /* LogInit.swift in Sources */,

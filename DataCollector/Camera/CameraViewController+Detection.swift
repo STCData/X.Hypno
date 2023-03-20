@@ -14,18 +14,7 @@ private let log = LogLabels.camera.makeLogger()
 
 extension CameraViewController {
     func setupDetector() {
-        cmBufferSubject
-            .throttle(for: VisionPool.cameraThrottle, scheduler: RunLoop.main, latest: true)
-            .receive(on: DispatchQueue.global(qos: .userInitiated))
-            .compactMap { cmBuffer in
-                if let pixelBuffer = CMSampleBufferGetImageBuffer(cmBuffer) {
-                    return pixelBuffer
-                } else {
-                    return nil
-                }
-            }
-            .subscribe(VisionPool.cameraPool)
-
+        VisionPool.subscribeCameraPool(to: cmBufferSubject)
         VisionPool.cameraPool.observationsSubject
             .receive(on: RunLoop.main)
             .sink { observations in
