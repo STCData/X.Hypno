@@ -9,21 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isDebugUIShown = true
+    @State private var isTabbarShown = false
     @State private var isTermOpened = false
 
     var tabView: some View {
         TabView {
-            CameraView()
-                .tabItem {
-                    Label("Camera", systemImage: "camera")
-                }
-                .toolbar(isDebugUIShown ? .visible : .hidden, for: .tabBar)
-
             BrowserView()
                 .tabItem {
                     Label("Browser", systemImage: "globe")
                 }
-                .toolbar(isDebugUIShown ? .visible : .hidden, for: .tabBar)
+                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
+
+            CameraView()
+                .tabItem {
+                    Label("Camera", systemImage: "camera")
+                }
+                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
         }
     }
 
@@ -50,20 +51,21 @@ struct ContentView: View {
                         Broadcast.shared.start()
                     }, icon: "record.circle")
                 }
-            }
-
-            .if(!isDebugUIShown) {
+            }.if(!isDebugUIShown) {
                 $0.hidden()
             }
+
+            VisionView(visionViewModel: VisionViewModel(visionPool: VisionPool.broadcastPool))
         }
+        .ignoresSafeArea()
         .onShake {
             withAnimation(Animation.easeOut(duration: 0.08)) {
-                isDebugUIShown.toggle()
+                isTabbarShown.toggle()
             }
-            if isDebugUIShown {
+            if isTabbarShown {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     withAnimation(Animation.easeOut(duration: 0.2)) {
-                        isDebugUIShown = false
+                        isTabbarShown = false
                     }
                 }
             }

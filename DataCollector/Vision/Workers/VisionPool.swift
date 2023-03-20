@@ -57,20 +57,20 @@ extension VisionPool {
 
     static func makeFullPool() -> Self {
         Self(workers: [
+            //            TextRecognizer(),
+//            TextRecognizer(),
             TextRecognizer(),
-            TextRecognizer(),
-            TextRecognizer(),
             try! YOLOObjectRecognizer(),
-            try! YOLOObjectRecognizer(),
-            try! YOLOObjectRecognizer(),
-            try! YOLOObjectRecognizer(),
+//            try! YOLOObjectRecognizer(),
+//            try! YOLOObjectRecognizer(),
+//            try! YOLOObjectRecognizer(),
         ])
     }
 
     static func makeFullPoolSubscribedToSharedBroadcast() -> Self {
         let fullPool = makeFullPool()
         Broadcast.shared.cvBufferSubject
-            .throttle(for: 1.0, scheduler: RunLoop.main, latest: true)
+            .throttle(for: 0.9, scheduler: RunLoop.main, latest: true)
             .subscribe(fullPool)
         return fullPool
     }

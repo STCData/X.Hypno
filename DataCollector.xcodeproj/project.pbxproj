@@ -392,10 +392,8 @@
 		9A368D7F29C6038E0089F127 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9A368E3F29C8A82D0089F127 /* VisionViewModel.swift */,
 				9A368D6F29C5CEB30089F127 /* FloatingButton.swift */,
 				9A368D6D29C5CD380089F127 /* SlideoutView.swift */,
-				9A368E3D29C8A69A0089F127 /* VisionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -492,13 +490,31 @@
 		9A368E2A29C87FAC0089F127 /* Vision */ = {
 			isa = PBXGroup;
 			children = (
+				9A368E4229C8B0A50089F127 /* Workers */,
+				9A368E4129C8B0980089F127 /* Views */,
+			);
+			path = Vision;
+			sourceTree = "<group>";
+		};
+		9A368E4129C8B0980089F127 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9A368E3D29C8A69A0089F127 /* VisionView.swift */,
+				9A368E3F29C8A82D0089F127 /* VisionViewModel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9A368E4229C8B0A50089F127 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
 				9A368E2B29C880060089F127 /* VisionWorker.swift */,
 				9A368E2D29C8826A0089F127 /* TextRecognizer.swift */,
 				9A368E2F29C885CC0089F127 /* VisionPool.swift */,
 				9A368E3129C8877B0089F127 /* YOLOObjectRecognizer.swift */,
 				9A368E3329C89C860089F127 /* CombineHelpers.swift */,
 			);
-			path = Vision;
+			path = Workers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -12,6 +12,7 @@ import Vision
 
 class VisionViewModel: ObservableObject {
     @Published var objects: [VNRecognizedObjectObservation] = []
+    @Published var text: [VNRecognizedTextObservation] = []
     private var subscriptions = Set<AnyCancellable>()
 
     init(visionPool: VisionPool) {
@@ -19,6 +20,8 @@ class VisionViewModel: ObservableObject {
             .receive(on: RunLoop.main)
             .sink { observations in
                 self.objects = observations.filter { $0 is VNRecognizedObjectObservation } as! [VNRecognizedObjectObservation]
+                self.text = observations.filter { $0 is VNRecognizedTextObservation } as! [VNRecognizedTextObservation]
+
             }.store(in: &subscriptions)
     }
 
