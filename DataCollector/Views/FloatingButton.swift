@@ -10,11 +10,12 @@ import SwiftUI
 struct FloatingButton: View {
     let action: () -> Void
     let icon: String
+    var color: Color = .white
     var body: some View {
         Button(action: action) {
             Image(systemName: icon)
                 .font(.system(size: 25))
-                .foregroundColor(.white)
+                .foregroundColor(color)
         }
         .frame(width: 60, height: 60)
         .background(Color.gray.opacity(0.2))

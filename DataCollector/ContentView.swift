@@ -11,6 +11,8 @@ struct ContentView: View {
     @State private var isDebugUIShown = true
     @State private var isTabbarShown = false
     @State private var isTermOpened = false
+    @EnvironmentObject
+    var broadcast: Broadcast
 
     var tabView: some View {
         TabView {
@@ -45,14 +47,14 @@ struct ContentView: View {
                 HStack {
                     FloatingButton(action: {
                         isTermOpened.toggle()
-                    }, icon: "terminal")
+                    }, icon: "terminal", color: isTermOpened ? .black : .white)
 
                     FloatingButton(action: {
-                        Broadcast.shared.startInApp()
-                    }, icon: "rectangle.dashed.badge.record")
+                        broadcast.isInAppInProgress.toggle()
+                    }, icon: "rectangle.dashed.badge.record", color: broadcast.isInAppInProgress ? .red : .white)
                     FloatingButton(action: {
-                        Broadcast.shared.startSystemWide()
-                    }, icon: "menubar.dock.rectangle.badge.record")
+                        broadcast.isSystemWideInProgress.toggle()
+                    }, icon: "menubar.dock.rectangle.badge.record", color: broadcast.isSystemWideInProgress ? .red : .white)
                 }
             }.if(!isDebugUIShown) {
                 $0.hidden()

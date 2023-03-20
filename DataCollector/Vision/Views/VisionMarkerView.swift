@@ -22,11 +22,14 @@ struct VisionMarkerView: View {
             Rectangle()
                 .stroke(lineWidth: 2)
                 .foregroundColor(.red)
+                .allowsHitTesting(false)
+
         case .greenThin:
             Rectangle()
                 .stroke(lineWidth: 0.3)
                 .foregroundColor(.green.opacity(0.5))
                 .background(.green.opacity(0.04))
+                .allowsHitTesting(false)
         }
     }
 }

@@ -12,7 +12,8 @@ import Promises
 import ReplayKit
 
 private let logger = LogLabels.broadcast.makeLogger()
-class Broadcast: BufferVideoCapturerDelegate {
+
+class Broadcast: BufferVideoCapturerDelegate, ObservableObject {
     static let shared = Broadcast()
 
     let cvBufferSubject = PassthroughSubject<CVPixelBuffer, Never>()
@@ -33,6 +34,30 @@ class Broadcast: BufferVideoCapturerDelegate {
     var broadcastScreenCapturer: BroadcastScreenCapturer? = nil
     var inAppScreenCapturer: InAppScreenCapturer? = nil
 
+    @Published
+    var isSystemWideInProgress = false {
+        didSet {
+            if isSystemWideInProgress {
+                isInAppInProgress = false
+                startSystemWide()
+            } else {
+                stopSystemWide()
+            }
+        }
+    }
+
+    @Published
+    var isInAppInProgress = false {
+        didSet {
+            if isInAppInProgress {
+                isSystemWideInProgress = false
+                startInApp()
+            } else {
+                stopInApp()
+            }
+        }
+    }
+
     init() {
         cmBufferSubject
             .receive(on: DispatchQueue.global(qos: .userInitiated))
@@ -44,7 +69,7 @@ class Broadcast: BufferVideoCapturerDelegate {
             .store(in: &cmBufferConversionSubscriptions)
     }
 
-    func startInApp() {
+    private func startInApp() {
         stopSystemWide()
         inAppScreenCapturer = InAppScreenCapturer(options: BufferCaptureOptions())
         guard let inAppScreenCapturer else { return }
@@ -53,22 +78,22 @@ class Broadcast: BufferVideoCapturerDelegate {
         let _ = inAppScreenCapturer.startCapture()
     }
 
-    func stopInApp() {
+    private func stopInApp() {
         guard let inAppScreenCapturer else { return }
         inAppScreenCapturer.delegate = nil
         let _ = inAppScreenCapturer.stopCapture()
-        self.inAppScreenCapturer = nil
+//        self.inAppScreenCapturer = nil
     }
 
-    func stopSystemWide() {
+    private func stopSystemWide() {
         // fixme actually stop
         guard let broadcastScreenCapturer else { return }
         broadcastScreenCapturer.delegate = nil
         let _ = broadcastScreenCapturer.stopCapture()
-        self.broadcastScreenCapturer = nil
+//        self.broadcastScreenCapturer = nil
     }
 
-    func startSystemWide() {
+    private func startSystemWide() {
         stopInApp()
         broadcastScreenCapturer = BroadcastScreenCapturer(options: BufferCaptureOptions())
         guard let broadcastScreenCapturer else { return }
