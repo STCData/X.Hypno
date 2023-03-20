@@ -65,7 +65,7 @@ public class VideoCapturer: NSObject, Loggable, VideoCapturerProtocol {
         case started
     }
 
-//    internal weak var delegate: RTCVideoCapturerDelegate?
+    internal weak var delegate: BufferVideoCapturerDelegate?
 
     internal struct State {
         var dimensionsCompleter = Completer<Dimensions>()

@@ -10,10 +10,22 @@ import Logging
 import Promises
 import ReplayKit
 private let logger = Logger(label: "broadcast")
-class Broadcast {
+class Broadcast: BufferVideoCapturerDelegate {
+    func capturer(_: BufferCapturer, didCapture cmBuffer: CMSampleBuffer) {
+        logger.info("broadcast captured cmBuffer \(cmBuffer)")
+    }
+
+    func capturer(_: BufferCapturer, didCapture cvBuffer: CVPixelBuffer, timeStampNs: Int64) {
+        logger.info("broadcast captured cvbuffer \(CVPixelBufferGetWidth(cvBuffer))x\(CVPixelBufferGetHeight(cvBuffer)) @\(timeStampNs)")
+    }
+
     static let shared = Broadcast()
 
-    let broadcastScreenCapturer = BroadcastScreenCapturer(options: BufferCaptureOptions())
+    var broadcastScreenCapturer: BroadcastScreenCapturer
+    init() {
+        broadcastScreenCapturer = BroadcastScreenCapturer(options: BufferCaptureOptions())
+        broadcastScreenCapturer.delegate = self
+    }
 
     func start() {
         let screenShareExtensionId = Bundle.main.infoDictionary?[BroadcastScreenCapturer.kRTCScreenSharingExtension] as? String

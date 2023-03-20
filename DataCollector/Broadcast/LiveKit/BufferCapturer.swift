@@ -35,7 +35,7 @@ public class BufferCapturer: VideoCapturer {
     public var options: BufferCaptureOptions
 
     init(
-        //        delegate: RTCVideoCapturerDelegate,
+        //        delegate: BufferVideoCapturerDelegate,
         options: BufferCaptureOptions
     ) {
         self.options = options
@@ -43,9 +43,8 @@ public class BufferCapturer: VideoCapturer {
     }
 
     /// Capture a ``CMSampleBuffer``.
-    public func capture(_: CMSampleBuffer) {
-        /*
-         delegate?.capturer(capturer, didCapture: sampleBuffer) { sourceDimensions in
+    public func capture(_ sampleBuffer: CMSampleBuffer) {
+        delegate?.capturer(self, didCapture: sampleBuffer) /* { sourceDimensions in
 
              let targetDimensions = sourceDimensions
                  .aspectFit(size: self.options.dimensions.max)
@@ -57,18 +56,18 @@ public class BufferCapturer: VideoCapturer {
              videoSource.adaptOutputFormat(toWidth: targetDimensions.width,
                                            height: targetDimensions.height,
                                            fps: Int32(self.options.fps))
+
          }*/
     }
 
     /// Capture a ``CVPixelBuffer``.
-    public func capture(_: CVPixelBuffer,
-                        timeStampNs _: Int64 = VideoCapturer.createTimeStampNs() // ,
+    public func capture(_ pixelBuffer: CVPixelBuffer,
+                        timeStampNs: Int64 = VideoCapturer.createTimeStampNs() // ,
 //                        rotation: RTCVideoRotation = ._0
     ) {
-        /*
-         delegate?.capturer(capturer,
-                            didCapture: pixelBuffer,
-                            timeStampNs: timeStampNs,
+        delegate?.capturer(self,
+                           didCapture: pixelBuffer,
+                           timeStampNs: timeStampNs) /* ,
                             rotation: rotation) { sourceDimensions in
 
              let targetDimensions = sourceDimensions

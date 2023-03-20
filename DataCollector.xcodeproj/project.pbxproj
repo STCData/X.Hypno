@@ -78,6 +78,7 @@
 		9A368E1E29C86C3E0089F127 /* BroadcastScreenCapturerIDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E1D29C86C3E0089F127 /* BroadcastScreenCapturerIDS.swift */; };
 		9A368E1F29C86C820089F127 /* BroadcastScreenCapturerIDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E1D29C86C3E0089F127 /* BroadcastScreenCapturerIDS.swift */; };
 		9A368E2129C86CEA0089F127 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368E2029C86CEA0089F127 /* Logging */; };
+		9A368E2429C879680089F127 /* BufferVideoCapturerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E2329C879680089F127 /* BufferVideoCapturerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +198,7 @@
 		9A368E1529C86A900089F127 /* DarwinNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarwinNotificationCenter.swift; sourceTree = "<group>"; };
 		9A368E1D29C86C3E0089F127 /* BroadcastScreenCapturerIDS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastScreenCapturerIDS.swift; sourceTree = "<group>"; };
 		9A368E2229C86E190089F127 /* BroadcastExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BroadcastExt.entitlements; sourceTree = "<group>"; };
+		9A368E2329C879680089F127 /* BufferVideoCapturerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BufferVideoCapturerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +422,17 @@
 		9A368DE729C861F60089F127 /* Broadcast */ = {
 			isa = PBXGroup;
 			children = (
+				9A368E2529C87CBF0089F127 /* LiveKit */,
+				9A368E1D29C86C3E0089F127 /* BroadcastScreenCapturerIDS.swift */,
+				9A368DE829C862060089F127 /* Broadcast.swift */,
+				9A368E2329C879680089F127 /* BufferVideoCapturerDelegate.swift */,
+			);
+			path = Broadcast;
+			sourceTree = "<group>";
+		};
+		9A368E2529C87CBF0089F127 /* LiveKit */ = {
+			isa = PBXGroup;
+			children = (
 				9A368E0F29C869BC0089F127 /* Extensions.swift */,
 				9A368E0D29C866EA0089F127 /* Errors.swift */,
 				9A368E0B29C866B80089F127 /* MulticastDelegate.swift */,
@@ -438,10 +451,8 @@
 				9A368DF129C862D60089F127 /* SocketConnectionFrameReader.swift */,
 				9A368DEF29C862C60089F127 /* BufferCapturer.swift */,
 				9A368DEA29C862520089F127 /* BroadcastScreenCapturer.swift */,
-				9A368E1D29C86C3E0089F127 /* BroadcastScreenCapturerIDS.swift */,
-				9A368DE829C862060089F127 /* Broadcast.swift */,
 			);
-			path = Broadcast;
+			path = LiveKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -693,6 +704,7 @@
 				9A368D7229C5D94D0089F127 /* CameraViewController.swift in Sources */,
 				9A368D6629C5C6E60089F127 /* ShakeHelper.swift in Sources */,
 				9A368DFE29C863AC0089F127 /* ScreenShareCaptureOptions.swift in Sources */,
+				9A368E2429C879680089F127 /* BufferVideoCapturerDelegate.swift in Sources */,
 				9A368E0229C863FE0089F127 /* RTCVideoCapturerDelegate+Buffer.swift in Sources */,
 				9A368D9629C722F70089F127 /* WebTab+FavIcon.swift in Sources */,
 				9A368D8929C6167B0089F127 /* LogInit.swift in Sources */,
