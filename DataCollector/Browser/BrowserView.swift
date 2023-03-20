@@ -20,6 +20,10 @@ struct BrowserView: View {
 
     var body: some View {
         ZStack(alignment: .top) {
+            Color.black.opacity(0.96)
+                .ignoresSafeArea()
+                .accessibilityIgnoresInvertColors(true)
+
             TabbedWebView(request: webTabsViewModel.currentTab?.urlRequest ?? URLRequest(url: WebTab.blankPageURL))
 
             // UIScreen.main.bounds.size.width * 0.9
@@ -36,8 +40,7 @@ struct BrowserView: View {
             }
         }
         .environmentObject(webTabsViewModel)
-        .background(.black.opacity(0.96))
-        .padding(.top, 26)
+        .padding(.top, 30)
         .ignoresSafeArea()
     }
 }

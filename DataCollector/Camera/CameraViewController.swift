@@ -92,9 +92,19 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         }
     }
 
+    private let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes:
+        [.builtInTrueDepthCamera, .builtInDualCamera, .builtInWideAngleCamera],
+        mediaType: .video, position: .unspecified)
+
+    func bestDevice(in position: AVCaptureDevice.Position) -> AVCaptureDevice {
+        let devices = discoverySession.devices
+        guard !devices.isEmpty else { fatalError("Missing capture devices.") }
+
+        return devices.first(where: { device in device.position == position })!
+    }
+
     func setupCaptureSession() {
-        // Camera input
-        guard let videoDevice = AVCaptureDevice.default(.builtInDualWideCamera, for: .video, position: .back) else { return }
+        let videoDevice = bestDevice(in: .back)
         guard let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice) else { return }
 
         guard captureSession.canAddInput(videoDeviceInput) else { return }

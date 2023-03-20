@@ -22,7 +22,8 @@ struct VisionMarkerView: View {
         case .redBold:
             Rectangle()
                 .stroke(lineWidth: 2)
-                .foregroundColor(.red)
+                .foregroundColor(.red.opacity(0.5))
+                .accessibilityIgnoresInvertColors(true)
                 .allowsHitTesting(false)
 
         case .greenThin:
@@ -30,10 +31,12 @@ struct VisionMarkerView: View {
                 .stroke(lineWidth: 0.3)
                 .foregroundColor(.green.opacity(0.5))
                 .background(.green.opacity(0.04))
+                .accessibilityIgnoresInvertColors(true)
                 .allowsHitTesting(false)
         case .yellowCicle:
             Circle()
-                .foregroundColor(.yellow.opacity(0.9))
+                .foregroundColor(.yellow).brightness(0.5)
+                .accessibilityIgnoresInvertColors(true)
                 .allowsHitTesting(false)
         }
     }
