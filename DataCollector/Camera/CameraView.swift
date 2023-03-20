@@ -9,7 +9,10 @@ import SwiftUI
 
 struct CameraView: View {
     var body: some View {
-        HostedCameraViewController()
-            .ignoresSafeArea()
+        ZStack {
+            HostedCameraViewController()
+            VisionView(visionViewModel: VisionViewModel(visionPool: VisionPool.cameraPool))
+        }
+        .ignoresSafeArea()
     }
 }

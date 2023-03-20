@@ -14,15 +14,12 @@ private let log = LogLabels.camera.makeLogger()
 
 extension CameraViewController {
     func setupDetector() {
-        if let yoloWorker = try? YOLOObjectRecognizer() {
-            visionPool = VisionPool(workers: [yoloWorker])
-            visionPool?.observationsSubject
-                .receive(on: RunLoop.main)
-                .sink { observations in
-                    self.extractDetections(observations)
+        VisionPool.cameraPool.observationsSubject
+            .receive(on: RunLoop.main)
+            .sink { observations in
+                self.extractDetections(observations)
 
-                }.store(in: &visionSubscriptions)
-        }
+            }.store(in: &visionSubscriptions)
     }
 
     func detectionDidComplete(request: VNRequest, error _: Error?) {
@@ -65,15 +62,15 @@ extension CameraViewController {
     func drawBoundingBox(_ bounds: CGRect) -> CALayer {
         let boxLayer = CALayer()
         boxLayer.frame = bounds
-        boxLayer.borderWidth = 3.0
-        boxLayer.borderColor = CGColor(red: 0.9, green: 0.1, blue: 0.0, alpha: 1.0)
-        boxLayer.cornerRadius = 4
+        boxLayer.borderWidth = 10.0
+        boxLayer.borderColor = CGColor(red: 0.1, green: 0.8, blue: 0.0, alpha: 0.1)
+        boxLayer.cornerRadius = 7
         return boxLayer
     }
 
     func captureOutput(_: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from _: AVCaptureConnection) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
 
-        visionPool?.receive(pixelBuffer)
+        _ = VisionPool.cameraPool.receive(pixelBuffer)
     }
 }

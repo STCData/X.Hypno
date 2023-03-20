@@ -24,7 +24,6 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
 
     var detectionLayer: CALayer! = nil
 
-    var visionPool: VisionPool?
     var visionSubscriptions = Set<AnyCancellable>()
 
     override func viewDidLoad() {

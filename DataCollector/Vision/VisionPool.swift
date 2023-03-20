@@ -12,16 +12,16 @@ import Vision
 private let log = LogLabels.vision.makeLogger()
 
 final class VisionPool: VisionWorker {
+    typealias Input = CVPixelBuffer
+    typealias Failure = Never
     let observationsSubject = PassthroughSubject<[VNObservation], Never>()
+
+    private var workers: [any VisionWorker]
+    private var workersSubscriptions = Set<AnyCancellable>()
 
     func receive(completion: Subscribers.Completion<Never>) {
         log.trace("VisionPool completion \(completion)")
     }
-
-    static let shared = makeFullPoolSubscribedToSharedBroadcast()
-
-    typealias Input = CVPixelBuffer
-    typealias Failure = Never
 
     func receive(subscription: Subscription) {
         log.trace("VisionPool subscribed \(subscription)")
@@ -40,9 +40,6 @@ final class VisionPool: VisionWorker {
         }
     }
 
-    private var workers: [any VisionWorker]
-    private var workersSubscriptions = Set<AnyCancellable>()
-
     required init(workers: [any VisionWorker]) {
         self.workers = workers
 
@@ -52,6 +49,11 @@ final class VisionPool: VisionWorker {
                 self.observationsSubject.send(flatObservations)
             }.store(in: &workersSubscriptions)
     }
+}
+
+extension VisionPool {
+    static let broadcastPool = makeFullPoolSubscribedToSharedBroadcast()
+    static let cameraPool = makeCameraPool()
 
     static func makeFullPool() -> Self {
         Self(workers: [
@@ -64,14 +66,18 @@ final class VisionPool: VisionWorker {
             try! YOLOObjectRecognizer(),
         ])
     }
-}
 
-extension VisionPool {
     static func makeFullPoolSubscribedToSharedBroadcast() -> Self {
         let fullPool = makeFullPool()
         Broadcast.shared.cvBufferSubject
             .throttle(for: 1.0, scheduler: RunLoop.main, latest: true)
             .subscribe(fullPool)
         return fullPool
+    }
+
+    static func makeCameraPool() -> Self {
+        let yoloWorker = try! YOLOObjectRecognizer()
+        let visionPool = Self(workers: [yoloWorker])
+        return visionPool
     }
 }

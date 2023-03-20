@@ -88,6 +88,8 @@
 		9A368E3429C89C860089F127 /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E3329C89C860089F127 /* CombineHelpers.swift */; };
 		9A368E3629C89ED60089F127 /* ArrayPublisherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E3529C89ED60089F127 /* ArrayPublisherTests.swift */; };
 		9A368E3A29C8A2840089F127 /* Promises in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368E3929C8A2840089F127 /* Promises */; };
+		9A368E3E29C8A69A0089F127 /* VisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E3D29C8A69A0089F127 /* VisionView.swift */; };
+		9A368E4029C8A82D0089F127 /* VisionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E3F29C8A82D0089F127 /* VisionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +217,8 @@
 		9A368E3129C8877B0089F127 /* YOLOObjectRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLOObjectRecognizer.swift; sourceTree = "<group>"; };
 		9A368E3329C89C860089F127 /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
 		9A368E3529C89ED60089F127 /* ArrayPublisherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayPublisherTests.swift; sourceTree = "<group>"; };
+		9A368E3D29C8A69A0089F127 /* VisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionView.swift; sourceTree = "<group>"; };
+		9A368E3F29C8A82D0089F127 /* VisionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,8 +392,10 @@
 		9A368D7F29C6038E0089F127 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9A368E3F29C8A82D0089F127 /* VisionViewModel.swift */,
 				9A368D6F29C5CEB30089F127 /* FloatingButton.swift */,
 				9A368D6D29C5CD380089F127 /* SlideoutView.swift */,
+				9A368E3D29C8A69A0089F127 /* VisionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -709,6 +715,7 @@
 				9A368D8B29C6185E0089F127 /* TermLogger.swift in Sources */,
 				9A368DF229C862D60089F127 /* SocketConnectionFrameReader.swift in Sources */,
 				9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */,
+				9A368E4029C8A82D0089F127 /* VisionViewModel.swift in Sources */,
 				9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */,
 				9A368D9B29C7435E0089F127 /* WebTab+DefaultFavIcon.swift in Sources */,
 				9A368E2829C87DDC0089F127 /* LogLabels.swift in Sources */,
@@ -733,6 +740,7 @@
 				9A368D6929C5C7560089F127 /* CameraView.swift in Sources */,
 				9A368E1029C869BC0089F127 /* Extensions.swift in Sources */,
 				9A368D8129C60FB60089F127 /* ViewHelpers.swift in Sources */,
+				9A368E3E29C8A69A0089F127 /* VisionView.swift in Sources */,
 				9A368DFA29C863800089F127 /* BufferCaptureOptions.swift in Sources */,
 				9A368D8D29C618F80089F127 /* TermLogNotification.swift in Sources */,
 				9A368D7629C5DA220089F127 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,

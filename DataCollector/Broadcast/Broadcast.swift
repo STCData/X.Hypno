@@ -39,7 +39,8 @@ class Broadcast: BufferVideoCapturerDelegate {
         RPSystemBroadcastPickerView.show(for: screenShareExtensionId,
                                          showsMicrophoneButton: false)
 
-        let _ = VisionPool.shared
+        let _ = VisionPool.broadcastPool
+
         let started = broadcastScreenCapturer.startCapture()
         started.then(on: .main) { _ in
             logger.info("broadcast caputerstarted!")
