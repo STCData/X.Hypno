@@ -72,6 +72,7 @@ extension VisionPool {
         Broadcast.shared.cvBufferSubject
             .throttle(for: 0.9, scheduler: RunLoop.main, latest: true)
             .subscribe(fullPool)
+
         return fullPool
     }
 

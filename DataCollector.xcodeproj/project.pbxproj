@@ -90,6 +90,8 @@
 		9A368E3A29C8A2840089F127 /* Promises in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368E3929C8A2840089F127 /* Promises */; };
 		9A368E3E29C8A69A0089F127 /* VisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E3D29C8A69A0089F127 /* VisionView.swift */; };
 		9A368E4029C8A82D0089F127 /* VisionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E3F29C8A82D0089F127 /* VisionViewModel.swift */; };
+		9A368E4429C8C0400089F127 /* InAppCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4329C8C0400089F127 /* InAppCapturer.swift */; };
+		9A368E4629C8C7D40089F127 /* VisionMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4529C8C7D40089F127 /* VisionMarkerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +221,8 @@
 		9A368E3529C89ED60089F127 /* ArrayPublisherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayPublisherTests.swift; sourceTree = "<group>"; };
 		9A368E3D29C8A69A0089F127 /* VisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionView.swift; sourceTree = "<group>"; };
 		9A368E3F29C8A82D0089F127 /* VisionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionViewModel.swift; sourceTree = "<group>"; };
+		9A368E4329C8C0400089F127 /* InAppCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppCapturer.swift; sourceTree = "<group>"; };
+		9A368E4529C8C7D40089F127 /* VisionMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionMarkerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -473,6 +477,7 @@
 				9A368DF329C863170089F127 /* VideoCapturer.swift */,
 				9A368DF129C862D60089F127 /* SocketConnectionFrameReader.swift */,
 				9A368DEF29C862C60089F127 /* BufferCapturer.swift */,
+				9A368E4329C8C0400089F127 /* InAppCapturer.swift */,
 				9A368DEA29C862520089F127 /* BroadcastScreenCapturer.swift */,
 			);
 			path = LiveKit;
@@ -501,6 +506,7 @@
 			children = (
 				9A368E3D29C8A69A0089F127 /* VisionView.swift */,
 				9A368E3F29C8A82D0089F127 /* VisionViewModel.swift */,
+				9A368E4529C8C7D40089F127 /* VisionMarkerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -737,6 +743,7 @@
 				9A368E2829C87DDC0089F127 /* LogLabels.swift in Sources */,
 				9A368D6329C5C5060089F127 /* BrowserView.swift in Sources */,
 				9A368D7029C5CEB30089F127 /* FloatingButton.swift in Sources */,
+				9A368E4629C8C7D40089F127 /* VisionMarkerView.swift in Sources */,
 				9A368E0429C866170089F127 /* StateSync.swift in Sources */,
 				9A368DF029C862C60089F127 /* BufferCapturer.swift in Sources */,
 				9A1B6B4229B9F585007F787B /* SidePanelView.swift in Sources */,
@@ -755,6 +762,7 @@
 				9A1B6B4429B9F72F007F787B /* WebTabsViewModel.swift in Sources */,
 				9A368D6929C5C7560089F127 /* CameraView.swift in Sources */,
 				9A368E1029C869BC0089F127 /* Extensions.swift in Sources */,
+				9A368E4429C8C0400089F127 /* InAppCapturer.swift in Sources */,
 				9A368D8129C60FB60089F127 /* ViewHelpers.swift in Sources */,
 				9A368E3E29C8A69A0089F127 /* VisionView.swift in Sources */,
 				9A368DFA29C863800089F127 /* BufferCaptureOptions.swift in Sources */,

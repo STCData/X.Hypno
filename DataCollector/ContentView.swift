@@ -48,8 +48,11 @@ struct ContentView: View {
                     }, icon: "terminal")
 
                     FloatingButton(action: {
-                        Broadcast.shared.start()
-                    }, icon: "record.circle")
+                        Broadcast.shared.startInApp()
+                    }, icon: "rectangle.dashed.badge.record")
+                    FloatingButton(action: {
+                        Broadcast.shared.startSystemWide()
+                    }, icon: "menubar.dock.rectangle.badge.record")
                 }
             }.if(!isDebugUIShown) {
                 $0.hidden()

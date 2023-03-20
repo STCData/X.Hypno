@@ -16,7 +16,9 @@ class Broadcast: BufferVideoCapturerDelegate {
     static let shared = Broadcast()
 
     let cvBufferSubject = PassthroughSubject<CVPixelBuffer, Never>()
-    let cmBufferSubject = PassthroughSubject<CMSampleBuffer, Never>()
+    private let cmBufferSubject = PassthroughSubject<CMSampleBuffer, Never>()
+
+    private var cmBufferConversionSubscriptions = Set<AnyCancellable>()
 
     func capturer(_: BufferCapturer, didCapture cmBuffer: CMSampleBuffer) {
         logger.info("broadcast captured cmBuffer \(cmBuffer)")
@@ -28,13 +30,50 @@ class Broadcast: BufferVideoCapturerDelegate {
         cvBufferSubject.send(cvBuffer)
     }
 
-    var broadcastScreenCapturer: BroadcastScreenCapturer
+    var broadcastScreenCapturer: BroadcastScreenCapturer? = nil
+    var inAppScreenCapturer: InAppScreenCapturer? = nil
+
     init() {
-        broadcastScreenCapturer = BroadcastScreenCapturer(options: BufferCaptureOptions())
-        broadcastScreenCapturer.delegate = self
+        cmBufferSubject
+            .receive(on: DispatchQueue.global(qos: .userInitiated))
+            .sink { cmBuffer in
+                if let pixelBuffer = CMSampleBufferGetImageBuffer(cmBuffer) {
+                    self.cvBufferSubject.send(pixelBuffer)
+                }
+            }
+            .store(in: &cmBufferConversionSubscriptions)
     }
 
-    func start() {
+    func startInApp() {
+        stopSystemWide()
+        inAppScreenCapturer = InAppScreenCapturer(options: BufferCaptureOptions())
+        guard let inAppScreenCapturer else { return }
+
+        inAppScreenCapturer.delegate = self
+        let _ = inAppScreenCapturer.startCapture()
+    }
+
+    func stopInApp() {
+        guard let inAppScreenCapturer else { return }
+        inAppScreenCapturer.delegate = nil
+        let _ = inAppScreenCapturer.stopCapture()
+        self.inAppScreenCapturer = nil
+    }
+
+    func stopSystemWide() {
+        // fixme actually stop
+        guard let broadcastScreenCapturer else { return }
+        broadcastScreenCapturer.delegate = nil
+        let _ = broadcastScreenCapturer.stopCapture()
+        self.broadcastScreenCapturer = nil
+    }
+
+    func startSystemWide() {
+        stopInApp()
+        broadcastScreenCapturer = BroadcastScreenCapturer(options: BufferCaptureOptions())
+        guard let broadcastScreenCapturer else { return }
+        broadcastScreenCapturer.delegate = self
+
         let screenShareExtensionId = Bundle.main.infoDictionary?[BroadcastScreenCapturer.kRTCScreenSharingExtension] as? String
         RPSystemBroadcastPickerView.show(for: screenShareExtensionId,
                                          showsMicrophoneButton: false)
