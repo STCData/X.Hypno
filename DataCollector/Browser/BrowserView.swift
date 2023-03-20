@@ -18,13 +18,42 @@ struct BrowserView: View {
     @StateObject var webTabsViewModel = WebTabsViewModel(tabs: [WebTab(urlRequest: URLRequest(url: WebTab.blankPageURL))])
     @State private var isSideBarOpened = false
 
+    @State
+    private var unsafeAreaColor = unsafeAreaColorDefault
+
+    private static let unsafeAreaColorDefault = Color.black.opacity(0.96)
+    private static let unsafeAreaColorTapped = Color.white
+
     var body: some View {
         ZStack(alignment: .top) {
-            Color.black.opacity(0.96)
+            Color(.white)
+                .colorMultiply(self.unsafeAreaColor)
                 .ignoresSafeArea()
                 .accessibilityIgnoresInvertColors(true)
+                .allowsHitTesting(false)
 
             TabbedWebView(request: webTabsViewModel.currentTab?.urlRequest ?? URLRequest(url: WebTab.blankPageURL))
+
+            FloatingAtCorner(alignment: .topLeading) {
+                Button {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        self.unsafeAreaColor = BrowserView.unsafeAreaColorTapped
+                    }
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                        withAnimation(Animation.easeOut(duration: 0.2)) {
+                            self.unsafeAreaColor = BrowserView.unsafeAreaColorDefault
+                        }
+                    }
+
+                } label: {
+                    Color(.clear)
+                        .frame(width: 70)
+                        .frame(height: 70)
+                }
+                .ignoresSafeArea()
+            }
+            .ignoresSafeArea()
 
             // UIScreen.main.bounds.size.width * 0.9
             SlideoutView(
