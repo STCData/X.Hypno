@@ -81,16 +81,18 @@ class Broadcast: BufferVideoCapturerDelegate, ObservableObject {
     private func stopInApp() {
         guard let inAppScreenCapturer else { return }
         inAppScreenCapturer.delegate = nil
-        let _ = inAppScreenCapturer.stopCapture()
-//        self.inAppScreenCapturer = nil
+        let _ = inAppScreenCapturer.stopCapture().then { _ in
+            self.inAppScreenCapturer = nil
+        }
     }
 
     private func stopSystemWide() {
         // fixme actually stop
         guard let broadcastScreenCapturer else { return }
         broadcastScreenCapturer.delegate = nil
-        let _ = broadcastScreenCapturer.stopCapture()
-//        self.broadcastScreenCapturer = nil
+        broadcastScreenCapturer.stopCapture().then { _ in
+            self.broadcastScreenCapturer = nil
+        }
     }
 
     private func startSystemWide() {
