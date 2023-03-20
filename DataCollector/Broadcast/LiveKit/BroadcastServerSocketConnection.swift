@@ -9,7 +9,7 @@
 import Darwin
 import Foundation
 import Logging
-private let logger = Logger(label: LogLabels.broadcast)
+private let logger = LogLabels.broadcast.makeLogger()
 
 #if canImport(CHeaders)
     import CHeaders

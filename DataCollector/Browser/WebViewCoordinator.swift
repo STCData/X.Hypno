@@ -8,7 +8,7 @@
 import Logging
 import SwiftUI
 import WebKit
-private let log = Logger(label: LogLabels.webview.rawValue)
+private let log = LogLabels.webview.makeLogger()
 
 class WebViewCoordinator: NSObject, WKUIDelegate {
     weak var tabsViewModel: WebTabsViewModel?

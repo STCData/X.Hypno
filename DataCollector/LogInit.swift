@@ -8,16 +8,6 @@
 import Foundation
 import Puppy
 
-enum LogLabels: String {
-    case general = "stc.data.general"
-    case webview = "stc.data.webview"
-    case camera = "stc.data.camera"
-    case ml = "stc.data.ml"
-    case network = "stc.data.network"
-    case broadcast = "stc.data.broadcast"
-    case broadcastUpload = "stc.data.broadcast.upload"
-}
-
 func LogInit() {
     let console = ConsoleLogger("stc.data.console")
 //    let syslog = SystemLogger("stc.data.syslog")
@@ -35,7 +25,7 @@ func LogInit() {
         return handler
     }
 
-    let log = Logger(label: LogLabels.general.rawValue)
+    let log = LogLabels.general.makeLogger()
 
     log.trace("TRACE message log init") // Will be logged.
     log.debug("DEBUG message log init") // Will be logged.

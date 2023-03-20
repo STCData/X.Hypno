@@ -79,6 +79,8 @@
 		9A368E1F29C86C820089F127 /* BroadcastScreenCapturerIDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E1D29C86C3E0089F127 /* BroadcastScreenCapturerIDS.swift */; };
 		9A368E2129C86CEA0089F127 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368E2029C86CEA0089F127 /* Logging */; };
 		9A368E2429C879680089F127 /* BufferVideoCapturerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E2329C879680089F127 /* BufferVideoCapturerDelegate.swift */; };
+		9A368E2829C87DDC0089F127 /* LogLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E2729C87DDC0089F127 /* LogLabels.swift */; };
+		9A368E2929C87DE30089F127 /* LogLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E2729C87DDC0089F127 /* LogLabels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +201,7 @@
 		9A368E1D29C86C3E0089F127 /* BroadcastScreenCapturerIDS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastScreenCapturerIDS.swift; sourceTree = "<group>"; };
 		9A368E2229C86E190089F127 /* BroadcastExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BroadcastExt.entitlements; sourceTree = "<group>"; };
 		9A368E2329C879680089F127 /* BufferVideoCapturerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BufferVideoCapturerDelegate.swift; sourceTree = "<group>"; };
+		9A368E2729C87DDC0089F127 /* LogLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLabels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +256,7 @@
 		9A16BC8629AF8E9B006AE075 = {
 			isa = PBXGroup;
 			children = (
+				9A368E2629C87DC10089F127 /* Shared */,
 				9A16BC9129AF8E9B006AE075 /* DataCollector */,
 				9A16BCA329AF8E9C006AE075 /* DataCollectorTests */,
 				9A16BCAD29AF8E9C006AE075 /* DataCollectorUITests */,
@@ -423,7 +427,6 @@
 			isa = PBXGroup;
 			children = (
 				9A368E2529C87CBF0089F127 /* LiveKit */,
-				9A368E1D29C86C3E0089F127 /* BroadcastScreenCapturerIDS.swift */,
 				9A368DE829C862060089F127 /* Broadcast.swift */,
 				9A368E2329C879680089F127 /* BufferVideoCapturerDelegate.swift */,
 			);
@@ -453,6 +456,15 @@
 				9A368DEA29C862520089F127 /* BroadcastScreenCapturer.swift */,
 			);
 			path = LiveKit;
+			sourceTree = "<group>";
+		};
+		9A368E2629C87DC10089F127 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				9A368E1D29C86C3E0089F127 /* BroadcastScreenCapturerIDS.swift */,
+				9A368E2729C87DDC0089F127 /* LogLabels.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -668,6 +680,7 @@
 				9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */,
 				9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */,
 				9A368D9B29C7435E0089F127 /* WebTab+DefaultFavIcon.swift in Sources */,
+				9A368E2829C87DDC0089F127 /* LogLabels.swift in Sources */,
 				9A368D6329C5C5060089F127 /* BrowserView.swift in Sources */,
 				9A368D7029C5CEB30089F127 /* FloatingButton.swift in Sources */,
 				9A368E0429C866170089F127 /* StateSync.swift in Sources */,
@@ -740,6 +753,7 @@
 				9A368E1629C86A900089F127 /* SampleUploader.swift in Sources */,
 				9A368E1F29C86C820089F127 /* BroadcastScreenCapturerIDS.swift in Sources */,
 				9A368E1A29C86A900089F127 /* DarwinNotificationCenter.swift in Sources */,
+				9A368E2929C87DE30089F127 /* LogLabels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@
     #endif
 
     import Logging
-    fileprivate let logger = Logger(label: LogLabels.broadcastUpload)
+    fileprivate let logger = LogLabels.broadcastUpload.makeLogger()
 
     private enum Constants {
         static let bufferMaxLength = 10240

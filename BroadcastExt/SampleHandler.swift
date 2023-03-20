@@ -16,7 +16,7 @@ import ReplayKit
     #if canImport(ReplayKit)
         import ReplayKit
     #endif
-    fileprivate let logger = Logger(label: LogLabels.broadcastUpload)
+    fileprivate let logger = LogLabels.broadcastUpload.makeLogger()
 
     open class SampleHandler: RPBroadcastSampleHandler {
         private var clientConnection: BroadcastUploadSocketConnection?

@@ -8,7 +8,7 @@
 
 import Foundation
 import Logging
-private let logger = Logger(label: LogLabels.broadcastUpload)
+private let logger = LogLabels.broadcastUpload.makeLogger()
 
 class BroadcastUploadSocketConnection: NSObject {
     var didOpen: (() -> Void)?

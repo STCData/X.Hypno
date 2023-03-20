@@ -8,7 +8,7 @@
 import FaviconFinder
 import Foundation
 import Logging
-private let log = Logger(label: LogLabels.webview.rawValue)
+private let log = LogLabels.webview.makeLogger()
 
 extension WebTab {
     func loadFavIcon() async {

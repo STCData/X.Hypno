@@ -10,7 +10,7 @@ import Logging
 import UIKit
 import Vision
 
-private let log = Logger(label: LogLabels.camera.rawValue)
+private let log = LogLabels.camera.makeLogger()
 
 extension CameraViewController {
     func setupDetector() {

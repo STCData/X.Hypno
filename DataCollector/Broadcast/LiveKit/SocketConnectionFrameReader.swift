@@ -10,7 +10,7 @@ import CoreVideo
 import Foundation
 // import WebRTC
 import Logging
-private let logger = Logger(label: LogLabels.broadcast)
+private let logger = LogLabels.broadcast.makeLogger()
 
 private class Message {
     // Initializing a CIContext object is costly, so we use a singleton instead
