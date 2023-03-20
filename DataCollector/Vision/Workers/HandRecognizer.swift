@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 import Vision
+private let log = LogLabels.vision.makeLogger()
 
 class HandRecognizer: VisionWorker {
     func receive(subscription _: Subscription) {}
@@ -27,6 +28,8 @@ class HandRecognizer: VisionWorker {
 
     func process(cvPixelBuffer: CVPixelBuffer) {
         workQueue.async {
+            log.trace("heavy hand recognizing")
+
             let request = VNDetectHumanHandPoseRequest { request, _ in
                 guard let observations = request.results as? [VNHumanHandPoseObservation] else {
                     print("The observations are of an unexpected type.")

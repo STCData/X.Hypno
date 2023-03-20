@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 import Vision
+private let log = LogLabels.vision.makeLogger()
 
 class TextRecognizer: VisionWorker {
     func receive(subscription _: Subscription) {}
@@ -27,6 +28,8 @@ class TextRecognizer: VisionWorker {
 
     func process(cvPixelBuffer: CVPixelBuffer) {
         workQueue.async {
+            log.trace("heavy text recognizing")
+
             let textRecognitionRequest = VNRecognizeTextRequest { request, _ in
                 guard let observations = request.results as? [VNRecognizedTextObservation] else {
                     print("The observations are of an unexpected type.")

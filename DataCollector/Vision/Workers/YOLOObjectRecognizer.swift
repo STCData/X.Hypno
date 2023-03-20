@@ -34,6 +34,8 @@ class YOLOObjectRecognizer: VisionWorker {
 
     func process(cvPixelBuffer: CVPixelBuffer) {
         workQueue.async {
+            log.trace("heavy yolo recognizing")
+
             let recognitionRequest = VNCoreMLRequest(model: self.visionModel) { request, _ in
                 guard let observations = request.results as? [VNRecognizedObjectObservation] else {
                     print("The observations are of an unexpected type.")

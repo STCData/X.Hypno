@@ -12,6 +12,9 @@ import Vision
 private let log = LogLabels.vision.makeLogger()
 
 final class VisionPool: VisionWorker {
+    public static let broadcastThrottle = RunLoop.SchedulerTimeType.Stride(0.9)
+    public static let cameraThrottle = RunLoop.SchedulerTimeType.Stride(0.9)
+
     typealias Input = CVPixelBuffer
     typealias Failure = Never
     let observationsSubject = PassthroughSubject<[VNObservation], Never>()
@@ -51,6 +54,45 @@ final class VisionPool: VisionWorker {
     }
 }
 
+extension CVPixelBuffer {
+    func isAlmostEqual(to another: CVPixelBuffer) -> Bool {
+        let old = self
+        let new = another
+        CVPixelBufferLockBaseAddress(old, .readOnly)
+        CVPixelBufferLockBaseAddress(new, .readOnly)
+        let oldP = CVPixelBufferGetBaseAddress(old)
+        let newP = CVPixelBufferGetBaseAddress(new)
+
+        let oldBuf = unsafeBitCast(oldP, to: UnsafeMutablePointer<UInt8>.self)
+        let newBuf = unsafeBitCast(newP, to: UnsafeMutablePointer<UInt8>.self)
+
+        let oldLen = CVPixelBufferGetDataSize(old)
+        let newLen = CVPixelBufferGetDataSize(new)
+
+        var isEqual = (oldLen == newLen)
+
+        var differentBytes = 0
+        let differentBytesTreshold = newLen / 100
+
+        if oldLen == newLen && oldLen > 0 {
+            for i in 0 ..< oldLen {
+                if oldBuf[i] != newBuf[i] {
+                    differentBytes += 1
+                    if differentBytes >= differentBytesTreshold {
+                        isEqual = false
+                        break
+                    }
+                }
+            }
+        }
+
+        CVPixelBufferUnlockBaseAddress(old, .readOnly)
+        CVPixelBufferUnlockBaseAddress(new, .readOnly)
+
+        return isEqual
+    }
+}
+
 extension VisionPool {
     static let broadcastPool = makeFullPoolSubscribedToSharedBroadcast()
     static let cameraPool = makeCameraPool()
@@ -70,9 +112,15 @@ extension VisionPool {
 
     static func makeFullPoolSubscribedToSharedBroadcast() -> Self {
         let fullPool = makeFullPool()
-        Broadcast.shared.cvBufferSubject
-            .throttle(for: 0.9, scheduler: RunLoop.main, latest: true)
-            .subscribe(fullPool)
+        Publishers.RemoveDuplicates(upstream: Broadcast.shared.cvBufferSubject
+            .throttle(for: VisionPool.broadcastThrottle, scheduler: RunLoop.main, latest: true))
+        { old, new in
+            let isEqual = old.isAlmostEqual(to: new)
+            log.trace("heavy skipping broadcast frame recognizing: \(isEqual)")
+
+            return isEqual
+        }
+        .subscribe(fullPool)
 
         return fullPool
     }

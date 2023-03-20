@@ -13,6 +13,8 @@ import SwiftUI
 import UIKit
 
 class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+    let cmBufferSubject = PassthroughSubject<CMSampleBuffer, Never>()
+
     private var permissionGranted = false // Flag for permission
     private let captureSession = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "sessionQueue")
