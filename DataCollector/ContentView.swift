@@ -16,15 +16,15 @@ struct ContentView: View {
 
     var tabView: some View {
         TabView {
-            BrowserView()
-                .tabItem {
-                    Label("Browser", systemImage: "globe")
-                }
-                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
-
             CameraView()
                 .tabItem {
                     Label("Camera", systemImage: "camera")
+                }
+                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
+
+            BrowserView()
+                .tabItem {
+                    Label("Browser", systemImage: "globe")
                 }
                 .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
         }

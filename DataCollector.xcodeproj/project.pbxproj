@@ -92,6 +92,7 @@
 		9A368E4029C8A82D0089F127 /* VisionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E3F29C8A82D0089F127 /* VisionViewModel.swift */; };
 		9A368E4429C8C0400089F127 /* InAppCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4329C8C0400089F127 /* InAppCapturer.swift */; };
 		9A368E4629C8C7D40089F127 /* VisionMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4529C8C7D40089F127 /* VisionMarkerView.swift */; };
+		9A368E4829C8CFE20089F127 /* HandRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4729C8CFE20089F127 /* HandRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +224,7 @@
 		9A368E3F29C8A82D0089F127 /* VisionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionViewModel.swift; sourceTree = "<group>"; };
 		9A368E4329C8C0400089F127 /* InAppCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppCapturer.swift; sourceTree = "<group>"; };
 		9A368E4529C8C7D40089F127 /* VisionMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionMarkerView.swift; sourceTree = "<group>"; };
+		9A368E4729C8CFE20089F127 /* HandRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -519,6 +521,7 @@
 				9A368E2F29C885CC0089F127 /* VisionPool.swift */,
 				9A368E3129C8877B0089F127 /* YOLOObjectRecognizer.swift */,
 				9A368E3329C89C860089F127 /* CombineHelpers.swift */,
+				9A368E4729C8CFE20089F127 /* HandRecognizer.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				9A368DF229C862D60089F127 /* SocketConnectionFrameReader.swift in Sources */,
 				9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */,
 				9A368E4029C8A82D0089F127 /* VisionViewModel.swift in Sources */,
+				9A368E4829C8CFE20089F127 /* HandRecognizer.swift in Sources */,
 				9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */,
 				9A368D9B29C7435E0089F127 /* WebTab+DefaultFavIcon.swift in Sources */,
 				9A368E2829C87DDC0089F127 /* LogLabels.swift in Sources */,

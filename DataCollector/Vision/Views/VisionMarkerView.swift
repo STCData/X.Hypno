@@ -12,6 +12,7 @@ import SwiftUI
 enum VisionMarkerViewType {
     case redBold
     case greenThin
+    case yellowCicle
 }
 
 struct VisionMarkerView: View {
@@ -29,6 +30,10 @@ struct VisionMarkerView: View {
                 .stroke(lineWidth: 0.3)
                 .foregroundColor(.green.opacity(0.5))
                 .background(.green.opacity(0.04))
+                .allowsHitTesting(false)
+        case .yellowCicle:
+            Circle()
+                .foregroundColor(.yellow.opacity(0.9))
                 .allowsHitTesting(false)
         }
     }
