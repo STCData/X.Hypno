@@ -14,6 +14,8 @@ enum LogLabels: String {
     case camera = "stc.data.camera"
     case ml = "stc.data.ml"
     case network = "stc.data.network"
+    case broadcast = "stc.data.broadcast"
+    case broadcastUpload = "stc.data.broadcast.upload"
 }
 
 func LogInit() {

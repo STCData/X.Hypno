@@ -9,7 +9,7 @@ import Foundation
 import Logging
 import Promises
 import ReplayKit
-private let logger = Logger(label: "broadcast")
+private let logger = Logger(label: LogLabels.broadcast)
 class Broadcast: BufferVideoCapturerDelegate {
     func capturer(_: BufferCapturer, didCapture cmBuffer: CMSampleBuffer) {
         logger.info("broadcast captured cmBuffer \(cmBuffer)")

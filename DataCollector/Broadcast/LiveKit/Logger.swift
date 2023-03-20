@@ -16,7 +16,7 @@
 
 import Foundation
 import Logging
-private let logger = Logger(label: "broadcast")
+private let logger = Logger(label: LogLabels.broadcast)
 
 /// Allows to extend with custom `log` method which automatically captures current type (class name).
 public protocol Loggable {}
