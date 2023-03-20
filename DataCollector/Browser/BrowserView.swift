@@ -29,9 +29,11 @@ struct BrowserView: View {
                 SidePanelView()
                     .padding(EdgeInsets(top: 60, leading: 12, bottom: 42, trailing: 12))
             }
-            FloatingButton(action: {
-                isSideBarOpened.toggle()
-            }, icon: "square.on.square", alignment: .bottomTrailing)
+            FloatingAtCorner(alignment: .bottomTrailing) {
+                FloatingButton(action: {
+                    isSideBarOpened.toggle()
+                }, icon: "square.on.square")
+            }
         }
         .environmentObject(webTabsViewModel)
     }
