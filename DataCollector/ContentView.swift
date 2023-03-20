@@ -30,6 +30,9 @@ struct ContentView: View {
     @EnvironmentObject
     var broadcast: Broadcast
 
+    @EnvironmentObject
+    var cameraVisionPool: VisionPool
+
     var tabView: some View {
         TabView(selection: $tabSelection) {
             CameraView()
@@ -68,14 +71,18 @@ struct ContentView: View {
                 HStack {
                     FloatingButton(action: {
                         isTermOpened.toggle()
-                    }, icon: "terminal", color: isTermOpened ? .black : .white)
+                    }, icon: "terminal", color: isTermOpened ? FloatingButton.disabledColor : FloatingButton.enabledColor)
+
+                    FloatingButton(action: {
+                        cameraVisionPool.isOn.toggle()
+                    }, icon: "camera.viewfinder", color: cameraVisionPool.isOn ? FloatingButton.recColor : FloatingButton.enabledColor)
 
                     FloatingButton(action: {
                         broadcast.isInAppInProgress.toggle()
-                    }, icon: "rectangle.dashed.badge.record", color: broadcast.isInAppInProgress ? .red : .white)
+                    }, icon: "rectangle.dashed.badge.record", color: broadcast.isInAppInProgress ? FloatingButton.recColor : FloatingButton.enabledColor)
                     FloatingButton(action: {
                         broadcast.isSystemWideInProgress.toggle()
-                    }, icon: "menubar.dock.rectangle.badge.record", color: broadcast.isSystemWideInProgress ? .red : .white)
+                    }, icon: "menubar.dock.rectangle.badge.record", color: broadcast.isSystemWideInProgress ? FloatingButton.recColor : FloatingButton.enabledColor)
                 }
             }.if(!isDebugUIShown) {
                 $0.hidden()

@@ -11,7 +11,10 @@ import Vision
 
 private let log = LogLabels.vision.makeLogger()
 
-final class VisionPool: VisionWorker {
+final class VisionPool: VisionWorker, ObservableObject {
+    @Published
+    var isOn = true
+
     public static let broadcastThrottle =
         RunLoop.SchedulerTimeType.Stride(0.8)
     public static let cameraThrottle =
@@ -36,7 +39,9 @@ final class VisionPool: VisionWorker {
     func receive(_ input: CVPixelBuffer) -> Subscribers.Demand {
         log.trace("VisionPool received input ")
         observationsSubject.send([]) // reset observations!
-        process(cvPixelBuffer: input)
+        if isOn {
+            process(cvPixelBuffer: input)
+        }
         return Subscribers.Demand.max(1)
     }
 

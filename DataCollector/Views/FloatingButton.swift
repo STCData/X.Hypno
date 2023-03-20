@@ -7,20 +7,30 @@
 
 import SwiftUI
 
+private let defaultOpacity = 0.3
+
 struct FloatingButton: View {
     let action: () -> Void
     let icon: String
-    var color: Color = .white
+    var width: Double = 39
+    var height: Double = 34
+    var iconSize: Double = 25
+    var cornerRadius: Double = 4
+
+    var color: Color = .white.opacity(defaultOpacity)
+    static let enabledColor: Color = .white.opacity(defaultOpacity)
+    static let disabledColor: Color = .black.opacity(defaultOpacity)
+    static let recColor: Color = .red.opacity(defaultOpacity)
     var body: some View {
         Button(action: action) {
             Image(systemName: icon)
                 .font(.system(size: 25))
                 .foregroundColor(color)
         }
-        .frame(width: 60, height: 60)
-        .background(Color.gray.opacity(0.2))
-        .cornerRadius(30)
-        .shadow(radius: 10)
+        .frame(width: width, height: height)
+        .background(Color.gray.opacity(defaultOpacity / 4))
+        .cornerRadius(cornerRadius)
+//        .shadow(radius: 10)
     }
 }
 

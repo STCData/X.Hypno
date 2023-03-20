@@ -27,16 +27,17 @@ struct BrowserView: View {
             TabbedWebView(request: webTabsViewModel.currentTab?.urlRequest ?? URLRequest(url: WebTab.blankPageURL))
 
             // UIScreen.main.bounds.size.width * 0.9
-            SlideoutView(isSidebarVisible: $isSideBarOpened,
-                         bgColor: Color(uiColor: .systemGray5))
-            {
+            SlideoutView(
+                isSidebarVisible: $isSideBarOpened, sideBarWidth: UIScreen.main.bounds.size.width * 0.99,
+                bgColor: Color(uiColor: .systemGray5)
+            ) {
                 SidePanelView()
                     .padding(EdgeInsets(top: 60, leading: 12, bottom: 42, trailing: 12))
             }
             FloatingAtCorner(alignment: .bottomTrailing) {
                 FloatingButton(action: {
                     isSideBarOpened.toggle()
-                }, icon: "square.on.square")
+                }, icon: "square.on.square", width: 64, height: 64, cornerRadius: 12)
             }
         }
         .environmentObject(webTabsViewModel)
