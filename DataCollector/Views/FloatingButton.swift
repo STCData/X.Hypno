@@ -35,7 +35,7 @@ struct FloatingAtCorner<Content: View>: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
         .padding(.top, 32)
-        .padding(.bottom, 12)
+        .padding(.bottom, 28)
         .padding(.trailing, 4)
 
         .ignoresSafeArea()

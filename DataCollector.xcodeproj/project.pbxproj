@@ -93,6 +93,7 @@
 		9A368E4429C8C0400089F127 /* InAppCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4329C8C0400089F127 /* InAppCapturer.swift */; };
 		9A368E4629C8C7D40089F127 /* VisionMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4529C8C7D40089F127 /* VisionMarkerView.swift */; };
 		9A368E4829C8CFE20089F127 /* HandRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4729C8CFE20089F127 /* HandRecognizer.swift */; };
+		9A368E4A29C8D56F0089F127 /* HumanBodyPoseRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4929C8D56F0089F127 /* HumanBodyPoseRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,6 +226,7 @@
 		9A368E4329C8C0400089F127 /* InAppCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppCapturer.swift; sourceTree = "<group>"; };
 		9A368E4529C8C7D40089F127 /* VisionMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionMarkerView.swift; sourceTree = "<group>"; };
 		9A368E4729C8CFE20089F127 /* HandRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandRecognizer.swift; sourceTree = "<group>"; };
+		9A368E4929C8D56F0089F127 /* HumanBodyPoseRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanBodyPoseRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -522,6 +524,7 @@
 				9A368E3129C8877B0089F127 /* YOLOObjectRecognizer.swift */,
 				9A368E3329C89C860089F127 /* CombineHelpers.swift */,
 				9A368E4729C8CFE20089F127 /* HandRecognizer.swift */,
+				9A368E4929C8D56F0089F127 /* HumanBodyPoseRecognizer.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				9A368DFA29C863800089F127 /* BufferCaptureOptions.swift in Sources */,
 				9A368D8D29C618F80089F127 /* TermLogNotification.swift in Sources */,
 				9A368D7629C5DA220089F127 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
+				9A368E4A29C8D56F0089F127 /* HumanBodyPoseRecognizer.swift in Sources */,
 				9A368DF629C863320089F127 /* Dimensions.swift in Sources */,
 				9A368E0829C866480089F127 /* Logger.swift in Sources */,
 				9A368DE929C862060089F127 /* Broadcast.swift in Sources */,

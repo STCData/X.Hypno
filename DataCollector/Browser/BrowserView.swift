@@ -36,6 +36,9 @@ struct BrowserView: View {
             }
         }
         .environmentObject(webTabsViewModel)
+        .background(.black.opacity(0.96))
+        .padding(.top, 26)
+        .ignoresSafeArea()
     }
 }
 

@@ -7,27 +7,48 @@
 
 import SwiftUI
 
+private enum Tabs: CaseIterable {
+    case first
+    case second
+}
+
+extension CaseIterable where Self: Equatable {
+    func next() -> Self {
+        let all = Self.allCases
+        let idx = all.firstIndex(of: self)!
+        let next = all.index(after: idx)
+        return all[next == all.endIndex ? all.startIndex : next]
+    }
+}
+
 struct ContentView: View {
     @State private var isDebugUIShown = true
     @State private var isTabbarShown = false
     @State private var isTermOpened = false
+    @State private var tabSelection = Tabs.first
+
     @EnvironmentObject
     var broadcast: Broadcast
 
     var tabView: some View {
-        TabView {
+        TabView(selection: $tabSelection) {
             CameraView()
-                .tabItem {
-                    Label("Camera", systemImage: "camera")
-                }
-                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
+//                .tabItem {
+//                    Label("Camera", systemImage: "camera")
+//                }
+//                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
+                .toolbar(.hidden, for: .tabBar)
+                .tag(Tabs.first)
 
             BrowserView()
-                .tabItem {
-                    Label("Browser", systemImage: "globe")
-                }
-                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
+//                .tabItem {
+//                    Label("Browser", systemImage: "globe")
+//                }
+//                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
+                .toolbar(.hidden, for: .tabBar)
+                .tag(Tabs.second)
         }
+        .toolbar(.hidden, for: .tabBar)
     }
 
     var body: some View {
@@ -64,16 +85,18 @@ struct ContentView: View {
         }
         .ignoresSafeArea()
         .onShake {
-            withAnimation(Animation.easeOut(duration: 0.08)) {
-                isTabbarShown.toggle()
-            }
-            if isTabbarShown {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                    withAnimation(Animation.easeOut(duration: 0.2)) {
-                        isTabbarShown = false
-                    }
-                }
-            }
+            self.tabSelection = self.tabSelection.next()
+            /*
+             withAnimation(Animation.easeOut(duration: 0.08)) {
+                 isTabbarShown.toggle()
+             }
+             if isTabbarShown {
+                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                     withAnimation(Animation.easeOut(duration: 0.2)) {
+                         isTabbarShown = false
+                     }
+                 }
+             }*/
         }
     }
 }

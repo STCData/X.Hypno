@@ -1,5 +1,5 @@
 //
-//  HandRecognizer.swift
+//  HumanPoseRecognizer.swift
 //  DataCollector
 //
 //  Created by standard on 3/20/23.
@@ -9,7 +9,7 @@ import Combine
 import Foundation
 import Vision
 
-class HandRecognizer: VisionWorker {
+class HumanBodyPoseRecognizer: VisionWorker {
     func receive(subscription _: Subscription) {}
 
     func receive(_ input: CVBuffer) -> Subscribers.Demand {
@@ -27,8 +27,8 @@ class HandRecognizer: VisionWorker {
 
     func process(cvPixelBuffer: CVPixelBuffer) {
         workQueue.async {
-            let request = VNDetectHumanHandPoseRequest { request, _ in
-                guard let observations = request.results as? [VNHumanHandPoseObservation] else {
+            let request = VNDetectHumanBodyPoseRequest { request, _ in
+                guard let observations = request.results as? [VNHumanBodyPoseObservation] else {
                     print("The observations are of an unexpected type.")
                     return
                 }

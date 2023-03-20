@@ -60,6 +60,7 @@ extension VisionPool {
             //            TextRecognizer(),
 //            TextRecognizer(),
             TextRecognizer(),
+            HumanBodyPoseRecognizer(),
             try! YOLOObjectRecognizer(),
 //            try! YOLOObjectRecognizer(),
 //            try! YOLOObjectRecognizer(),

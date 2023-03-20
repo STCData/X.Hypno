@@ -57,6 +57,17 @@ struct VisionView: View {
                         }
                     }
                 }
+
+                ForEach(visionViewModel.humanBodyPoses, id: \.uuid) { pose in
+                    ForEach(pose.availableJointNames, id: \.self) { joint in
+                        if let point = try? pose.recognizedPoint(joint) {
+                            positionMarkerView(normalizedPoint: point, in: geometry) {
+                                VisionMarkerView(type: .yellowCicle)
+                                    .frame(width: 5, height: 5)
+                            }
+                        }
+                    }
+                }
             }
             // Geometry reader makes the view shrink to its smallest size
             .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -14,6 +14,7 @@ class VisionViewModel: ObservableObject {
     @Published var objects: [VNRecognizedObjectObservation] = []
     @Published var text: [VNRecognizedTextObservation] = []
     @Published var hands: [VNHumanHandPoseObservation] = []
+    @Published var humanBodyPoses: [VNHumanBodyPoseObservation] = []
     private var subscriptions = Set<AnyCancellable>()
 
     init(visionPool: VisionPool) {
@@ -23,6 +24,7 @@ class VisionViewModel: ObservableObject {
                 self.objects = observations.filter { $0 is VNRecognizedObjectObservation } as! [VNRecognizedObjectObservation]
                 self.text = observations.filter { $0 is VNRecognizedTextObservation } as! [VNRecognizedTextObservation]
                 self.hands = observations.filter { $0 is VNHumanHandPoseObservation } as! [VNHumanHandPoseObservation]
+                self.humanBodyPoses = observations.filter { $0 is VNHumanBodyPoseObservation } as! [VNHumanBodyPoseObservation]
 
             }.store(in: &subscriptions)
     }
