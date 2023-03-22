@@ -18,6 +18,7 @@ struct FloatingButton: View {
     var cornerRadius: Double = 4
 
     var color: Color = .white.opacity(defaultOpacity)
+    static let brightColor: Color = .white.opacity(defaultOpacity * 2)
     static let enabledColor: Color = .white.opacity(defaultOpacity)
     static let disabledColor: Color = .black.opacity(defaultOpacity)
     static let recColor: Color = .red.opacity(defaultOpacity)

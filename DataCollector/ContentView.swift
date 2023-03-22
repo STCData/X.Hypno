@@ -68,7 +68,7 @@ struct ContentView: View {
             }
 
             FloatingAtCorner(alignment: .topTrailing) {
-                HStack {
+                HStack(alignment: .top) {
                     FloatingButton(action: {
                         isTermOpened.toggle()
                     }, icon: "terminal", color: isTermOpened ? FloatingButton.disabledColor : FloatingButton.enabledColor)
@@ -77,12 +77,14 @@ struct ContentView: View {
                         cameraVisionPool.isOn.toggle()
                     }, icon: "camera.viewfinder", color: cameraVisionPool.isOn ? FloatingButton.recColor : FloatingButton.enabledColor)
 
-                    FloatingButton(action: {
-                        broadcast.isInAppInProgress.toggle()
-                    }, icon: "rectangle.dashed.badge.record", color: broadcast.isInAppInProgress ? FloatingButton.recColor : FloatingButton.enabledColor)
-                    FloatingButton(action: {
-                        broadcast.isSystemWideInProgress.toggle()
-                    }, icon: "menubar.dock.rectangle.badge.record", color: broadcast.isSystemWideInProgress ? FloatingButton.recColor : FloatingButton.enabledColor)
+                    VStack {
+                        FloatingButton(action: {
+                            broadcast.isSystemWideInProgress.toggle()
+                        }, icon: "menubar.dock.rectangle.badge.record", color: broadcast.isSystemWideInProgress ? FloatingButton.recColor : FloatingButton.enabledColor)
+                        FloatingButton(action: {
+                            broadcast.isInAppInProgress.toggle()
+                        }, icon: "rectangle.dashed.badge.record", color: broadcast.isInAppInProgress ? FloatingButton.recColor : FloatingButton.enabledColor)
+                    }
                 }
             }.if(!isDebugUIShown) {
                 $0.hidden()
