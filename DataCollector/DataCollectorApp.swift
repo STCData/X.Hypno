@@ -15,9 +15,13 @@ struct DataCollectorApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(Broadcast.shared)
-                .environmentObject(VisionPool.cameraPool)
+            ZStack {
+                ContentView()
+                    .environmentObject(Broadcast.shared)
+                    .environmentObject(VisionPool.cameraPool)
+
+                VoiceAssistantView()
+            }
         }
     }
 }

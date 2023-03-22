@@ -97,6 +97,13 @@
 		9A368E4C29C8FC2C0089F127 /* CVPixelBuffer+AlmostEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4B29C8FC2C0089F127 /* CVPixelBuffer+AlmostEqual.swift */; };
 		9A368E4E29C8FC540089F127 /* VisionPool+Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4D29C8FC540089F127 /* VisionPool+Camera.swift */; };
 		9A368E5029C8FC610089F127 /* VisionPool+Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E4F29C8FC610089F127 /* VisionPool+Broadcast.swift */; };
+		9A368E5529CB20760089F127 /* VoiceAssistantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E5429CB20760089F127 /* VoiceAssistantView.swift */; };
+		9A368E5729CB222D0089F127 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E5629CB222D0089F127 /* SpeechRecognizer.swift */; };
+		9A368E5929CB23950089F127 /* VoiceAssistantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E5829CB23950089F127 /* VoiceAssistantViewModel.swift */; };
+		9A368E5B29CB241E0089F127 /* VAMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E5A29CB241E0089F127 /* VAMessage.swift */; };
+		9A368E5D29CB24680089F127 /* VADummyAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E5C29CB24680089F127 /* VADummyAssistant.swift */; };
+		9A368E5F29CB247B0089F127 /* VAAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E5E29CB247B0089F127 /* VAAssistant.swift */; };
+		9A368E6129CB28BB0089F127 /* VoiceAssistantMessageBaloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E6029CB28BB0089F127 /* VoiceAssistantMessageBaloon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +240,13 @@
 		9A368E4B29C8FC2C0089F127 /* CVPixelBuffer+AlmostEqual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+AlmostEqual.swift"; sourceTree = "<group>"; };
 		9A368E4D29C8FC540089F127 /* VisionPool+Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisionPool+Camera.swift"; sourceTree = "<group>"; };
 		9A368E4F29C8FC610089F127 /* VisionPool+Broadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VisionPool+Broadcast.swift"; sourceTree = "<group>"; };
+		9A368E5429CB20760089F127 /* VoiceAssistantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceAssistantView.swift; sourceTree = "<group>"; };
+		9A368E5629CB222D0089F127 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		9A368E5829CB23950089F127 /* VoiceAssistantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceAssistantViewModel.swift; sourceTree = "<group>"; };
+		9A368E5A29CB241E0089F127 /* VAMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VAMessage.swift; sourceTree = "<group>"; };
+		9A368E5C29CB24680089F127 /* VADummyAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VADummyAssistant.swift; sourceTree = "<group>"; };
+		9A368E5E29CB247B0089F127 /* VAAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VAAssistant.swift; sourceTree = "<group>"; };
+		9A368E6029CB28BB0089F127 /* VoiceAssistantMessageBaloon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceAssistantMessageBaloon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +328,7 @@
 		9A16BC9129AF8E9B006AE075 /* DataCollector */ = {
 			isa = PBXGroup;
 			children = (
+				9A368E5329CB20640089F127 /* VoiceAssistant */,
 				9A368E2A29C87FAC0089F127 /* Vision */,
 				9A368DE729C861F60089F127 /* Broadcast */,
 				9A368DE629C85F230089F127 /* Info.plist */,
@@ -554,6 +569,20 @@
 			path = Pools;
 			sourceTree = "<group>";
 		};
+		9A368E5329CB20640089F127 /* VoiceAssistant */ = {
+			isa = PBXGroup;
+			children = (
+				9A368E5429CB20760089F127 /* VoiceAssistantView.swift */,
+				9A368E5629CB222D0089F127 /* SpeechRecognizer.swift */,
+				9A368E5829CB23950089F127 /* VoiceAssistantViewModel.swift */,
+				9A368E5A29CB241E0089F127 /* VAMessage.swift */,
+				9A368E5C29CB24680089F127 /* VADummyAssistant.swift */,
+				9A368E5E29CB247B0089F127 /* VAAssistant.swift */,
+				9A368E6029CB28BB0089F127 /* VoiceAssistantMessageBaloon.swift */,
+			);
+			path = VoiceAssistant;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -766,6 +795,7 @@
 			files = (
 				9A368D7E29C5FFE50089F127 /* TerminalViewController.swift in Sources */,
 				9A368D8B29C6185E0089F127 /* TermLogger.swift in Sources */,
+				9A368E5D29CB24680089F127 /* VADummyAssistant.swift in Sources */,
 				9A368DF229C862D60089F127 /* SocketConnectionFrameReader.swift in Sources */,
 				9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */,
 				9A368E4029C8A82D0089F127 /* VisionViewModel.swift in Sources */,
@@ -773,7 +803,9 @@
 				9A368E5029C8FC610089F127 /* VisionPool+Broadcast.swift in Sources */,
 				9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */,
 				9A368D9B29C7435E0089F127 /* WebTab+DefaultFavIcon.swift in Sources */,
+				9A368E5B29CB241E0089F127 /* VAMessage.swift in Sources */,
 				9A368E2829C87DDC0089F127 /* LogLabels.swift in Sources */,
+				9A368E5729CB222D0089F127 /* SpeechRecognizer.swift in Sources */,
 				9A368D6329C5C5060089F127 /* BrowserView.swift in Sources */,
 				9A368D7029C5CEB30089F127 /* FloatingButton.swift in Sources */,
 				9A368E4629C8C7D40089F127 /* VisionMarkerView.swift in Sources */,
@@ -783,9 +815,11 @@
 				9A368E0A29C866920089F127 /* Promises.swift in Sources */,
 				9A368E2E29C8826A0089F127 /* TextRecognizer.swift in Sources */,
 				9A16BC9529AF8E9B006AE075 /* ContentView.swift in Sources */,
+				9A368E5929CB23950089F127 /* VoiceAssistantViewModel.swift in Sources */,
 				9A368DF429C863170089F127 /* VideoCapturer.swift in Sources */,
 				9A368E0629C866230089F127 /* Completer.swift in Sources */,
 				9A368D9129C71F6A0089F127 /* WebViewNotifications.swift in Sources */,
+				9A368E5F29CB247B0089F127 /* VAAssistant.swift in Sources */,
 				9A368E0E29C866EA0089F127 /* Errors.swift in Sources */,
 				9A368D7C29C5FF920089F127 /* TermView.swift in Sources */,
 				9A1B6B4029B9F403007F787B /* WebView.swift in Sources */,
@@ -811,6 +845,7 @@
 				9A368D7429C5D9B70089F127 /* CameraViewController+Detection.swift in Sources */,
 				9A368E0029C863E40089F127 /* CaptureOptions.swift in Sources */,
 				9A368D6E29C5CD380089F127 /* SlideoutView.swift in Sources */,
+				9A368E6129CB28BB0089F127 /* VoiceAssistantMessageBaloon.swift in Sources */,
 				9A368E2C29C880060089F127 /* VisionWorker.swift in Sources */,
 				9A368E1E29C86C3E0089F127 /* BroadcastScreenCapturerIDS.swift in Sources */,
 				9A368D8F29C71E5B0089F127 /* KeyboardHelper.swift in Sources */,
@@ -826,6 +861,7 @@
 				9A368D9629C722F70089F127 /* WebTab+FavIcon.swift in Sources */,
 				9A368D8929C6167B0089F127 /* LogInit.swift in Sources */,
 				9A16BC9329AF8E9B006AE075 /* DataCollectorApp.swift in Sources */,
+				9A368E5529CB20760089F127 /* VoiceAssistantView.swift in Sources */,
 				9A368DF829C863460089F127 /* BroadcastServerSocketConnection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

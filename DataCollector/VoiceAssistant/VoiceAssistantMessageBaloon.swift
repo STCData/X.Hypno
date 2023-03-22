@@ -1,0 +1,97 @@
+//
+//  VoiceAssistantMessageBalloon.swift
+//  DataCollector
+//
+//  Created by standard on 3/22/23.
+//
+
+import SwiftUI
+
+struct VoiceAssistantMessageBalloon: View {
+    let message: VAMessage
+    var isFromCurrentUser: Bool {
+        return message.role == .user || message.role == .userRecordingInProcess
+    }
+
+    let maxWidth: CGFloat = 250
+
+    var body: some View {
+        let backgroundColor: Color = {
+            switch message.role {
+            case .assistant:
+                return Color.gray
+            case .user:
+                return Color.blue
+            case .userRecordingInProcess:
+                return Color.pink
+            case .error:
+                return Color.red
+            }
+        }()
+
+        HStack {
+            if !isFromCurrentUser {
+                Spacer()
+                    .frame(width: 30, height: 30)
+                    .padding(.trailing, 10)
+            }
+
+            BalloonShape(isFromCurrentUser: isFromCurrentUser)
+                .fill(backgroundColor)
+                .overlay(
+                    Text(message.text)
+                        .foregroundColor(.white)
+                        .padding(10)
+                )
+
+            if isFromCurrentUser {
+                Spacer()
+                    .frame(width: 30, height: 30)
+                    .padding(.trailing, 10)
+            }
+        }
+        .padding(.vertical, 5)
+        .padding(.horizontal, 10)
+        .opacity(0.8)
+        .frame(maxWidth: maxWidth, alignment: isFromCurrentUser ? .trailing : .leading)
+    }
+}
+
+struct VoiceAssistantMessageBaloon_Previews: PreviewProvider {
+    static var previews: some View {
+        VoiceAssistantMessageBalloon(message: VAMessage(text: "sample text", role: .user))
+    }
+}
+
+struct BalloonShape: Shape {
+    var isFromCurrentUser: Bool
+
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.addRect(rect)
+        /*
+         let width = rect.width
+         let height = rect.height
+         let radius: CGFloat = 10
+         let tipWidth: CGFloat = 30
+
+         // Draw balloon tail
+         path.move(to: CGPoint(x: radius, y: height - radius))
+         path.addLine(to: CGPoint(x: isFromCurrentUser ? width - tipWidth - radius : tipWidth + radius, y: height - radius))
+
+         let center1 = CGPoint(x: isFromCurrentUser ? width - tipWidth - radius : tipWidth + radius, y: height - radius - radius)
+         path.addArc(center: center1, radius: radius, startAngle: Angle(degrees: 90), endAngle: Angle(degrees: 0), clockwise: false)
+
+         if !isFromCurrentUser {
+             path.addLine(to: CGPoint(x: tipWidth + radius, y: radius))
+         }
+
+         // Draw balloon body
+         let center2 = CGPoint(x: isFromCurrentUser ? width - tipWidth - radius : tipWidth + radius, y: radius + radius)
+         path.addArc(center: center2, radius: radius, startAngle: Angle(degrees: 0), endAngle: Angle(degrees: isFromCurrentUser ? -90 : 90), clockwise: false)
+         path.addArc(center: CGPoint(x: isFromCurrentUser ? width - tipWidth - radius : tipWidth + radius, y: radius + radius), radius: radius, startAngle: Angle(degrees: isFromCurrentUser ? -90 : 90), endAngle: Angle(degrees: 0), clockwise: false)
+         path.addLine(to: CGPoint(x: isFromCurrentUser ? width - radius : tipWidth + radius, y: height - radius))
+         */
+        return path
+    }
+}
