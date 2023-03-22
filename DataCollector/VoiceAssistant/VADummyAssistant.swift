@@ -10,7 +10,7 @@ import Foundation
 struct VADummyAssistant: VAAssistant {
     func respond(to message: String, in chat: [VAMessage]) async -> [VAMessage] {
         let userMessage = VAMessage(text: message, role: .user)
-        let assistantResponce = VAMessage(text: "you said: '\(message)', im just dummy echo bot.", role: .assistant)
+        let assistantResponce = VAMessage(text: "bot said: '\(message)'", role: .assistant)
         return chat + [userMessage, assistantResponce]
     }
 }

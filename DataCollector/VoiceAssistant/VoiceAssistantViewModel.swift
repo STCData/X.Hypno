@@ -35,7 +35,11 @@ class VoiceAssistantViewModel: ObservableObject {
 
         if newMessages.last?.role == .userRecordingInProcess {
             newMessages.removeLast()
+            messages = newMessages
         }
+
+        guard isRecording else { return }
+
         let currentlyRecordingMessage = VAMessage(text: text, role: .userRecordingInProcess)
         newMessages.append(currentlyRecordingMessage)
         messages = newMessages
@@ -55,9 +59,11 @@ class VoiceAssistantViewModel: ObservableObject {
         speechRecognizer.stopTranscribing()
         var newMessages = messages
         var text = speechRecognizer.transcript
+        speechRecognizer.transcript = ""
         if newMessages.last?.role == .userRecordingInProcess {
             text = newMessages.last!.text
             newMessages.removeLast()
+            messages = newMessages
         }
 
         let txt = text

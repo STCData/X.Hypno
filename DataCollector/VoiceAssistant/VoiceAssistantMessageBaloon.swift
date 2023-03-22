@@ -13,7 +13,7 @@ struct VoiceAssistantMessageBalloon: View {
         return message.role == .user || message.role == .userRecordingInProcess
     }
 
-    let maxWidth: CGFloat = 250
+    let maxWidth: CGFloat = .infinity
 
     var body: some View {
         let backgroundColor: Color = {
@@ -28,31 +28,40 @@ struct VoiceAssistantMessageBalloon: View {
                 return Color.red
             }
         }()
+        VStack(alignment: isFromCurrentUser ? .trailing : .leading) {
+            HStack {
+                if !isFromCurrentUser {
+                    Spacer()
+                        .frame(width: 30, height: 30)
+                }
 
-        HStack {
-            if !isFromCurrentUser {
-                Spacer()
-                    .frame(width: 30, height: 30)
-                    .padding(.trailing, 10)
-            }
-
-            BalloonShape(isFromCurrentUser: isFromCurrentUser)
-                .fill(backgroundColor)
-                .overlay(
+                //            BalloonShape(isFromCurrentUser: isFromCurrentUser)
+                //                .fill(backgroundColor)
+                //                .overlay(
+                HStack {
                     Text(message.text)
                         .foregroundColor(.white)
-                        .padding(10)
-                )
+                    if message.role == .userRecordingInProcess {
+                        ProgressView()
+                            .frame(width: 10, height: 10)
+                    }
 
-            if isFromCurrentUser {
-                Spacer()
-                    .frame(width: 30, height: 30)
-                    .padding(.trailing, 10)
+                }.padding(10)
+
+                    .background(BalloonShape(isFromCurrentUser: isFromCurrentUser)
+                        .fill(backgroundColor))
+                    .padding(1)
+                //                )
+
+                if isFromCurrentUser {
+                    Spacer()
+                        .frame(width: 30, height: 30)
+                }
             }
+            .padding(.vertical, 1)
+            .padding(.horizontal, 1)
+            .opacity(0.8)
         }
-        .padding(.vertical, 5)
-        .padding(.horizontal, 10)
-        .opacity(0.8)
         .frame(maxWidth: maxWidth, alignment: isFromCurrentUser ? .trailing : .leading)
     }
 }

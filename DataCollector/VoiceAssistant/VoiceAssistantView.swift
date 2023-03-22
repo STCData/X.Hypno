@@ -38,6 +38,7 @@ struct VoiceAssistantView: View {
                         .id(bottomID)
                 }
             }
+            .frame(maxWidth: .infinity)
             Spacer()
 
             FloatingButton(action: {
