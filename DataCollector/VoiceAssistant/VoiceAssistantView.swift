@@ -19,8 +19,26 @@ extension View {
     }
 }
 
+extension View {
+    @ViewBuilder
+    private func onTapBackgroundContent(enabled: Bool, _ action: @escaping () -> Void) -> some View {
+        if enabled {
+            Color.clear
+                .frame(width: UIScreen.main.bounds.width * 2, height: UIScreen.main.bounds.height * 2)
+                .contentShape(Rectangle())
+                .onTapGesture(perform: action)
+        }
+    }
+
+    func onTapBackground(enabled: Bool, _ action: @escaping () -> Void) -> some View {
+        background(
+            onTapBackgroundContent(enabled: enabled, action)
+        )
+    }
+}
+
 struct VoiceAssistantView: View {
-    @Namespace var topID
+    @Namespace var textfieldID
     @Namespace var bottomID
 
     func submitTextField() {
@@ -40,14 +58,14 @@ struct VoiceAssistantView: View {
 
     var body: some View {
         VStack {
-            Spacer()
-                .frame(minHeight: 0, maxHeight: .infinity)
+//            Spacer()
+//                .frame(minHeight: 0, maxHeight: .infinity)
             ScrollViewReader { value in
 
                 ScrollView {
-                    Spacer()
-                        .frame(maxHeight: .infinity)
-                        .id(topID)
+//                    Spacer()
+//                        .frame(maxHeight: .infinity)
+//                        .id(topID)
 
                     ForEach(viewModel.messages) { msg in
                         VoiceAssistantMessageBalloon(message: msg) {
@@ -65,10 +83,17 @@ struct VoiceAssistantView: View {
                             TextField("", text: $viewModel.textfieldMessageInput, axis: .vertical)
                                 .onSubmit(submitTextField)
                                 .onEnter($of: $viewModel.textfieldMessageInput, action: submitTextField)
+                                .onChange(of: isTextFieldFocused) { isFocused in
+                                    if isFocused {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                            value.scrollTo(bottomID)
+                                        }
+                                    }
+                                }
 
                                 .textFieldStyle(.roundedBorder)
-
                                 .focused($isTextFieldFocused)
+                                .id(textfieldID)
                         }
                     }
 
@@ -76,6 +101,22 @@ struct VoiceAssistantView: View {
                         .frame(height: 0)
                         .id(bottomID)
                 }
+
+                .gesture(
+                    DragGesture().onChanged { value in
+
+                        if value.translation.height > 0 {
+                            isTextFieldFocused = false
+
+                            print("Scroll down")
+                        } else {
+                            print("Scroll up")
+                        }
+                    }
+                )
+            }
+            .onTapBackground(enabled: isTextFieldFocused) {
+                isTextFieldFocused = false
             }
             .frame(maxWidth: .infinity)
 //            .adaptsToKeyboard()
@@ -99,6 +140,7 @@ struct VoiceAssistantView: View {
                 icon: isKeyboardInputActive ? "keyboard" : "waveform.path", width: 64, height: 64, cornerRadius: 22, color: viewModel.isRecording ? FloatingButton.recColor : FloatingButton.enabledColor)
             }
         }
+//        .adaptsToKeyboard()
     }
 }
 
