@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-struct VoiceAssistantMessageBalloon: View {
+struct VoiceAssistantMessageBalloon<Content: View>: View {
     let message: VAMessage
+
+    let content: () -> Content
+
     var isFromCurrentUser: Bool {
         return message.role == .user || message.role == .userRecordingInProcess
     }
@@ -24,6 +27,8 @@ struct VoiceAssistantMessageBalloon: View {
                 return Color.blue
             case .userRecordingInProcess:
                 return Color.pink
+            case .userTyping:
+                return Color.white.opacity(0.2)
             case .error:
                 return Color.red
             }
@@ -41,6 +46,8 @@ struct VoiceAssistantMessageBalloon: View {
                 HStack {
                     Text(message.text)
                         .foregroundColor(.white)
+                    content()
+
                     if message.role == .userRecordingInProcess {
                         ProgressView()
                             .frame(width: 10, height: 10)
@@ -68,7 +75,9 @@ struct VoiceAssistantMessageBalloon: View {
 
 struct VoiceAssistantMessageBaloon_Previews: PreviewProvider {
     static var previews: some View {
-        VoiceAssistantMessageBalloon(message: VAMessage(text: "sample text", role: .user))
+        VoiceAssistantMessageBalloon(message: VAMessage(text: "sample text", role: .user)) {
+            Spacer()
+        }
     }
 }
 

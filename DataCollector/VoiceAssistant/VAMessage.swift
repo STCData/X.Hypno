@@ -11,6 +11,7 @@ enum VAMessageRole {
     case assistant
     case user
     case userRecordingInProcess
+    case userTyping
     case error
 }
 

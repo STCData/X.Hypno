@@ -9,8 +9,33 @@ import SwiftUI
 
 private let defaultOpacity = 0.3
 
+struct TapAndLongPressModifier: ViewModifier {
+    @State private var isLongPressing = false
+    let tapAction: () -> Void
+    let longPressAction: () -> Void
+    func body(content: Content) -> some View {
+        content
+            .scaleEffect(isLongPressing ? 1.7 : 1.0)
+            .onLongPressGesture(minimumDuration: 1.0, pressing: { isPressing in
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    isLongPressing = isPressing
+                    print(isPressing)
+                }
+            }, perform: {
+                longPressAction()
+            })
+            .simultaneousGesture(
+                TapGesture()
+                    .onEnded { _ in
+                        tapAction()
+                    }
+            )
+    }
+}
+
 struct FloatingButton: View {
-    let action: () -> Void
+    var action: () -> Void = {}
+    var longTapAction: () -> Void = {}
     let icon: String
     var width: Double = 39
     var height: Double = 34
@@ -23,14 +48,20 @@ struct FloatingButton: View {
     static let disabledColor: Color = .black.opacity(defaultOpacity)
     static let recColor: Color = .red.opacity(defaultOpacity)
     var body: some View {
-        Button(action: action) {
+//        ZStack {
+        Button(action: {}) {
             Image(systemName: icon)
                 .font(.system(size: 25))
                 .foregroundColor(color)
+                .frame(width: width, height: height)
+
+                .modifier(TapAndLongPressModifier(tapAction: { self.action() },
+                                                  longPressAction: { self.longTapAction() }))
         }
-        .frame(width: width, height: height)
         .background(Color.gray.opacity(defaultOpacity / 4))
         .cornerRadius(cornerRadius)
+//        }
+
 //        .shadow(radius: 10)
     }
 }

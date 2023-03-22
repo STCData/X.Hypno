@@ -15,6 +15,9 @@ class VoiceAssistantViewModel: ObservableObject {
     private var speechRecognizer = SpeechRecognizer()
 
     @Published
+    var textfieldMessageInput = ""
+
+    @Published
     var messages = [VAMessage]()
 
     @Published
@@ -55,13 +58,15 @@ class VoiceAssistantViewModel: ObservableObject {
         }.store(in: &speechRecognitionSub)
     }
 
-    private func stop() {
-        speechRecognizer.stopTranscribing()
+    public func commitTextfield() {
+        commitUserMessage(text: textfieldMessageInput)
+        textfieldMessageInput = ""
+    }
+
+    private func commitUserMessage(text: String) {
         var newMessages = messages
-        var text = speechRecognizer.transcript
-        speechRecognizer.transcript = ""
+
         if newMessages.last?.role == .userRecordingInProcess {
-            text = newMessages.last!.text
             newMessages.removeLast()
             messages = newMessages
         }
@@ -75,5 +80,12 @@ class VoiceAssistantViewModel: ObservableObject {
                 self.messages = resultMessages
             }
         }
+    }
+
+    private func stop() {
+        speechRecognizer.stopTranscribing()
+        let text = speechRecognizer.transcript
+        speechRecognizer.transcript = ""
+        commitUserMessage(text: text)
     }
 }
