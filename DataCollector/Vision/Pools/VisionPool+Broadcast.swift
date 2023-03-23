@@ -26,16 +26,24 @@ extension VisionPool {
     }
 
     static func makeFullPoolSubscribedToSharedBroadcast() -> Self {
-        let fullPool = makeFullPool()
-        Publishers.RemoveDuplicates(upstream: Broadcast.shared.cvBufferSubject
-            .throttle(for: VisionPool.broadcastThrottle, scheduler: RunLoop.main, latest: true))
-        { old, new in
-            let isEqual = old.isAlmostEqual(to: new)
-            log.trace("heavy skipping broadcast frame recognizing: \(isEqual)")
+        let backgroundQueue = DispatchQueue.global(qos: .userInteractive)
 
-            return isEqual
-        }
-        .subscribe(fullPool)
+        let fullPool = makeFullPool()
+        Broadcast.shared.cvBufferSubject
+            .throttle(for: 0.1, scheduler: RunLoop.main, latest: true)
+            .receive(on: backgroundQueue)
+            .removeDuplicates(by: { old, new in
+
+                let isEqual = old.isAlmostEqual(to: new)
+                log.trace("heavy skipping broadcast frame recognizing: \(isEqual)")
+//                if !isEqual {
+//                    fullPool.resetObservations()
+//                }
+                return isEqual
+            })
+
+            .throttle(for: VisionPool.broadcastThrottle, scheduler: RunLoop.main, latest: true)
+            .subscribe(fullPool)
 
         return fullPool
     }

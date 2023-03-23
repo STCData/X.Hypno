@@ -36,9 +36,13 @@ final class VisionPool: VisionWorker, ObservableObject {
         subscription.request(.max(1))
     }
 
+    public func resetObservations() {
+        observationsSubject.send([])
+    }
+
     func receive(_ input: CVPixelBuffer) -> Subscribers.Demand {
         log.trace("VisionPool received input ")
-        observationsSubject.send([]) // reset observations!
+        resetObservations()
         if isOn {
             process(cvPixelBuffer: input)
         }
