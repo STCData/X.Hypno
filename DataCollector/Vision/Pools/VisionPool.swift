@@ -15,10 +15,23 @@ final class VisionPool: VisionWorker, ObservableObject {
     @Published
     var isOn = true
 
+    var slowestWorkerObservationsSubject: PassthroughSubject<[VNObservation], Never> {
+        return workers.first!.observationsSubject // fixme bad
+    }
+
+    var isBusy: Bool {
+        for worker in workers {
+            if worker.isBusy {
+                return true
+            }
+        }
+        return false
+    }
+
     public static let broadcastThrottle =
-        RunLoop.SchedulerTimeType.Stride(0.8)
+        RunLoop.SchedulerTimeType.Stride(0.08)
     public static let cameraThrottle =
-        RunLoop.SchedulerTimeType.Stride(0.8)
+        RunLoop.SchedulerTimeType.Stride(0.08)
 
     typealias Input = CVPixelBuffer
     typealias Failure = Never
@@ -37,12 +50,14 @@ final class VisionPool: VisionWorker, ObservableObject {
     }
 
     public func resetObservations() {
-        observationsSubject.send([])
+//        slowestWorkerObservationsSubject.send([])
+//        observationsSubject.send([])
+//
     }
 
     func receive(_ input: CVPixelBuffer) -> Subscribers.Demand {
         log.trace("VisionPool received input ")
-        resetObservations()
+//        resetObservations()
         if isOn {
             process(cvPixelBuffer: input)
         }

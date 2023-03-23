@@ -16,7 +16,7 @@ struct CameraView: View {
             #if os(iOS)
                 HostedCameraViewController()
             #endif
-            VisionView(visionViewModel: VisionViewModel(visionPool: VisionPool.cameraPool))
+            VisionView(visionViewModel: VisionViewModel(observationPublisher: VisionPool.cameraPool.observationsSubject))
             FloatingAtCorner(alignment: .topLeading) {
                 VStack {
                     FloatingButton(action: {

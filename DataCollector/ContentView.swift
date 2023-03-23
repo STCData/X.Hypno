@@ -101,7 +101,8 @@ struct ContentView: View {
                 $0.hidden()
             }
 
-            VisionView(visionViewModel: VisionViewModel(visionPool: VisionPool.broadcastPool))
+            VisionView(visionViewModel: VisionViewModel(observationPublisher: VisionPool.broadcastPool.observationsSubject
+                    .debounce(for: .seconds(0.1), scheduler: RunLoop.main)))
         }
         .ignoresSafeArea()
         .onShake {

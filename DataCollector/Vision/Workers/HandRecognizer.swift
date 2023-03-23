@@ -11,6 +11,8 @@ import Vision
 private let log = LogLabels.vision.makeLogger()
 
 class HandRecognizer: VisionWorker {
+    var isBusy = false
+
     func receive(subscription _: Subscription) {}
 
     func receive(_ input: CVBuffer) -> Subscribers.Demand {
@@ -27,6 +29,7 @@ class HandRecognizer: VisionWorker {
     private let workQueue = makeWorkQueue()
 
     func process(cvPixelBuffer: CVPixelBuffer) {
+        isBusy = true
         workQueue.async {
             log.trace("heavy hand recognizing")
 
@@ -36,6 +39,7 @@ class HandRecognizer: VisionWorker {
                     return
                 }
                 self.observationsSubject.send(observations)
+                self.isBusy = false
             }
 
             let requestHandler = VNImageRequestHandler(cvPixelBuffer: cvPixelBuffer, options: [:])

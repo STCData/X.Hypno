@@ -51,20 +51,24 @@ class VisionViewModel: ObservableObject {
     @Published var humanBodyPoses: [VNHumanBodyPoseObservation] = []
     private var subscriptions = Set<AnyCancellable>()
 
-    init(visionPool: VisionPool) {
-        Publishers.RemoveDuplicates(upstream: visionPool.observationsSubject, predicate: {
-            guard let rects1 = $0 as? [VNRectangleObservation],
-                  let rects2 = $1 as? [VNRectangleObservation]
-            else {
-                return $0 == $1
-            }
-            let isEqual = rects1.isAlmostEqual(with: VNEdgeInsets(top: 1.2, left: 10, bottom: 1.3, right: 10), to: rects2)
-            if isEqual, rects1.count > 0 {
-                print("is equal")
-            }
+    init(observationPublisher: any Publisher<[VNObservation], Never>) {
+        Publishers.RemoveDuplicates(
+            upstream: observationPublisher.eraseToAnyPublisher(),
+            //                .debounce(for: .seconds(0.01), scheduler: RunLoop.main) //debounce will erase absolutely any camera observation
+            predicate: {
+                guard let rects1 = $0 as? [VNRectangleObservation],
+                      let rects2 = $1 as? [VNRectangleObservation]
+                else {
+                    return $0 == $1
+                }
+                let isEqual = rects1.isAlmostEqual(with: VNEdgeInsets(top: 1.2, left: 10, bottom: 1.3, right: 10), to: rects2)
+                if isEqual, rects1.count > 0 {
+                    print("is equal")
+                }
 
-            return isEqual
-        })
+                return isEqual
+            }
+        )
         .receive(on: RunLoop.main)
         .sink { observations in
             self.objects = observations.filter { $0 is VNRecognizedObjectObservation } as! [VNRecognizedObjectObservation]

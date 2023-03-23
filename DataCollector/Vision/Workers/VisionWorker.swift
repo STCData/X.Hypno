@@ -11,6 +11,7 @@ import Vision
 
 protocol VisionWorker: Subscriber where Input == CVPixelBuffer, Failure == Never {
     var observationsSubject: PassthroughSubject<[VNObservation], Never> { get }
+    var isBusy: Bool { get }
 }
 
 extension VisionWorker {

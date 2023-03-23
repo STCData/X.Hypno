@@ -11,6 +11,8 @@ import Vision
 private let log = LogLabels.vision.makeLogger()
 
 class YOLOObjectRecognizer: VisionWorker {
+    var isBusy = false
+
     func receive(subscription _: Subscription) {}
 
     func receive(_ input: CVBuffer) -> Subscribers.Demand {
@@ -33,6 +35,7 @@ class YOLOObjectRecognizer: VisionWorker {
     private let workQueue = makeWorkQueue()
 
     func process(cvPixelBuffer: CVPixelBuffer) {
+        isBusy = true
         workQueue.async {
             log.trace("heavy yolo recognizing")
 
@@ -42,6 +45,7 @@ class YOLOObjectRecognizer: VisionWorker {
                     return
                 }
                 self.observationsSubject.send(observations)
+                self.isBusy = false
             }
 
             let requestHandler = VNImageRequestHandler(cvPixelBuffer: cvPixelBuffer, options: [:])

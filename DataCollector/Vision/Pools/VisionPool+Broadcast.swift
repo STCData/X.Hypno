@@ -30,20 +30,30 @@ extension VisionPool {
 
         let fullPool = makeFullPool()
         Broadcast.shared.cvBufferSubject
-            .throttle(for: 0.1, scheduler: RunLoop.main, latest: true)
+            .debounce(for: .seconds(0.2), scheduler: RunLoop.main)
+            .throttle(for: .seconds(0.1), scheduler: RunLoop.main, latest: true)
             .receive(on: backgroundQueue)
+
             .removeDuplicates(by: { old, new in
 
                 let isEqual = old.isAlmostEqual(to: new)
                 log.trace("heavy skipping broadcast frame recognizing: \(isEqual)")
-//                if !isEqual {
+                if !isEqual {
+                    print("RESET!!")
+                    fullPool.observationsSubject.send([])
 //                    fullPool.resetObservations()
-//                }
+                }
                 return isEqual
             })
+            .drop(untilOutputFrom: fullPool.slowestWorkerObservationsSubject)
 
-            .throttle(for: VisionPool.broadcastThrottle, scheduler: RunLoop.main, latest: true)
+//            .throttle(for: VisionPool.broadcastThrottle, scheduler: RunLoop.main, latest: true)
+//            .drop( while: { _ in
+//                fullPool.isBusy
+//
+//            })
             .subscribe(fullPool)
+        fullPool.slowestWorkerObservationsSubject.send([])
 
         return fullPool
     }

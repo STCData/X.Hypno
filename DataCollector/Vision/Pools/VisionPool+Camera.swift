@@ -17,6 +17,7 @@ extension VisionPool {
 
     static func subscribeCameraPool(to cmBufferSubject: PassthroughSubject<CMSampleBuffer, Never>) {
         cmBufferSubject
+            .drop(untilOutputFrom: VisionPool.cameraPool.observationsSubject)
             .throttle(for: VisionPool.cameraThrottle, scheduler: RunLoop.main, latest: true)
             .receive(on: DispatchQueue.global(qos: .userInitiated))
             .compactMap { cmBuffer in
@@ -27,6 +28,7 @@ extension VisionPool {
                 }
             }
             .subscribe(VisionPool.cameraPool)
+        VisionPool.cameraPool.observationsSubject.send([])
     }
 
     static func makeCameraPool() -> Self {
