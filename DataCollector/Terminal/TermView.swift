@@ -7,16 +7,24 @@
 
 import SwiftUI
 
-struct HostedTerminalViewController: UIViewControllerRepresentable {
-    func makeUIViewController(context _: Context) -> UIViewController {
-        return TerminalViewController()
-    }
+#if os(iOS)
 
-    func updateUIViewController(_: UIViewController, context _: Context) {}
-}
+    struct HostedTerminalViewController: UIViewControllerRepresentable {
+        func makeUIViewController(context _: Context) -> UIViewController {
+            return TerminalViewController()
+        }
+
+        func updateUIViewController(_: UIViewController, context _: Context) {}
+    }
+#endif
 
 struct TermView: View {
     var body: some View {
-        HostedTerminalViewController()
+        #if os(iOS)
+
+            HostedTerminalViewController()
+        #else
+            Spacer()
+        #endif
     }
 }

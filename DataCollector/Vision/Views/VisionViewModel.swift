@@ -12,8 +12,23 @@ import Vision
 
 import Vision
 
+#if os(iOS)
+    typealias VNEdgeInsets = UIEdgeInsets
+#else
+    typealias VNEdgeInsets = NSEdgeInsets
+    extension CGRect {
+        func inset(by insets: NSEdgeInsets) -> CGRect {
+            return CGRect(x: origin.x + insets.left,
+                          y: origin.y + insets.top,
+                          width: size.width - (insets.left + insets.right),
+                          height: size.height - (insets.top + insets.bottom))
+        }
+    }
+
+#endif
+
 extension Array where Element == VNRectangleObservation {
-    func isAlmostEqual(with insets: UIEdgeInsets, to other: [VNRectangleObservation]) -> Bool {
+    func isAlmostEqual(with insets: VNEdgeInsets, to other: [VNRectangleObservation]) -> Bool {
         guard count == other.count else { return false }
         for (index, observation) in enumerated() {
             let otherObservation = other[index]
@@ -43,7 +58,7 @@ class VisionViewModel: ObservableObject {
             else {
                 return $0 == $1
             }
-            let isEqual = rects1.isAlmostEqual(with: UIEdgeInsets(top: 1.2, left: 10, bottom: 1.3, right: 10), to: rects2)
+            let isEqual = rects1.isAlmostEqual(with: VNEdgeInsets(top: 1.2, left: 10, bottom: 1.3, right: 10), to: rects2)
             if isEqual, rects1.count > 0 {
                 print("is equal")
             }

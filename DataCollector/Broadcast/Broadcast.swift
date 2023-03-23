@@ -102,6 +102,7 @@ class Broadcast: BufferVideoCapturerDelegate, ObservableObject {
         broadcastScreenCapturer.delegate = self
 
         let screenShareExtensionId = Bundle.main.infoDictionary?[BroadcastScreenCapturer.kRTCScreenSharingExtension] as? String
+
         RPSystemBroadcastPickerView.show(for: screenShareExtensionId,
                                          showsMicrophoneButton: false)
 

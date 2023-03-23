@@ -46,6 +46,7 @@ class SpeechRecognizer: ObservableObject {
                 guard await SFSpeechRecognizer.hasAuthorizationToRecognize() else {
                     throw RecognizerError.notAuthorizedToRecognize
                 }
+
                 guard await AVAudioSession.sharedInstance().hasPermissionToRecord() else {
                     throw RecognizerError.notPermittedToRecord
                 }
@@ -154,12 +155,16 @@ extension SFSpeechRecognizer {
     }
 }
 
-extension AVAudioSession {
-    func hasPermissionToRecord() async -> Bool {
-        await withCheckedContinuation { continuation in
-            requestRecordPermission { authorized in
-                continuation.resume(returning: authorized)
+#if os(iOS)
+
+    extension AVAudioSession {
+        func hasPermissionToRecord() async -> Bool {
+            await withCheckedContinuation { continuation in
+                requestRecordPermission { authorized in
+                    continuation.resume(returning: authorized)
+                }
             }
         }
     }
-}
+
+#endif

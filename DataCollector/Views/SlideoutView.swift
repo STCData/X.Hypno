@@ -11,9 +11,14 @@ struct SlideoutView<Content: View>: View {
     var horizontal: Bool = true
     var opacity: Double = 1.0
     @Binding var isSidebarVisible: Bool
+    #if os(iOS)
+        var sideBarWidth = UIScreen.main.bounds.size.width * 0.9
+        var sideBarHeight = UIScreen.main.bounds.size.height * 0.4
+    #else
+        var sideBarWidth = 100.0
+        var sideBarHeight = 500.0
 
-    var sideBarWidth = UIScreen.main.bounds.size.width * 0.9
-    var sideBarHeight = UIScreen.main.bounds.size.height * 0.4
+    #endif
     var bgColor: Color = .white.opacity(0.96)
     var shadowColor: Color = .black.opacity(0.6)
     let content: () -> Content
@@ -45,7 +50,9 @@ struct SlideoutView<Content: View>: View {
                 .if(!horizontal) {
                     $0
                         .frame(height: sideBarHeight)
+                    #if os(iOS)
                         .offset(y: isSidebarVisible ? 0 : -UIScreen.main.bounds.size.height)
+                    #endif
                 }
 
                 .animation(.default, value: isSidebarVisible)

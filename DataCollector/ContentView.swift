@@ -21,6 +21,7 @@ extension CaseIterable where Self: Equatable {
     }
 }
 
+// @available(macOS 13.0, *)
 struct ContentView: View {
     @State private var isDebugUIShown = true
     @State private var isTabbarShown = false
@@ -40,18 +41,28 @@ struct ContentView: View {
 //                    Label("Camera", systemImage: "camera")
 //                }
 //                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
-                .toolbar(.hidden, for: .tabBar)
-                .tag(Tabs.first)
+            #if os(iOS)
+
+.toolbar(.hidden, for: .tabBar)
+            #endif
+
+.tag(Tabs.first)
 
             BrowserView()
 //                .tabItem {
 //                    Label("Browser", systemImage: "globe")
 //                }
 //                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
-                .toolbar(.hidden, for: .tabBar)
-                .tag(Tabs.second)
+            #if os(iOS)
+
+.toolbar(.hidden, for: .tabBar)
+            #endif
+.tag(Tabs.second)
         }
+        #if os(iOS)
+
         .toolbar(.hidden, for: .tabBar)
+        #endif
     }
 
     var body: some View {

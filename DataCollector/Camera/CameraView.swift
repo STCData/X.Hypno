@@ -13,7 +13,9 @@ struct CameraView: View {
 
     var body: some View {
         ZStack {
-            HostedCameraViewController()
+            #if os(iOS)
+                HostedCameraViewController()
+            #endif
             VisionView(visionViewModel: VisionViewModel(visionPool: VisionPool.cameraPool))
             FloatingAtCorner(alignment: .topLeading) {
                 VStack {

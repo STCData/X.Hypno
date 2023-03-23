@@ -7,7 +7,7 @@
 
 import AVFoundation
 import Logging
-import UIKit
+// import UIKit
 import Vision
 
 private let log = LogLabels.camera.makeLogger()
