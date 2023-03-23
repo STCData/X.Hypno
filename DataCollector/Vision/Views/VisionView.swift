@@ -68,6 +68,9 @@ struct VisionView: View {
                         }
                     }
                 }
+
+                VAWebView(observationPublisher: visionViewModel.cleanedObservationsPublisher)
+                    .allowsHitTesting(false)
             }
             // Geometry reader makes the view shrink to its smallest size
             .frame(maxWidth: .infinity, maxHeight: .infinity)

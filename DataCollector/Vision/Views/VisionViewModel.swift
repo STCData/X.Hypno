@@ -51,6 +51,8 @@ class VisionViewModel: ObservableObject {
     @Published var humanBodyPoses: [VNHumanBodyPoseObservation] = []
     private var subscriptions = Set<AnyCancellable>()
 
+    public let cleanedObservationsPublisher = PassthroughSubject<[VNObservation], Never>()
+
     init(observationPublisher: any Publisher<[VNObservation], Never>) {
         Publishers.RemoveDuplicates(
             upstream: observationPublisher.eraseToAnyPublisher(),
@@ -71,6 +73,7 @@ class VisionViewModel: ObservableObject {
         )
         .receive(on: RunLoop.main)
         .sink { observations in
+            self.cleanedObservationsPublisher.send(observations)
             self.objects = observations.filter { $0 is VNRecognizedObjectObservation } as! [VNRecognizedObjectObservation]
             self.text = observations.filter { $0 is VNRecognizedTextObservation } as! [VNRecognizedTextObservation]
             self.hands = observations.filter { $0 is VNHumanHandPoseObservation } as! [VNHumanHandPoseObservation]
