@@ -50,17 +50,25 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
                 HStack {
                     if message.role == .assistantCode {
                         if isCodeFullScreen {
-                            CodeThumbnailView(code: message.text)
-                                .edgesIgnoringSafeArea(.all)
+                            CodeView(code: message.text)
+//                                .edgesIgnoringSafeArea(.all)
                                 .frame(width: UIScreen.main.bounds.size.width * 0.9,
                                        height: UIScreen.main.bounds.size.height * 0.8)
-                                .onTapGesture {
+                                .onTapBackground(enabled: true) {
                                     withAnimation {
                                         isCodeFullScreen = false
                                     }
                                 }
+
+//                                .onTapGesture {
+//                                    withAnimation {
+//                                        isCodeFullScreen = false
+//                                    }
+//                                }
                         } else {
-                            CodeThumbnailView(code: message.text)
+                            CodeView(code: message.text, thumbnailed: true)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.45,
+                                       height: 200)
                                 .onTapGesture {
                                     withAnimation {
                                         isCodeFullScreen = true

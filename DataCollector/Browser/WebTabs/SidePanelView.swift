@@ -31,6 +31,7 @@ struct SidePanelView: View {
                 .padding(5)
                 .background(.white)
                 .cornerRadius(7)
+                .autocorrectionDisabled(true)
 
         }.adaptsToKeyboard()
     }
