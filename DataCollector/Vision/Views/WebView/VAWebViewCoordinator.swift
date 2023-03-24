@@ -35,6 +35,7 @@ extension VAWebViewCoordinator: WKNavigationDelegate {
 //        ])
 
         webView.initDebug()
+        webView.initJS()
     }
 
     func webView(_: WKWebView, decidePolicyFor _: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {

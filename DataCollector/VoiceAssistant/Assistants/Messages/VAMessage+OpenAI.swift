@@ -12,6 +12,8 @@ extension VAMessage {
     static let JSStartMarker = "```javascript"
     static let JSEndMarker = "```"
 
+    static let JSObservationsEventName = "onObservationsUpdate"
+
     static func from(openAIMessage: ChatMessage) -> [VAMessage] {
         switch openAIMessage.role {
         case .system:

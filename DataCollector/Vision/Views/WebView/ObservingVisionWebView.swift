@@ -43,7 +43,7 @@ class ObservingVisionWebView: WKWebView {
 
         convertedObservationsArrayPublisher
             .sink { observations in
-                self.updateObservations(observations)
+                self.updateObservationsAndCanvasSize(observations)
 
             }.store(in: &subscriptions)
 
@@ -76,10 +76,10 @@ class ObservingVisionWebView: WKWebView {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
-    private func updateObservations(_ observations: [Observation]) {
+    private func updateObservationsAndCanvasSize(_ observations: [Observation]) {
         let observationsJson = try! observations.toJSON()
         print(observationsJson)
-        evaluateJavaScript("\(JSUpdObs) ; updObs(\(observationsJson)) ; ") { result, error in
+        evaluateJavaScript("  \(JSUpdObs) ; updObs(\(observationsJson)) ; ") { result, error in
             if error == nil {
                 if let r = result as? [String: Any],
                    let width = r[JSOutputKeys.width.rawValue] as? CGFloat,
@@ -91,13 +91,26 @@ class ObservingVisionWebView: WKWebView {
                 print(result)
             } else {
                 print(error)
+                print(error)
             }
         }
     }
 }
 
-private let JSUpdObs = """
-function drawObservations(canvas, observations) {
+extension WKWebView {
+    func initJS() {
+        evaluateJavaScript("\(JSInit) ; ") { result, error in
+            if error == nil {
+                print(result)
+            } else {
+                print(error)
+            }
+        }
+    }
+}
+
+private let JSInit = """
+function drawObservationsMarkers(canvas, observations) {
   const ctx = canvas.getContext('2d');
 
   // Clear the canvas
@@ -142,27 +155,53 @@ if (obs.bottomLeft && obs.bottomRight && obs.topLeft && obs.topRight) {
   }
 }
 
+function drawObservationsLabel(canvas, observations) {
+    const ctx = canvas.getContext('2d');
+    const label =  `Observations: ${observations.length}`;
+    const centerX = canvas.width / 2;
+    const bottomY = canvas.height - 20;
+    ctx.font = 'bold 29px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#09f00066';
+    ctx.clearRect(0, bottomY - 25, canvas.width, 25);
+    if (observations.length > 0) {
+      ctx.fillText(label, centerX, bottomY);
+    }
 
-function updObs(observations) {
+}
+
+function drawObservations(observations) {
   const canvas = document.getElementById('my-canvas');
   if (canvas == null) { return } ;
 
-drawObservations(canvas, observations);
-  const ctx = canvas.getContext('2d');
-  const label =  `Observations: ${observations.length}`;
-  const centerX = canvas.width / 2;
-  const bottomY = canvas.height - 20;
-  ctx.font = 'bold 29px Arial';
-  ctx.textAlign = 'center';
-  ctx.fillStyle = '#09f00066';
-  ctx.clearRect(0, bottomY - 25, canvas.width, 25);
-if (observations.length > 0) {
-  ctx.fillText(label, centerX, bottomY);
+  drawObservationsMarkers(canvas, observations);
+  drawObservationsLabel(canvas, observations);
 }
 
-return {
- "\(JSOutputKeys.width.rawValue)": canvas.width,
- "\(JSOutputKeys.height.rawValue)": canvas.height
-}
+
+window.addEventListener('\(VAMessage.JSObservationsEventName)', function(ev) {
+    drawObservations(ev.detail.observations);
+});
+
+
+"""
+
+private let JSUpdObs = """
+
+function updObs(observations) {
+
+const myEvent = new CustomEvent('\(VAMessage.JSObservationsEventName)', { detail: { observations: observations } });
+
+window.dispatchEvent(myEvent);
+//drawObservations(observations);
+
+  const canvas = document.getElementById('my-canvas');
+  if (canvas == null) { return } ;
+
+
+    return {
+     "\(JSOutputKeys.width.rawValue)": canvas.width,
+     "\(JSOutputKeys.height.rawValue)": canvas.height
+    }
 }
 """
