@@ -31,6 +31,8 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
                 return Color.blue
             case .userRecordingInProcess:
                 return Color.pink
+            case .userExpectingResponse:
+                return Color.blue.opacity(0.8)
             case .userTyping:
                 return Color.white.opacity(0.2)
             case .error:
@@ -51,7 +53,7 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
                     if message.role == .assistantCode {
                         if isCodeFullScreen {
                             CodeView(code: message.text)
-//                                .edgesIgnoringSafeArea(.all)
+                                //                                .edgesIgnoringSafeArea(.all)
                                 .frame(width: UIScreen.main.bounds.size.width * 0.9,
                                        height: UIScreen.main.bounds.size.height * 0.8)
                                 .onTapBackground(enabled: true) {
@@ -60,11 +62,11 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
                                     }
                                 }
 
-//                                .onTapGesture {
-//                                    withAnimation {
-//                                        isCodeFullScreen = false
-//                                    }
-//                                }
+                            //                                .onTapGesture {
+                            //                                    withAnimation {
+                            //                                        isCodeFullScreen = false
+                            //                                    }
+                            //                                }
                         } else {
                             CodeView(code: message.text, thumbnailed: true)
                                 .frame(width: UIScreen.main.bounds.size.width * 0.45,
@@ -81,7 +83,7 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
                         content()
                     }
 
-                    if message.role == .userRecordingInProcess {
+                    if message.role == .userRecordingInProcess || message.role == .userExpectingResponse {
                         ProgressView()
                             .frame(width: 10, height: 10)
                     }

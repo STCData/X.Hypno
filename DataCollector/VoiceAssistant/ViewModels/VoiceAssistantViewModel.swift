@@ -71,6 +71,8 @@ class VoiceAssistantViewModel: ObservableObject {
             messages = newMessages
         }
 
+        messages = messages + [VAMessage(text: text, role: .userExpectingResponse)]
+
         let txt = text
         let chat = newMessages
 

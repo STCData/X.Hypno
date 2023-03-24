@@ -13,6 +13,7 @@ enum VAMessageRole {
     case user
     case userRecordingInProcess
     case userTyping
+    case userExpectingResponse
     case error
 }
 

@@ -135,6 +135,10 @@
 		9AC6FBF929CE09DF004A2391 /* SECRET.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FBF829CE09DF004A2391 /* SECRET.plist */; };
 		9AC6FBFC29CE0B2C004A2391 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC6FBFB29CE0B2C004A2391 /* OpenAISwift */; };
 		9AC6FBFE29CE0B3D004A2391 /* VAOpenAIAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FBFD29CE0B3D004A2391 /* VAOpenAIAssistant.swift */; };
+		9AC6FC0429CE0ED4004A2391 /* VAMessage+OpenAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC0329CE0ED4004A2391 /* VAMessage+OpenAI.swift */; };
+		9AC6FC0629CE1940004A2391 /* VAOpenAIAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC0529CE1940004A2391 /* VAOpenAIAssistantTests.swift */; };
+		9AC6FC0829CE199E004A2391 /* Runestone in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC6FC0729CE199E004A2391 /* Runestone */; };
+		9AC6FC0A29CE19AC004A2391 /* TreeSitterJavaScriptRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC6FC0929CE19AC004A2391 /* TreeSitterJavaScriptRunestone */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -303,6 +307,8 @@
 		9AC6FBF629CDFE8C004A2391 /* CodeTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTheme.swift; sourceTree = "<group>"; };
 		9AC6FBF829CE09DF004A2391 /* SECRET.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SECRET.plist; sourceTree = "<group>"; };
 		9AC6FBFD29CE0B3D004A2391 /* VAOpenAIAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VAOpenAIAssistant.swift; sourceTree = "<group>"; };
+		9AC6FC0329CE0ED4004A2391 /* VAMessage+OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VAMessage+OpenAI.swift"; sourceTree = "<group>"; };
+		9AC6FC0529CE1940004A2391 /* VAOpenAIAssistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VAOpenAIAssistantTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +334,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AC6FC0A29CE19AC004A2391 /* TreeSitterJavaScriptRunestone in Frameworks */,
+				9AC6FC0829CE199E004A2391 /* Runestone in Frameworks */,
 				9A368E3A29C8A2840089F127 /* Promises in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +433,7 @@
 			children = (
 				9A16BCA429AF8E9C006AE075 /* DataCollectorTests.swift */,
 				9A368E3529C89ED60089F127 /* ArrayPublisherTests.swift */,
+				9AC6FC0529CE1940004A2391 /* VAOpenAIAssistantTests.swift */,
 			);
 			path = DataCollectorTests;
 			sourceTree = "<group>";
@@ -718,6 +727,7 @@
 			isa = PBXGroup;
 			children = (
 				9A368E5A29CB241E0089F127 /* VAMessage.swift */,
+				9AC6FC0329CE0ED4004A2391 /* VAMessage+OpenAI.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -794,6 +804,8 @@
 			name = DataCollectorTests;
 			packageProductDependencies = (
 				9A368E3929C8A2840089F127 /* Promises */,
+				9AC6FC0729CE199E004A2391 /* Runestone */,
+				9AC6FC0929CE19AC004A2391 /* TreeSitterJavaScriptRunestone */,
 			);
 			productName = DataCollectorTests;
 			productReference = 9A16BCA029AF8E9C006AE075 /* DataCollectorTests.xctest */;
@@ -1026,6 +1038,7 @@
 				9A368E8529CCA87F0089F127 /* RecognizedObjectObservation.swift in Sources */,
 				9A368DEB29C862520089F127 /* BroadcastScreenCapturer.swift in Sources */,
 				9A368D7429C5D9B70089F127 /* CameraViewController+Detection.swift in Sources */,
+				9AC6FC0429CE0ED4004A2391 /* VAMessage+OpenAI.swift in Sources */,
 				9A368E0029C863E40089F127 /* CaptureOptions.swift in Sources */,
 				9A368D6E29C5CD380089F127 /* SlideoutView.swift in Sources */,
 				9A368E8729CCAECA0089F127 /* ObservationPoint.swift in Sources */,
@@ -1064,6 +1077,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A368E3629C89ED60089F127 /* ArrayPublisherTests.swift in Sources */,
+				9AC6FC0629CE1940004A2391 /* VAOpenAIAssistantTests.swift in Sources */,
 				9A16BCA529AF8E9C006AE075 /* DataCollectorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1736,6 +1750,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9AC6FBFA29CE0B2C004A2391 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
 			productName = OpenAISwift;
+		};
+		9AC6FC0729CE199E004A2391 /* Runestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A368E9E29CDFB630089F127 /* XCRemoteSwiftPackageReference "Runestone" */;
+			productName = Runestone;
+		};
+		9AC6FC0929CE19AC004A2391 /* TreeSitterJavaScriptRunestone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A368EA329CDFCBB0089F127 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
+			productName = TreeSitterJavaScriptRunestone;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
