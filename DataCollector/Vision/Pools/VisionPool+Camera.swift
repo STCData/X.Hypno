@@ -33,7 +33,12 @@ extension VisionPool {
 
     static func makeCameraPool() -> Self {
         let yoloWorker = try! YOLOObjectRecognizer()
-        let visionPool = Self(workers: [yoloWorker, HandRecognizer()])
+        let visionPool = Self(workers: [
+            TextRecognizer(),
+            HumanBodyPoseRecognizer(),
+            yoloWorker,
+            HandRecognizer(),
+        ])
         return visionPool
     }
 }
