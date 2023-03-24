@@ -67,7 +67,7 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
             }
             .padding(.vertical, 1)
             .padding(.horizontal, 1)
-            .opacity(0.8)
+            .opacity(0.4)
         }
         .frame(maxWidth: maxWidth, alignment: isFromCurrentUser ? .trailing : .leading)
     }

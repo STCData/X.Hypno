@@ -56,90 +56,109 @@ struct VoiceAssistantView: View {
     @State
     private var isKeyboardInputActive = false
 
+    @State
+    private var isHidden = false
+
     var body: some View {
         VStack {
+            if !isHidden {
 //            Spacer()
 //                .frame(minHeight: 0, maxHeight: .infinity)
-            ScrollViewReader { value in
+                ScrollViewReader { value in
 
-                ScrollView {
+                    ScrollView {
 //                    Spacer()
 //                        .frame(maxHeight: .infinity)
 //                        .id(topID)
 
-                    ForEach(viewModel.messages) { msg in
-                        VoiceAssistantMessageBalloon(message: msg) {
-                            Spacer()
+                        ForEach(viewModel.messages) { msg in
+                            VoiceAssistantMessageBalloon(message: msg) {
+                                Spacer()
+                            }
                         }
-                    }
-                    .onChange(of: viewModel.messages.count) { _ in
-                        withAnimation {
-                            value.scrollTo(bottomID)
+                        .onChange(of: viewModel.messages.count) { _ in
+                            withAnimation {
+                                value.scrollTo(bottomID)
+                            }
                         }
-                    }
 
-                    if isKeyboardInputActive {
-                        VoiceAssistantMessageBalloon(message: VAMessage(text: "", role: .userTyping)) {
-                            TextField("", text: $viewModel.textfieldMessageInput, axis: .vertical)
-                                .onSubmit(submitTextField)
-                                .onEnter($of: $viewModel.textfieldMessageInput, action: submitTextField)
-                                .onChange(of: isTextFieldFocused) { isFocused in
-                                    if isFocused {
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                            value.scrollTo(bottomID)
+                        if isKeyboardInputActive {
+                            VoiceAssistantMessageBalloon(message: VAMessage(text: "", role: .userTyping)) {
+                                TextField("", text: $viewModel.textfieldMessageInput, axis: .vertical)
+                                    .keyboardType(.asciiCapable)
+                                    .autocorrectionDisabled(true)
+                                    .onSubmit(submitTextField)
+                                    .onEnter($of: $viewModel.textfieldMessageInput, action: submitTextField)
+                                    .onChange(of: isTextFieldFocused) { isFocused in
+                                        if isFocused {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                                value.scrollTo(bottomID)
+                                            }
                                         }
                                     }
-                                }
 
-                                .textFieldStyle(.roundedBorder)
-                                .focused($isTextFieldFocused)
-                                .id(textfieldID)
+                                    .textFieldStyle(.roundedBorder)
+                                    .focused($isTextFieldFocused)
+                                    .id(textfieldID)
+                            }
                         }
+
+                        Spacer()
+                            .frame(height: 0)
+                            .id(bottomID)
                     }
 
-                    Spacer()
-                        .frame(height: 0)
-                        .id(bottomID)
+                    .gesture(
+                        DragGesture().onChanged { value in
+
+                            if value.translation.height > 0 {
+                                isTextFieldFocused = false
+
+                                print("Scroll down")
+                            } else {
+                                print("Scroll up")
+                            }
+                        }
+                    )
                 }
-
-                .gesture(
-                    DragGesture().onChanged { value in
-
-                        if value.translation.height > 0 {
-                            isTextFieldFocused = false
-
-                            print("Scroll down")
-                        } else {
-                            print("Scroll up")
-                        }
-                    }
-                )
-            }
-            .onTapBackground(enabled: isTextFieldFocused) {
-                isTextFieldFocused = false
-            }
-            .frame(maxWidth: .infinity)
+                .onTapBackground(enabled: isTextFieldFocused) {
+                    isTextFieldFocused = false
+                }
+                .frame(maxWidth: .infinity)
 //            .adaptsToKeyboard()
-            Spacer()
+                Spacer()
 
-            if !isTextFieldFocused {
-                FloatingButton(action: {
-                    if !isKeyboardInputActive {
-                        viewModel.isRecording.toggle()
-                    }
+                if !isTextFieldFocused {
+                    FloatingButton(action: {
+                        if !isKeyboardInputActive {
+                            viewModel.isRecording.toggle()
+                        }
 
-                }, longTapAction: {
-                    isKeyboardInputActive.toggle()
-                    if isKeyboardInputActive, viewModel.isRecording {
-                        viewModel.isRecording = false
-                    }
-                    if isKeyboardInputActive {
-                        isTextFieldFocused = true
-                    }
-                },
-                icon: isKeyboardInputActive ? "keyboard" : "waveform.path", width: 64, height: 64, cornerRadius: 22, color: viewModel.isRecording ? FloatingButton.recColor : FloatingButton.enabledColor)
+                    }, longTapAction: {
+                        isKeyboardInputActive.toggle()
+                        if isKeyboardInputActive, viewModel.isRecording {
+                            viewModel.isRecording = false
+                        }
+                        if isKeyboardInputActive {
+                            isTextFieldFocused = true
+                        }
+                    },
+                    icon: isKeyboardInputActive ? "keyboard" : "waveform.path", width: 64, height: 64, cornerRadius: 22, color: viewModel.isRecording ? FloatingButton.recColor : FloatingButton.enabledColor)
+                }
             }
         }
+        Button(action: {
+            isHidden = false
+            isKeyboardInputActive = true
+            viewModel.isRecording = false
+            isTextFieldFocused = true
+        }, label: {})
+            .keyboardShortcut("p", modifiers: .command)
+
+        Button(action: {
+            isHidden.toggle()
+        }, label: {})
+            .keyboardShortcut("p", modifiers: [.option, .command])
 //        .adaptsToKeyboard()
     }
 }
