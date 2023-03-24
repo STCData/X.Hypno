@@ -6,5 +6,17 @@
 //
 
 import Foundation
+import Vision
 
-class RecognizedTextObservation: RectangleObservation {}
+class RecognizedTextObservation: DetectedObjectObservation {
+    let text: String
+
+    init(textObservation: VNRecognizedTextObservation) {
+        text = textObservation.topCandidates(1).first?.string ?? ""
+        super.init(textObservation)
+    }
+
+    required init(from _: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
+}

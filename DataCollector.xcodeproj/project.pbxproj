@@ -118,6 +118,7 @@
 		9A368E8129CCA38E0089F127 /* FaceObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E8029CCA38E0089F127 /* FaceObservation.swift */; };
 		9A368E8329CCA41D0089F127 /* Array+CodableJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E8229CCA41D0089F127 /* Array+CodableJSON.swift */; };
 		9A368E8529CCA87F0089F127 /* RecognizedObjectObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E8429CCA87F0089F127 /* RecognizedObjectObservation.swift */; };
+		9A368E8729CCAECA0089F127 /* ObservationPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E8629CCAECA0089F127 /* ObservationPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,6 +276,7 @@
 		9A368E8029CCA38E0089F127 /* FaceObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceObservation.swift; sourceTree = "<group>"; };
 		9A368E8229CCA41D0089F127 /* Array+CodableJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+CodableJSON.swift"; sourceTree = "<group>"; };
 		9A368E8429CCA87F0089F127 /* RecognizedObjectObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedObjectObservation.swift; sourceTree = "<group>"; };
+		9A368E8629CCAECA0089F127 /* ObservationPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -626,6 +628,7 @@
 				9A368E8029CCA38E0089F127 /* FaceObservation.swift */,
 				9A368E8229CCA41D0089F127 /* Array+CodableJSON.swift */,
 				9A368E8429CCA87F0089F127 /* RecognizedObjectObservation.swift */,
+				9A368E8629CCAECA0089F127 /* ObservationPoint.swift */,
 			);
 			path = Observation;
 			sourceTree = "<group>";
@@ -911,6 +914,7 @@
 				9A368D7429C5D9B70089F127 /* CameraViewController+Detection.swift in Sources */,
 				9A368E0029C863E40089F127 /* CaptureOptions.swift in Sources */,
 				9A368D6E29C5CD380089F127 /* SlideoutView.swift in Sources */,
+				9A368E8729CCAECA0089F127 /* ObservationPoint.swift in Sources */,
 				9A368E7529CCA0290089F127 /* HumanHandPoseObservation.swift in Sources */,
 				9A368E6129CB28BB0089F127 /* VoiceAssistantMessageBaloon.swift in Sources */,
 				9A368E2C29C880060089F127 /* VisionWorker.swift in Sources */,

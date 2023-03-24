@@ -22,15 +22,15 @@ extension Observation {
     static func from(vnObservation: VNObservation) -> Observation {
         switch vnObservation {
         case let handObservation as VNHumanHandPoseObservation:
-            return HumanHandPoseObservation(handObservation)
+            return HumanHandPoseObservation(pointsObservation: handObservation)
         case let barcodeObservation as VNBarcodeObservation:
-            return BarcodeObservation(barcodeObservation)
+            return BarcodeObservation(barcodeObservation: barcodeObservation)
         case let faceObservation as VNFaceObservation:
             return FaceObservation(faceObservation)
         case let textObservation as VNRecognizedTextObservation:
-            return RecognizedTextObservation(textObservation)
+            return RecognizedTextObservation(textObservation: textObservation)
         case let rectangleObservation as VNRectangleObservation:
-            return RectangleObservation(rectangleObservation)
+            return RectangleObservation(rectangleObservation: rectangleObservation)
         case let recognizedObjectObservation as VNRecognizedObjectObservation:
             return RecognizedObjectObservation(recognizedObjectObservation)
         // add more cases for other known subclasses of VNObservation
