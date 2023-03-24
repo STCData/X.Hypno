@@ -13,9 +13,9 @@ struct HumanHandPoseObservation: RecognizedPointsObservationProtocol, Codable {
     var confidence: Double
     var recognizedPoints: [VNRecognizedPointKey: ObservationPoint]
 
-    init(humanHandPoseObservation: VNHumanHandPoseObservation) {
+    init(humanHandPoseObservation: VNHumanHandPoseObservation, denormalizeFor: CGSize) {
         timestamp = Date()
         confidence = Double(humanHandPoseObservation.confidence)
-        recognizedPoints = RecognizedPointsFrom(recognizedPointsObservation: humanHandPoseObservation)
+        recognizedPoints = RecognizedPointsFrom(recognizedPointsObservation: humanHandPoseObservation, denormalizeFor: denormalizeFor)
     }
 }

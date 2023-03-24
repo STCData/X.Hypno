@@ -14,9 +14,9 @@ struct FaceObservation: DetectedObjectObservationProtocol, Codable {
     var timestamp: Date
     var confidence: Double
 
-    init(faceObservation: VNFaceObservation) {
+    init(faceObservation: VNFaceObservation, denormalizeFor: CGSize) {
         timestamp = Date()
         confidence = Double(faceObservation.confidence)
-        boundingBox = faceObservation.boundingBox
+        boundingBox = DenormalizedRect(faceObservation.boundingBox, forSize: denormalizeFor)
     }
 }

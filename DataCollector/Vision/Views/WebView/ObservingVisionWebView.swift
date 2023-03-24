@@ -10,8 +10,15 @@ import Foundation
 import Vision
 import WebKit
 
+enum JSOutputKeys: String {
+    case height
+    case width
+}
+
 class ObservingVisionWebView: WKWebView {
     private var subscriptions = Set<AnyCancellable>()
+
+    private var canvasSize = CGSize.zero
 
     override init(frame: CGRect, configuration: WKWebViewConfiguration) {
         super.init(frame: frame, configuration: configuration)
@@ -23,7 +30,7 @@ class ObservingVisionWebView: WKWebView {
         observationPublisher
             .eraseToAnyPublisher()
             .receive(on: RunLoop.main)
-            .map { $0.map { Observation.from($0) } }
+            .map { $0.map { Observation.from($0, denormalizeFor: self.canvasSize) } }
             .sink { observations in
                 self.updateObservations(observations)
 
@@ -40,6 +47,13 @@ class ObservingVisionWebView: WKWebView {
         print(observationsJson)
         evaluateJavaScript("\(JSUpdObs) ; updObs(\(observationsJson)) ; ") { result, error in
             if error == nil {
+                if let r = result as? [String: Any],
+                   let width = r[JSOutputKeys.width.rawValue] as? CGFloat,
+                   let height = r[JSOutputKeys.height.rawValue] as? CGFloat
+                {
+                    self.canvasSize = CGSize(width: width, height: height)
+                }
+
                 print(result)
                 print(result)
             } else {
@@ -104,8 +118,8 @@ if (observations.length > 0) {
 }
 
 return {
- "width": canvas.width,
- "height": canvas.height
+ "\(JSOutputKeys.width.rawValue)": canvas.width,
+ "\(JSOutputKeys.height.rawValue)": canvas.height
 }
 }
 """

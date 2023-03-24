@@ -20,14 +20,14 @@ struct RecognizedTextObservation: DetectedObjectObservationProtocol, Codable {
     var timestamp: Date
     var confidence: Double
 
-    init(textObservation: VNRecognizedTextObservation) {
+    init(textObservation: VNRecognizedTextObservation, denormalizeFor: CGSize) {
         text = textObservation.topCandidates(1).first?.string ?? ""
         timestamp = Date()
         confidence = Double(textObservation.confidence)
-        bottomLeft = textObservation.bottomLeft
-        bottomRight = textObservation.bottomRight
-        topLeft = textObservation.topLeft
-        topRight = textObservation.topRight
-        boundingBox = textObservation.boundingBox
+        bottomLeft = DenormalizedPoint(textObservation.bottomLeft, forSize: denormalizeFor)
+        bottomRight = DenormalizedPoint(textObservation.bottomRight, forSize: denormalizeFor)
+        topLeft = DenormalizedPoint(textObservation.topLeft, forSize: denormalizeFor)
+        topRight = DenormalizedPoint(textObservation.topRight, forSize: denormalizeFor)
+        boundingBox = DenormalizedRect(textObservation.boundingBox, forSize: denormalizeFor)
     }
 }

@@ -17,17 +17,17 @@ struct RecognizedPointsObservation: RecognizedPointsObservationProtocol, Codable
     var confidence: Double
     var recognizedPoints: [VNRecognizedPointKey: ObservationPoint]
 
-    init(recognizedPointsObservation: VNRecognizedPointsObservation) {
+    init(recognizedPointsObservation: VNRecognizedPointsObservation, denormalizeFor: CGSize) {
         timestamp = Date()
         confidence = Double(recognizedPointsObservation.confidence)
-        recognizedPoints = RecognizedPointsFrom(recognizedPointsObservation: recognizedPointsObservation)
+        recognizedPoints = RecognizedPointsFrom(recognizedPointsObservation: recognizedPointsObservation, denormalizeFor: denormalizeFor)
     }
 }
 
-func RecognizedPointsFrom(recognizedPointsObservation: VNRecognizedPointsObservation) -> [VNRecognizedPointKey: ObservationPoint] {
+func RecognizedPointsFrom(recognizedPointsObservation: VNRecognizedPointsObservation, denormalizeFor: CGSize) -> [VNRecognizedPointKey: ObservationPoint] {
     var p = [VNRecognizedPointKey: ObservationPoint]()
     for key in recognizedPointsObservation.availableKeys {
-        p[key] = ObservationPoint(recognizedPoint: try! recognizedPointsObservation.recognizedPoint(forKey: key))
+        p[key] = ObservationPoint(recognizedPoint: try! recognizedPointsObservation.recognizedPoint(forKey: key), denormalizeFor: denormalizeFor)
     }
     return p
 }

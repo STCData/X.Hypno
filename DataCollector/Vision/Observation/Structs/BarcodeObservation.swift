@@ -21,15 +21,15 @@ struct BarcodeObservation: RectangleObservationProtocol, Codable {
     var timestamp: Date
     var confidence: Double
 
-    init(barcodeObservation: VNBarcodeObservation) {
+    init(barcodeObservation: VNBarcodeObservation, denormalizeFor: CGSize) {
         timestamp = Date()
         confidence = Double(barcodeObservation.confidence)
         payloadStringValue = barcodeObservation.payloadStringValue ?? ""
         symbology = barcodeObservation.symbology.rawValue
-        bottomLeft = barcodeObservation.bottomLeft
-        bottomRight = barcodeObservation.bottomRight
-        topLeft = barcodeObservation.topLeft
-        topRight = barcodeObservation.topRight
-        boundingBox = barcodeObservation.boundingBox
+        bottomLeft = DenormalizedPoint(barcodeObservation.bottomLeft, forSize: denormalizeFor)
+        bottomRight = DenormalizedPoint(barcodeObservation.bottomRight, forSize: denormalizeFor)
+        topLeft = DenormalizedPoint(barcodeObservation.topLeft, forSize: denormalizeFor)
+        topRight = DenormalizedPoint(barcodeObservation.topRight, forSize: denormalizeFor)
+        boundingBox = DenormalizedRect(barcodeObservation.boundingBox, forSize: denormalizeFor)
     }
 }

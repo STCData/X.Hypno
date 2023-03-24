@@ -16,9 +16,9 @@ struct RecognizedObjectObservation: RecognizedObjectObservationProtocol, Codable
     var timestamp: Date
     var confidence: Double
 
-    init(recognizedObjectObservation: VNRecognizedObjectObservation) {
+    init(recognizedObjectObservation: VNRecognizedObjectObservation, denormalizeFor: CGSize) {
         timestamp = Date()
         confidence = Double(recognizedObjectObservation.confidence)
-        boundingBox = recognizedObjectObservation.boundingBox
+        boundingBox = DenormalizedRect(recognizedObjectObservation.boundingBox, forSize: denormalizeFor)
     }
 }

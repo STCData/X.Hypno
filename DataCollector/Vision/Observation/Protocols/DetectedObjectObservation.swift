@@ -18,9 +18,9 @@ struct DetectedObjectObservation: DetectedObjectObservationProtocol, Codable {
     var timestamp: Date
     var confidence: Double
 
-    init(detectedObjectObservation: VNDetectedObjectObservation) {
+    init(detectedObjectObservation: VNDetectedObjectObservation, denormalizeFor: CGSize) {
         timestamp = Date()
         confidence = Double(detectedObjectObservation.confidence)
-        boundingBox = detectedObjectObservation.boundingBox
+        boundingBox = DenormalizedRect(detectedObjectObservation.boundingBox, forSize: denormalizeFor)
     }
 }

@@ -82,24 +82,24 @@ extension Observation: Codable {
         }
     }
 
-    static func from(_ vnObservation: VNObservation) -> Observation {
+    static func from(_ vnObservation: VNObservation, denormalizeFor: CGSize) -> Observation {
         switch vnObservation {
         case let handObservation as VNHumanHandPoseObservation:
-            return .humanHandPose(HumanHandPoseObservation(humanHandPoseObservation: handObservation))
+            return .humanHandPose(HumanHandPoseObservation(humanHandPoseObservation: handObservation, denormalizeFor: denormalizeFor))
         case let barcodeObservation as VNBarcodeObservation:
-            return .barcode(BarcodeObservation(barcodeObservation: barcodeObservation))
+            return .barcode(BarcodeObservation(barcodeObservation: barcodeObservation, denormalizeFor: denormalizeFor))
         case let faceObservation as VNFaceObservation:
-            return .face(FaceObservation(faceObservation: faceObservation))
+            return .face(FaceObservation(faceObservation: faceObservation, denormalizeFor: denormalizeFor))
         case let textObservation as VNRecognizedTextObservation:
-            return .recognizedText(RecognizedTextObservation(textObservation: textObservation))
+            return .recognizedText(RecognizedTextObservation(textObservation: textObservation, denormalizeFor: denormalizeFor))
         case let objectObservation as VNRecognizedObjectObservation:
-            return .recognizedObject(RecognizedObjectObservation(recognizedObjectObservation: objectObservation))
+            return .recognizedObject(RecognizedObjectObservation(recognizedObjectObservation: objectObservation, denormalizeFor: denormalizeFor))
         case let pointsObservation as VNRecognizedPointsObservation:
-            return .recognizedPoints(RecognizedPointsObservation(recognizedPointsObservation: pointsObservation))
+            return .recognizedPoints(RecognizedPointsObservation(recognizedPointsObservation: pointsObservation, denormalizeFor: denormalizeFor))
         case let rectangleObservation as VNRectangleObservation:
-            return .rectangle(RectangleObservation(rectangleObservation: rectangleObservation))
+            return .rectangle(RectangleObservation(rectangleObservation: rectangleObservation, denormalizeFor: denormalizeFor))
         case let detectedObjectObservation as VNDetectedObjectObservation:
-            return .detectedObject(DetectedObjectObservation(detectedObjectObservation: detectedObjectObservation))
+            return .detectedObject(DetectedObjectObservation(detectedObjectObservation: detectedObjectObservation, denormalizeFor: denormalizeFor))
         default:
             fatalError("Unknown observation")
         }
