@@ -9,6 +9,21 @@ import Combine
 import Foundation
 
 class Describer: Subscriber {
+    var allClassesNamesNaturalLanguage: String {
+        classDescriptions.keys.joined(separator: ", ")
+    }
+
+    var allClassesNaturalLanguage: String {
+        var output = ""
+        for (key, value) in classDescriptions {
+            output += "\(key):\n"
+            let indentedValue = value.replacingOccurrences(of: "\n", with: "\n ")
+            output += " \(indentedValue)\n\n"
+        }
+
+        return output
+    }
+
     var classDescriptions = [
         String: String
     ]()

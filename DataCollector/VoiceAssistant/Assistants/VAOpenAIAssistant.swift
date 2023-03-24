@@ -73,7 +73,7 @@ struct VAOpenAIAssistant: VAAssistant {
     }
 
     private func systemChatMessage() -> ChatMessage {
-        return ChatMessage(role: .system, content:
+        let systemMessage =
             """
             if user requests to write code, output JavaScript that will be launched on the page that contains canvas element with id 'my-canvas', its width and height is already set to the size of the page.
 
@@ -83,13 +83,27 @@ struct VAOpenAIAssistant: VAAssistant {
 
             never write a code that shows something in JavaScript console, instead, draw requested data beautifully on canvas. Be creative: if data can be represented with graph, do it
 
+            user may ask you to write code related to currenly observed \(Describer.shared.allClassesNamesNaturalLanguage) . you can subscribe to those observations like that:
+            ```
+            window.addEventListener('\(VAMessage.JSObservationsEventName)', function(ev) {
+                <your function name here>(ev.detail.observations);
+            });
+            ```
+            schema of observation objects is defined like that
+            \(Describer.shared.allClassesNaturalLanguage)
+
+            stricktly use defined schema, do not invent non-existing in schema fields
+
+
             any JS code that you output MUST be enclosed between `\(VAMessage.JSStartMarker)` and `\(VAMessage.JSEndMarker)` like that :
             \(VAMessage.JSStartMarker)
             //code goes here
             \(VAMessage.JSEndMarker)
 
             avoid explanations as much as possible, be concise
-            """)
+            """
+        print(systemMessage)
+        return ChatMessage(role: .system, content: systemMessage)
     }
 
     func openAIMessages(with messages: [VAMessage]) -> [ChatMessage] {
