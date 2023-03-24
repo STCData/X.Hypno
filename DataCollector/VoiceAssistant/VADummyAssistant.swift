@@ -13,7 +13,11 @@ struct VADummyAssistant: VAAssistant {
 
     private init() {}
 
-    public let assistantCodeSubject = PassthroughSubject<String, Never>()
+    var assistantCodeSubject: AnyPublisher<String, Never> {
+        return passthroughCodeSubject.eraseToAnyPublisher()
+    }
+
+    let passthroughCodeSubject = PassthroughSubject<String, Never>()
 
     func respond(to message: String, in chat: [VAMessage]) async -> [VAMessage] {
         let userMessage = VAMessage(text: message, role: .user)
@@ -23,7 +27,7 @@ struct VADummyAssistant: VAAssistant {
         ], role: .assistantCode)
 
         if assistantResponce.role == .assistantCode {
-            assistantCodeSubject.send(assistantResponce.text)
+            passthroughCodeSubject.send(assistantResponce.text)
         }
 
         return chat + [userMessage, assistantResponce]

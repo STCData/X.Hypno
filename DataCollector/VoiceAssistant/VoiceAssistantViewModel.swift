@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 class VoiceAssistantViewModel: ObservableObject {
-    private let assistant: VAAssistant = VADummyAssistant.shared
+    private let assistant: VAAssistant = VAAssistantShared()
     private var speechRecognitionSub = Set<AnyCancellable>()
 
     private var speechRecognizer = SpeechRecognizer()

@@ -47,7 +47,7 @@ class ObservingVisionWebView: WKWebView {
 
             }.store(in: &subscriptions)
 
-        VADummyAssistant.shared.assistantCodeSubject
+        VAAssistantShared().assistantCodeSubject
             .receive(on: RunLoop.main)
             .sink { code in
                 self.evaluateJavaScript("""
