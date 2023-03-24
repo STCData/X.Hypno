@@ -139,6 +139,8 @@
 		9AC6FC0629CE1940004A2391 /* VAOpenAIAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC0529CE1940004A2391 /* VAOpenAIAssistantTests.swift */; };
 		9AC6FC0829CE199E004A2391 /* Runestone in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC6FC0729CE199E004A2391 /* Runestone */; };
 		9AC6FC0A29CE19AC004A2391 /* TreeSitterJavaScriptRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC6FC0929CE19AC004A2391 /* TreeSitterJavaScriptRunestone */; };
+		9AC6FC0D29CE3511004A2391 /* PromptJSGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC0C29CE3511004A2391 /* PromptJSGenerator.swift */; };
+		9AC6FC1029CE3572004A2391 /* Tuxedo in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC6FC0F29CE3572004A2391 /* Tuxedo */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +311,7 @@
 		9AC6FBFD29CE0B3D004A2391 /* VAOpenAIAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VAOpenAIAssistant.swift; sourceTree = "<group>"; };
 		9AC6FC0329CE0ED4004A2391 /* VAMessage+OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VAMessage+OpenAI.swift"; sourceTree = "<group>"; };
 		9AC6FC0529CE1940004A2391 /* VAOpenAIAssistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VAOpenAIAssistantTests.swift; sourceTree = "<group>"; };
+		9AC6FC0C29CE3511004A2391 /* PromptJSGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptJSGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +330,7 @@
 				9A368EA229CDFB630089F127 /* RunestoneSwiftUI in Frameworks */,
 				9A368EA029CDFB630089F127 /* Runestone in Frameworks */,
 				9A368D9429C7228E0089F127 /* FaviconFinder in Frameworks */,
+				9AC6FC1029CE3572004A2391 /* Tuxedo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +402,7 @@
 		9A16BC9129AF8E9B006AE075 /* DataCollector */ = {
 			isa = PBXGroup;
 			children = (
+				9AC6FC0B29CE34E7004A2391 /* PromptsJS */,
 				9A368E5329CB20640089F127 /* VoiceAssistant */,
 				9A368E2A29C87FAC0089F127 /* Vision */,
 				9A368DE729C861F60089F127 /* Broadcast */,
@@ -752,6 +757,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		9AC6FC0B29CE34E7004A2391 /* PromptsJS */ = {
+			isa = PBXGroup;
+			children = (
+				9AC6FC0C29CE3511004A2391 /* PromptJSGenerator.swift */,
+			);
+			path = PromptsJS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -783,6 +796,7 @@
 				9A368EA629CDFCBB0089F127 /* TreeSitterLaTeXRunestone */,
 				9A368EA829CDFCBB0089F127 /* TreeSitterMarkdownRunestone */,
 				9AC6FBFB29CE0B2C004A2391 /* OpenAISwift */,
+				9AC6FC0F29CE3572004A2391 /* Tuxedo */,
 			);
 			productName = DataCollector;
 			productReference = 9A16BC8F29AF8E9B006AE075 /* DataCollector.app */;
@@ -914,6 +928,7 @@
 				9A368E9E29CDFB630089F127 /* XCRemoteSwiftPackageReference "Runestone" */,
 				9A368EA329CDFCBB0089F127 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */,
 				9AC6FBFA29CE0B2C004A2391 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				9AC6FC0E29CE3572004A2391 /* XCRemoteSwiftPackageReference "Tuxedo" */,
 			);
 			productRefGroup = 9A16BC9029AF8E9B006AE075 /* Products */;
 			projectDirPath = "";
@@ -1030,6 +1045,7 @@
 				9A368D8D29C618F80089F127 /* TermLogNotification.swift in Sources */,
 				9A368D7629C5DA220089F127 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
 				9A368E4A29C8D56F0089F127 /* HumanBodyPoseRecognizer.swift in Sources */,
+				9AC6FC0D29CE3511004A2391 /* PromptJSGenerator.swift in Sources */,
 				9A368DF629C863320089F127 /* Dimensions.swift in Sources */,
 				9A368E0829C866480089F127 /* Logger.swift in Sources */,
 				9A368DE929C862060089F127 /* Broadcast.swift in Sources */,
@@ -1678,6 +1694,14 @@
 				kind = branch;
 			};
 		};
+		9AC6FC0E29CE3572004A2391 /* XCRemoteSwiftPackageReference "Tuxedo" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tevelee/Tuxedo.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1760,6 +1784,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9A368EA329CDFCBB0089F127 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
 			productName = TreeSitterJavaScriptRunestone;
+		};
+		9AC6FC0F29CE3572004A2391 /* Tuxedo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9AC6FC0E29CE3572004A2391 /* XCRemoteSwiftPackageReference "Tuxedo" */;
+			productName = Tuxedo;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
