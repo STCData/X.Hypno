@@ -43,7 +43,7 @@ class Describer: Subscriber {
             classDescriptions[typeName] = input.naturalLanguageDescription
         }
 
-        print(classDescriptions)
+//        print(classDescriptions)
         return .max(1)
     }
 

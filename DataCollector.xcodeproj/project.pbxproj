@@ -146,6 +146,7 @@
 		9AC6FC1629CE3900004A2391 /* debug.js in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1529CE3900004A2391 /* debug.js */; };
 		9AC6FC1829CE3954004A2391 /* init.js in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1729CE3954004A2391 /* init.js */; };
 		9AC6FC1A29CE39A9004A2391 /* update.js in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1929CE39A9004A2391 /* update.js */; };
+		9AC6FC1C29CE3FAD004A2391 /* wrapped.js in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1B29CE3FAD004A2391 /* wrapped.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -322,6 +323,7 @@
 		9AC6FC1529CE3900004A2391 /* debug.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = debug.js; sourceTree = "<group>"; };
 		9AC6FC1729CE3954004A2391 /* init.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = init.js; sourceTree = "<group>"; };
 		9AC6FC1929CE39A9004A2391 /* update.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = update.js; sourceTree = "<group>"; };
+		9AC6FC1B29CE3FAD004A2391 /* wrapped.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = wrapped.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -776,6 +778,7 @@
 				9AC6FC1529CE3900004A2391 /* debug.js */,
 				9AC6FC1729CE3954004A2391 /* init.js */,
 				9AC6FC1929CE39A9004A2391 /* update.js */,
+				9AC6FC1B29CE3FAD004A2391 /* wrapped.js */,
 			);
 			path = PromptsJS;
 			sourceTree = "<group>";
@@ -964,6 +967,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AC6FC1829CE3954004A2391 /* init.js in Resources */,
+				9AC6FC1C29CE3FAD004A2391 /* wrapped.js in Resources */,
 				9A16BC9B29AF8E9C006AE075 /* Preview Assets.xcassets in Resources */,
 				9AC6FC1429CE38BA004A2391 /* ObservingVisionWebView.html in Resources */,
 				9AC6FBF929CE09DF004A2391 /* SECRET.plist in Resources */,

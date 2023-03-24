@@ -21,8 +21,4 @@ function updObs(observations) {
     }
 }
 
-updObs({
-    {
-        observationsJson
-    }
-});
+updObs({{ observationsJson }});

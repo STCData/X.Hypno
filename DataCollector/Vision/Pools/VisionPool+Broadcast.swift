@@ -39,7 +39,7 @@ extension VisionPool {
                 let isEqual = old.isAlmostEqual(to: new)
                 log.trace("heavy skipping broadcast frame recognizing: \(isEqual)")
                 if !isEqual {
-                    print("RESET!!")
+//                    print("RESET!!")
                     fullPool.observationsSubject.send([])
 //                    fullPool.resetObservations()
                 }

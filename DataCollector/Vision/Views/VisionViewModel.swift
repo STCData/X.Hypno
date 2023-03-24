@@ -64,9 +64,9 @@ class VisionViewModel: ObservableObject {
                     return $0 == $1
                 }
                 let isEqual = rects1.isAlmostEqual(with: VNEdgeInsets(top: 1.2, left: 10, bottom: 1.3, right: 10), to: rects2)
-                if isEqual, rects1.count > 0 {
-                    print("is equal")
-                }
+//                if isEqual, rects1.count > 0 {
+//                    print("is equal")
+//                }
 
                 return isEqual
             }

@@ -10,6 +10,7 @@ import Tuxedo
 
 private enum TVars: String {
     case allClassesNaturalLanguage
+    case code
     case allClassesNamesNaturalLanguage
     case JSObservationsEventName
     case JSStartMarker
@@ -64,6 +65,12 @@ struct PromptJSGenerator {
     func updateJS(with observationsJSON: String) -> String {
         try! templateEngine.evaluate(template: URLForTemplate("update.js")!, variables: [
             TVars.observationsJson.rawValue: observationsJSON,
+        ])
+    }
+
+    func wrappedJS(with code: String) -> String {
+        try! templateEngine.evaluate(template: URLForTemplate("wrapped.js")!, variables: [
+            TVars.code.rawValue: code,
         ])
     }
 }

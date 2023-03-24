@@ -52,7 +52,7 @@ class VoiceAssistantViewModel: ObservableObject {
         speechRecognizer.reset()
         speechRecognizer.transcribe()
         speechRecognizer.$transcript.sink { transcript in
-            print("VOICE! \(transcript)")
+//            print("VOICE! \(transcript)")
             self.updateCurrentlyRecordingMessage(with: transcript)
 
         }.store(in: &speechRecognitionSub)

@@ -21,7 +21,7 @@ func LogInit() {
     LoggingSystem.bootstrap {
         var handler = PuppyLogHandler(label: $0, puppy: puppy)
         // Set the logging level.
-        handler.logLevel = .trace
+        handler.logLevel = .info
         return handler
     }
 

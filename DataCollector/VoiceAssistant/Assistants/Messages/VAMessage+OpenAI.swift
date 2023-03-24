@@ -49,7 +49,9 @@ extension VAMessage {
                 text = ""
             } else if line.hasPrefix(VAMessage.JSEndMarker) {
                 // End of code block
-                messages.append(VAMessage(text: text, role: .assistantCode))
+                if !isEmpty(text) {
+                    messages.append(VAMessage(text: text, role: .assistantCode))
+                }
                 role = .assistant
                 text = ""
             } else {

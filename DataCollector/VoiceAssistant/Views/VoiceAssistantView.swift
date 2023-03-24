@@ -113,9 +113,9 @@ struct VoiceAssistantView: View {
                         if value.translation.height > 0 {
                             isTextFieldFocused = false
 
-                            print("Scroll down")
+//                            print("Scroll down")
                         } else {
-                            print("Scroll up")
+//                            print("Scroll up")
                         }
                     }
                 )

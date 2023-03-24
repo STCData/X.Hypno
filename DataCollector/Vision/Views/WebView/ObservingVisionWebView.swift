@@ -49,18 +49,15 @@ class ObservingVisionWebView: WKWebView {
 
         VAAssistantShared().assistantCodeSubject
             .receive(on: RunLoop.main)
+            .removeDuplicates()
             .sink { code in
-                self.evaluateJavaScript("""
-                (function () {
-                \(code) ;
-
-                })()
-                """) { result, error in
+                let wrappedJS = PromptJSGenerator.shared.wrappedJS(with: code)
+                self.evaluateJavaScript(wrappedJS) { result, error in
                     if error == nil {
-                        print(result)
+//                        print(result)
                         print(result)
                     } else {
-                        print(error)
+//                        print(error)
                         print(error)
                     }
                 }
@@ -88,9 +85,9 @@ class ObservingVisionWebView: WKWebView {
                     self.canvasSize = CGSize(width: width, height: height)
                 }
 
-                print(result)
+//                print(result)
             } else {
-                print(error)
+//                print(error)
                 print(error)
             }
         }

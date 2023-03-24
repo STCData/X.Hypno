@@ -19,7 +19,7 @@ struct TapAndLongPressModifier: ViewModifier {
             .onLongPressGesture(minimumDuration: 1.0, pressing: { isPressing in
                 withAnimation(.easeInOut(duration: 0.3)) {
                     isLongPressing = isPressing
-                    print(isPressing)
+//                    print(isPressing)
                 }
             }, perform: {
                 longPressAction()

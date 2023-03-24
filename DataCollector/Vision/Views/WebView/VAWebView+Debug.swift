@@ -10,12 +10,12 @@ import WebKit
 
 extension WKWebView {
     func initDebug() {
-        evaluateJavaScript(PromptJSGenerator.shared.debugJS) { result, error in
+        evaluateJavaScript(PromptJSGenerator.shared.debugJS) { _, error in
             if error == nil {
-                print(result)
-                print(result)
+//                print(result)
+//                print(result)
             } else {
-                print(error)
+//                print(error)
                 print(error)
             }
         }
