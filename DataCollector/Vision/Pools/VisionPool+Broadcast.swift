@@ -30,7 +30,7 @@ extension VisionPool {
 
         let fullPool = makeFullPool()
         Broadcast.shared.cvBufferSubject
-            .debounce(for: .seconds(0.2), scheduler: RunLoop.main)
+//            .debounce(for: .seconds(0.2), scheduler: RunLoop.main)
             .throttle(for: .seconds(0.1), scheduler: RunLoop.main, latest: true)
             .receive(on: backgroundQueue)
 
@@ -52,6 +52,9 @@ extension VisionPool {
 //                fullPool.isBusy
 //
 //            })
+            .compactMap { buf in
+                buf.resized(to: CGSize(width: 1389, height: 1389))
+            }
             .subscribe(fullPool)
         fullPool.slowestWorkerObservationsSubject.send([])
 

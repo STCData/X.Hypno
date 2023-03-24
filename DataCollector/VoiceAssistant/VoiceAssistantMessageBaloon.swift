@@ -23,6 +23,8 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
             switch message.role {
             case .assistant:
                 return Color.gray
+            case .assistantCode:
+                return Color.black
             case .user:
                 return Color.blue
             case .userRecordingInProcess:
@@ -44,9 +46,13 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
                 //                .fill(backgroundColor)
                 //                .overlay(
                 HStack {
-                    Text(message.text)
-                        .foregroundColor(.white)
-                    content()
+                    if message.role == .assistantCode {
+                        CodeThumbnailView(code: message.text)
+                    } else {
+                        Text(message.text)
+                            .foregroundColor(.white)
+                        content()
+                    }
 
                     if message.role == .userRecordingInProcess {
                         ProgressView()

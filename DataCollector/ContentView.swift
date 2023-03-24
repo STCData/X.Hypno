@@ -27,6 +27,7 @@ struct ContentView: View {
     @State private var isTabbarShown = false
     @State private var isTermOpened = false
     @State private var tabSelection = Tabs.first
+    @State private var isVisionViewShown = true
 
     @EnvironmentObject
     var broadcast: Broadcast
@@ -101,8 +102,20 @@ struct ContentView: View {
                 $0.hidden()
             }
 
-            VisionView(visionViewModel: VisionViewModel(observationPublisher: VisionPool.broadcastPool.observationsSubject
-                    .debounce(for: .seconds(0.1), scheduler: RunLoop.main)))
+            if isVisionViewShown {
+                VisionView(visionViewModel: VisionViewModel(observationPublisher: VisionPool.broadcastPool.observationsSubject
+                        .debounce(for: .seconds(0.1), scheduler: RunLoop.main)))
+            }
+
+            Button {
+                isDebugUIShown.toggle()
+            } label: {}
+                .keyboardShortcut("u", modifiers: .command)
+
+            Button {
+                isVisionViewShown.toggle()
+            } label: {}
+                .keyboardShortcut("i", modifiers: .command)
         }
         .ignoresSafeArea()
         .onShake {

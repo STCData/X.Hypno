@@ -124,6 +124,8 @@
 		9A368E9229CDCA1A0089F127 /* Vision+NaturalLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E9129CDCA1A0089F127 /* Vision+NaturalLanguage.swift */; };
 		9A368E9429CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E9329CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift */; };
 		9A368E9629CDDD770089F127 /* CoordsNormalizationFlipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E9529CDDD770089F127 /* CoordsNormalizationFlipping.swift */; };
+		9A368E9829CDDF520089F127 /* CVPixelBuffer+Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E9729CDDF520089F127 /* CVPixelBuffer+Tools.swift */; };
+		9A368E9A29CDEB150089F127 /* CodeThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E9929CDEB150089F127 /* CodeThumbnailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -287,6 +289,8 @@
 		9A368E9129CDCA1A0089F127 /* Vision+NaturalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vision+NaturalLanguage.swift"; sourceTree = "<group>"; };
 		9A368E9329CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservationPoint+NaturalLanguage.swift"; sourceTree = "<group>"; };
 		9A368E9529CDDD770089F127 /* CoordsNormalizationFlipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordsNormalizationFlipping.swift; sourceTree = "<group>"; };
+		9A368E9729CDDF520089F127 /* CVPixelBuffer+Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Tools.swift"; sourceTree = "<group>"; };
+		9A368E9929CDEB150089F127 /* CodeThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeThumbnailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -566,6 +570,7 @@
 				9A368E4229C8B0A50089F127 /* Workers */,
 				9A368E4129C8B0980089F127 /* Views */,
 				9A368E9529CDDD770089F127 /* CoordsNormalizationFlipping.swift */,
+				9A368E9729CDDF520089F127 /* CVPixelBuffer+Tools.swift */,
 			);
 			path = Vision;
 			sourceTree = "<group>";
@@ -623,6 +628,7 @@
 				9A368E5C29CB24680089F127 /* VADummyAssistant.swift */,
 				9A368E5E29CB247B0089F127 /* VAAssistant.swift */,
 				9A368E6029CB28BB0089F127 /* VoiceAssistantMessageBaloon.swift */,
+				9A368E9929CDEB150089F127 /* CodeThumbnailView.swift */,
 			);
 			path = VoiceAssistant;
 			sourceTree = "<group>";
@@ -975,7 +981,9 @@
 				9A368E3429C89C860089F127 /* CombineHelpers.swift in Sources */,
 				9A368E2429C879680089F127 /* BufferVideoCapturerDelegate.swift in Sources */,
 				9A368E4C29C8FC2C0089F127 /* CVPixelBuffer+AlmostEqual.swift in Sources */,
+				9A368E9829CDDF520089F127 /* CVPixelBuffer+Tools.swift in Sources */,
 				9A368E0229C863FE0089F127 /* RTCVideoCapturerDelegate+Buffer.swift in Sources */,
+				9A368E9A29CDEB150089F127 /* CodeThumbnailView.swift in Sources */,
 				9A368E7729CCA2B20089F127 /* RecognizedPointsObservation.swift in Sources */,
 				9A368D9629C722F70089F127 /* WebTab+FavIcon.swift in Sources */,
 				9A368D8929C6167B0089F127 /* LogInit.swift in Sources */,

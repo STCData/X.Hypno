@@ -9,6 +9,7 @@ import Foundation
 
 enum VAMessageRole {
     case assistant
+    case assistantCode
     case user
     case userRecordingInProcess
     case userTyping

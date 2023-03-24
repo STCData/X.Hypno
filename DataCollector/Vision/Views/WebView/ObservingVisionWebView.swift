@@ -46,6 +46,25 @@ class ObservingVisionWebView: WKWebView {
                 self.updateObservations(observations)
 
             }.store(in: &subscriptions)
+
+        VADummyAssistant.shared.assistantCodeSubject
+            .receive(on: RunLoop.main)
+            .sink { code in
+                self.evaluateJavaScript("""
+                (function () {
+                \(code) ;
+
+                })()
+                """) { result, error in
+                    if error == nil {
+                        print(result)
+                        print(result)
+                    } else {
+                        print(error)
+                        print(error)
+                    }
+                }
+            }.store(in: &subscriptions)
     }
 
     @available(*, unavailable)
@@ -70,9 +89,7 @@ class ObservingVisionWebView: WKWebView {
                 }
 
                 print(result)
-                print(result)
             } else {
-                print(error)
                 print(error)
             }
         }
