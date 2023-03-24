@@ -13,10 +13,10 @@ struct BarcodeObservation: RectangleObservationProtocol, Codable {
 
     let payloadStringValue: String
     let symbology: String
-    var bottomLeft: CGPoint
-    var bottomRight: CGPoint
-    var topLeft: CGPoint
-    var topRight: CGPoint
+    var bottomLeft: ObservationPoint
+    var bottomRight: ObservationPoint
+    var topLeft: ObservationPoint
+    var topRight: ObservationPoint
 
     var timestamp: Date
     var confidence: Double
@@ -26,10 +26,10 @@ struct BarcodeObservation: RectangleObservationProtocol, Codable {
         confidence = Double(barcodeObservation.confidence)
         payloadStringValue = barcodeObservation.payloadStringValue ?? ""
         symbology = barcodeObservation.symbology.rawValue
-        bottomLeft = DenormalizedPoint(barcodeObservation.bottomLeft, forSize: denormalizeFor)
-        bottomRight = DenormalizedPoint(barcodeObservation.bottomRight, forSize: denormalizeFor)
-        topLeft = DenormalizedPoint(barcodeObservation.topLeft, forSize: denormalizeFor)
-        topRight = DenormalizedPoint(barcodeObservation.topRight, forSize: denormalizeFor)
+        bottomLeft = ObservationPoint(barcodeObservation.bottomLeft, denormalizeFor: denormalizeFor)
+        bottomRight = ObservationPoint(barcodeObservation.bottomRight, denormalizeFor: denormalizeFor)
+        topLeft = ObservationPoint(barcodeObservation.topLeft, denormalizeFor: denormalizeFor)
+        topRight = ObservationPoint(barcodeObservation.topRight, denormalizeFor: denormalizeFor)
         boundingBox = DenormalizedRect(barcodeObservation.boundingBox, forSize: denormalizeFor)
     }
 }

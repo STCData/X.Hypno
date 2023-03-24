@@ -42,6 +42,10 @@ class ObservingVisionWebView: WKWebView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override var safeAreaInsets: UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+
     private func updateObservations(_ observations: [Observation]) {
         let observationsJson = try! observations.toJSON()
         print(observationsJson)
@@ -72,11 +76,20 @@ function drawObservations(canvas, observations) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   for (let obs of observations) {
-    if (obs.bottomLeft && obs.bottomRight && obs.topLeft && obs.topRight) {
-      // Draw a half-transparent rectangle
-      ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
-      ctx.fillRect(obs.bottomLeft.x, obs.bottomLeft.y, obs.bottomRight.x - obs.bottomLeft.x, obs.topLeft.y - obs.bottomLeft.y);
-    }
+
+if (obs.bottomLeft && obs.bottomRight && obs.topLeft && obs.topRight) {
+  // Draw a half-transparent rectangle
+  ctx.fillStyle = 'rgba(233, 88, 0, 0.1)';
+  ctx.fillRect(obs.bottomLeft.x, obs.bottomLeft.y, obs.bottomRight.x - obs.bottomLeft.x, obs.topLeft.y - obs.bottomLeft.y);
+
+  // Add confidence and date in bottom left and bottom right respectively
+  if (obs.confidence && obs.timestamp) {
+    ctx.fillStyle = 'magent';
+    ctx.font = '12px Arial';
+    ctx.fillText(`🧠 ⏰`, obs.bottomRight.x - 7, obs.bottomRight.y + 15);
+  }
+}
+
 
     if (obs.recognizedPoints) {
       // Draw circles for each point
@@ -94,7 +107,7 @@ function drawObservations(canvas, observations) {
         if (point.confidence && point.identifier) {
           ctx.fillStyle = 'white';
           ctx.font = '12px sans-serif';
-          ctx.fillText(`Confidence: ${point.confidence.toFixed(2)}, ID: ${point.identifier}`, x + r + 5, y);
+          ctx.fillText(`🧠 ${point.confidence.toFixed(2)}, ID: ${point.identifier}`, x + r + 5, y);
         }
       }
     }

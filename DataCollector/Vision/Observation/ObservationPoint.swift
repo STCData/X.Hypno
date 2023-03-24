@@ -59,4 +59,10 @@ struct ObservationPoint: Codable {
         x = pointDenormalized.x
         y = pointDenormalized.y
     }
+
+    init(_ cgPoint: CGPoint, denormalizeFor: CGSize) {
+        let pointDenormalized = DenormalizedPoint(cgPoint, forSize: denormalizeFor)
+        x = pointDenormalized.x
+        y = pointDenormalized.y
+    }
 }

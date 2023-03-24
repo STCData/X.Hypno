@@ -70,13 +70,17 @@ struct VisionView: View {
                 }
 
                 VAWebView(observationPublisher: visionViewModel.cleanedObservationsPublisher)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea()
                     .allowsHitTesting(false)
+                    .border(Color.green)
             }
             // Geometry reader makes the view shrink to its smallest size
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             // Flip upside down
             .rotation3DEffect(.degrees(180), axis: (x: 1, y: 0, z: 0))
         }
-//        .border(Color.orange)
+//        .frame(maxWidth:.infinity, maxHeight:.infinity)
+//        .ignoresSafeArea()
     }
 }
