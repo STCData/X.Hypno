@@ -19,8 +19,7 @@ struct CodeView: View {
         RunestoneSwiftUI.TextEditor(
             text: $code,
             theme: CodeTheme.shared,
-            language: .javaScript,
-            configuration: .init(isEditable: true, showLineNumbers: true)
+            language: .javaScript, configuration: .init(isEditable: true, showLineNumbers: true), backgroundColor: UIColor.black
         )
         .autocorrectionDisabled(true)
         .themeFontSize(thumbnailed ? 5 : 14)

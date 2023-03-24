@@ -48,10 +48,10 @@
     {
       "identity" : "runestone",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/maparoni/Runestone.git",
+      "location" : "https://github.com/STCData/Runestone.git",
       "state" : {
         "branch" : "swiftui",
-        "revision" : "7edd66ac20d5e9b51dee4ccbbb97ec38b7563820"
+        "revision" : "9da1ec71dae38d3f7e409b657623c79d0a8181e1"
       }
     },
     {
