@@ -20,3 +20,13 @@ struct FaceObservation: DetectedObjectObservationProtocol, Codable {
         boundingBox = DenormalizedRect(faceObservation.boundingBox, forSize: denormalizeFor)
     }
 }
+
+extension FaceObservation: NaturalLanguageDescribable {
+    var naturalLanguageClass: String {
+        "Face"
+    }
+
+    var naturalLanguageDescription: String {
+        NaturalLanguageDescribe(self)!
+    }
+}

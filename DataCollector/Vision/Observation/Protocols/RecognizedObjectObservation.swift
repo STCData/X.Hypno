@@ -22,3 +22,13 @@ struct RecognizedObjectObservation: RecognizedObjectObservationProtocol, Codable
         boundingBox = DenormalizedRect(recognizedObjectObservation.boundingBox, forSize: denormalizeFor)
     }
 }
+
+extension RecognizedObjectObservation: NaturalLanguageDescribable {
+    var naturalLanguageClass: String {
+        "Recognized Object"
+    }
+
+    var naturalLanguageDescription: String {
+        NaturalLanguageDescribe(self)!
+    }
+}

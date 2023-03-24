@@ -31,3 +31,13 @@ struct RecognizedTextObservation: DetectedObjectObservationProtocol, Codable {
         boundingBox = DenormalizedRect(textObservation.boundingBox, forSize: denormalizeFor)
     }
 }
+
+extension RecognizedTextObservation: NaturalLanguageDescribable {
+    var naturalLanguageClass: String {
+        "Text"
+    }
+
+    var naturalLanguageDescription: String {
+        NaturalLanguageDescribe(self)!
+    }
+}

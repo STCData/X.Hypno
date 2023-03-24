@@ -31,3 +31,13 @@ func RecognizedPointsFrom(recognizedPointsObservation: VNRecognizedPointsObserva
     }
     return p
 }
+
+extension RecognizedPointsObservation: NaturalLanguageDescribable {
+    var naturalLanguageClass: String {
+        "Recognized Points"
+    }
+
+    var naturalLanguageDescription: String {
+        NaturalLanguageDescribe(self)!
+    }
+}

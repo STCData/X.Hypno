@@ -19,3 +19,13 @@ struct HumanHandPoseObservation: RecognizedPointsObservationProtocol, Codable {
         recognizedPoints = RecognizedPointsFrom(recognizedPointsObservation: humanHandPoseObservation, denormalizeFor: denormalizeFor)
     }
 }
+
+extension HumanHandPoseObservation: NaturalLanguageDescribable {
+    var naturalLanguageClass: String {
+        "Hand Pose"
+    }
+
+    var naturalLanguageDescription: String {
+        NaturalLanguageDescribe(self)!
+    }
+}

@@ -24,3 +24,13 @@ struct DetectedObjectObservation: DetectedObjectObservationProtocol, Codable {
         boundingBox = DenormalizedRect(detectedObjectObservation.boundingBox, forSize: denormalizeFor)
     }
 }
+
+extension DetectedObjectObservation: NaturalLanguageDescribable {
+    var naturalLanguageClass: String {
+        "Detected Object"
+    }
+
+    var naturalLanguageDescription: String {
+        NaturalLanguageDescribe(self)!
+    }
+}

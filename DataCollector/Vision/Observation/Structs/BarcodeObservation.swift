@@ -33,3 +33,13 @@ struct BarcodeObservation: RectangleObservationProtocol, Codable {
         boundingBox = DenormalizedRect(barcodeObservation.boundingBox, forSize: denormalizeFor)
     }
 }
+
+extension BarcodeObservation: NaturalLanguageDescribable {
+    var naturalLanguageClass: String {
+        "Barcode"
+    }
+
+    var naturalLanguageDescription: String {
+        NaturalLanguageDescribe(self)!
+    }
+}

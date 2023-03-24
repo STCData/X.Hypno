@@ -27,10 +27,21 @@ class ObservingVisionWebView: WKWebView {
     convenience init(observationPublisher: any Publisher<[VNObservation], Never>) {
         let conf = WKWebViewConfiguration()
         self.init(frame: CGRect.zero, configuration: conf)
-        observationPublisher
+        let convertedObservationsArrayPublisher = observationPublisher
             .eraseToAnyPublisher()
             .receive(on: RunLoop.main)
             .map { $0.map { Observation.from($0, denormalizeFor: self.canvasSize) } }
+
+        let convertedFlatPublisher = convertedObservationsArrayPublisher
+            .flatMap { observations in
+                observations.publisher
+            }
+            .map { $0 as NaturalLanguageDescribable }
+            .eraseToAnyPublisher()
+
+        convertedFlatPublisher.subscribe(Describer.shared)
+
+        convertedObservationsArrayPublisher
             .sink { observations in
                 self.updateObservations(observations)
 

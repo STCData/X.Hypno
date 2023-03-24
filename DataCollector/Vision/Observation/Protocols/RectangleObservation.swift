@@ -36,3 +36,13 @@ struct RectangleObservation: RectangleObservationProtocol, Codable {
         boundingBox = DenormalizedRect(rectangleObservation.boundingBox, forSize: denormalizeFor)
     }
 }
+
+extension RectangleObservation: NaturalLanguageDescribable {
+    var naturalLanguageClass: String {
+        "Rectangle"
+    }
+
+    var naturalLanguageDescription: String {
+        NaturalLanguageDescribe(self)!
+    }
+}

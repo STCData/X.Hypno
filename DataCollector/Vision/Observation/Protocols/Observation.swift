@@ -19,6 +19,50 @@ enum Observation {
     case detectedObject(DetectedObjectObservation)
 }
 
+extension Observation: NaturalLanguageDescribable {
+    var naturalLanguageClass: String {
+        switch self {
+        case let .humanHandPose(observation):
+            return observation.naturalLanguageClass
+        case let .barcode(observation):
+            return observation.naturalLanguageClass
+        case let .recognizedText(observation):
+            return observation.naturalLanguageClass
+        case let .face(observation):
+            return observation.naturalLanguageClass
+        case let .recognizedObject(observation):
+            return observation.naturalLanguageClass
+        case let .recognizedPoints(observation):
+            return observation.naturalLanguageClass
+        case let .rectangle(observation):
+            return observation.naturalLanguageClass
+        case let .detectedObject(observation):
+            return observation.naturalLanguageClass
+        }
+    }
+
+    var naturalLanguageDescription: String {
+        switch self {
+        case let .humanHandPose(observation):
+            return observation.naturalLanguageDescription
+        case let .barcode(observation):
+            return observation.naturalLanguageDescription
+        case let .recognizedText(observation):
+            return observation.naturalLanguageDescription
+        case let .face(observation):
+            return observation.naturalLanguageDescription
+        case let .recognizedObject(observation):
+            return observation.naturalLanguageDescription
+        case let .recognizedPoints(observation):
+            return observation.naturalLanguageDescription
+        case let .rectangle(observation):
+            return observation.naturalLanguageDescription
+        case let .detectedObject(observation):
+            return observation.naturalLanguageDescription
+        }
+    }
+}
+
 extension Observation: Codable {
     private enum CodingKeys: String, CodingKey {
         case type
