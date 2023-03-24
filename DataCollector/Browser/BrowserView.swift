@@ -21,6 +21,8 @@ struct BrowserView: View {
     @State
     private var unsafeAreaColor = unsafeAreaColorDefault
 
+    @State var webViewBlurRadius: CGFloat = 0
+
     private static let unsafeAreaColorDefault = Color.black.opacity(0.96)
     private static let unsafeAreaColorTapped = Color.white
 
@@ -33,6 +35,14 @@ struct BrowserView: View {
                 .allowsHitTesting(false)
 
             TabbedWebView(request: webTabsViewModel.currentTab?.urlRequest ?? URLRequest(url: WebTab.blankPageURL))
+                .blur(radius: webViewBlurRadius)
+                .onChange(of: isSideBarOpened, perform: { value in
+                    if value {
+                        withAnimation { webViewBlurRadius = 13 }
+                    } else {
+                        withAnimation { webViewBlurRadius = 0 }
+                    }
+                })
 
             FloatingAtCorner(alignment: .topLeading) {
                 Button {
@@ -57,10 +67,12 @@ struct BrowserView: View {
 
             // UIScreen.main.bounds.size.width * 0.9
             SlideoutView(
+                opacity: 0.8,
                 isSidebarVisible: $isSideBarOpened, sideBarWidth: UIScreen.main.bounds.size.width * 0.99,
-                bgColor: Color(uiColor: .systemGray5)
+                bgColor: Color(uiColor: .systemGray6).opacity(0.89),
+                shadowColor: .clear // .black.opacity(0.9)
             ) {
-                SidePanelView()
+                SidePanelView(isSidebarVisible: $isSideBarOpened)
                     .padding(EdgeInsets(top: 60, leading: 12, bottom: 42, trailing: 12))
             }
             FloatingAtCorner(alignment: .bottomTrailing) {
@@ -68,6 +80,11 @@ struct BrowserView: View {
                     isSideBarOpened.toggle()
                 }, icon: "square.on.square", width: 64, height: 64, cornerRadius: 12)
             }
+
+            Button(action: {
+                isSideBarOpened.toggle()
+            }, label: {})
+                .keyboardShortcut("g", modifiers: .command)
         }
         .environmentObject(webTabsViewModel)
         .padding(.top, 30)

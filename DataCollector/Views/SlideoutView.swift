@@ -7,9 +7,11 @@
 
 import SwiftUI
 
+private let animationDuration = 0.07
+
 struct SlideoutView<Content: View>: View {
     var horizontal: Bool = true
-    var opacity: Double = 1.0
+    var opacity: Double
     @Binding var isSidebarVisible: Bool
     #if os(iOS)
         var sideBarWidth = UIScreen.main.bounds.size.width * 0.9
@@ -19,8 +21,8 @@ struct SlideoutView<Content: View>: View {
         var sideBarHeight = 500.0
 
     #endif
-    var bgColor: Color = .white.opacity(0.96)
-    var shadowColor: Color = .black.opacity(0.6)
+    var bgColor: Color
+    var shadowColor: Color
     let content: () -> Content
 
     var body: some View {
@@ -30,7 +32,7 @@ struct SlideoutView<Content: View>: View {
             }
             .background(shadowColor)
             .opacity(isSidebarVisible ? opacity : 0)
-            .animation(.easeInOut.delay(0.2), value: isSidebarVisible)
+            .animation(.easeInOut.delay(animationDuration / 10), value: isSidebarVisible)
             .onTapGesture {
                 isSidebarVisible.toggle()
             }
@@ -40,6 +42,7 @@ struct SlideoutView<Content: View>: View {
             layout {
                 ZStack(alignment: .top) {
                     bgColor
+
                     content()
                 }
                 .if(horizontal) {
@@ -55,7 +58,7 @@ struct SlideoutView<Content: View>: View {
                     #endif
                 }
 
-                .animation(.default, value: isSidebarVisible)
+                .animation(.easeInOut(duration: animationDuration), value: isSidebarVisible)
 
                 Spacer()
             }

@@ -149,6 +149,7 @@
 		9AC6FC1C29CE3FAD004A2391 /* wrapped.js in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1B29CE3FAD004A2391 /* wrapped.js */; };
 		9AC6FC1E29CE4B2F004A2391 /* CGGraphics+NaturalLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1D29CE4B2F004A2391 /* CGGraphics+NaturalLanguage.swift */; };
 		9AC6FC2029CE5433004A2391 /* Observation+NaturalLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1F29CE5433004A2391 /* Observation+NaturalLanguage.swift */; };
+		9AC6FC2229CE5A19004A2391 /* OnChangeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC2129CE5A19004A2391 /* OnChangeHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -328,6 +329,7 @@
 		9AC6FC1B29CE3FAD004A2391 /* wrapped.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = wrapped.js; sourceTree = "<group>"; };
 		9AC6FC1D29CE4B2F004A2391 /* CGGraphics+NaturalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGGraphics+NaturalLanguage.swift"; sourceTree = "<group>"; };
 		9AC6FC1F29CE5433004A2391 /* Observation+NaturalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observation+NaturalLanguage.swift"; sourceTree = "<group>"; };
+		9AC6FC2129CE5A19004A2391 /* OnChangeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnChangeHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -486,6 +488,7 @@
 				9A368D6529C5C6E60089F127 /* ShakeHelper.swift */,
 				9A368D8029C60FB60089F127 /* ViewHelpers.swift */,
 				9A368D8E29C71E5B0089F127 /* KeyboardHelper.swift */,
+				9AC6FC2129CE5A19004A2391 /* OnChangeHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1102,6 +1105,7 @@
 				9A368D6629C5C6E60089F127 /* ShakeHelper.swift in Sources */,
 				9A368DFE29C863AC0089F127 /* ScreenShareCaptureOptions.swift in Sources */,
 				9A368E8129CCA38E0089F127 /* FaceObservation.swift in Sources */,
+				9AC6FC2229CE5A19004A2391 /* OnChangeHelper.swift in Sources */,
 				9A368E3229C8877B0089F127 /* YOLOObjectRecognizer.swift in Sources */,
 				9A368E9629CDDD770089F127 /* CoordsNormalizationFlipping.swift in Sources */,
 				9A368E3429C89C860089F127 /* CombineHelpers.swift in Sources */,

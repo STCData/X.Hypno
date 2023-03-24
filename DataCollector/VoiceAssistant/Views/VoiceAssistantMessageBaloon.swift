@@ -15,7 +15,7 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
     let content: () -> Content
 
     var isFromCurrentUser: Bool {
-        return message.role == .user || message.role == .userRecordingInProcess
+        return message.role == .user || message.role == .userRecordingInProcess || message.role == .userExpectingResponse
     }
 
     let maxWidth: CGFloat = .infinity

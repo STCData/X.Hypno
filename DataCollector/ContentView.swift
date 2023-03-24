@@ -73,7 +73,8 @@ struct ContentView: View {
             SlideoutView(horizontal: false,
                          opacity: 0.01,
                          isSidebarVisible: $isTermOpened,
-                         bgColor: .black.opacity(0.9))
+                         bgColor: .black.opacity(0.9),
+                         shadowColor: .clear)
             {
                 TermView()
                     .padding(EdgeInsets(top: 60, leading: 2, bottom: 2, trailing: 2))
