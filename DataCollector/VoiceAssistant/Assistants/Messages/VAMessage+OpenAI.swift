@@ -39,16 +39,20 @@ extension VAMessage {
         // Loop through the lines and look for text blocks marked by markers
         var role: VAMessageRole = .assistant
         var text = ""
+        var isCodeStarted = false
         for line in lines {
-            if line.hasPrefix(VAMessage.JSStartMarker) {
+            if line.hasPrefix(VAMessage.JSStartMarker) || line.hasPrefix(VAMessage.JSEndMarker) && !isCodeStarted {
                 // Start of code block
+                isCodeStarted = true
                 if !isEmpty(text) {
                     messages.append(VAMessage(text: text, role: role))
                 }
                 role = .assistantCode
                 text = ""
-            } else if line.hasPrefix(VAMessage.JSEndMarker) {
+            } else if line.hasPrefix(VAMessage.JSEndMarker), isCodeStarted {
                 // End of code block
+                isCodeStarted = false
+
                 if !isEmpty(text) {
                     messages.append(VAMessage(text: text, role: .assistantCode))
                 }
