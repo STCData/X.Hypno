@@ -65,9 +65,11 @@ class ObservingVisionWebView: WKWebView {
 }
 
 private let JSUpdObs = """
-
 function drawObservations(canvas, observations) {
   const ctx = canvas.getContext('2d');
+
+  // Clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   for (let obs of observations) {
     if (obs.bottomLeft && obs.bottomRight && obs.topLeft && obs.topRight) {
