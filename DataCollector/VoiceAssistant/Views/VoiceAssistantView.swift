@@ -164,6 +164,12 @@ struct VoiceAssistantView: View {
                 isHidden.toggle()
             }, label: {})
                 .keyboardShortcut("p", modifiers: [.option, .command])
+
+            Button(action: {
+                viewModel.clearMessages()
+                isTextFieldFocused = true
+            }, label: {})
+                .keyboardShortcut("k", modifiers: .command)
         }
 
 //        .adaptsToKeyboard()

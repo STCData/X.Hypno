@@ -50,9 +50,12 @@ struct VAOpenAIAssistant: VAAssistant {
         let openAIMessages = openAIMessages(with: chat + [userMessage])
 
         var responseMessages = [VAMessage]()
+
+        var openAIResponseMessage: ChatMessage? = nil
         do {
             let openAIResponse = try await openAI.sendChat(with: openAIMessages)
-            if let openAIResponseMessage = openAIResponse.choices.first?.message {
+            openAIResponseMessage = openAIResponse.choices.first?.message
+            if let openAIResponseMessage {
                 responseMessages = VAMessage.from(openAIMessage: openAIResponseMessage)
             } else {
                 responseMessages = [VAMessage(text: "no message received from openai", role: .error)]
@@ -65,6 +68,7 @@ struct VAOpenAIAssistant: VAAssistant {
         for m in responseMessages {
             if m.role == .assistantCode {
                 passthroughCodeSubject.send(m.text)
+                print(m.text)
                 break // send only one code per response
             }
         }

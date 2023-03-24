@@ -33,6 +33,10 @@ class VoiceAssistantViewModel: ObservableObject {
 
     init() {}
 
+    public func clearMessages() {
+        messages = [VAMessage]()
+    }
+
     private func updateCurrentlyRecordingMessage(with text: String) {
         var newMessages = messages
 

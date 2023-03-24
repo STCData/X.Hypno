@@ -147,6 +147,7 @@
 		9AC6FC1829CE3954004A2391 /* init.js in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1729CE3954004A2391 /* init.js */; };
 		9AC6FC1A29CE39A9004A2391 /* update.js in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1929CE39A9004A2391 /* update.js */; };
 		9AC6FC1C29CE3FAD004A2391 /* wrapped.js in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1B29CE3FAD004A2391 /* wrapped.js */; };
+		9AC6FC1E29CE4B2F004A2391 /* CGGraphics+NaturalLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1D29CE4B2F004A2391 /* CGGraphics+NaturalLanguage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -324,6 +325,7 @@
 		9AC6FC1729CE3954004A2391 /* init.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = init.js; sourceTree = "<group>"; };
 		9AC6FC1929CE39A9004A2391 /* update.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = update.js; sourceTree = "<group>"; };
 		9AC6FC1B29CE3FAD004A2391 /* wrapped.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = wrapped.js; sourceTree = "<group>"; };
+		9AC6FC1D29CE4B2F004A2391 /* CGGraphics+NaturalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGGraphics+NaturalLanguage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -678,7 +680,6 @@
 			children = (
 				9A368E8229CCA41D0089F127 /* Array+CodableJSON.swift */,
 				9A368E8629CCAECA0089F127 /* ObservationPoint.swift */,
-				9A368E9329CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift */,
 				9A368E8929CD938A0089F127 /* Structs */,
 				9A368E8829CD93820089F127 /* Protocols */,
 			);
@@ -725,6 +726,8 @@
 				9A368E8B29CDB8480089F127 /* Describer.swift */,
 				9A368E8F29CDC1690089F127 /* NaturalLanguageDescribable.swift */,
 				9A368E9129CDCA1A0089F127 /* Vision+NaturalLanguage.swift */,
+				9AC6FC1D29CE4B2F004A2391 /* CGGraphics+NaturalLanguage.swift */,
+				9A368E9329CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift */,
 			);
 			path = Describer;
 			sourceTree = "<group>";
@@ -1040,6 +1043,7 @@
 				9A368DF029C862C60089F127 /* BufferCapturer.swift in Sources */,
 				9A368E6D29CC93340089F127 /* ObservingVisionWebView.swift in Sources */,
 				9A1B6B4229B9F585007F787B /* SidePanelView.swift in Sources */,
+				9AC6FC1E29CE4B2F004A2391 /* CGGraphics+NaturalLanguage.swift in Sources */,
 				9A368E0A29C866920089F127 /* Promises.swift in Sources */,
 				9A368E2E29C8826A0089F127 /* TextRecognizer.swift in Sources */,
 				9A16BC9529AF8E9B006AE075 /* ContentView.swift in Sources */,

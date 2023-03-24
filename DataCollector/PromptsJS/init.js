@@ -70,5 +70,8 @@ function drawObservations(observations) {
 
 
 window.addEventListener('{{ JSObservationsEventName }}', function(ev) {
-    drawObservations(ev.detail.observations);
+    
+    if (!window.firstGeneratedCodeWasExecuted) {
+        drawObservations(ev.detail.observations);
+    }
 });

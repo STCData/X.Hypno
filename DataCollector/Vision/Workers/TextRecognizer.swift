@@ -41,7 +41,7 @@ class TextRecognizer: VisionWorker {
                 self.observationsSubject.send(observations)
                 self.isBusy = false
             }
-            textRecognitionRequest.recognitionLevel = .accurate
+            textRecognitionRequest.recognitionLevel = .fast
 
             let requestHandler = VNImageRequestHandler(cvPixelBuffer: cvPixelBuffer, options: [:])
 
