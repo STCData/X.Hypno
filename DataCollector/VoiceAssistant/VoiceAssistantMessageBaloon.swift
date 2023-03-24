@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct VoiceAssistantMessageBalloon<Content: View>: View {
+    @State private var isCodeFullScreen = false
+
     let message: VAMessage
 
     let content: () -> Content
@@ -47,7 +49,24 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
                 //                .overlay(
                 HStack {
                     if message.role == .assistantCode {
-                        CodeThumbnailView(code: message.text)
+                        if isCodeFullScreen {
+                            CodeThumbnailView(code: message.text)
+                                .edgesIgnoringSafeArea(.all)
+                                .frame(width: UIScreen.main.bounds.size.width * 0.9,
+                                       height: UIScreen.main.bounds.size.height * 0.8)
+                                .onTapGesture {
+                                    withAnimation {
+                                        isCodeFullScreen = false
+                                    }
+                                }
+                        } else {
+                            CodeThumbnailView(code: message.text)
+                                .onTapGesture {
+                                    withAnimation {
+                                        isCodeFullScreen = true
+                                    }
+                                }
+                        }
                     } else {
                         Text(message.text)
                             .foregroundColor(.white)
@@ -73,7 +92,7 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
             }
             .padding(.vertical, 1)
             .padding(.horizontal, 1)
-            .opacity(0.4)
+            .opacity(isCodeFullScreen ? 1.0 : 0.4)
         }
         .frame(maxWidth: maxWidth, alignment: isFromCurrentUser ? .trailing : .leading)
     }
