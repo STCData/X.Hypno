@@ -10,34 +10,6 @@ import Vision
 
 extension VNRecognizedPointKey: Codable {}
 
-// func DenormalizedPoint(_ normalized: CGPoint, forSize: CGSize) -> CGPoint {
-//    return VNImagePointForNormalizedPoint(normalized, Int(forSize.width), Int(forSize.height))
-// }
-//
-// func DenormalizedRect(_ normalized: CGRect, forSize: CGSize) -> CGRect {
-//    return VNImageRectForNormalizedRect(normalized, Int(forSize.width), Int(forSize.height))
-// }
-
-// func DenormalizedPoint(_ normalized: CGPoint, forSize: CGSize) -> CGPoint {
-//    return CGPoint(x: normalized.x * forSize.width, y: forSize.height)
-// }
-//
-// func DenormalizedRect(_ normalized: CGRect, forSize: CGSize) -> CGRect {
-//    let x = normalized.origin.x * forSize.width
-//    let y = (1 - normalized.origin.y) * forSize.height
-//    let width = normalized.width * forSize.width
-//    let height = normalized.height * forSize.height
-//    return CGRect(x: x, y: y, width: width, height: height)
-// }
-
-func DenormalizedPoint(_ normalized: CGPoint, forSize: CGSize) -> CGPoint {
-    return VNImagePointForNormalizedPoint(normalized, Int(forSize.width), Int(forSize.height)).applying(.init(scaleX: 1, y: -1)).applying(.init(translationX: 0, y: forSize.height))
-}
-
-func DenormalizedRect(_ normalized: CGRect, forSize: CGSize) -> CGRect {
-    return VNImageRectForNormalizedRect(normalized, Int(forSize.width), Int(forSize.height)).applying(.init(scaleX: 1, y: -1)).applying(.init(translationX: 0, y: forSize.height))
-}
-
 struct ObservationPoint: Codable {
     let x: Double
     let y: Double

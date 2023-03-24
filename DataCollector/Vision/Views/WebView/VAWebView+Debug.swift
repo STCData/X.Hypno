@@ -29,17 +29,17 @@ const ctx = canvas.getContext('2d');
 // save the current state of the canvas
 ctx.save();
 
-// translate the canvas to the center
-ctx.translate(canvas.width/2, canvas.height/2);
-
-// flip the canvas upside down
-ctx.scale(1, -1);
-
-// mirror the canvas horizontally
-//ctx.scale(-1, 1);
-
-// translate the canvas back to its original position
-ctx.translate(-canvas.width/2, -canvas.height/2);
+//// translate the canvas to the center
+//ctx.translate(canvas.width/2, canvas.height/2);
+//
+//// flip the canvas upside down
+//ctx.scale(1, -1);
+//
+//// mirror the canvas horizontally
+////ctx.scale(-1, 1);
+//
+//// translate the canvas back to its original position
+//ctx.translate(-canvas.width/2, -canvas.height/2);
 
 // draw the magenta border
 ctx.lineWidth = 1;

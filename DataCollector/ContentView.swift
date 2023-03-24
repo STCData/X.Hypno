@@ -119,6 +119,16 @@ struct ContentView: View {
                  }
              }*/
         }
+
+        Button {
+            broadcast.isInAppInProgress.toggle()
+        } label: {}
+            .keyboardShortcut("r", modifiers: .command)
+
+        Button {
+            self.tabSelection = self.tabSelection.next()
+        } label: {}
+            .keyboardShortcut("b", modifiers: .command)
     }
 }
 

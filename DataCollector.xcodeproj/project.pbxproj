@@ -123,6 +123,7 @@
 		9A368E9029CDC1690089F127 /* NaturalLanguageDescribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E8F29CDC1690089F127 /* NaturalLanguageDescribable.swift */; };
 		9A368E9229CDCA1A0089F127 /* Vision+NaturalLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E9129CDCA1A0089F127 /* Vision+NaturalLanguage.swift */; };
 		9A368E9429CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E9329CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift */; };
+		9A368E9629CDDD770089F127 /* CoordsNormalizationFlipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E9529CDDD770089F127 /* CoordsNormalizationFlipping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,6 +286,7 @@
 		9A368E8F29CDC1690089F127 /* NaturalLanguageDescribable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalLanguageDescribable.swift; sourceTree = "<group>"; };
 		9A368E9129CDCA1A0089F127 /* Vision+NaturalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vision+NaturalLanguage.swift"; sourceTree = "<group>"; };
 		9A368E9329CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservationPoint+NaturalLanguage.swift"; sourceTree = "<group>"; };
+		9A368E9529CDDD770089F127 /* CoordsNormalizationFlipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordsNormalizationFlipping.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,6 +565,7 @@
 				9A368E5129C8FD5F0089F127 /* Tools */,
 				9A368E4229C8B0A50089F127 /* Workers */,
 				9A368E4129C8B0980089F127 /* Views */,
+				9A368E9529CDDD770089F127 /* CoordsNormalizationFlipping.swift */,
 			);
 			path = Vision;
 			sourceTree = "<group>";
@@ -968,6 +971,7 @@
 				9A368DFE29C863AC0089F127 /* ScreenShareCaptureOptions.swift in Sources */,
 				9A368E8129CCA38E0089F127 /* FaceObservation.swift in Sources */,
 				9A368E3229C8877B0089F127 /* YOLOObjectRecognizer.swift in Sources */,
+				9A368E9629CDDD770089F127 /* CoordsNormalizationFlipping.swift in Sources */,
 				9A368E3429C89C860089F127 /* CombineHelpers.swift in Sources */,
 				9A368E2429C879680089F127 /* BufferVideoCapturerDelegate.swift in Sources */,
 				9A368E4C29C8FC2C0089F127 /* CVPixelBuffer+AlmostEqual.swift in Sources */,

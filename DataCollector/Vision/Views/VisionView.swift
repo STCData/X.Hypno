@@ -14,7 +14,7 @@ struct VisionView: View {
     @StateObject var visionViewModel: VisionViewModel
 
     func positionMarkerView(normalizedRect: CGRect, in geometry: GeometryProxy, content: () -> some View) -> some View {
-        let rect = VNImageRectForNormalizedRect(normalizedRect, Int(geometry.size.width), Int(geometry.size.height))
+        let rect = DenormalizedRect(normalizedRect, forSize: geometry.size)
 
         return content()
             .frame(width: rect.width, height: rect.height)
@@ -24,7 +24,7 @@ struct VisionView: View {
     }
 
     func positionMarkerView(normalizedPoint: VNPoint, in geometry: GeometryProxy, content: () -> some View) -> some View {
-        let point = VNImagePointForNormalizedPoint(CGPoint(x: normalizedPoint.x, y: normalizedPoint.y), Int(geometry.size.width), Int(geometry.size.height))
+        let point = DenormalizedPoint(CGPoint(x: normalizedPoint.x, y: normalizedPoint.y), forSize: geometry.size)
 
         return content()
             // Changed to position
@@ -77,8 +77,6 @@ struct VisionView: View {
             }
             // Geometry reader makes the view shrink to its smallest size
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            // Flip upside down
-            .rotation3DEffect(.degrees(180), axis: (x: 1, y: 0, z: 0))
         }
 //        .frame(maxWidth:.infinity, maxHeight:.infinity)
 //        .ignoresSafeArea()
