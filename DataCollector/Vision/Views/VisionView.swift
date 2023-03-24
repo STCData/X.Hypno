@@ -73,7 +73,7 @@ struct VisionView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .ignoresSafeArea()
                     .allowsHitTesting(false)
-                    .border(Color.green)
+//                    .border(Color.green)
             }
             // Geometry reader makes the view shrink to its smallest size
             .frame(maxWidth: .infinity, maxHeight: .infinity)
