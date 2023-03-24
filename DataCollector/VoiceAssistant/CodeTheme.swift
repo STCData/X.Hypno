@@ -41,7 +41,7 @@ class CodeTheme: Runestone.Theme {
     }
 
     var lineNumberFont: UIFont {
-        return UIFont(name: "CourierNewPS-ItalicMT", size: 9) ?? UIFont.systemFont(ofSize: 9)
+        return UIFont(name: "CourierNewPS-BoldItalicMT", size: 7) ?? UIFont.systemFont(ofSize: 7)
     }
 
     var selectedLineBackgroundColor: UIColor {

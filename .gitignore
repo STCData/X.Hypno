@@ -92,3 +92,4 @@ iOSInjectionProject/
 build
 TestResults
 TestResults.*
+DataCollector/SECRET.plist

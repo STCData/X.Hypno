@@ -132,6 +132,7 @@
 		9A368EA729CDFCBB0089F127 /* TreeSitterLaTeXRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368EA629CDFCBB0089F127 /* TreeSitterLaTeXRunestone */; };
 		9A368EA929CDFCBB0089F127 /* TreeSitterMarkdownRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368EA829CDFCBB0089F127 /* TreeSitterMarkdownRunestone */; };
 		9AC6FBF729CDFE8C004A2391 /* CodeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FBF629CDFE8C004A2391 /* CodeTheme.swift */; };
+		9AC6FBF929CE09DF004A2391 /* SECRET.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FBF829CE09DF004A2391 /* SECRET.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -298,6 +299,7 @@
 		9A368E9729CDDF520089F127 /* CVPixelBuffer+Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Tools.swift"; sourceTree = "<group>"; };
 		9A368E9929CDEB150089F127 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		9AC6FBF629CDFE8C004A2391 /* CodeTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTheme.swift; sourceTree = "<group>"; };
+		9AC6FBF829CE09DF004A2391 /* SECRET.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SECRET.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +402,7 @@
 				9A16BC9829AF8E9C006AE075 /* DataCollector.entitlements */,
 				9A16BC9929AF8E9C006AE075 /* Preview Content */,
 				9A368D8829C6167B0089F127 /* LogInit.swift */,
+				9AC6FBF829CE09DF004A2391 /* SECRET.plist */,
 			);
 			path = DataCollector;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A16BC9B29AF8E9C006AE075 /* Preview Assets.xcassets in Resources */,
+				9AC6FBF929CE09DF004A2391 /* SECRET.plist in Resources */,
 				9A16BC9729AF8E9C006AE075 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
