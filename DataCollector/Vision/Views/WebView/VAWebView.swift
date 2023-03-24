@@ -31,9 +31,7 @@ private let log = LogLabels.webview.makeLogger()
             webView.scrollView.backgroundColor = UIColor.clear
             log.trace("makeNSView(context _: Context)")
 //            initDebug(in: webView)
-            webView.loadHTMLString("""
-            <html><body><p id="jsNotLoaded">JS NOT LOADED</p></body></html>
-            """, baseURL: nil)
+            webView.loadHTMLString(PromptJSGenerator.shared.observingVisionWebViewHTML, baseURL: nil)
 
             return webView
         }
