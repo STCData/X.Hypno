@@ -121,6 +121,8 @@
 		9A368E8729CCAECA0089F127 /* ObservationPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E8629CCAECA0089F127 /* ObservationPoint.swift */; };
 		9A368E8C29CDB8480089F127 /* Describer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E8B29CDB8480089F127 /* Describer.swift */; };
 		9A368E9029CDC1690089F127 /* NaturalLanguageDescribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E8F29CDC1690089F127 /* NaturalLanguageDescribable.swift */; };
+		9A368E9229CDCA1A0089F127 /* Vision+NaturalLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E9129CDCA1A0089F127 /* Vision+NaturalLanguage.swift */; };
+		9A368E9429CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A368E9329CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,6 +283,8 @@
 		9A368E8629CCAECA0089F127 /* ObservationPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationPoint.swift; sourceTree = "<group>"; };
 		9A368E8B29CDB8480089F127 /* Describer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Describer.swift; sourceTree = "<group>"; };
 		9A368E8F29CDC1690089F127 /* NaturalLanguageDescribable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturalLanguageDescribable.swift; sourceTree = "<group>"; };
+		9A368E9129CDCA1A0089F127 /* Vision+NaturalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vision+NaturalLanguage.swift"; sourceTree = "<group>"; };
+		9A368E9329CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservationPoint+NaturalLanguage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -625,6 +629,7 @@
 			children = (
 				9A368E8229CCA41D0089F127 /* Array+CodableJSON.swift */,
 				9A368E8629CCAECA0089F127 /* ObservationPoint.swift */,
+				9A368E9329CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift */,
 				9A368E8929CD938A0089F127 /* Structs */,
 				9A368E8829CD93820089F127 /* Protocols */,
 			);
@@ -670,6 +675,7 @@
 			children = (
 				9A368E8B29CDB8480089F127 /* Describer.swift */,
 				9A368E8F29CDC1690089F127 /* NaturalLanguageDescribable.swift */,
+				9A368E9129CDCA1A0089F127 /* Vision+NaturalLanguage.swift */,
 			);
 			path = Describer;
 			sourceTree = "<group>";
@@ -926,9 +932,11 @@
 				9A368E0C29C866B80089F127 /* MulticastDelegate.swift in Sources */,
 				9A1B6B4429B9F72F007F787B /* WebTabsViewModel.swift in Sources */,
 				9A368E6B29CC892A0089F127 /* VAWebView+Debug.swift in Sources */,
+				9A368E9429CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift in Sources */,
 				9A368D6929C5C7560089F127 /* CameraView.swift in Sources */,
 				9A368E1029C869BC0089F127 /* Extensions.swift in Sources */,
 				9A368E4429C8C0400089F127 /* InAppCapturer.swift in Sources */,
+				9A368E9229CDCA1A0089F127 /* Vision+NaturalLanguage.swift in Sources */,
 				9A368D8129C60FB60089F127 /* ViewHelpers.swift in Sources */,
 				9A368E3E29C8A69A0089F127 /* VisionView.swift in Sources */,
 				9A368DFA29C863800089F127 /* BufferCaptureOptions.swift in Sources */,

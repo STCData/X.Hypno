@@ -28,6 +28,7 @@ class Describer: Subscriber {
             classDescriptions[typeName] = input.naturalLanguageDescription
         }
 
+        print(classDescriptions)
         return .max(1)
     }
 
@@ -48,7 +49,9 @@ func NaturalLanguageDescribe<T>(_ value: T) -> String? {
             for child in mirror.children {
                 if let label = child.label {
                     let nestedValue = child.value
-                    if let nestedDescription = NaturalLanguageDescribe(nestedValue) {
+                    if let nestedDescribable = nestedValue as? NaturalLanguageDescribable {
+                        description += "\(label): \(nestedDescribable.naturalLanguageDescription), "
+                    } else if let nestedDescription = NaturalLanguageDescribe(nestedValue) {
                         description += "\(label): \(nestedDescription), "
                     } else {
                         description += "\(label): \(type(of: nestedValue)), "
@@ -65,7 +68,38 @@ func NaturalLanguageDescribe<T>(_ value: T) -> String? {
             if typeName.hasPrefix("_") {
                 typeName = String(typeName.dropFirst())
             }
-            return "\(typeName)<\(mirror.children.first.map { type(of: $0.value) } ?? Any.Type.self)>"
+            let firstElementDescription: String
+            if let firstElement = mirror.children.first?.value {
+                if let describable = firstElement as? NaturalLanguageDescribable {
+                    firstElementDescription = describable.naturalLanguageDescription
+                } else {
+                    firstElementDescription = NaturalLanguageDescribe(firstElement) ?? "\(type(of: firstElement))"
+                }
+            } else {
+                firstElementDescription = "\(Any.Type.self)"
+            }
+            return "\(typeName)<\(firstElementDescription)>"
+
+        case .dictionary:
+
+            var keyType = "\(Any.Type.self)"
+            var valueType = "\(Any.Type.self)"
+            if let firstElement = mirror.children.first,
+               let (key, value) = firstElement.value as? (Any, Any)
+            {
+                if let describableKey = key as? NaturalLanguageDescribable {
+                    keyType = describableKey.naturalLanguageDescription
+                } else {
+                    keyType = String(describing: type(of: key))
+                }
+
+                if let describableValue = value as? NaturalLanguageDescribable {
+                    valueType = describableValue.naturalLanguageDescription
+                } else {
+                    valueType = String(describing: type(of: value))
+                }
+            }
+            return "{ \(keyType) : \(valueType) }"
 
         default:
             return String(describing: value)
