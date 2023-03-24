@@ -95,7 +95,7 @@ final class VAOpenAIAssistantTests: XCTestCase {
 
         XCTAssertEqual(five.map { $0.text }, ["bla bla\n", "js1.1\njs1.2\njs1.3\n", "bla bla\n", "js2.1\njs2.2\njs2.3\n", "bla bla2\n"])
 
-        let one = VAMessage.parseAssistantMessages(from: "%%JSBE\nconst canvas = document.getElementById(\'my-canvas\');\nconst ctx = canvas.getContext(\'2d\');\n\nconst centerX = canvas.width / 2;\nconst centerY = canvas.height / 2;\nconst width = canvas.width;\nconst height = canvas.height;\n\nctx.lineWidth = 5;\nctx.strokeStyle = \"#FF0000\";\nctx.fillStyle = \"#FF0000\";\nctx.beginPath();\nctx.moveTo(centerX, centerY - height/4);\nctx.bezierCurveTo(centerX + width/4, centerY - height/2, centerX + width/2, centerY - height/4, centerX, centerY + height/2);\nctx.bezierCurveTo(centerX - width/2, centerY - height/4, centerX - width/4, centerY - height/2, centerX, centerY - height/4);\nctx.stroke();\nctx.fill();\n%%JSEND")
+        let one = VAMessage.parseAssistantMessages(from: "\(VAMessage.JSStartMarker)\nconst canvas = document.getElementById(\'my-canvas\');\nconst ctx = canvas.getContext(\'2d\');\n\nconst centerX = canvas.width / 2;\nconst centerY = canvas.height / 2;\nconst width = canvas.width;\nconst height = canvas.height;\n\nctx.lineWidth = 5;\nctx.strokeStyle = \"#FF0000\";\nctx.fillStyle = \"#FF0000\";\nctx.beginPath();\nctx.moveTo(centerX, centerY - height/4);\nctx.bezierCurveTo(centerX + width/4, centerY - height/2, centerX + width/2, centerY - height/4, centerX, centerY + height/2);\nctx.bezierCurveTo(centerX - width/2, centerY - height/4, centerX - width/4, centerY - height/2, centerX, centerY - height/4);\nctx.stroke();\nctx.fill();\n\(VAMessage.JSEndMarker)")
 
         XCTAssertEqual(roles(one), [.assistantCode])
     }

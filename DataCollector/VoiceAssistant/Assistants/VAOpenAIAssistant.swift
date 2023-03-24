@@ -62,26 +62,34 @@ struct VAOpenAIAssistant: VAAssistant {
             responseMessages = [VAMessage(text: "error communicating to openai", role: .error)]
         }
 
+        for m in responseMessages {
+            if m.role == .assistantCode {
+                passthroughCodeSubject.send(m.text)
+                break // send only one code per response
+            }
+        }
+
         return chat + [userMessage] + responseMessages
     }
 
     private func systemChatMessage() -> ChatMessage {
-        return ChatMessage(role: .system, content: """
-        if user requests to write code, output JavaScript that will be launched on the page that contains canvas element with id 'my-canvas', its width and height is already set to the size of the page.
+        return ChatMessage(role: .system, content:
+            """
+            if user requests to write code, output JavaScript that will be launched on the page that contains canvas element with id 'my-canvas', its width and height is already set to the size of the page.
 
-        assume that every user message starts with "Write a JavaScript code that..." , unless such concatenation makes no sense, for example if message is "How are you?"
+            assume that every user message starts with "Write a JavaScript code that..." , unless such concatenation makes no sense, for example if message is "How are you?"
 
-        prefer writing code that fetches requested data from known public APIs that dont require any keys
+            prefer writing code that fetches requested data from known public APIs that dont require any keys
 
-        never write a code that shows something in JavaScript console, instead, draw requested data beautifully on canvas. Be creative: if data can be represented with graph, do it
+            never write a code that shows something in JavaScript console, instead, draw requested data beautifully on canvas. Be creative: if data can be represented with graph, do it
 
-        output javascript in code blocks formatted as:
-        \(VAMessage.JSStartMarker)
-        //code goes here
-        \(VAMessage.JSEndMarker)
+            any JS code that you output MUST be enclosed between `\(VAMessage.JSStartMarker)` and `\(VAMessage.JSEndMarker)` like that :
+            \(VAMessage.JSStartMarker)
+            //code goes here
+            \(VAMessage.JSEndMarker)
 
-        avoid explanations as much as possible, be concise
-        """)
+            avoid explanations as much as possible, be concise
+            """)
     }
 
     func openAIMessages(with messages: [VAMessage]) -> [ChatMessage] {

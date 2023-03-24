@@ -9,8 +9,8 @@ import Foundation
 import OpenAISwift
 
 extension VAMessage {
-    static let JSStartMarker = "%%JSBE"
-    static let JSEndMarker = "%%JSEND"
+    static let JSStartMarker = "```javascript"
+    static let JSEndMarker = "```"
 
     static func from(openAIMessage: ChatMessage) -> [VAMessage] {
         switch openAIMessage.role {
