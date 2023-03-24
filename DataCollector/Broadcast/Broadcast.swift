@@ -22,12 +22,12 @@ class Broadcast: BufferVideoCapturerDelegate, ObservableObject {
     private var cmBufferConversionSubscriptions = Set<AnyCancellable>()
 
     func capturer(_: BufferCapturer, didCapture cmBuffer: CMSampleBuffer) {
-        logger.info("broadcast captured cmBuffer \(cmBuffer)")
+        logger.trace("broadcast captured cmBuffer \(cmBuffer)")
         cmBufferSubject.send(cmBuffer)
     }
 
     func capturer(_: BufferCapturer, didCapture cvBuffer: CVPixelBuffer, timeStampNs: Int64) {
-        logger.info("broadcast captured cvbuffer \(CVPixelBufferGetWidth(cvBuffer))x\(CVPixelBufferGetHeight(cvBuffer)) @\(timeStampNs)")
+        logger.trace("broadcast captured cvbuffer \(CVPixelBufferGetWidth(cvBuffer))x\(CVPixelBufferGetHeight(cvBuffer)) @\(timeStampNs)")
         cvBufferSubject.send(cvBuffer)
     }
 
