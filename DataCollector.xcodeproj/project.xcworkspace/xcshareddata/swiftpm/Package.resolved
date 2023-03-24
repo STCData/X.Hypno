@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "openaiswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/STCData/OpenAISwift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "aeb19b0d5739fd6e3f568ccdb93376827e3cde0e"
+      }
+    },
+    {
       "identity" : "promises",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/promises.git",

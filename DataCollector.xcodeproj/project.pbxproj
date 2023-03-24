@@ -133,6 +133,8 @@
 		9A368EA929CDFCBB0089F127 /* TreeSitterMarkdownRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = 9A368EA829CDFCBB0089F127 /* TreeSitterMarkdownRunestone */; };
 		9AC6FBF729CDFE8C004A2391 /* CodeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FBF629CDFE8C004A2391 /* CodeTheme.swift */; };
 		9AC6FBF929CE09DF004A2391 /* SECRET.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FBF829CE09DF004A2391 /* SECRET.plist */; };
+		9AC6FBFC29CE0B2C004A2391 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC6FBFB29CE0B2C004A2391 /* OpenAISwift */; };
+		9AC6FBFE29CE0B3D004A2391 /* VAOpenAIAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FBFD29CE0B3D004A2391 /* VAOpenAIAssistant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -300,6 +302,7 @@
 		9A368E9929CDEB150089F127 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		9AC6FBF629CDFE8C004A2391 /* CodeTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTheme.swift; sourceTree = "<group>"; };
 		9AC6FBF829CE09DF004A2391 /* SECRET.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SECRET.plist; sourceTree = "<group>"; };
+		9AC6FBFD29CE0B3D004A2391 /* VAOpenAIAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VAOpenAIAssistant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +310,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AC6FBFC29CE0B2C004A2391 /* OpenAISwift in Frameworks */,
 				9A368EA929CDFCBB0089F127 /* TreeSitterMarkdownRunestone in Frameworks */,
 				9A368D8729C616220089F127 /* Puppy in Frameworks */,
 				9A368D8429C6147B0089F127 /* Logging in Frameworks */,
@@ -635,16 +639,10 @@
 		9A368E5329CB20640089F127 /* VoiceAssistant */ = {
 			isa = PBXGroup;
 			children = (
+				9AC6FC0229CE0B80004A2391 /* ViewModels */,
+				9AC6FC0129CE0B67004A2391 /* Views */,
 				9A368E8A29CDB8370089F127 /* Describer */,
-				9A368E5429CB20760089F127 /* VoiceAssistantView.swift */,
-				9A368E5629CB222D0089F127 /* SpeechRecognizer.swift */,
-				9A368E5829CB23950089F127 /* VoiceAssistantViewModel.swift */,
-				9A368E5A29CB241E0089F127 /* VAMessage.swift */,
-				9A368E5C29CB24680089F127 /* VADummyAssistant.swift */,
-				9A368E5E29CB247B0089F127 /* VAAssistant.swift */,
-				9A368E6029CB28BB0089F127 /* VoiceAssistantMessageBaloon.swift */,
-				9A368E9929CDEB150089F127 /* CodeView.swift */,
-				9AC6FBF629CDFE8C004A2391 /* CodeTheme.swift */,
+				9AC6FBFF29CE0B46004A2391 /* Assistants */,
 			);
 			path = VoiceAssistant;
 			sourceTree = "<group>";
@@ -705,6 +703,45 @@
 			path = Describer;
 			sourceTree = "<group>";
 		};
+		9AC6FBFF29CE0B46004A2391 /* Assistants */ = {
+			isa = PBXGroup;
+			children = (
+				9AC6FC0029CE0B59004A2391 /* Messages */,
+				9AC6FBFD29CE0B3D004A2391 /* VAOpenAIAssistant.swift */,
+				9A368E5C29CB24680089F127 /* VADummyAssistant.swift */,
+				9A368E5E29CB247B0089F127 /* VAAssistant.swift */,
+			);
+			path = Assistants;
+			sourceTree = "<group>";
+		};
+		9AC6FC0029CE0B59004A2391 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				9A368E5A29CB241E0089F127 /* VAMessage.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		9AC6FC0129CE0B67004A2391 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9A368E5429CB20760089F127 /* VoiceAssistantView.swift */,
+				9A368E9929CDEB150089F127 /* CodeView.swift */,
+				9A368E6029CB28BB0089F127 /* VoiceAssistantMessageBaloon.swift */,
+				9AC6FBF629CDFE8C004A2391 /* CodeTheme.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9AC6FC0229CE0B80004A2391 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9A368E5629CB222D0089F127 /* SpeechRecognizer.swift */,
+				9A368E5829CB23950089F127 /* VoiceAssistantViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -735,6 +772,7 @@
 				9A368EA429CDFCBB0089F127 /* TreeSitterJavaScriptRunestone */,
 				9A368EA629CDFCBB0089F127 /* TreeSitterLaTeXRunestone */,
 				9A368EA829CDFCBB0089F127 /* TreeSitterMarkdownRunestone */,
+				9AC6FBFB29CE0B2C004A2391 /* OpenAISwift */,
 			);
 			productName = DataCollector;
 			productReference = 9A16BC8F29AF8E9B006AE075 /* DataCollector.app */;
@@ -863,6 +901,7 @@
 				9A368DEC29C862A90089F127 /* XCRemoteSwiftPackageReference "promises" */,
 				9A368E9E29CDFB630089F127 /* XCRemoteSwiftPackageReference "Runestone" */,
 				9A368EA329CDFCBB0089F127 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */,
+				9AC6FBFA29CE0B2C004A2391 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 			);
 			productRefGroup = 9A16BC9029AF8E9B006AE075 /* Products */;
 			projectDirPath = "";
@@ -926,6 +965,7 @@
 				9A368D7E29C5FFE50089F127 /* TerminalViewController.swift in Sources */,
 				9A368D8B29C6185E0089F127 /* TermLogger.swift in Sources */,
 				9A368E5D29CB24680089F127 /* VADummyAssistant.swift in Sources */,
+				9AC6FBFE29CE0B3D004A2391 /* VAOpenAIAssistant.swift in Sources */,
 				9A368DF229C862D60089F127 /* SocketConnectionFrameReader.swift in Sources */,
 				9A1B6B3C29B9F10A007F787B /* WebTab.swift in Sources */,
 				9A368E4029C8A82D0089F127 /* VisionViewModel.swift in Sources */,
@@ -1616,6 +1656,14 @@
 				minimumVersion = 0.1.7;
 			};
 		};
+		9AC6FBFA29CE0B2C004A2391 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/STCData/OpenAISwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1683,6 +1731,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9A368EA329CDFCBB0089F127 /* XCRemoteSwiftPackageReference "TreeSitterLanguages" */;
 			productName = TreeSitterMarkdownRunestone;
+		};
+		9AC6FBFB29CE0B2C004A2391 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9AC6FBFA29CE0B2C004A2391 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
