@@ -16,6 +16,8 @@ protocol RectangleObservationProtocol: DetectedObjectObservationProtocol {
 }
 
 struct RectangleObservation: RectangleObservationProtocol, Codable {
+    var type = "Rectangle"
+
     var boundingBox: CGRect
 
     var bottomLeft: ObservationPoint
@@ -38,10 +40,6 @@ struct RectangleObservation: RectangleObservationProtocol, Codable {
 }
 
 extension RectangleObservation: NaturalLanguageDescribable {
-    var naturalLanguageClass: String {
-        "Rectangle"
-    }
-
     var naturalLanguageDescription: String {
         NaturalLanguageDescribe(self)!
     }

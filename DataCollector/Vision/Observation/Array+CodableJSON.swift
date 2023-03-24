@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Array where Element: Codable {
+extension Array where Element: Encodable {
     func toJSON() throws -> String {
         let jsonEncoder = JSONEncoder()
         let jsonData = try jsonEncoder.encode(self)

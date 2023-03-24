@@ -63,46 +63,7 @@ extension Observation: NaturalLanguageDescribable {
     }
 }
 
-extension Observation: Codable {
-    private enum CodingKeys: String, CodingKey {
-        case type
-    }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let singleContainer = try decoder.singleValueContainer()
-
-        let type = try container.decode(String.self, forKey: .type)
-        switch type {
-        case "humanHandPose":
-            let observation = try singleContainer.decode(HumanHandPoseObservation.self)
-            self = .humanHandPose(observation)
-        case "barcode":
-            let observation = try singleContainer.decode(BarcodeObservation.self)
-            self = .barcode(observation)
-        case "recognizedText":
-            let observation = try singleContainer.decode(RecognizedTextObservation.self)
-            self = .recognizedText(observation)
-        case "face":
-            let observation = try singleContainer.decode(FaceObservation.self)
-            self = .face(observation)
-        case "recognizedObject":
-            let observation = try singleContainer.decode(RecognizedObjectObservation.self)
-            self = .recognizedObject(observation)
-        case "recognizedPoints":
-            let observation = try singleContainer.decode(RecognizedPointsObservation.self)
-            self = .recognizedPoints(observation)
-        case "rectangle":
-            let observation = try singleContainer.decode(RectangleObservation.self)
-            self = .rectangle(observation)
-        case "detectedObject":
-            let observation = try singleContainer.decode(DetectedObjectObservation.self)
-            self = .detectedObject(observation)
-        default:
-            throw DecodingError.dataCorruptedError(forKey: .type, in: container, debugDescription: "Unknown type of content.")
-        }
-    }
-
+extension Observation: Encodable {
     func encode(to encoder: Encoder) throws {
         var singleContainer = encoder.singleValueContainer()
 
@@ -153,4 +114,5 @@ extension Observation: Codable {
 protocol ObservationProtocol {
     var timestamp: Date { get set }
     var confidence: Double { get set }
+    var type: String { get }
 }

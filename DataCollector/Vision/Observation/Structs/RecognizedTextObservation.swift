@@ -9,6 +9,8 @@ import Foundation
 import Vision
 
 struct RecognizedTextObservation: DetectedObjectObservationProtocol, Codable {
+    var type = "Text"
+
     var boundingBox: CGRect
 
     let text: String
@@ -33,10 +35,6 @@ struct RecognizedTextObservation: DetectedObjectObservationProtocol, Codable {
 }
 
 extension RecognizedTextObservation: NaturalLanguageDescribable {
-    var naturalLanguageClass: String {
-        "Text"
-    }
-
     var naturalLanguageDescription: String {
         NaturalLanguageDescribe(self)!
     }

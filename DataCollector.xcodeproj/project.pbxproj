@@ -148,6 +148,7 @@
 		9AC6FC1A29CE39A9004A2391 /* update.js in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1929CE39A9004A2391 /* update.js */; };
 		9AC6FC1C29CE3FAD004A2391 /* wrapped.js in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1B29CE3FAD004A2391 /* wrapped.js */; };
 		9AC6FC1E29CE4B2F004A2391 /* CGGraphics+NaturalLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1D29CE4B2F004A2391 /* CGGraphics+NaturalLanguage.swift */; };
+		9AC6FC2029CE5433004A2391 /* Observation+NaturalLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1F29CE5433004A2391 /* Observation+NaturalLanguage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -326,6 +327,7 @@
 		9AC6FC1929CE39A9004A2391 /* update.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = update.js; sourceTree = "<group>"; };
 		9AC6FC1B29CE3FAD004A2391 /* wrapped.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = wrapped.js; sourceTree = "<group>"; };
 		9AC6FC1D29CE4B2F004A2391 /* CGGraphics+NaturalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGGraphics+NaturalLanguage.swift"; sourceTree = "<group>"; };
+		9AC6FC1F29CE5433004A2391 /* Observation+NaturalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observation+NaturalLanguage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -728,6 +730,7 @@
 				9A368E9129CDCA1A0089F127 /* Vision+NaturalLanguage.swift */,
 				9AC6FC1D29CE4B2F004A2391 /* CGGraphics+NaturalLanguage.swift */,
 				9A368E9329CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift */,
+				9AC6FC1F29CE5433004A2391 /* Observation+NaturalLanguage.swift */,
 			);
 			path = Describer;
 			sourceTree = "<group>";
@@ -1064,6 +1067,7 @@
 				9A368E9429CDCA3A0089F127 /* ObservationPoint+NaturalLanguage.swift in Sources */,
 				9A368D6929C5C7560089F127 /* CameraView.swift in Sources */,
 				9A368E1029C869BC0089F127 /* Extensions.swift in Sources */,
+				9AC6FC2029CE5433004A2391 /* Observation+NaturalLanguage.swift in Sources */,
 				9A368E4429C8C0400089F127 /* InAppCapturer.swift in Sources */,
 				9A368E9229CDCA1A0089F127 /* Vision+NaturalLanguage.swift in Sources */,
 				9A368D8129C60FB60089F127 /* ViewHelpers.swift in Sources */,

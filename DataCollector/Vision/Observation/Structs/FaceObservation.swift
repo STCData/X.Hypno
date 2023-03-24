@@ -9,6 +9,8 @@ import Foundation
 import Vision
 
 struct FaceObservation: DetectedObjectObservationProtocol, Codable {
+    var type = "Face"
+
     var boundingBox: CGRect
 
     var timestamp: Date
@@ -22,10 +24,6 @@ struct FaceObservation: DetectedObjectObservationProtocol, Codable {
 }
 
 extension FaceObservation: NaturalLanguageDescribable {
-    var naturalLanguageClass: String {
-        "Face"
-    }
-
     var naturalLanguageDescription: String {
         NaturalLanguageDescribe(self)!
     }

@@ -9,6 +9,8 @@ import Foundation
 import Vision
 
 struct HumanHandPoseObservation: RecognizedPointsObservationProtocol, Codable {
+    var type: String = "Hand"
+
     var timestamp: Date
     var confidence: Double
     var recognizedPoints: [VNRecognizedPointKey: ObservationPoint]
@@ -21,10 +23,6 @@ struct HumanHandPoseObservation: RecognizedPointsObservationProtocol, Codable {
 }
 
 extension HumanHandPoseObservation: NaturalLanguageDescribable {
-    var naturalLanguageClass: String {
-        "Hand Pose"
-    }
-
     var naturalLanguageDescription: String {
         NaturalLanguageDescribe(self)!
     }

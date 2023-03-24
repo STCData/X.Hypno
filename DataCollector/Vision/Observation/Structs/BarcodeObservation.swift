@@ -9,6 +9,8 @@ import Foundation
 import Vision
 
 struct BarcodeObservation: RectangleObservationProtocol, Codable {
+    var type = "Barcode"
+
     var boundingBox: CGRect
 
     let payloadStringValue: String
@@ -35,10 +37,6 @@ struct BarcodeObservation: RectangleObservationProtocol, Codable {
 }
 
 extension BarcodeObservation: NaturalLanguageDescribable {
-    var naturalLanguageClass: String {
-        "Barcode"
-    }
-
     var naturalLanguageDescription: String {
         NaturalLanguageDescribe(self)!
     }

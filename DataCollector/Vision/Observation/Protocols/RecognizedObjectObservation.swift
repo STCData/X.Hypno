@@ -11,6 +11,8 @@ import Vision
 protocol RecognizedObjectObservationProtocol: DetectedObjectObservationProtocol {}
 
 struct RecognizedObjectObservation: RecognizedObjectObservationProtocol, Codable {
+    var type = "RecognizedObject"
+
     var boundingBox: CGRect
 
     var timestamp: Date
@@ -24,10 +26,6 @@ struct RecognizedObjectObservation: RecognizedObjectObservationProtocol, Codable
 }
 
 extension RecognizedObjectObservation: NaturalLanguageDescribable {
-    var naturalLanguageClass: String {
-        "Recognized Object"
-    }
-
     var naturalLanguageDescription: String {
         NaturalLanguageDescribe(self)!
     }

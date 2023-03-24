@@ -12,7 +12,7 @@ window.addEventListener('{{ JSObservationsEventName }}', function(ev) {
 <your function name here>(ev.detail.observations);
 });
 ```
-schema of observation objects is defined like that
+ev.detail.observations contains array of observation objects:
 {{ allClassesNaturalLanguage }}
 
 stricktly use defined schema, do not invent non-existing in schema fields

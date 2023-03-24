@@ -13,6 +13,8 @@ protocol RecognizedPointsObservationProtocol: ObservationProtocol {
 }
 
 struct RecognizedPointsObservation: RecognizedPointsObservationProtocol, Codable {
+    var type = "RecognizedPoints"
+
     var timestamp: Date
     var confidence: Double
     var recognizedPoints: [VNRecognizedPointKey: ObservationPoint]
@@ -33,10 +35,6 @@ func RecognizedPointsFrom(recognizedPointsObservation: VNRecognizedPointsObserva
 }
 
 extension RecognizedPointsObservation: NaturalLanguageDescribable {
-    var naturalLanguageClass: String {
-        "Recognized Points"
-    }
-
     var naturalLanguageDescription: String {
         NaturalLanguageDescribe(self)!
     }

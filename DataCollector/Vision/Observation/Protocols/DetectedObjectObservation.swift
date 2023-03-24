@@ -13,6 +13,8 @@ protocol DetectedObjectObservationProtocol: ObservationProtocol {
 }
 
 struct DetectedObjectObservation: DetectedObjectObservationProtocol, Codable {
+    var type = "DetectedObject"
+
     var boundingBox: CGRect
 
     var timestamp: Date
@@ -26,10 +28,6 @@ struct DetectedObjectObservation: DetectedObjectObservationProtocol, Codable {
 }
 
 extension DetectedObjectObservation: NaturalLanguageDescribable {
-    var naturalLanguageClass: String {
-        "Detected Object"
-    }
-
     var naturalLanguageDescription: String {
         NaturalLanguageDescribe(self)!
     }
