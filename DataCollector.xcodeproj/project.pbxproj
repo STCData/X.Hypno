@@ -618,17 +618,10 @@
 		9A368E6229CC83CC0089F127 /* Observation */ = {
 			isa = PBXGroup;
 			children = (
-				9A368E7229CC9F7C0089F127 /* Observation.swift */,
-				9A368E7429CCA0290089F127 /* HumanHandPoseObservation.swift */,
-				9A368E7629CCA2B20089F127 /* RecognizedPointsObservation.swift */,
-				9A368E7829CCA2FF0089F127 /* RectangleObservation.swift */,
-				9A368E7A29CCA3150089F127 /* BarcodeObservation.swift */,
-				9A368E7C29CCA3330089F127 /* DetectedObjectObservation.swift */,
-				9A368E7E29CCA3530089F127 /* RecognizedTextObservation.swift */,
-				9A368E8029CCA38E0089F127 /* FaceObservation.swift */,
 				9A368E8229CCA41D0089F127 /* Array+CodableJSON.swift */,
-				9A368E8429CCA87F0089F127 /* RecognizedObjectObservation.swift */,
 				9A368E8629CCAECA0089F127 /* ObservationPoint.swift */,
+				9A368E8929CD938A0089F127 /* Structs */,
+				9A368E8829CD93820089F127 /* Protocols */,
 			);
 			path = Observation;
 			sourceTree = "<group>";
@@ -642,6 +635,29 @@
 				9A368E6C29CC93340089F127 /* ObservingVisionWebView.swift */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		9A368E8829CD93820089F127 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9A368E7229CC9F7C0089F127 /* Observation.swift */,
+				9A368E8429CCA87F0089F127 /* RecognizedObjectObservation.swift */,
+				9A368E7629CCA2B20089F127 /* RecognizedPointsObservation.swift */,
+				9A368E7829CCA2FF0089F127 /* RectangleObservation.swift */,
+				9A368E7C29CCA3330089F127 /* DetectedObjectObservation.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9A368E8929CD938A0089F127 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				9A368E7429CCA0290089F127 /* HumanHandPoseObservation.swift */,
+				9A368E7A29CCA3150089F127 /* BarcodeObservation.swift */,
+				9A368E7E29CCA3530089F127 /* RecognizedTextObservation.swift */,
+				9A368E8029CCA38E0089F127 /* FaceObservation.swift */,
+			);
+			path = Structs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -23,7 +23,7 @@ class ObservingVisionWebView: WKWebView {
         observationPublisher
             .eraseToAnyPublisher()
             .receive(on: RunLoop.main)
-            .map { $0.map { Observation.from(vnObservation: $0) } }
+            .map { $0.map { Observation.from($0) } }
             .sink { observations in
                 self.updateObservations(observations)
 
