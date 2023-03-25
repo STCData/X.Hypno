@@ -19,9 +19,6 @@ struct DataCollectorApp: App {
                 ContentView()
                     .environmentObject(Broadcast.shared)
                     .environmentObject(VisionPool.cameraPool)
-
-                VoiceAssistantView()
-                    .frame(maxWidth: .infinity)
             }
         }
     }

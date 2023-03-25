@@ -171,6 +171,7 @@ struct VoiceAssistantView: View {
             }, label: {})
                 .keyboardShortcut("k", modifiers: .command)
         }
+        .padding(EdgeInsets(top: 19, leading: 3, bottom: 19, trailing: 3))
 
 //        .adaptsToKeyboard()
     }

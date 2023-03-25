@@ -27,7 +27,6 @@ struct ContentView: View {
     @State private var isTabbarShown = false
     @State private var isTermOpened = false
     @State private var tabSelection = Tabs.first
-    @State private var isVisionViewShown = true
 
     @EnvironmentObject
     var broadcast: Broadcast
@@ -90,33 +89,23 @@ struct ContentView: View {
                         cameraVisionPool.isOn.toggle()
                     }, icon: "camera.viewfinder", color: cameraVisionPool.isOn ? FloatingButton.recColor : FloatingButton.enabledColor)
 
-                    VStack {
-                        FloatingButton(action: {
-                            broadcast.isSystemWideInProgress.toggle()
-                        }, icon: "menubar.dock.rectangle.badge.record", color: broadcast.isSystemWideInProgress ? FloatingButton.recColor : FloatingButton.enabledColor)
-                        FloatingButton(action: {
-                            broadcast.isInAppInProgress.toggle()
-                        }, icon: "rectangle.dashed.badge.record", color: broadcast.isInAppInProgress ? FloatingButton.recColor : FloatingButton.enabledColor)
-                    }
+//                    VStack {
+                    FloatingButton(action: {
+                        broadcast.isSystemWideInProgress.toggle()
+                    }, icon: "menubar.dock.rectangle.badge.record", color: broadcast.isSystemWideInProgress ? FloatingButton.recColor : FloatingButton.enabledColor)
+                    FloatingButton(action: {
+                        broadcast.isInAppInProgress.toggle()
+                    }, icon: "rectangle.dashed.badge.record", color: broadcast.isInAppInProgress ? FloatingButton.recColor : FloatingButton.enabledColor)
+//                    }
                 }
             }.if(!isDebugUIShown) {
                 $0.hidden()
-            }
-
-            if isVisionViewShown {
-                VisionView(visionViewModel: VisionViewModel(observationPublisher: VisionPool.broadcastPool.observationsSubject
-                        .debounce(for: .seconds(0.1), scheduler: RunLoop.main)))
             }
 
             Button {
                 isDebugUIShown.toggle()
             } label: {}
                 .keyboardShortcut("u", modifiers: .command)
-
-            Button {
-                isVisionViewShown.toggle()
-            } label: {}
-                .keyboardShortcut("i", modifiers: .command)
         }
         .ignoresSafeArea()
         .onShake {

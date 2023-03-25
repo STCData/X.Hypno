@@ -21,6 +21,9 @@ struct CameraView: View {
             if isVisionViewShown {
                 VisionView(visionViewModel: VisionViewModel(observationPublisher: VisionPool.cameraPool.observationsSubject))
             }
+            VoiceAssistantView()
+                .padding(.top, 52)
+                .frame(maxWidth: .infinity)
 
             Button {
                 isVisionViewShown.toggle()
@@ -28,7 +31,7 @@ struct CameraView: View {
                 .keyboardShortcut("o", modifiers: .command)
 
             FloatingAtCorner(alignment: .topLeading) {
-                VStack {
+                HStack {
                     FloatingButton(action: {
                         isFlashLight.toggle()
                     }, icon: isFlashLight ? "flashlight.on.fill" : "flashlight.off.fill", color: isFlashLight ? FloatingButton.brightColor : FloatingButton.enabledColor)

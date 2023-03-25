@@ -15,6 +15,8 @@ struct TabbedWebView: View {
 }
 
 struct BrowserView: View {
+    @State private var isVisionViewShown = true
+
     @StateObject var webTabsViewModel = WebTabsViewModel(tabs: [WebTab(urlRequest: URLRequest(url: WebTab.blankPageURL))])
     @State private var isSideBarOpened = false
 
@@ -43,6 +45,13 @@ struct BrowserView: View {
                         withAnimation { webViewBlurRadius = 0 }
                     }
                 })
+
+            if isVisionViewShown {
+                VisionView(visionViewModel: VisionViewModel(observationPublisher: VisionPool.broadcastPool.observationsSubject
+                        .debounce(for: .seconds(0.1), scheduler: RunLoop.main)))
+            }
+            VoiceAssistantView()
+                .frame(maxWidth: .infinity)
 
             FloatingAtCorner(alignment: .topLeading) {
                 Button {
@@ -85,6 +94,10 @@ struct BrowserView: View {
                 isSideBarOpened.toggle()
             }, label: {})
                 .keyboardShortcut("g", modifiers: .command)
+            Button {
+                isVisionViewShown.toggle()
+            } label: {}
+                .keyboardShortcut("o", modifiers: .command)
         }
         .environmentObject(webTabsViewModel)
         .padding(.top, 30)

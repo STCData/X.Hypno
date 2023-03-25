@@ -54,7 +54,7 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
                         if isCodeFullScreen {
                             CodeView(code: message.text)
                                 //                                .edgesIgnoringSafeArea(.all)
-                                .frame(width: UIScreen.main.bounds.size.width * 0.9,
+                                .frame(width: UIScreen.main.bounds.size.width * 0.815,
                                        height: UIScreen.main.bounds.size.height * 0.8)
                                 .onTapBackground(enabled: true) {
                                     withAnimation {
@@ -85,6 +85,7 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
 
                     if message.role == .userRecordingInProcess || message.role == .userExpectingResponse {
                         ProgressView()
+                            .tint(.yellow)
                             .frame(width: 10, height: 10)
                     }
 

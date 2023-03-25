@@ -22,7 +22,7 @@ struct CodeView: View {
             language: .javaScript, configuration: .init(isEditable: true, showLineNumbers: true), backgroundColor: UIColor.black
         )
         .autocorrectionDisabled(true)
-        .themeFontSize(thumbnailed ? 5 : 14)
+        .themeFontSize(thumbnailed ? 4 : 9.7)
 //        .frame(maxWidth: .infinity,
 //               maxHeight: .infinity)
 
