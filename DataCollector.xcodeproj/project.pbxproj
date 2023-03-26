@@ -1314,7 +1314,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DataCollector/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Hypno;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSCameraUsageDescription = "DataCollector camera use";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "wanna record voice";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "wanna recognize voice";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -1358,7 +1362,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DataCollector/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Hypno;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSCameraUsageDescription = "DataCollector camera use";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "wanna record voice";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "wanna recognize voice";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
