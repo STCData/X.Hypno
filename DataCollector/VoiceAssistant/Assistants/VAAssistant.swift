@@ -11,7 +11,10 @@ import Foundation
 protocol VAAssistant {
     func respond(to message: String, in chat: [VAMessage]) async -> [VAMessage]
 
-    var assistantCodeSubject: AnyPublisher<String, Never> { get }
+    var assistantCodeSubject: AnyPublisher<String, Never>? { get }
+    var assistantGUIAutomateSubject: AnyPublisher<String, Never>? { get }
+    var assistantBrowserAutomateSubject: AnyPublisher<String, Never>? { get }
+    var assistantBashCodeSubject: AnyPublisher<String, Never>? { get }
 }
 
 func VAAssistantShared() -> VAAssistant {

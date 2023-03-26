@@ -47,7 +47,7 @@ class ObservingVisionWebView: WKWebView {
 
             }.store(in: &subscriptions)
 
-        VAAssistantShared().assistantCodeSubject
+        VAAssistantShared().assistantCodeSubject?
             .receive(on: RunLoop.main)
             .removeDuplicates()
             .sink { code in

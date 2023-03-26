@@ -32,6 +32,8 @@ extension CameraViewController {
     }
 
     func draw(objectObservation: VNRecognizedObjectObservation) {
+        guard let detectionLayer else { return }
+
         // Transformations
         let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(screenRect.size.width), Int(screenRect.size.height))
         let transformedBounds = CGRect(x: objectBounds.minX, y: screenRect.size.height - objectBounds.maxY, width: objectBounds.maxX - objectBounds.minX, height: objectBounds.maxY - objectBounds.minY)
@@ -45,6 +47,7 @@ extension CameraViewController {
     }
 
     func extractDetections(_ results: [VNObservation]) {
+        guard let detectionLayer else { return }
         detectionLayer.sublayers = nil
 
         for observation in results where observation is VNRecognizedObjectObservation {

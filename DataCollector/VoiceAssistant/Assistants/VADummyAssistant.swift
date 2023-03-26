@@ -9,11 +9,17 @@ import Combine
 import Foundation
 
 struct VADummyAssistant: VAAssistant {
+    var assistantGUIAutomateSubject: AnyPublisher<String, Never>? = nil
+
+    var assistantBrowserAutomateSubject: AnyPublisher<String, Never>? = nil
+
+    var assistantBashCodeSubject: AnyPublisher<String, Never>? = nil
+
     static let shared = VADummyAssistant()
 
     private init() {}
 
-    var assistantCodeSubject: AnyPublisher<String, Never> {
+    var assistantCodeSubject: AnyPublisher<String, Never>? {
         return passthroughCodeSubject.eraseToAnyPublisher()
     }
 

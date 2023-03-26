@@ -8,8 +8,8 @@
 import SwiftUI
 
 private enum Tabs: CaseIterable {
-    case first
-    case second
+    case camera
+    case browser
 }
 
 extension CaseIterable where Self: Equatable {
@@ -26,7 +26,7 @@ struct ContentView: View {
     @State private var isDebugUIShown = true
     @State private var isTabbarShown = false
     @State private var isTermOpened = false
-    @State private var tabSelection = Tabs.first
+    @State private var tabSelection = Tabs.camera
 
     @EnvironmentObject
     var broadcast: Broadcast
@@ -34,36 +34,15 @@ struct ContentView: View {
     @EnvironmentObject
     var cameraVisionPool: VisionPool
 
-    var tabView: some View {
-        TabView(selection: $tabSelection) {
-            CameraView()
-//                .tabItem {
-//                    Label("Camera", systemImage: "camera")
-//                }
-//                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
-            #if os(iOS)
-.toolbar(.hidden, for: .tabBar)
-            #endif
-.tag(Tabs.first)
-
-            BrowserView()
-//                .tabItem {
-//                    Label("Browser", systemImage: "globe")
-//                }
-//                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
-            #if os(iOS)
-.toolbar(.hidden, for: .tabBar)
-            #endif
-.tag(Tabs.second)
-        }
-        #if os(iOS)
-        .toolbar(.hidden, for: .tabBar)
-        #endif
-    }
-
     var body: some View {
         ZStack {
-            tabView
+            switch tabSelection {
+            case .camera:
+                CameraView()
+
+            case .browser:
+                BrowserView()
+            }
 
             SlideoutView(horizontal: false,
                          opacity: 0.01,

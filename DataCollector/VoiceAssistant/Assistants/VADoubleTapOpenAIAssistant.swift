@@ -9,11 +9,30 @@ import Combine
 import Foundation
 
 class VADoubleTapOpenAIAssistant: VAAssistant {
-    var assistantCodeSubject: AnyPublisher<String, Never> {
+    var assistantCodeSubject: AnyPublisher<String, Never>? {
         return passthroughCodeSubject.eraseToAnyPublisher()
     }
 
-    let passthroughCodeSubject = PassthroughSubject<String, Never>()
+    private let passthroughCodeSubject = PassthroughSubject<String, Never>()
+
+    var assistantGUIAutomateSubject: AnyPublisher<String, Never>? {
+        return passthroughGUIAutomateSubject.eraseToAnyPublisher()
+    }
+
+    private let passthroughGUIAutomateSubject = PassthroughSubject<String, Never>()
+
+    var assistantBrowserAutomateSubject: AnyPublisher<String, Never>? {
+        return passthroughBrowserAutomateSubject.eraseToAnyPublisher()
+    }
+
+    private let passthroughBrowserAutomateSubject = PassthroughSubject<String, Never>()
+
+    var assistantBashCodeSubject: AnyPublisher<String, Never>? {
+        return passthroughBashCodeSubject.eraseToAnyPublisher()
+    }
+
+    private let passthroughBashCodeSubject = PassthroughSubject<String, Never>()
+
     private var subs = Set<AnyCancellable>()
 
     static let shared = VADoubleTapOpenAIAssistant()
@@ -26,8 +45,10 @@ class VADoubleTapOpenAIAssistant: VAAssistant {
 
     private func initializeAssistant(prompt: IntroPrompts) throws -> VAAssistant {
         let assistant = try VAOpenAIAssistant(systemMessage: prompt.prompt)
-        assistant.passthroughCodeSubject.subscribe(passthroughCodeSubject)
-            .store(in: &subs)
+        if prompt == .JavaScriptObservations || prompt == .JavaScript {
+            assistant.passthroughCodeSubject.subscribe(passthroughCodeSubject)
+                .store(in: &subs)
+        }
         return assistant
     }
 

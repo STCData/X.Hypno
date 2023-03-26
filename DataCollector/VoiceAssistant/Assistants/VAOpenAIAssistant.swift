@@ -33,9 +33,15 @@ class VAOpenAIAssistant: VAAssistant {
         openAI = OpenAISwift(authToken: openAIAuthToken)
     }
 
-    var assistantCodeSubject: AnyPublisher<String, Never> {
+    var assistantCodeSubject: AnyPublisher<String, Never>? {
         return passthroughCodeSubject.eraseToAnyPublisher()
     }
+
+    var assistantGUIAutomateSubject: AnyPublisher<String, Never>? = nil
+
+    var assistantBrowserAutomateSubject: AnyPublisher<String, Never>? = nil
+
+    var assistantBashCodeSubject: AnyPublisher<String, Never>? = nil
 
     let passthroughCodeSubject = PassthroughSubject<String, Never>()
 

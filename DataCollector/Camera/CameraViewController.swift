@@ -27,7 +27,7 @@ import SwiftUI
         // Detector
         private var videoOutput = AVCaptureVideoDataOutput()
 
-        var detectionLayer: CALayer! = nil
+        var detectionLayer: CALayer? = nil
 
         var visionSubscriptions = Set<AnyCancellable>()
 
@@ -131,11 +131,12 @@ import SwiftUI
 
             // Updates to UI must be on main queue
             DispatchQueue.main.async { [weak self] in
+
                 self!.view.layer.addSublayer(self!.previewLayer)
 
                 self!.detectionLayer = CALayer()
-                self!.detectionLayer.frame = CGRect(x: 0, y: 0, width: self!.screenRect.size.width, height: self!.screenRect.size.height)
-                self!.view.layer.addSublayer(self!.detectionLayer)
+                self!.detectionLayer!.frame = CGRect(x: 0, y: 0, width: self!.screenRect.size.width, height: self!.screenRect.size.height)
+                self!.view.layer.addSublayer(self!.detectionLayer!)
             }
         }
     }
