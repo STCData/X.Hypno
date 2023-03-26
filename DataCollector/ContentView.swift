@@ -42,10 +42,8 @@ struct ContentView: View {
 //                }
 //                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
             #if os(iOS)
-
 .toolbar(.hidden, for: .tabBar)
             #endif
-
 .tag(Tabs.first)
 
             BrowserView()
@@ -54,13 +52,11 @@ struct ContentView: View {
 //                }
 //                .toolbar(isTabbarShown ? .visible : .hidden, for: .tabBar)
             #if os(iOS)
-
 .toolbar(.hidden, for: .tabBar)
             #endif
 .tag(Tabs.second)
         }
         #if os(iOS)
-
         .toolbar(.hidden, for: .tabBar)
         #endif
     }

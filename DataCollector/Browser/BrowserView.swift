@@ -100,7 +100,7 @@ struct BrowserView: View {
                 .keyboardShortcut("o", modifiers: .command)
         }
         .environmentObject(webTabsViewModel)
-        .padding(.top, 30)
+//        .padding(.top, 30)
         .ignoresSafeArea()
     }
 }

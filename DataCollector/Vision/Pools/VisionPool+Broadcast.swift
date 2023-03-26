@@ -52,9 +52,9 @@ extension VisionPool {
 //                fullPool.isBusy
 //
 //            })
-            .compactMap { buf in
-                buf.resized(to: CGSize(width: 1389, height: 1389))
-            }
+//            .compactMap { buf in
+//                buf.resized(to: CGSize(width: 1389, height: 1389))
+//            }
             .subscribe(fullPool)
         fullPool.slowestWorkerObservationsSubject.send([])
 

@@ -15,7 +15,7 @@ function drawObservationsMarkers(canvas, observations) {
             if (obs.confidence && obs.timestamp) {
                 ctx.fillStyle = 'magent';
                 ctx.font = '12px Arial';
-                ctx.fillText(`🧠 ⏰`, obs.bottomRight.x - 7, obs.bottomRight.y + 15);
+                ctx.fillText(`📝`, obs.bottomRight.x - 7, obs.bottomRight.y + 15);
             }
         }
 
@@ -35,8 +35,8 @@ function drawObservationsMarkers(canvas, observations) {
                 // Draw the confidence and identifier next to the point
                 if (point.confidence && point.identifier) {
                     ctx.fillStyle = 'white';
-                    ctx.font = '12px sans-serif';
-                    ctx.fillText(`🧠 ${point.confidence.toFixed(2)}, ID: ${point.identifier}`, x + r + 5, y);
+                    ctx.font = '5px sans-serif';
+                    ctx.fillText(`✌️ ${point.confidence.toFixed(2)}, ID: ${point.identifier}`, x + r + 5, y);
                 }
             }
         }
