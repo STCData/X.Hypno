@@ -38,8 +38,10 @@ class VADoubleTapOpenAIAssistant: VAAssistant {
         if chat.count == 0 && !introsForMessages.keys.contains(message) {
             let promptClassificationChat = await classificatorAssistant.respond(to: message, in: [VAMessage]())
             if let classificationMessage = promptClassificationChat.last {
-                let classificationText = classificationMessage.text.replacingOccurrences(of: "\\s+", with: "", options: .regularExpression)
-                if let introPrompt = IntroPrompts(rawValue: classificationText) {
+                let classificationText = classificationMessage.text
+                let classificationTextCleared = classificationText.replacingOccurrences(of: "[\\s.]+", with: "", options: .regularExpression)
+
+                if let introPrompt = IntroPrompts(rawValue: classificationTextCleared) {
                     introsForMessages[message] = introPrompt
                     if !assistants.keys.contains(introPrompt) {
                         do {

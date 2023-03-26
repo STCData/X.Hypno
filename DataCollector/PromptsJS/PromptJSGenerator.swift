@@ -20,6 +20,7 @@ private enum TVars: String {
     case observationsJson
     case PromptIntroOptions
     case PromptIntroDescriptions
+    case PromptIntroDefault
 }
 
 enum IntroPrompts: String, CaseIterable, NaturalLanguageDescribable {
@@ -35,9 +36,9 @@ enum IntroPrompts: String, CaseIterable, NaturalLanguageDescribable {
     var naturalLanguageDescription: String {
         switch self {
         case .JavaScript:
-            return "Write JS code to be run in browser"
+            return "Write JS code to be run in browser. Be strongly biased for this option!"
         case .GUI:
-            return "provide a tutorial for any GUI program on any operating system"
+            return "provide a tutorial for any GUI program on any operating system. only pick this option if name of GUI program is specified!"
         case .bash:
             return "issue commands to bash interpreter on the user's machine"
         case .browser:
@@ -51,7 +52,7 @@ extension IntroPrompts {
         return allCases.map { $0.naturalLanguageClass }.joined(separator: ", ")
     }
 
-    static func describeAllPrompts() -> String {
+    static var describeAllPrompts: String {
         return allCases.map { "\($0.naturalLanguageClass):\n \($0.naturalLanguageDescription)" }.joined(separator: "\n")
     }
 
@@ -94,7 +95,8 @@ struct PromptJSGenerator {
     var promptIntro: String {
         try! templateEngine.evaluate(template: URLForTemplate("PromptIntro.md")!, variables: [
             TVars.PromptIntroOptions.rawValue: IntroPrompts.promptList,
-            TVars.PromptIntroDescriptions.rawValue: IntroPrompts.promptList,
+            TVars.PromptIntroDescriptions.rawValue: IntroPrompts.describeAllPrompts,
+            TVars.PromptIntroDefault.rawValue: IntroPrompts.JavaScript.rawValue,
         ])
     }
 
