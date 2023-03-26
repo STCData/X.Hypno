@@ -9,13 +9,14 @@ import Combine
 import Foundation
 import OpenAISwift
 
-struct VAOpenAIAssistant: VAAssistant {
-    static let shared = try! VAOpenAIAssistant()
-
+class VAOpenAIAssistant: VAAssistant {
     private let openAIAuthToken: String
     private var openAI: OpenAISwift
 
-    private init() throws {
+    private let systemMessage: String
+
+    internal init(systemMessage: String) throws {
+        self.systemMessage = systemMessage
         guard let path = Bundle.main.path(forResource: "SECRET", ofType: "plist") else {
             throw NSError(domain: "BundleError", code: 0, userInfo: [NSLocalizedDescriptionKey: "Couldn't find path to SECRET.plist"])
         }
@@ -40,12 +41,6 @@ struct VAOpenAIAssistant: VAAssistant {
 
     func respond(to message: String, in chat: [VAMessage]) async -> [VAMessage] {
         let userMessage = VAMessage(text: message, role: .user)
-
-//        if assistantResponce.role == .assistantCode {
-//            passthroughCodeSubject.send(assistantResponce.text)
-//        }
-//
-//        return chat + [userMessage, assistantResponce]
 
         let openAIMessages = openAIMessages(with: chat + [userMessage])
 
@@ -76,15 +71,14 @@ struct VAOpenAIAssistant: VAAssistant {
         return chat + [userMessage] + responseMessages
     }
 
-    private func systemChatMessage() -> ChatMessage {
-        let systemMessage = PromptJSGenerator.shared.promptIntro
-
-        print(systemMessage)
-        return ChatMessage(role: .system, content: systemMessage)
-    }
-
     func openAIMessages(with messages: [VAMessage]) -> [ChatMessage] {
-        return [systemChatMessage()] + messages.compactMap { message in
+        return messages.openAIMessages(systemChatMessage: ChatMessage(role: .system, content: systemMessage))
+    }
+}
+
+extension Array where Element == VAMessage {
+    func openAIMessages(systemChatMessage: ChatMessage) -> [ChatMessage] {
+        return [systemChatMessage] + compactMap { message in
             switch message.role {
             case .assistant:
                 return ChatMessage(role: .assistant, content: message.text)

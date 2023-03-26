@@ -138,7 +138,7 @@
 		9AC6FC0A29CE19AC004A2391 /* TreeSitterJavaScriptRunestone in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC6FC0929CE19AC004A2391 /* TreeSitterJavaScriptRunestone */; };
 		9AC6FC0D29CE3511004A2391 /* PromptJSGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC0C29CE3511004A2391 /* PromptJSGenerator.swift */; };
 		9AC6FC1029CE3572004A2391 /* Tuxedo in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC6FC0F29CE3572004A2391 /* Tuxedo */; };
-		9AC6FC1229CE36ED004A2391 /* PromptIntro.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1129CE36ED004A2391 /* PromptIntro.md */; };
+		9AC6FC1229CE36ED004A2391 /* PromptIntroJS.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1129CE36ED004A2391 /* PromptIntroJS.md */; };
 		9AC6FC1429CE38BA004A2391 /* ObservingVisionWebView.html in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1329CE38BA004A2391 /* ObservingVisionWebView.html */; };
 		9AC6FC1629CE3900004A2391 /* debug.js in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1529CE3900004A2391 /* debug.js */; };
 		9AC6FC1829CE3954004A2391 /* init.js in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC1729CE3954004A2391 /* init.js */; };
@@ -149,6 +149,11 @@
 		9AC6FC2229CE5A19004A2391 /* OnChangeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC2129CE5A19004A2391 /* OnChangeHelper.swift */; };
 		9AC6FC2529CE70B0004A2391 /* Runestone in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC6FC2429CE70B0004A2391 /* Runestone */; };
 		9AC6FC2729CE70B0004A2391 /* RunestoneSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC6FC2629CE70B0004A2391 /* RunestoneSwiftUI */; };
+		9AC6FC2929D0BF43004A2391 /* VADoubleTapOpenAIAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC2829D0BF43004A2391 /* VADoubleTapOpenAIAssistant.swift */; };
+		9AC6FC2B29D0BFD4004A2391 /* PromptIntro.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC2A29D0BFD4004A2391 /* PromptIntro.md */; };
+		9AC6FC2D29D0D303004A2391 /* PromptIntroBash.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC2C29D0D303004A2391 /* PromptIntroBash.md */; };
+		9AC6FC2F29D0D311004A2391 /* PromptIntroBrowser.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC2E29D0D311004A2391 /* PromptIntroBrowser.md */; };
+		9AC6FC3129D0D31D004A2391 /* PromptIntroGUI.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC3029D0D31D004A2391 /* PromptIntroGUI.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -320,7 +325,7 @@
 		9AC6FC0329CE0ED4004A2391 /* VAMessage+OpenAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VAMessage+OpenAI.swift"; sourceTree = "<group>"; };
 		9AC6FC0529CE1940004A2391 /* VAOpenAIAssistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VAOpenAIAssistantTests.swift; sourceTree = "<group>"; };
 		9AC6FC0C29CE3511004A2391 /* PromptJSGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptJSGenerator.swift; sourceTree = "<group>"; };
-		9AC6FC1129CE36ED004A2391 /* PromptIntro.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PromptIntro.md; sourceTree = "<group>"; };
+		9AC6FC1129CE36ED004A2391 /* PromptIntroJS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PromptIntroJS.md; sourceTree = "<group>"; };
 		9AC6FC1329CE38BA004A2391 /* ObservingVisionWebView.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = ObservingVisionWebView.html; sourceTree = "<group>"; };
 		9AC6FC1529CE3900004A2391 /* debug.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = debug.js; sourceTree = "<group>"; };
 		9AC6FC1729CE3954004A2391 /* init.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = init.js; sourceTree = "<group>"; };
@@ -329,6 +334,11 @@
 		9AC6FC1D29CE4B2F004A2391 /* CGGraphics+NaturalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGGraphics+NaturalLanguage.swift"; sourceTree = "<group>"; };
 		9AC6FC1F29CE5433004A2391 /* Observation+NaturalLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observation+NaturalLanguage.swift"; sourceTree = "<group>"; };
 		9AC6FC2129CE5A19004A2391 /* OnChangeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnChangeHelper.swift; sourceTree = "<group>"; };
+		9AC6FC2829D0BF43004A2391 /* VADoubleTapOpenAIAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VADoubleTapOpenAIAssistant.swift; sourceTree = "<group>"; };
+		9AC6FC2A29D0BFD4004A2391 /* PromptIntro.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PromptIntro.md; sourceTree = "<group>"; };
+		9AC6FC2C29D0D303004A2391 /* PromptIntroBash.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PromptIntroBash.md; sourceTree = "<group>"; };
+		9AC6FC2E29D0D311004A2391 /* PromptIntroBrowser.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PromptIntroBrowser.md; sourceTree = "<group>"; };
+		9AC6FC3029D0D31D004A2391 /* PromptIntroGUI.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PromptIntroGUI.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -743,6 +753,7 @@
 				9AC6FBFD29CE0B3D004A2391 /* VAOpenAIAssistant.swift */,
 				9A368E5C29CB24680089F127 /* VADummyAssistant.swift */,
 				9A368E5E29CB247B0089F127 /* VAAssistant.swift */,
+				9AC6FC2829D0BF43004A2391 /* VADoubleTapOpenAIAssistant.swift */,
 			);
 			path = Assistants;
 			sourceTree = "<group>";
@@ -780,7 +791,11 @@
 			isa = PBXGroup;
 			children = (
 				9AC6FC0C29CE3511004A2391 /* PromptJSGenerator.swift */,
-				9AC6FC1129CE36ED004A2391 /* PromptIntro.md */,
+				9AC6FC2A29D0BFD4004A2391 /* PromptIntro.md */,
+				9AC6FC2C29D0D303004A2391 /* PromptIntroBash.md */,
+				9AC6FC2E29D0D311004A2391 /* PromptIntroBrowser.md */,
+				9AC6FC3029D0D31D004A2391 /* PromptIntroGUI.md */,
+				9AC6FC1129CE36ED004A2391 /* PromptIntroJS.md */,
 				9AC6FC1329CE38BA004A2391 /* ObservingVisionWebView.html */,
 				9AC6FC1529CE3900004A2391 /* debug.js */,
 				9AC6FC1729CE3954004A2391 /* init.js */,
@@ -978,8 +993,12 @@
 				9AC6FC1429CE38BA004A2391 /* ObservingVisionWebView.html in Resources */,
 				9AC6FBF929CE09DF004A2391 /* SECRET.plist in Resources */,
 				9A16BC9729AF8E9C006AE075 /* Assets.xcassets in Resources */,
+				9AC6FC2F29D0D311004A2391 /* PromptIntroBrowser.md in Resources */,
 				9AC6FC1629CE3900004A2391 /* debug.js in Resources */,
-				9AC6FC1229CE36ED004A2391 /* PromptIntro.md in Resources */,
+				9AC6FC2B29D0BFD4004A2391 /* PromptIntro.md in Resources */,
+				9AC6FC1229CE36ED004A2391 /* PromptIntroJS.md in Resources */,
+				9AC6FC3129D0D31D004A2391 /* PromptIntroGUI.md in Resources */,
+				9AC6FC2D29D0D303004A2391 /* PromptIntroBash.md in Resources */,
 				9AC6FC1A29CE39A9004A2391 /* update.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1087,6 +1106,7 @@
 				9A368DEB29C862520089F127 /* BroadcastScreenCapturer.swift in Sources */,
 				9A368D7429C5D9B70089F127 /* CameraViewController+Detection.swift in Sources */,
 				9AC6FC0429CE0ED4004A2391 /* VAMessage+OpenAI.swift in Sources */,
+				9AC6FC2929D0BF43004A2391 /* VADoubleTapOpenAIAssistant.swift in Sources */,
 				9A368E0029C863E40089F127 /* CaptureOptions.swift in Sources */,
 				9A368D6E29C5CD380089F127 /* SlideoutView.swift in Sources */,
 				9A368E8729CCAECA0089F127 /* ObservationPoint.swift in Sources */,

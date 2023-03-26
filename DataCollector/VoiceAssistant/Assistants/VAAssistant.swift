@@ -15,6 +15,7 @@ protocol VAAssistant {
 }
 
 func VAAssistantShared() -> VAAssistant {
-    return VAOpenAIAssistant.shared
+    return VADoubleTapOpenAIAssistant.shared
+//    return VAOpenAIAssistant.shared
 //    return VADummyAssistant.shared
 }
