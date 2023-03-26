@@ -154,6 +154,7 @@
 		9AC6FC2D29D0D303004A2391 /* PromptIntroBash.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC2C29D0D303004A2391 /* PromptIntroBash.md */; };
 		9AC6FC2F29D0D311004A2391 /* PromptIntroBrowser.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC2E29D0D311004A2391 /* PromptIntroBrowser.md */; };
 		9AC6FC3129D0D31D004A2391 /* PromptIntroGUI.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC3029D0D31D004A2391 /* PromptIntroGUI.md */; };
+		9AC6FC3329D0E2CE004A2391 /* PromptIntroJSObservations.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC3229D0E2CE004A2391 /* PromptIntroJSObservations.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -339,6 +340,7 @@
 		9AC6FC2C29D0D303004A2391 /* PromptIntroBash.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PromptIntroBash.md; sourceTree = "<group>"; };
 		9AC6FC2E29D0D311004A2391 /* PromptIntroBrowser.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PromptIntroBrowser.md; sourceTree = "<group>"; };
 		9AC6FC3029D0D31D004A2391 /* PromptIntroGUI.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PromptIntroGUI.md; sourceTree = "<group>"; };
+		9AC6FC3229D0E2CE004A2391 /* PromptIntroJSObservations.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = PromptIntroJSObservations.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -790,6 +792,7 @@
 		9AC6FC0B29CE34E7004A2391 /* PromptsJS */ = {
 			isa = PBXGroup;
 			children = (
+				9AC6FC3229D0E2CE004A2391 /* PromptIntroJSObservations.md */,
 				9AC6FC0C29CE3511004A2391 /* PromptJSGenerator.swift */,
 				9AC6FC2A29D0BFD4004A2391 /* PromptIntro.md */,
 				9AC6FC2C29D0D303004A2391 /* PromptIntroBash.md */,
@@ -996,6 +999,7 @@
 				9AC6FC2F29D0D311004A2391 /* PromptIntroBrowser.md in Resources */,
 				9AC6FC1629CE3900004A2391 /* debug.js in Resources */,
 				9AC6FC2B29D0BFD4004A2391 /* PromptIntro.md in Resources */,
+				9AC6FC3329D0E2CE004A2391 /* PromptIntroJSObservations.md in Resources */,
 				9AC6FC1229CE36ED004A2391 /* PromptIntroJS.md in Resources */,
 				9AC6FC3129D0D31D004A2391 /* PromptIntroGUI.md in Resources */,
 				9AC6FC2D29D0D303004A2391 /* PromptIntroBash.md in Resources */,

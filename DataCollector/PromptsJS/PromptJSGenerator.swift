@@ -25,6 +25,7 @@ private enum TVars: String {
 
 enum IntroPrompts: String, CaseIterable, NaturalLanguageDescribable {
     case JavaScript
+    case JavaScriptObservations
     case GUI
     case bash
     case browser
@@ -37,6 +38,9 @@ enum IntroPrompts: String, CaseIterable, NaturalLanguageDescribable {
         switch self {
         case .JavaScript:
             return "Write JS code to be run in browser. Be strongly biased for this option!"
+        case .JavaScriptObservations:
+            return "Write JS code that works with realtime observations from this list: \(Describer.shared.allClassesNamesNaturalLanguage)"
+
         case .GUI:
             return "provide a tutorial for any GUI program on any operating system. only pick this option if name of GUI program is specified!"
         case .bash:
@@ -60,6 +64,8 @@ extension IntroPrompts {
         switch self {
         case .JavaScript:
             return PromptJSGenerator.shared.promptIntroJS
+        case .JavaScriptObservations:
+            return PromptJSGenerator.shared.promptIntroJSObservations
         case .GUI:
             return PromptJSGenerator.shared.promptIntroGUI
         case .bash:
@@ -100,12 +106,16 @@ struct PromptJSGenerator {
         ])
     }
 
-    fileprivate var promptIntroJS: String {
-        try! templateEngine.evaluate(template: URLForTemplate("PromptIntroJS.md")!, variables: [
+    fileprivate var promptIntroJSObservations: String {
+        try! templateEngine.evaluate(template: URLForTemplate("PromptIntroJSObservations.md")!, variables: [
             TVars.allClassesNaturalLanguage.rawValue: Describer.shared.allClassesNaturalLanguage,
             TVars.allClassesNamesNaturalLanguage.rawValue: Describer.shared.allClassesNamesNaturalLanguage,
 
         ])
+    }
+
+    fileprivate var promptIntroJS: String {
+        try! templateEngine.evaluate(template: URLForTemplate("PromptIntroJS.md")!)
     }
 
     fileprivate var promptIntroBash: String {
