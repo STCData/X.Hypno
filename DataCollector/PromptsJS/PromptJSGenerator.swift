@@ -15,6 +15,8 @@ private enum TVars: String {
     case JSObservationsEventName
     case JSStartMarker
     case JSEndMarker
+    case PatchStartMarker
+    case PatchEndMarker
     case JSOutputKeysWidth
     case JSOutputKeysHeight
     case observationsJson
@@ -85,6 +87,8 @@ struct PromptJSGenerator {
         TVars.JSObservationsEventName.rawValue: JSObservationsEventName,
         TVars.JSStartMarker.rawValue: VAMessage.JSStartMarker,
         TVars.JSEndMarker.rawValue: VAMessage.JSEndMarker,
+        TVars.PatchStartMarker.rawValue: VAMessage.PatchStartMarker,
+        TVars.PatchEndMarker.rawValue: VAMessage.PatchEndMarker,
         TVars.JSOutputKeysWidth.rawValue: JSOutputKeys.width.rawValue,
         TVars.JSOutputKeysHeight.rawValue: JSOutputKeys.height.rawValue,
     ])

@@ -795,13 +795,13 @@
 		9AC6FC0B29CE34E7004A2391 /* PromptsJS */ = {
 			isa = PBXGroup;
 			children = (
-				9AC6FC3229D0E2CE004A2391 /* PromptIntroJSObservations.md */,
 				9AC6FC0C29CE3511004A2391 /* PromptJSGenerator.swift */,
 				9AC6FC2A29D0BFD4004A2391 /* PromptIntro.md */,
 				9AC6FC2C29D0D303004A2391 /* PromptIntroBash.md */,
 				9AC6FC2E29D0D311004A2391 /* PromptIntroBrowser.md */,
 				9AC6FC3029D0D31D004A2391 /* PromptIntroGUI.md */,
 				9AC6FC1129CE36ED004A2391 /* PromptIntroJS.md */,
+				9AC6FC3229D0E2CE004A2391 /* PromptIntroJSObservations.md */,
 				9AC6FC1329CE38BA004A2391 /* ObservingVisionWebView.html */,
 				9AC6FC1529CE3900004A2391 /* debug.js */,
 				9AC6FC1729CE3954004A2391 /* init.js */,

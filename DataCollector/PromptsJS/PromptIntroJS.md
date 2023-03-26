@@ -12,4 +12,17 @@ any JS code that you output MUST be enclosed between `{{ JSStartMarker }}` and `
 //code goes here
 {{ JSEndMarker }}
 
-do not output any explanations, unless you need to ask something from user
+
+you are allowed to output only one code block per response, no explanations. don't ever rewrite whole code, instead output diff containing changes like that:
+
+{{ PatchStartMarker }}
+2c2
+< old line
+---
+> new line
+1a1,3
+> new line
+5,6d4
+< This line will be deleted
+{{ PatchEndMarker }}
+

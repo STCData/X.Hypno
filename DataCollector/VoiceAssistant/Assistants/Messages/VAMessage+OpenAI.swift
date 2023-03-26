@@ -12,6 +12,9 @@ extension VAMessage {
     static let JSStartMarker = "```javascript"
     static let JSEndMarker = "```"
 
+    static let PatchStartMarker = "%BEGIN%"
+    static let PatchEndMarker = "%END%"
+
     static let JSObservationsEventName = "onObservationsUpdate"
 
     static func from(openAIMessage: ChatMessage) -> [VAMessage] {
