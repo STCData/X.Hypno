@@ -67,6 +67,7 @@ class VADoubleTapOpenAIAssistant: VAAssistant {
                     if !assistants.keys.contains(introPrompt) {
                         do {
                             assistants[introPrompt] = try initializeAssistant(prompt: introPrompt)
+                            responseMessages = [VAMessage(text: "classified as \(introPrompt.rawValue)", role: .assistantClientSideService)]
                         } catch {
                             responseMessages = [VAMessage(text: "error initializing classified assistant", role: .error)]
                         }
@@ -79,9 +80,9 @@ class VADoubleTapOpenAIAssistant: VAAssistant {
             }
         }
 
-        let firstMessageText = chat.first?.text ?? message
+        let firstMessageText = chat.firstUserMessageText ?? message
         if let introPrompt = introsForMessages[firstMessageText] {
-            return await assistants[introPrompt]!.respond(to: message, in: chat)
+            return await assistants[introPrompt]!.respond(to: message, in: responseMessages + chat)
         } else {
             return [userMessage] + responseMessages // response messages should contain error
         }

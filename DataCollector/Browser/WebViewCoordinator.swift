@@ -21,8 +21,15 @@ class WebViewCoordinator: NSObject, WKUIDelegate {
 
     // Delegate methods go here
 
-    func webView(_: WKWebView, runJavaScriptAlertPanelWithMessage _: String, initiatedByFrame _: WKFrameInfo, completionHandler _: @escaping () -> Void) {
-        // alert functionality goes here
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame _: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            completionHandler()
+        }
+        alertController.addAction(okAction)
+        DispatchQueue.main.async {
+            webView.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
     }
 }
 

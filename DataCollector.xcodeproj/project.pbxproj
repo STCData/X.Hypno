@@ -155,6 +155,7 @@
 		9AC6FC2F29D0D311004A2391 /* PromptIntroBrowser.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC2E29D0D311004A2391 /* PromptIntroBrowser.md */; };
 		9AC6FC3129D0D31D004A2391 /* PromptIntroGUI.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC3029D0D31D004A2391 /* PromptIntroGUI.md */; };
 		9AC6FC3329D0E2CE004A2391 /* PromptIntroJSObservations.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC3229D0E2CE004A2391 /* PromptIntroJSObservations.md */; };
+		9AC6FC3529D0F25C004A2391 /* Array+VAMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC3429D0F25C004A2391 /* Array+VAMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -341,6 +342,7 @@
 		9AC6FC2E29D0D311004A2391 /* PromptIntroBrowser.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PromptIntroBrowser.md; sourceTree = "<group>"; };
 		9AC6FC3029D0D31D004A2391 /* PromptIntroGUI.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PromptIntroGUI.md; sourceTree = "<group>"; };
 		9AC6FC3229D0E2CE004A2391 /* PromptIntroJSObservations.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = PromptIntroJSObservations.md; sourceTree = "<group>"; };
+		9AC6FC3429D0F25C004A2391 /* Array+VAMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+VAMessage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -765,6 +767,7 @@
 			children = (
 				9A368E5A29CB241E0089F127 /* VAMessage.swift */,
 				9AC6FC0329CE0ED4004A2391 /* VAMessage+OpenAI.swift */,
+				9AC6FC3429D0F25C004A2391 /* Array+VAMessage.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -1053,6 +1056,7 @@
 				9A368E5029C8FC610089F127 /* VisionPool+Broadcast.swift in Sources */,
 				9AC6FBF729CDFE8C004A2391 /* CodeTheme.swift in Sources */,
 				9A1B6B3A29B9F0E1007F787B /* WebTabTreeView.swift in Sources */,
+				9AC6FC3529D0F25C004A2391 /* Array+VAMessage.swift in Sources */,
 				9A368E7F29CCA3530089F127 /* RecognizedTextObservation.swift in Sources */,
 				9A368E7B29CCA3150089F127 /* BarcodeObservation.swift in Sources */,
 				9A368D9B29C7435E0089F127 /* WebTab+DefaultFavIcon.swift in Sources */,

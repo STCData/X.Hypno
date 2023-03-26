@@ -27,6 +27,8 @@ struct VoiceAssistantMessageBalloon<Content: View>: View {
                 return Color.gray
             case .assistantCode:
                 return Color.black
+            case .assistantClientSideService:
+                return Color.gray.opacity(0.6)
             case .user:
                 return Color.blue
             case .userRecordingInProcess:

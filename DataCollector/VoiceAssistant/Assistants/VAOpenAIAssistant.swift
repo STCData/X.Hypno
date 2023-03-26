@@ -81,28 +81,3 @@ class VAOpenAIAssistant: VAAssistant {
         return messages.openAIMessages(systemChatMessage: ChatMessage(role: .system, content: systemMessage))
     }
 }
-
-extension Array where Element == VAMessage {
-    func openAIMessages(systemChatMessage: ChatMessage) -> [ChatMessage] {
-        return [systemChatMessage] + compactMap { message in
-            switch message.role {
-            case .assistant:
-                return ChatMessage(role: .assistant, content: message.text)
-            case .assistantCode:
-                return ChatMessage(role: .assistant, content: "```\n\(message.text)\n```\n")
-
-            case .user:
-                return ChatMessage(role: .user, content: message.text)
-            case .userExpectingResponse:
-                fatalError("userExpectingResponse should not be passed to openai")
-
-            case .userRecordingInProcess:
-                fatalError("userRecordingInProcess should not be passed to openai")
-            case .userTyping:
-                fatalError("userTyping should not be passed to openai")
-            case .error:
-                return nil
-            }
-        }
-    }
-}
