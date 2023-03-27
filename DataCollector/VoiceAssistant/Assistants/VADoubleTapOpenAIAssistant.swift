@@ -68,7 +68,7 @@ class VADoubleTapOpenAIAssistant: VAAssistant {
 
     private func initializeAssistant(prompt: IntroPrompts) throws -> VAAssistant {
         let assistant = try VAOpenAIAssistant(systemMessage: prompt.prompt)
-        if prompt == .JavaScriptObservations || prompt == .JavaScript {
+        if prompt == .JavaScriptObservations || prompt == .JavaScript || prompt == .Emu {
             assistant.passthroughCodeSubject.subscribe(passthroughCodeSubject)
                 .store(in: &subs)
         }

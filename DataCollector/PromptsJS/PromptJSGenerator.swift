@@ -28,7 +28,9 @@ private enum TVars: String {
 enum IntroPrompts: String, CaseIterable, NaturalLanguageDescribable {
     case JavaScript
     case JavaScriptObservations
+//    case Exploit
     case GUI
+    case Emu
     case bash
     case browser
 
@@ -38,6 +40,8 @@ enum IntroPrompts: String, CaseIterable, NaturalLanguageDescribable {
 
     var naturalLanguageDescription: String {
         switch self {
+        case .Emu:
+            return "Launch a requested retro game on requested emulated console/computer"
         case .JavaScript:
             return "Write JS code to be run in browser. Be strongly biased for this option!"
         case .JavaScriptObservations:
@@ -64,6 +68,8 @@ extension IntroPrompts {
 
     var prompt: String {
         switch self {
+        case .Emu:
+            return PromptJSGenerator.shared.promptIntroEmu
         case .JavaScript:
             return PromptJSGenerator.shared.promptIntroJS
         case .JavaScriptObservations:
@@ -120,6 +126,10 @@ struct PromptJSGenerator {
 
     fileprivate var promptIntroJS: String {
         try! templateEngine.evaluate(template: URLForTemplate("PromptIntroJS.md")!)
+    }
+
+    fileprivate var promptIntroEmu: String {
+        try! templateEngine.evaluate(template: URLForTemplate("PromptIntroEmu.md")!)
     }
 
     fileprivate var promptIntroBash: String {

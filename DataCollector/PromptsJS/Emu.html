@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>R.A.Z.E. Emulator Example</title>
+</head>
+<body>
+  <canvas id="canvas" width="256" height="192"></canvas>
+
+  <script type="module"  src="https://rodrigorc.github.io/raze/raze.js"></script>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    const imageData = context.createImageData(256, 192);
+
+    const spectrum = new RAZE.Spectrum.ZXSpectrum48();
+    spectrum.loadTape('https://github.com/EugenyN/GLAZX/releases/download/v1.0/glazx48.tap');
+
+    document.addEventListener('keydown', event => {
+      spectrum.keyDown(event.keyCode);
+    });
+
+    document.addEventListener('keyup', event => {
+      spectrum.keyUp(event.keyCode);
+    });
+
+    function render() {
+      const screenData = spectrum.getScreen();
+
+      for (let i = 0; i < screenData.length; i++) {
+        imageData.data[i * 4] = screenData[i];
+        imageData.data[i * 4 + 1] = screenData[i];
+        imageData.data[i * 4 + 2] = screenData[i];
+        imageData.data[i * 4 + 3] = 255;
+      }
+
+      context.putImageData(imageData, 0, 0);
+
+      requestAnimationFrame(render);
+    }
+
+    render();
+  </script>
+</body>
+</html>
