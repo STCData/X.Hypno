@@ -7,6 +7,29 @@
 
 import Combine
 import Foundation
+import Yams
+
+private struct ClassifierResponse: Codable {
+    var input: String
+    var category: String
+
+    var introPrompt: IntroPrompts? {
+        let result = IntroPrompts(rawValue: category)
+        return result
+    }
+}
+
+private extension VAMessage {
+    func getClassifierResponse() -> ClassifierResponse? {
+        do {
+            let decoder = YAMLDecoder()
+            let decoded = try decoder.decode(ClassifierResponse.self, from: text)
+            return decoded
+        } catch {
+            return nil
+        }
+    }
+}
 
 class VADoubleTapOpenAIAssistant: VAAssistant {
     var assistantCodeSubject: AnyPublisher<String, Never>? {
@@ -53,6 +76,7 @@ class VADoubleTapOpenAIAssistant: VAAssistant {
     }
 
     func respond(to message: String, in chat: [VAMessage]) async -> [VAMessage] {
+        var sanitizedMessage = message
         let userMessage = VAMessage(text: message, role: .user)
         var responseMessages = [VAMessage]()
 
@@ -60,14 +84,17 @@ class VADoubleTapOpenAIAssistant: VAAssistant {
             let promptClassificationChat = await classificatorAssistant.respond(to: message, in: [VAMessage]())
             if let classificationMessage = promptClassificationChat.last {
                 let classificationText = classificationMessage.text
-                let classificationTextCleared = classificationText.replacingOccurrences(of: "[\\s.]+", with: "", options: .regularExpression)
 
-                if let introPrompt = IntroPrompts(rawValue: classificationTextCleared) {
+                if let classificationResp = classificationMessage.getClassifierResponse(),
+                   let introPrompt = classificationResp.introPrompt
+                {
+                    sanitizedMessage = classificationResp.input
                     introsForMessages[message] = introPrompt
+                    introsForMessages[sanitizedMessage] = introPrompt // fixme
                     if !assistants.keys.contains(introPrompt) {
                         do {
                             assistants[introPrompt] = try initializeAssistant(prompt: introPrompt)
-                            responseMessages = [VAMessage(text: "classified as \(introPrompt.rawValue)", role: .assistantClientSideService)]
+                            responseMessages = [userMessage, VAMessage(text: "classified as \(introPrompt.rawValue)", role: .assistantClientSideService)]
                         } catch {
                             responseMessages = [VAMessage(text: "error initializing classified assistant", role: .error)]
                         }
@@ -82,7 +109,7 @@ class VADoubleTapOpenAIAssistant: VAAssistant {
 
         let firstMessageText = chat.firstUserMessageText ?? message
         if let introPrompt = introsForMessages[firstMessageText] {
-            return await assistants[introPrompt]!.respond(to: message, in: responseMessages + chat)
+            return await assistants[introPrompt]!.respond(to: sanitizedMessage, in: responseMessages + chat)
         } else {
             return [userMessage] + responseMessages // response messages should contain error
         }

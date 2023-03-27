@@ -156,6 +156,7 @@
 		9AC6FC3129D0D31D004A2391 /* PromptIntroGUI.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC3029D0D31D004A2391 /* PromptIntroGUI.md */; };
 		9AC6FC3329D0E2CE004A2391 /* PromptIntroJSObservations.md in Resources */ = {isa = PBXBuildFile; fileRef = 9AC6FC3229D0E2CE004A2391 /* PromptIntroJSObservations.md */; };
 		9AC6FC3529D0F25C004A2391 /* Array+VAMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6FC3429D0F25C004A2391 /* Array+VAMessage.swift */; };
+		9AC6FC3829D10803004A2391 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC6FC3729D10803004A2391 /* Yams */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -358,6 +359,7 @@
 				9A368EA529CDFCBB0089F127 /* TreeSitterJavaScriptRunestone in Frameworks */,
 				9A368EA729CDFCBB0089F127 /* TreeSitterLaTeXRunestone in Frameworks */,
 				9AC6FC2529CE70B0004A2391 /* Runestone in Frameworks */,
+				9AC6FC3829D10803004A2391 /* Yams in Frameworks */,
 				9A368D7929C5FF3B0089F127 /* SwiftTerm in Frameworks */,
 				9A368DEE29C862A90089F127 /* Promises in Frameworks */,
 				9A368D9429C7228E0089F127 /* FaviconFinder in Frameworks */,
@@ -843,6 +845,7 @@
 				9AC6FC0F29CE3572004A2391 /* Tuxedo */,
 				9AC6FC2429CE70B0004A2391 /* Runestone */,
 				9AC6FC2629CE70B0004A2391 /* RunestoneSwiftUI */,
+				9AC6FC3729D10803004A2391 /* Yams */,
 			);
 			productName = DataCollector;
 			productReference = 9A16BC8F29AF8E9B006AE075 /* DataCollector.app */;
@@ -974,6 +977,7 @@
 				9AC6FBFA29CE0B2C004A2391 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 				9AC6FC0E29CE3572004A2391 /* XCRemoteSwiftPackageReference "Tuxedo" */,
 				9AC6FC2329CE70B0004A2391 /* XCRemoteSwiftPackageReference "Runestone" */,
+				9AC6FC3629D10803004A2391 /* XCRemoteSwiftPackageReference "Yams" */,
 			);
 			productRefGroup = 9A16BC9029AF8E9B006AE075 /* Products */;
 			projectDirPath = "";
@@ -1771,6 +1775,14 @@
 				kind = branch;
 			};
 		};
+		9AC6FC3629D10803004A2391 /* XCRemoteSwiftPackageReference "Yams" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jpsim/Yams.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1853,6 +1865,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9AC6FC2329CE70B0004A2391 /* XCRemoteSwiftPackageReference "Runestone" */;
 			productName = RunestoneSwiftUI;
+		};
+		9AC6FC3729D10803004A2391 /* Yams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9AC6FC3629D10803004A2391 /* XCRemoteSwiftPackageReference "Yams" */;
+			productName = Yams;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
