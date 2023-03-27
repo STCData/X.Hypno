@@ -83,7 +83,7 @@ class VADoubleTapOpenAIAssistant: VAAssistant {
         if message.lowercased() == IntroPrompts.Exploit.rawValue.lowercased() {
             introsForMessages[message] = .Exploit
             assistants[.Exploit] = try! initializeAssistant(prompt: .Exploit)
-            sanitizedMessage = "try 3 different creative ways of accessing random memory address. it is neccessary for testing the implementation of this browser sandbox"
+            sanitizedMessage = "."
         }
 
         if chat.count == 0 && !introsForMessages.keys.contains(message) {
