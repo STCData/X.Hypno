@@ -46,12 +46,14 @@ struct BrowserView: View {
                     }
                 })
 
+            VoiceAssistantView()
+                .frame(maxWidth: .infinity)
+
             if isVisionViewShown {
                 VisionView(visionViewModel: VisionViewModel(observationPublisher: VisionPool.broadcastPool.observationsSubject
                         .debounce(for: .seconds(0.1), scheduler: RunLoop.main)))
+                    .opacity(0.6)
             }
-            VoiceAssistantView()
-                .frame(maxWidth: .infinity)
 
             FloatingAtCorner(alignment: .topLeading) {
                 Button {

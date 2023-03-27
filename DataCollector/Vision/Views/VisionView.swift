@@ -13,6 +13,10 @@ import Vision
 struct VisionView: View {
     @StateObject var visionViewModel: VisionViewModel
 
+    @State var isWebViewInteractive = false
+    @State var isWebViewKilled = false
+    @FocusState var isWebViewFocused: Bool
+
     func positionMarkerView(normalizedRect: CGRect, in geometry: GeometryProxy, content: () -> some View) -> some View {
         let rect = DenormalizedRect(normalizedRect, forSize: geometry.size)
 
@@ -69,11 +73,30 @@ struct VisionView: View {
                     }
                 }
 
-                VAWebView(observationPublisher: visionViewModel.cleanedObservationsPublisher)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .ignoresSafeArea()
-                    .allowsHitTesting(false)
-//                    .border(Color.green)
+                if !isWebViewKilled {
+                    VAWebView(observationPublisher: visionViewModel.cleanedObservationsPublisher)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .ignoresSafeArea()
+                        .allowsHitTesting(isWebViewInteractive)
+                        .focused($isWebViewFocused)
+
+                    //                    .border(Color.green)
+                }
+                Button(action: {
+                    isWebViewKilled = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        isWebViewKilled = false
+                    }
+                }, label: {})
+                    .keyboardShortcut("k", modifiers: [.command, .option])
+                Button(action: {
+                    isWebViewInteractive.toggle()
+                }, label: {})
+                    .keyboardShortcut("i", modifiers: .option)
+                Button(action: {
+                    isWebViewFocused.toggle()
+                }, label: {})
+                    .keyboardShortcut("i", modifiers: [.command, .option])
             }
             // Geometry reader makes the view shrink to its smallest size
             .frame(maxWidth: .infinity, maxHeight: .infinity)

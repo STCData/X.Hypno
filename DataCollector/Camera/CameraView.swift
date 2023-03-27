@@ -18,12 +18,14 @@ struct CameraView: View {
                 HostedCameraViewController()
             #endif
 
-            if isVisionViewShown {
-                VisionView(visionViewModel: VisionViewModel(observationPublisher: VisionPool.cameraPool.observationsSubject))
-            }
             VoiceAssistantView()
                 .padding(.top, 52)
                 .frame(maxWidth: .infinity)
+
+            if isVisionViewShown {
+                VisionView(visionViewModel: VisionViewModel(observationPublisher: VisionPool.cameraPool.observationsSubject))
+                    .opacity(0.6)
+            }
 
             Button {
                 isVisionViewShown.toggle()
