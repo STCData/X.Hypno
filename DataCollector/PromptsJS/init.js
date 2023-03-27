@@ -8,13 +8,13 @@ function drawObservationsMarkers(canvas, observations) {
 
         if (obs.bottomLeft && obs.bottomRight && obs.topLeft && obs.topRight) {
             // Draw a half-transparent rectangle
-            ctx.fillStyle = 'rgba(233, 88, 0, 0.1)';
+            ctx.fillStyle = 'rgba(0, 200, 0, 0.7)';
             ctx.fillRect(obs.bottomLeft.x, obs.bottomLeft.y, obs.bottomRight.x - obs.bottomLeft.x, obs.topLeft.y - obs.bottomLeft.y);
 
             // Add confidence and date in bottom left and bottom right respectively
             if (obs.confidence && obs.timestamp) {
                 ctx.fillStyle = 'magent';
-                ctx.font = '12px Arial';
+                ctx.font = '19px Arial';
                 ctx.fillText(`📝`, obs.bottomRight.x - 7, obs.bottomRight.y + 15);
             }
         }
