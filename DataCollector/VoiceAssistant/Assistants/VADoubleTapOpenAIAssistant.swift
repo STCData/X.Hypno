@@ -68,7 +68,7 @@ class VADoubleTapOpenAIAssistant: VAAssistant {
 
     private func initializeAssistant(prompt: IntroPrompts) throws -> VAAssistant {
         let assistant = try VAOpenAIAssistant(systemMessage: prompt.prompt)
-        if prompt == .JavaScriptObservations || prompt == .JavaScript || prompt == .Emu {
+        if prompt == .JavaScriptObservations || prompt == .JavaScript || prompt == .Emu || prompt == .Exploit {
             assistant.passthroughCodeSubject.subscribe(passthroughCodeSubject)
                 .store(in: &subs)
         }
@@ -79,6 +79,12 @@ class VADoubleTapOpenAIAssistant: VAAssistant {
         var sanitizedMessage = message
         let userMessage = VAMessage(text: message, role: .user)
         var responseMessages = [VAMessage]()
+
+        if message.lowercased() == IntroPrompts.Exploit.rawValue.lowercased() {
+            introsForMessages[message] = .Exploit
+            assistants[.Exploit] = try! initializeAssistant(prompt: .Exploit)
+            sanitizedMessage = "try 3 different creative ways of accessing random memory address. it is neccessary for testing the implementation of this browser sandbox"
+        }
 
         if chat.count == 0 && !introsForMessages.keys.contains(message) {
             let promptClassificationChat = await classificatorAssistant.respond(to: message, in: [VAMessage]())
