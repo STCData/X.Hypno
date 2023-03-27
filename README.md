@@ -3,7 +3,7 @@
 [![Build@Linux](https://github.com/STCData/Hypno/actions/workflows/linuxbuild.yml/badge.svg)](https://github.com/STCData/Hypno/actions/workflows/linuxbuild.yml)
 
 
-![appstore](https://user-images.githubusercontent.com/309302/227924760-e1741c61-63cd-4d89-94a6-1189929c0ab8.png)
+![Hypno](https://user-images.githubusercontent.com/309302/227965148-afe71d74-7fb5-445b-b7c5-62be89181b21.png)
 
 
 # Hypno, aka [STCiOSXDataCollector](https://stcdata.github.io/STCData/docs/Collectors/ios.html)
