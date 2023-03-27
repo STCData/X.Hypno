@@ -1,6 +1,6 @@
 
-[![Build@Mac](https://github.com/STCData/STCiOSXDataCollector/actions/workflows/xcodebuild.yml/badge.svg)](https://github.com/STCData/STCiOSXDataCollector/actions/workflows/xcodebuild.yml)
-[![Build@Linux](https://github.com/STCData/STCiOSXDataCollector/actions/workflows/linuxbuild.yml/badge.svg)](https://github.com/STCData/STCiOSXDataCollector/actions/workflows/linuxbuild.yml)
+[![Build@Mac](https://github.com/STCData/Hypno/actions/workflows/xcodebuild.yml/badge.svg)](https://github.com/STCData/Hypno/actions/workflows/xcodebuild.yml)
+[![Build@Linux](https://github.com/STCData/Hypno/actions/workflows/linuxbuild.yml/badge.svg)](https://github.com/STCData/Hypno/actions/workflows/linuxbuild.yml)
 
 
 ![appstore](https://user-images.githubusercontent.com/309302/227924760-e1741c61-63cd-4d89-94a6-1189929c0ab8.png)
@@ -69,10 +69,3 @@ If you encounter any issues while using STCiOSXDataCollector, please report them
 To use STCiOSXDataCollector,
 
 
-
-
-
-## [Automated UI Tests Videos](https://stcdata.github.io/STCiOSXDataCollector/UITestVideos/index.html)
-
-
-![video](https://stcdata.github.io/STCiOSXDataCollector/UITestVideos/DataCollectorUITests.DataCollectorUITests.testNameSamantha.mp4)
