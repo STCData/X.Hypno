@@ -6,7 +6,7 @@
 ![appstore](https://user-images.githubusercontent.com/309302/227924760-e1741c61-63cd-4d89-94a6-1189929c0ab8.png)
 
 
-# Hypno, aka STCiOSXDataCollector
+# Hypno, aka [STCiOSXDataCollector](https://stcdata.github.io/STCData/docs/Collectors/ios.html)
 
 STCiOSXDataCollector is an iOS/OSX application that logs detected text, human poses, window manager information, and user actions from the built-in web browser, terminal emulator, camera, and any other external application. It also has deep ChatGPT integration and in-app javascript applet development enviroment. It is part of [STCData](https://github.com/STCData) project - a full stack solution for ML data collection. See [docs](https://stcdata.github.io/STCData/), [server-side](https://github.com/STCData/STCDataServer), or silly AI generated [promo](https://tome.app/stc-9d6/shoggoth-binding-collaborative-ml-data-preprocessing-with-chat-driven-editing-clfjg4et32cgs9m422fqijwvt)
 
