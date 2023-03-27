@@ -1,8 +1,10 @@
-![appstore](https://user-images.githubusercontent.com/309302/227924760-e1741c61-63cd-4d89-94a6-1189929c0ab8.png)
-
 
 [![Build@Mac](https://github.com/STCData/STCiOSXDataCollector/actions/workflows/xcodebuild.yml/badge.svg)](https://github.com/STCData/STCiOSXDataCollector/actions/workflows/xcodebuild.yml)
 [![Build@Linux](https://github.com/STCData/STCiOSXDataCollector/actions/workflows/linuxbuild.yml/badge.svg)](https://github.com/STCData/STCiOSXDataCollector/actions/workflows/linuxbuild.yml)
+
+
+![appstore](https://user-images.githubusercontent.com/309302/227924760-e1741c61-63cd-4d89-94a6-1189929c0ab8.png)
+
 
 # Hypno, aka STCiOSXDataCollector
 
