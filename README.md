@@ -8,7 +8,7 @@
 
 #### [Watch All Videos](docs/Videos.md)
 
- <img src="https://user-images.githubusercontent.com/309302/228348679-6cfacbb0-e2aa-425d-9dd9-8d8c709d076e.mp4" width="780"> 
+ <img src="https://user-images.githubusercontent.com/309302/228348679-6cfacbb0-e2aa-425d-9dd9-8d8c709d076e.mp4" width="1024"> 
 
 
 
