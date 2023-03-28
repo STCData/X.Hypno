@@ -6,10 +6,11 @@
 ![Hypno](https://user-images.githubusercontent.com/309302/227965148-afe71d74-7fb5-445b-b7c5-62be89181b21.png)
 
 
+#### [Watch All Videos](docs/Videos.md)
+
+ <img src="https://user-images.githubusercontent.com/309302/228348679-6cfacbb0-e2aa-425d-9dd9-8d8c709d076e.mp4" width="780"> 
 
 
-
-https://user-images.githubusercontent.com/309302/228348679-6cfacbb0-e2aa-425d-9dd9-8d8c709d076e.mp4
 
 
 
