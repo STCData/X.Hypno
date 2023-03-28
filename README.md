@@ -3,10 +3,12 @@
 [![Build@Linux](https://github.com/STCData/Hypno/actions/workflows/linuxbuild.yml/badge.svg)](https://github.com/STCData/Hypno/actions/workflows/linuxbuild.yml)
 
 
+#### [Videos](docs/Videos.md) [Promo](https://tome.app/stc-9d6/reinventing-the-dream-all-in-one-data-collection-app-with-browser-camera-and-ml-enabled-natural-speech-applet-developer-environment-cleyk2hy3046l5p2mdwgjgbu3?page=cleyk50zm0aebqt4h0qhu19sg) [Tech](https://tome.app/stc-9d6/shoggoth-binding-collaborative-ml-data-preprocessing-with-chat-driven-editing-clfjg4et32cgs9m422fqijwvt)
+
 ![Hypno](https://user-images.githubusercontent.com/309302/227965148-afe71d74-7fb5-445b-b7c5-62be89181b21.png)
 
 
-#### [Watch All Videos](docs/Videos.md)
+
 
  <img src="https://user-images.githubusercontent.com/309302/228348679-6cfacbb0-e2aa-425d-9dd9-8d8c709d076e.mp4" width="1024"> 
 
