@@ -7,11 +7,9 @@
 
 ![Hypno](https://user-images.githubusercontent.com/309302/227965148-afe71d74-7fb5-445b-b7c5-62be89181b21.png)
 
-![IMG_1287](https://user-images.githubusercontent.com/309302/228578080-0a9a29e3-2618-49d2-8154-00a39786ea7b.PNG)
-![IMG_1285](https://user-images.githubusercontent.com/309302/228578131-f35564b0-1666-46a8-b6d2-0cf4e800f06a.PNG)
-![IMG_1284](https://user-images.githubusercontent.com/309302/228578144-84bbacb2-e1e0-45f8-92f0-521e94a873e7.PNG)
-![IMG_1281](https://user-images.githubusercontent.com/309302/228578154-e52a5747-2d23-4602-968b-d14487b9d6e6.PNG)
-![IMG_1280](https://user-images.githubusercontent.com/309302/228578161-22dc3469-cc3e-4bb7-a1dd-3c0ce7824336.PNG)
+
+<img src="https://user-images.githubusercontent.com/309302/228578080-0a9a29e3-2618-49d2-8154-00a39786ea7b.PNG" width="230">  <img src="https://user-images.githubusercontent.com/309302/228578131-f35564b0-1666-46a8-b6d2-0cf4e800f06a.PNG" width="230">  <img src="https://user-images.githubusercontent.com/309302/228578154-e52a5747-2d23-4602-968b-d14487b9d6e6.PNG" width="230">  <img src="https://user-images.githubusercontent.com/309302/228578161-22dc3469-cc3e-4bb7-a1dd-3c0ce7824336.PNG" width="230"> <img src="https://user-images.githubusercontent.com/309302/228578144-84bbacb2-e1e0-45f8-92f0-521e94a873e7.PNG" width="230"> 
+
 
 
 
