@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TTBrowser
 
 private enum Tabs: CaseIterable {
     case camera
