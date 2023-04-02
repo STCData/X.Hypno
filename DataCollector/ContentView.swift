@@ -26,7 +26,7 @@ struct ContentView: View {
     @State private var isDebugUIShown = true
     @State private var isTabbarShown = false
     @State private var isTermOpened = false
-    @State private var tabSelection = Tabs.camera
+    @State private var tabSelection = Tabs.browser
 
     @EnvironmentObject
     var broadcast: Broadcast

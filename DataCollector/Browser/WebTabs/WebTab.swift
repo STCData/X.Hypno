@@ -49,7 +49,7 @@ class WebTab: Hashable, Identifiable, ObservableObject, CustomStringConvertible 
     @Published
     var faviconColorTint: Color? = [
         .blue,
-        .brown,
+        Color(.brown),
         .green,
         .red,
         .pink,
