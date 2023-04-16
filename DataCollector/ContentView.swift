@@ -35,6 +35,10 @@ struct ContentView: View {
     @EnvironmentObject
     var cameraVisionPool: VisionPool
 
+    let webTabsViewModel = WebTabsViewModel(tabs: [
+        WebTab(urlRequest: URLRequest(url: URL(string: "https://google.uk")!)),
+        WebTab(urlRequest: URLRequest(url: URL(string: "https://wikipedia.org")!))])
+
     var body: some View {
         ZStack {
             switch tabSelection {
@@ -42,7 +46,7 @@ struct ContentView: View {
                 CameraView()
 
             case .browser:
-                BrowserView()
+                BrowserView(webTabsViewModel: webTabsViewModel)
             }
 
             SlideoutView(horizontal: false,
